@@ -32,13 +32,18 @@ import wp_api
 # ─────────────────────────────────────────────
 
 ACTIONS = {
+    "images": {
+        "label": "Zdjęcia (Media Library)      (sync_images.py)",
+        "module": "sync_images",
+        "fn":     "main",
+    },
     "products": {
         "label": "Produkty WooCommerce  (add_wp_products.py)",
         "module": "add_wp_products",
         "fn":     "create_woocommerce_product",
     },
     "pages": {
-        "label": "Strony WP             (add_wp_pages.py)",
+        "label": "Strony WP + Menu      (add_wp_pages.py)",
         "module": "add_wp_pages",
         "fn":     "main",
     },
@@ -51,6 +56,11 @@ ACTIONS = {
         "label": "Aktualizacja cen       (update_wp_prices.py)",
         "module": "update_wp_prices",
         "fn":     "update_product_prices",
+    },
+    "all": {
+        "label": "WSZYSTKO               (images → products → pages → reviews)",
+        "module": None,  # obsługiwane osobno
+        "fn":     None,
     },
 }
 
@@ -110,7 +120,22 @@ def choose_action(pre_selected=None):
 
 
 def run_action(action_key):
-    """Importuje i uruchamia wybraną akcję."""
+    """Importuje i uruchamia wybraną akcję (lub sekwencję 'all')."""
+    if action_key == "all":
+        sequence = ["images", "products", "pages", "reviews"]
+        print(f"\n{'═' * 50}")
+        print(f"  ▶ Synchronizacja WSZYSTKIEGO")
+        print(f"  Kolejność: {' → '.join(sequence)}")
+        print(f"{'═' * 50}\n")
+        for key in sequence:
+            _run_single_action(key)
+        return
+
+    _run_single_action(action_key)
+
+
+def _run_single_action(action_key):
+    """Uruchamia pojedynczą akcję."""
     action = ACTIONS[action_key]
     print(f"\n{'═' * 50}")
     print(f"  ▶ Uruchamianie: {action['label'].strip()}")
