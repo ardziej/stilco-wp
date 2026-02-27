@@ -34,12 +34,9 @@ jobs:
         # Uruchamiamy deployment tylko, jeśli powyższy build przejdzie pomyślnie
         run: |
           if [ -z "${{ secrets.FORGE_DEPLOY_WEBHOOK }}" ]; then
-            echo "Error: FORGE_DEPLOY_WEBHOOK secret is not set."
-            # exit 1 
-            # Zakomentowane `exit 1` zapobiega "failowaniu" akcji, jeśli webhook nie został jeszcze ustawiony.
-            # Jeśli wolisz wymusić błąd w takiej sytuacji, odkomentuj `exit 1`.
-            echo "Skipping deployment."
-          else
-            curl -X POST "${{ secrets.FORGE_DEPLOY_WEBHOOK }}"
-            echo "Deployment triggered!"
+            echo "::error::Sekret FORGE_DEPLOY_WEBHOOK nie jest ustawiony w repozytorium."
+            echo "Przejdź do: Settings → Secrets and variables → Actions → New repository secret"
+            exit 1
           fi
+          curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.FORGE_DEPLOY_WEBHOOK }}" | grep -q "^2"
+          echo "Deployment do Forge uruchomiony pomyślnie!"
