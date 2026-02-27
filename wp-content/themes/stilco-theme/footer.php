@@ -63,7 +63,7 @@
             <!-- Miejsce na SVG logotypów płatności (BLIK, Visa, itp.) -->
             <span>🛡️ Bezpieczne Płatności SSL</span>
             <span>BLIK</span>
-            <span>PayU</span>
+            <span>Przelewy24</span>
             <span>Visa/Mastercard</span>
         </div>
 
