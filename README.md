@@ -98,5 +98,3 @@ Cały proces budowy i aktywacji nowej wersji zdefiniowany jest w [docs/deploymen
 W edytorze opcji "Deployment Script" strony WordPress na Laravel Forge, upewnij się, że ustawione masz automatyczne wprowadzanie i budowanie do najnowszej instrukcji.
 
 Gotowy wzór, dopasowany pod naszą architekturę Vite+Tailwind (ze ścieżką `/home/forge/twojadomena.pl/public_html`) znajdziesz w dokumencie `docs/forge-deploy-script.sh`. Opcję "Quick Deploy" pozostaw w panelu forge odznaczoną, ponieważ wyzwalanie leży po stronie akcji GitHub Actions!
-
-Ardziej
