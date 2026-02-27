@@ -32,11 +32,19 @@ jobs:
 
       - name: Trigger Laravel Forge Deployment
         # Uruchamiamy deployment tylko, jeśli powyższy build przejdzie pomyślnie
+        env:
+          WEBHOOK_URL: ${{ secrets.FORGE_DEPLOY_WEBHOOK }}
         run: |
-          if [ -z "${{ secrets.FORGE_DEPLOY_WEBHOOK }}" ]; then
+          if [ -z "$WEBHOOK_URL" ]; then
             echo "::error::Sekret FORGE_DEPLOY_WEBHOOK nie jest ustawiony w repozytorium."
             echo "Przejdź do: Settings → Secrets and variables → Actions → New repository secret"
             exit 1
           fi
-          curl -s -o /dev/null -w "%{http_code}" -X POST "${{ secrets.FORGE_DEPLOY_WEBHOOK }}" | grep -q "^2"
-          echo "Deployment do Forge uruchomiony pomyślnie!"
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$WEBHOOK_URL")
+          echo "HTTP response: $HTTP_CODE"
+          if [[ "$HTTP_CODE" =~ ^2 ]]; then
+            echo "Deployment do Forge uruchomiony pomyślnie!"
+          else
+            echo "::error::Webhook zwrócił błąd HTTP $HTTP_CODE"
+            exit 1
+          fi
