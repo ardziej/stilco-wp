@@ -6,10 +6,9 @@ sys.path.append(os.path.join(os.path.dirname(__file__)))
 from add_wp_products import variations_data
 from wp_api import get_wc_api
 
-wcapi = get_wc_api()
-
 def update_product_prices():
     print("Szukanie produktu 'Materac Stilco'...")
+    wcapi = get_wc_api()
     
     # Pobierz produkt Materac Stilco
     response = wcapi.get("products", params={"search": "Materac Stilco"})
@@ -62,4 +61,8 @@ def update_product_prices():
     print("\nGotowe!")
 
 if __name__ == "__main__":
+    import wp_api
+    import atexit
+    atexit.register(wp_api.close_ssh_tunnel)
+    wp_api.select_environment()
     update_product_prices()

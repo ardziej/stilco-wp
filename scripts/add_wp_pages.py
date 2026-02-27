@@ -6,12 +6,6 @@ import glob
 # Wczytanie wspólnych ustawień API z modułu wp_api
 from wp_api import get_wp_api_url, get_wp_auth
 
-API_WP_URL = get_wp_api_url("wp/v2")
-
-# Wtyczki często udostępniają endpoint `menus` w `/wp-json/wp/v2/menus` lub własnym namespacie.
-API_MENUS_URL = get_wp_api_url("wp/v2/menus")
-API_MENU_ITEMS_URL = get_wp_api_url("wp/v2/menu-items")
-
 DOCS_DIR = os.path.join(os.path.dirname(__file__), '..', 'docs', 'pages')
 
 def parse_markdown_file(filepath):
@@ -67,6 +61,7 @@ def create_wp_page(page_data):
         "menu_order": page_data['menu_order']
     }
     
+    API_WP_URL = get_wp_api_url("wp/v2")
     # Najpierw sprawdzamy po slug, czy strona już istnieje
     search_res = requests.get(f"{API_WP_URL}/pages?slug={slug}", auth=get_wp_auth())
     
@@ -111,6 +106,9 @@ def setup_menu(page_ids, menu_name="Menu Główne Stilco"):
     Jeśli wtyczka nie jest dostępna, wyświetli komunikat informacyjny.
     """
     print(f"\nKonfiguracja Menu: '{menu_name}'...")
+    
+    API_MENUS_URL = get_wp_api_url("wp/v2/menus")
+    API_MENU_ITEMS_URL = get_wp_api_url("wp/v2/menu-items")
     
     # Próba utworzenia samego Menu
     menu_data = {
@@ -207,4 +205,8 @@ def main():
     print("\n✅ Wszystkie zadania zakończone.")
 
 if __name__ == "__main__":
+    import wp_api
+    import atexit
+    atexit.register(wp_api.close_ssh_tunnel)
+    wp_api.select_environment()
     main()

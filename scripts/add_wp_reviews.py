@@ -141,4 +141,8 @@ def main():
     print("Zakończono generowanie opinii.")
 
 if __name__ == "__main__":
+    import wp_api
+    import atexit
+    atexit.register(wp_api.close_ssh_tunnel)
+    wp_api.select_environment()
     main()

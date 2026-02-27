@@ -4,9 +4,6 @@ import json
 
 from wp_api import get_wp_api_url, get_wp_auth, get_wc_api
 
-API_WOO_URL = get_wp_api_url("wc/v3")
-API_WP_URL = get_wp_api_url("wp/v2")
-
 product_description = """
 <p>Materac piankowy Stilco oferowany jest standardowo w sześciu rozmiarach: 80x200, 90x200, 120x200, 140x200, 160x200 oraz 180x200. Grubość to 22 cm. Istnieje możliwość zamówienia materaca w niestandardowym rozmiarze.</p>
 <p>Materac Stilco wykonany jest z połączenia dwóch wysokogatunkowych pianek. Rdzeń stanowi pianka typu HR tzw wysokoelastyczna o gęstości 40 kg/m3. Górna warstwa to pianka typu Visco o właściwościach termoelastycznych i gęstości 45 kg/m3. Pianka ta dopasowuje się do ciała.</p>
@@ -26,7 +23,7 @@ variations_data = [
 def create_woocommerce_product():
     """Tworzy produkt z wariantami za pomocą WooCommerce REST API"""
     wcapi = get_wc_api()
-    print(f"Tworzenie produktu w WooCommerce pod adresem: {API_WOO_URL}/products...")
+    print(f"Tworzenie produktu w WooCommerce pod adresem: {get_wp_api_url('wc/v3')}/products...")
     
     # 1. Główny produkt (variable)
     product_data = {
@@ -78,7 +75,7 @@ def create_woocommerce_product():
 
 def create_standard_wp_post():
     """Fallback - tworzy standardowy wpis w WP (bez WooCommerce)"""
-    print(f"Tworzenie wpisu w natywnym WP REST API: {API_WP_URL}/posts...")
+    print(f"Tworzenie wpisu w natywnym WP REST API: {get_wp_api_url('wp/v2')}/posts...")
     
     content = product_description + "\n<h2>Cennik</h2><ul>"
     for var in variations_data:
@@ -92,7 +89,7 @@ def create_standard_wp_post():
     }
     
     response = requests.post(
-        f"{API_WP_URL}/posts",
+        f"{get_wp_api_url('wp/v2')}/posts",
         auth=get_wp_auth(),
         json=post_data
     )
@@ -103,10 +100,15 @@ def create_standard_wp_post():
         print(f"❌ Błąd tworzenia wpisu: {response.text}")
 
 if __name__ == "__main__":
+    import wp_api
+    import atexit
+    atexit.register(wp_api.close_ssh_tunnel)
+    wp_api.select_environment()
+
     print("Wybierz tryb instalacji:")
     print("1 - WooCommerce REST API (Rekomendowane - tworzy produkt variable)")
     print("2 - Natywny WordPress REST API (Tworzy standardowy wpis z HTML)")
-    
+
     try:
         choice = input("Twój wybór (1/2) [1]: ").strip()
         if choice == "2":
