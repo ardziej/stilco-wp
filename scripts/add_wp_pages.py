@@ -83,6 +83,19 @@ def create_wp_page(page_data):
         "menu_order": page_data['menu_order'],
     }
 
+    # Mapowanie popularnych slugów na odpowiednie szablony motywu
+    templates_map = {
+        'faq': 'page-faq.php',
+        'about': 'page-about.php',
+        'contact': 'page-contact.php',
+        'privacy': 'page-legal.php',
+        'terms': 'page-legal.php',
+        'returns': 'page-legal.php'
+    }
+    
+    if slug in templates_map:
+        post_data['template'] = templates_map[slug]
+
     API_WP_URL = get_wp_api_url("wp/v2")
     search_res = requests.get(f"{API_WP_URL}/pages?slug={slug}", auth=get_wp_auth())
 
