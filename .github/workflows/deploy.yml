@@ -30,21 +30,34 @@ jobs:
         working-directory: ./wp-content/themes/stilco-theme
         run: npm run build
 
-      - name: Trigger Laravel Forge Deployment
-        # Uruchamiamy deployment tylko, jeśli powyższy build przejdzie pomyślnie
+      - name: Deploy via SSH to Forge Server
         env:
-          WEBHOOK_URL: ${{ secrets.FORGE_DEPLOY_WEBHOOK }}
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
         run: |
-          if [ -z "$WEBHOOK_URL" ]; then
-            echo "::error::Sekret FORGE_DEPLOY_WEBHOOK nie jest ustawiony w repozytorium."
-            echo "Przejdź do: Settings → Secrets and variables → Actions → New repository secret"
-            exit 1
-          fi
-          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -X POST "$WEBHOOK_URL")
-          echo "HTTP response: $HTTP_CODE"
-          if [[ "$HTTP_CODE" =~ ^2 ]]; then
-            echo "Deployment do Forge uruchomiony pomyślnie!"
-          else
-            echo "::error::Webhook zwrócił błąd HTTP $HTTP_CODE"
-            exit 1
-          fi
+          # Skonfiguruj klucz SSH
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$SSH_HOST" >> ~/.ssh/known_hosts
+
+          # Wyślij zbudowany motyw na serwer przez rsync
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no" \
+            ./wp-content/themes/stilco-theme/ \
+            "$SSH_USER@$SSH_HOST:/home/forge/stilco.pl/public_html/wp-content/themes/stilco-theme/"
+
+          # Uruchom komendy post-deploy na serwerze
+          ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no "$SSH_USER@$SSH_HOST" << 'ENDSSH'
+            # Wyczyść cache WP jeśli WP-CLI jest dostępne
+            if command -v wp &> /dev/null; then
+              wp cache flush --path=/home/forge/stilco.pl/public_html --allow-root 2>/dev/null || true
+              echo "WP cache wyczyszczone."
+            fi
+            # Przeładuj PHP-FPM aby odświeżyć OPcache
+            echo "" | sudo -S service php8.4-fpm reload 2>/dev/null || \
+            echo "" | sudo -S service php8.3-fpm reload 2>/dev/null || \
+            echo "" | sudo -S service php8.2-fpm reload 2>/dev/null || true
+            echo "Deployment zakończony pomyślnie!"
+          ENDSSH
