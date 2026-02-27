@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans bg-stilco-light text-stilco-dark antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-stilco-dark font-medium;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-stilco-dark text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-stilco-accent hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-stilco-accent focus:ring-offset-2;
+  }
+  
+  .btn-outline {
+    @apply border-2 border-stilco-dark text-stilco-dark px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-stilco-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-stilco-dark focus:ring-offset-2;
+  }
+  
+  .glass-header {
+    @apply bg-white/80 backdrop-blur-md border-b border-gray-200/50 sticky top-0 z-50 transition-all duration-300;
+  }
+}
+
+/* Klasy pomocnicze do animacji opóźnionych (stagger) realizowane za pomoca custom utility */
+@layer utilities {
+  .delay-100 { animation-delay: 100ms; }
+  .delay-200 { animation-delay: 200ms; }
+  .delay-300 { animation-delay: 300ms; }
+  .delay-400 { animation-delay: 400ms; }
+  .delay-500 { animation-delay: 500ms; }
+  
+  /* Punkt startowy elementow "do animowania". Klasy bazowe z ukryciem na starcie. */
+  .animate-on-scroll { opacity: 0; }
+  .animate-slide-left { opacity: 0; }
+  .animate-slide-right { opacity: 0; }
+  .animate-zoom { opacity: 0; }
+}
+
+/* ============================================================
+   WooCommerce Checkout Block Overrides
+   ============================================================ */
+
+/* 1. Ukryj nagłówek "Kasa" na stronie checkout */
+.woocommerce-checkout .entry-title,
+.woocommerce-page .page-title,
+.woocommerce-checkout h1,
+.wp-block-woocommerce-checkout h1,
+.wc-block-checkout h1,
+body.woocommerce-checkout h1 {
+  display: none !important;
+}
+
+/* 2. Poszerz zewnętrzny wrapper bloku do szerokości kontenera strony głównej */
+.wp-block-woocommerce-checkout {
+  max-width: 1280px !important;
+  width: 100% !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 2rem !important;
+  padding-right: 2rem !important;
+  box-sizing: border-box !important;
+}
+
+/* 3. Układ 50/50: lewy formularz + prawa kolumna podsumowania */
+.wp-block-woocommerce-checkout .wc-block-checkout__main {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  gap: 0 !important;
+  position: relative !important;
+  align-items: flex-start !important;
+}
+
+/* Formularz – lewa 50% */
+.wp-block-woocommerce-checkout .wc-block-checkout__main > div:first-child,
+.wp-block-woocommerce-checkout-fields-block {
+  width: 50% !important;
+  flex: 0 0 50% !important;
+  min-width: 0 !important;
+  padding-right: 3rem !important;
+}
+
+/* Sidebar/podsumowanie – prawa 50% */
+.wp-block-woocommerce-checkout .wc-block-checkout__main > div:last-child,
+.wc-block-checkout__sidebar {
+  width: 50% !important;
+  flex: 0 0 50% !important;
+  min-width: 0 !important;
+  padding-left: 3rem !important;
+}
+
+/* Pionowa linia pomiędzy kolumnami */
+.wp-block-woocommerce-checkout .wc-block-checkout__main::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background-color: #e5e7eb;
+  pointer-events: none;
+}
+
+/* 4. Usuń ramkę / kartę z podsumowania zamówienia po prawej stronie */
+.wc-block-checkout__sidebar,
+.wc-block-checkout__sidebar > div,
+.wp-block-woocommerce-checkout-order-summary-block,
+.wc-block-components-order-summary,
+.wc-block-checkout__sidebar .wc-block-components-panel {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+
+/* Sticky sidebar */
+.wc-block-checkout__sidebar > div {
+  position: sticky !important;
+  top: 6rem !important;
+}
+
+

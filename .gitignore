@@ -1,0 +1,21 @@
+# Mac OS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+env/
+
+# Environment configurations
+.env
+.env.local
+
+# AI Agent Specific / Local Data
+.agents/
+.agent/
+.claude/
+assets/mocks/
+utils/plugins/

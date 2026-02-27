@@ -1,0 +1,45 @@
+name: Deploy Theme to Production
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'wp-content/themes/stilco-theme/**'
+      - '.github/workflows/deploy.yml'
+
+jobs:
+  build_and_deploy:
+    name: Build & Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install NPM dependencies
+        working-directory: ./wp-content/themes/stilco-theme
+        run: npm ci || npm install
+
+      - name: Build Theme Assets
+        working-directory: ./wp-content/themes/stilco-theme
+        run: npm run build
+
+      - name: Trigger Laravel Forge Deployment
+        # Uruchamiamy deployment tylko, jeśli powyższy build przejdzie pomyślnie
+        run: |
+          if [ -z "${{ secrets.FORGE_DEPLOY_WEBHOOK }}" ]; then
+            echo "Error: FORGE_DEPLOY_WEBHOOK secret is not set."
+            # exit 1 
+            # Zakomentowane `exit 1` zapobiega "failowaniu" akcji, jeśli webhook nie został jeszcze ustawiony.
+            # Jeśli wolisz wymusić błąd w takiej sytuacji, odkomentuj `exit 1`.
+            echo "Skipping deployment."
+          else
+            curl -X POST "${{ secrets.FORGE_DEPLOY_WEBHOOK }}"
+            echo "Deployment triggered!"
+          fi
