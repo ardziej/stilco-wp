@@ -133,9 +133,15 @@ def upload_via_ssh(filepath, existing_slugs):
         capture_output=True
     )
 
+    import shlex
+    
     # 2. Skopiuj plik przez scp
+    remote_path = f"{REMOTE_TMP_DIR}/{filename}"
+    quoted_remote_path = shlex.quote(remote_path)
+    escaped_remote_path = remote_path.replace(" ", "\\ ")
+    
     scp_result = subprocess.run(
-        ["scp", "-q", filepath, f"{DEV_SSH_HOST}:{REMOTE_TMP_DIR}/{filename}"],
+        ["scp", "-q", filepath, f"{DEV_SSH_HOST}:{escaped_remote_path}"],
         capture_output=True, text=True
     )
     if scp_result.returncode != 0:
@@ -145,8 +151,8 @@ def upload_via_ssh(filepath, existing_slugs):
     # 3. Importuj przez WP-CLI
     wp_cmd = (
         f"cd {DEV_WP_PATH} && "
-        f"wp media import {REMOTE_TMP_DIR}/{filename} "
-        f"--title='{filename}' --porcelain 2>&1"
+        f"wp media import {quoted_remote_path} "
+        f"--title={shlex.quote(filename)} --porcelain 2>&1"
     )
     wp_result = subprocess.run(
         ["ssh", DEV_SSH_HOST, wp_cmd],
@@ -156,7 +162,7 @@ def upload_via_ssh(filepath, existing_slugs):
 
     # 4. Usuń plik tymczasowy
     subprocess.run(
-        ["ssh", DEV_SSH_HOST, f"rm -f {REMOTE_TMP_DIR}/{filename}"],
+        ["ssh", DEV_SSH_HOST, f"rm -f {quoted_remote_path}"],
         capture_output=True
     )
 

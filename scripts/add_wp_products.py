@@ -25,12 +25,36 @@ def create_woocommerce_product():
     wcapi = get_wc_api()
     print(f"Tworzenie produktu w WooCommerce pod adresem: {get_wp_api_url('wc/v3')}/products...")
     
+    # Upload and assign images
+    from sync_images import get_existing_media, filename_to_slug, upload_via_ssh, upload_via_rest, _is_dev_env
+
+    image_ids = []
+    images_dir = os.path.join(os.path.dirname(__file__), '..', 'docs', 'mattresses')
+    if os.path.exists(images_dir):
+        existing_media = get_existing_media()
+        use_ssh = _is_dev_env()
+        for filename in sorted(os.listdir(images_dir)):
+            if not filename.startswith('.') and not filename.endswith('.md'):
+                filepath = os.path.join(images_dir, filename)
+                slug = filename_to_slug(filename)
+                if slug in existing_media:
+                    image_ids.append({"id": existing_media[slug]})
+                else:
+                    if use_ssh:
+                        media_id = upload_via_ssh(filepath, existing_media)
+                    else:
+                        media_id = upload_via_rest(filepath, existing_media)
+                    if media_id:
+                        image_ids.append({"id": media_id})
+    
+
     # 1. Główny produkt (variable)
     product_data = {
         "name": "Materac Stilco",
         "type": "variable",
         "description": product_description,
         "short_description": "Wysokogatunkowy materac z pianki HR i Visco. Dostępny w 6 rozmiarach, grubość 22 cm.",
+        "images": image_ids,
         "attributes": [
             {
                 "name": "Rozmiar",

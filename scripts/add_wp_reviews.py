@@ -39,26 +39,20 @@ def get_product_id(wcapi, name_like="Materac"):
     return None
 
 def upload_media(file_path):
+    from sync_images import get_existing_media, filename_to_slug, upload_via_ssh, upload_via_rest, _is_dev_env
+
+    existing_media = get_existing_media()
     filename = os.path.basename(file_path)
-    url = get_wp_api_url("wp/v2") + "/media"
+    slug = filename_to_slug(filename)
     
-    with open(file_path, 'rb') as f:
-        media_data = f.read()
-    
-    headers = {
-        'Content-Disposition': f'attachment; filename="{filename}"',
-        'Content-Type': 'image/jpeg'
-    }
-    
-    print(f"Uploading image: {filename}...")
-    response = requests.post(url, headers=headers, data=media_data, auth=get_wp_auth())
-    
-    if response.ok:
-        data = response.json()
-        return data['id']
+    if slug in existing_media:
+        return existing_media[slug]
+
+    use_ssh = _is_dev_env()
+    if use_ssh:
+        return upload_via_ssh(file_path, existing_media)
     else:
-        print(f"Failed to upload image {filename}: {response.text}")
-        return None
+        return upload_via_rest(file_path, existing_media)
 
 def add_review(wcapi, product_id, author, email, review_text, rating, image_id=None):
     data = {

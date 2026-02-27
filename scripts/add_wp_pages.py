@@ -13,9 +13,10 @@ DOCS_DIR = os.path.join(os.path.dirname(__file__), '..', 'docs', 'pages')
 # Tylko te strony pojawią się w nawigacji – kolejność wg 'order'.
 # ─────────────────────────────────────────────────────────────────────────────
 PRIMARY_NAV = [
-    {"slug": "materac-stilco", "label": "Materace",  "order": 1},
+    {"slug": "materac-stilco", "label": "Materace",  "order": 1, "is_product": True},
     {"slug": "about",          "label": "O nas",     "order": 2},
-    {"slug": "contact",        "label": "Kontakt",   "order": 3},
+    {"slug": "faq",            "label": "FAQ",       "order": 3},
+    {"slug": "contact",        "label": "Kontakt",   "order": 4},
 ]
 
 
@@ -184,23 +185,42 @@ def setup_primary_menu(menu_name="Menu Główne"):
 
     # ── 3. Dodaj właściwe pozycje nawigacyjne ──────────────────────────────
     for nav in PRIMARY_NAV:
-        page_id = _get_page_id_by_slug(nav['slug'])
-        if not page_id:
-            print(f"  ⚠️  Strona '{nav['slug']}' nie znaleziona – pomijam.")
-            continue
+        
+        is_product = nav.get('is_product', False)
+        object_id = None
+        object_type = "page"
+        
+        if is_product:
+            from wp_api import get_wc_api
+            wcapi = get_wc_api()
+            res = wcapi.get("products", params={"search": "Materac", "per_page": 1})
+            if res.status_code == 200:
+                data = res.json()
+                if data:
+                    object_id = data[0]['id']
+                    object_type = "product"
+                    
+            if not object_id:
+                print(f"  ⚠️  Produkt '{nav['slug']}' nie znaleziony – pomijam.")
+                continue
+        else:
+            object_id = _get_page_id_by_slug(nav['slug'])
+            if not object_id:
+                print(f"  ⚠️  Strona '{nav['slug']}' nie znaleziona – pomijam.")
+                continue
 
         item_data = {
             "menus":      menu_id,
             "menu_order": nav['order'],
-            "object_id":  page_id,
-            "object":     "page",
+            "object_id":  object_id,
+            "object":     object_type,
             "type":       "post_type",
             "status":     "publish",
             "title":      nav['label'],
         }
         i_res = requests.post(API_MENU_ITEMS_URL, auth=get_wp_auth(), json=item_data)
         if i_res.status_code in [200, 201]:
-            print(f"  ✅ Dodano do menu: {nav['label']} → /{nav['slug']}/")
+            print(f"  ✅ Dodano do menu: {nav['label']} → /{nav['slug']}/ (typ: {object_type})")
         else:
             print(f"  ❌ Błąd dodawania '{nav['label']}': {i_res.text}")
 

@@ -156,19 +156,8 @@ def main():
     # 1. Wybór środowiska (ZAWSZE – zgodnie z wymaganiami)
     choose_environment(args.env)
 
-    # 2. Wybór akcji
-    action = choose_action(args.action)
-
-    # 3. Potwierdzenie
-    env_name = args.env or ("dev" if wp_api._active_env == wp_api.ENVIRONMENTS["dev"] else "local")
-    print(f"\n⚡ Akcja: {action}  |  Środowisko: {env_name}  |  URL: {wp_api.get_wp_url()}")
-    confirm = input("Kontynuować? [T/n]: ").strip().lower()
-    if confirm in ("n", "nie", "no"):
-        print("❌ Anulowano.")
-        return
-
     # 4. Wykonanie
-    run_action(action)
+    run_action("all")
 
     print("\n✅ Synchronizacja zakończona.")
 
