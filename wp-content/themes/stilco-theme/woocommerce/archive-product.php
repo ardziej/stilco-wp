@@ -22,6 +22,22 @@ get_header( 'shop' ); ?>
             ?>
         </header>
 
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Sidebar with Filters -->
+            <aside class="w-full lg:w-1/4 order-2 lg:order-1">
+                <?php if ( is_active_sidebar( 'shop-sidebar' ) ) : ?>
+                    <div class="bg-white rounded-3xl p-6 shadow-sm sticky top-24">
+                        <?php dynamic_sidebar( 'shop-sidebar' ); ?>
+                    </div>
+                <?php else : ?>
+                    <div class="bg-white rounded-3xl p-6 shadow-sm sticky top-24">
+                        <p class="text-gray-500 text-sm">Brak filtrów. Dodaj widgety do panelu "Shop Sidebar".</p>
+                    </div>
+                <?php endif; ?>
+            </aside>
+
+            <!-- Main Product Area -->
+            <main class="w-full lg:w-3/4 order-1 lg:order-2">
         <?php
         if ( woocommerce_product_loop() ) {
             ?>
@@ -31,7 +47,7 @@ get_header( 'shop' ); ?>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
                 <?php
                 if ( wc_get_loop_prop( 'total' ) ) {
                     while ( have_posts() ) {
@@ -89,6 +105,8 @@ get_header( 'shop' ); ?>
             do_action( 'woocommerce_no_products_found' );
         }
         ?>
+            </main>
+        </div>
     </div>
 </div>
 

@@ -1,5 +1,6 @@
 # Mac OS
 .DS_Store
+**/.DS_Store
 
 # Python
 __pycache__/
@@ -12,6 +13,9 @@ env/
 # Environment configurations
 .env
 .env.local
+
+# Local tooling
+wp-cli.phar
 
 # AI Agent Specific / Local Data
 .agents/

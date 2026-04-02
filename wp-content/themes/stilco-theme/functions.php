@@ -9,6 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Dołączanie własnych CPT i zakładek Panelu
 require_once get_template_directory() . '/inc/cpt-faq.php';
+require_once get_template_directory() . '/inc/delivery-date.php';
 
 /**
  * Konfiguracja wsparcia motywu
@@ -44,6 +45,22 @@ function stilco_setup() {
     add_theme_support( 'wc-product-gallery-slider' );
 }
 add_action( 'after_setup_theme', 'stilco_setup' );
+
+/**
+ * Register Widget Area
+ */
+function stilco_widgets_init() {
+    register_sidebar( array(
+        'name'          => __( 'Shop Sidebar', 'stilco' ),
+        'id'            => 'shop-sidebar',
+        'description'   => __( 'Add widgets here to appear in your shop sidebar.', 'stilco' ),
+        'before_widget' => '<div id="%1$s" class="widget %2$s mb-8 pb-6 border-b border-gray-100 last:border-b-0">',
+        'after_widget'  => '</div>',
+        'before_title'  => '<h3 class="widget-title font-serif font-medium text-lg mb-4 text-stilco-dark">',
+        'after_title'   => '</h3>',
+    ) );
+}
+add_action( 'widgets_init', 'stilco_widgets_init' );
 
 function stilco_enqueue_scripts() {
 /**

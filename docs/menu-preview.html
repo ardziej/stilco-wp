@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stilco — Menu Proposals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@300;400;500&family=Playfair+Display:wght@400;500&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --accent: #C85A41;
+    --dark: #1a1f2e;
+    --sand: #f5f0e8;
+    --mid: #6b7280;
+    --light: #fafaf8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #f0ede6;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--dark);
+    overflow-x: hidden;
+  }
+
+  /* ─── SELECTOR ───────────────────────────────────── */
+  .page-title {
+    text-align: center;
+    padding: 48px 24px 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--mid);
+  }
+  .page-title h1 {
+    font-size: 36px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--dark);
+    margin-top: 4px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .tab-bar {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 32px 24px 0;
+  }
+  .tab {
+    padding: 10px 28px;
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 400;
+    cursor: pointer;
+    border: 1px solid transparent;
+    background: white;
+    color: var(--mid);
+    transition: all 0.25s ease;
+  }
+  .tab:hover { color: var(--dark); border-color: var(--dark); }
+  .tab.active {
+    background: var(--dark);
+    color: white;
+    border-color: var(--dark);
+  }
+
+  /* ─── PREVIEW WRAPPER ─────────────────────────────── */
+  .preview-container {
+    max-width: 1280px;
+    margin: 40px auto 80px;
+    padding: 0 24px;
+  }
+
+  .variant { display: none; }
+  .variant.active { display: block; }
+
+  .preview-frame {
+    background: white;
+    border-radius: 2px;
+    overflow: hidden;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.12), 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .variant-label {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 16px;
+    padding-left: 4px;
+  }
+  .variant-label strong {
+    color: var(--dark);
+    font-weight: 500;
+  }
+
+  .variant-desc {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    color: var(--mid);
+    margin-bottom: 24px;
+    padding-left: 4px;
+    line-height: 1.6;
+    max-width: 600px;
+  }
+
+  /* ─── MOCK PAGE CONTENT ──────────────────────────── */
+  .mock-hero {
+    height: 480px;
+    background: linear-gradient(160deg, #1a1f2e 0%, #2d3550 60%, #3d4a6b 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+  .mock-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .mock-hero-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 52px;
+    font-weight: 300;
+    color: white;
+    letter-spacing: 0.02em;
+    text-align: center;
+    position: relative;
+  }
+  .mock-hero-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    position: relative;
+  }
+  .mock-hero-btn {
+    margin-top: 8px;
+    padding: 12px 36px;
+    background: var(--accent);
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    position: relative;
+  }
+
+
+  /* ═══════════════════════════════════════════════════
+     VARIANT A — Grid / Slim / True Center
+  ══════════════════════════════════════════════════════ */
+  .nav-a {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    padding: 0 48px;
+    height: 60px;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(26,31,46,0.08);
+    box-shadow: 0 1px 0 rgba(255,255,255,0.8), 0 2px 16px rgba(0,0,0,0.06);
+  }
+  .nav-a .logo-wrap { justify-self: start; }
+  .nav-a .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--dark);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-mark {
+    width: 28px;
+    height: 28px;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .logo-mark svg { width: 14px; height: 14px; fill: white; }
+
+  .nav-a .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    justify-self: center;
+  }
+  .nav-a .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.25s;
+  }
+  .nav-a .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0; right: 0;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  .nav-a .nav-links a:hover { color: var(--accent); }
+  .nav-a .nav-links a:hover::after { transform: scaleX(1); }
+  .nav-a .nav-links li:nth-child(2) a { color: var(--accent); }
+  .nav-a .nav-links li:nth-child(2) a::after { transform: scaleX(1); }
+
+  .nav-a .actions {
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  .nav-a .actions svg {
+    width: 20px; height: 20px;
+    stroke: var(--dark);
+    fill: none;
+    stroke-width: 1.5;
+    cursor: pointer;
+    transition: stroke 0.25s;
+  }
+  .nav-a .actions svg:hover { stroke: var(--accent); }
+  .cart-bubble { position: relative; }
+  .cart-bubble .badge {
+    position: absolute;
+    top: -6px; right: -6px;
+    width: 16px; height: 16px;
+    background: var(--accent);
+    border-radius: 50%;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 9px;
+    font-weight: 500;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* hero overlay for A */
+  .variant-a-hero {
+    position: relative;
+  }
+  .variant-a-hero .nav-a {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    background: rgba(255,255,255,0.06);
+    backdrop-filter: blur(16px);
+    border-bottom-color: rgba(255,255,255,0.12);
+    box-shadow: none;
+  }
+  .variant-a-hero .nav-a .logo { color: white; }
+  .variant-a-hero .nav-a .nav-links a { color: rgba(255,255,255,0.85); }
+  .variant-a-hero .nav-a .nav-links a:hover { color: white; }
+  .variant-a-hero .nav-a .nav-links li:nth-child(2) a { color: white; }
+  .variant-a-hero .nav-a .actions svg { stroke: rgba(255,255,255,0.85); }
+
+  /* scrolled state preview */
+  .nav-a.scrolled {
+    background: rgba(255,255,255,0.97);
+    border-bottom: 1px solid rgba(26,31,46,0.08);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+  }
+  .scrolled-label {
+    background: var(--sand);
+    padding: 12px 24px;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-align: center;
+  }
+
+
+  /* ═══════════════════════════════════════════════════
+     VARIANT B — Editorial / Side-logo + centered nav below
+  ══════════════════════════════════════════════════════ */
+  .nav-b-wrap {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    background: transparent;
+  }
+  .nav-b-top {
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    height: 44px;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .nav-b-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+  }
+  .nav-b-top .actions {
+    margin-left: auto;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .nav-b-top .actions svg {
+    width: 18px; height: 18px;
+    stroke: rgba(255,255,255,0.8);
+    fill: none;
+    stroke-width: 1.5;
+    cursor: pointer;
+  }
+  .nav-b-bottom {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    height: 40px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .nav-b-bottom a {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.2s;
+    position: relative;
+  }
+  .nav-b-bottom a:hover { color: white; }
+  .nav-b-bottom a.active { color: white; }
+  .nav-b-bottom a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%; transform: translateX(-50%);
+    width: 3px; height: 3px;
+    background: var(--accent);
+    border-radius: 50%;
+  }
+
+  /* solid state */
+  .nav-b-wrap.solid {
+    background: var(--dark);
+  }
+  .nav-b-wrap.solid .nav-b-bottom { border-bottom: none; }
+
+
+  /* ═══════════════════════════════════════════════════
+     VARIANT C — Ultra slim / dark / luxury
+  ══════════════════════════════════════════════════════ */
+  .nav-c {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    padding: 0 48px;
+    gap: 0;
+  }
+  .nav-c::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 48px; right: 48px;
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+  }
+
+  .nav-c .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .nav-c .nav-links {
+    display: flex;
+    gap: 0;
+    list-style: none;
+    margin: 0 auto;
+    align-items: center;
+  }
+  .nav-c .nav-links a {
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    font-weight: 300;
+    padding: 0 20px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s, background 0.2s;
+    position: relative;
+  }
+  .nav-c .nav-links a:hover { color: white; }
+  .nav-c .nav-links a.active {
+    color: white;
+  }
+  .nav-c .nav-links a.active::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+  }
+
+  .nav-c .right-group {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+  }
+  .nav-c .right-group .icon-btn {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .nav-c .right-group .icon-btn:hover { background: rgba(255,255,255,0.05); }
+  .nav-c .right-group svg {
+    width: 18px; height: 18px;
+    stroke: rgba(255,255,255,0.7);
+    fill: none;
+    stroke-width: 1.5;
+  }
+  .nav-c .right-group .cta {
+    margin-left: 12px;
+    padding: 8px 20px;
+    background: var(--accent);
+    color: white;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 400;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+  }
+  .nav-c .right-group .cta:hover { opacity: 0.85; }
+
+  /* solid C */
+  .nav-c.solid {
+    position: relative;
+    background: var(--dark);
+    height: 56px;
+  }
+  .nav-c.solid::after { display: none; }
+
+
+  /* ─── SOLID PREVIEW SECTIONS ───────────────────── */
+  .solid-preview {
+    background: var(--dark);
+  }
+
+  .preview-note {
+    background: var(--sand);
+    padding: 10px 24px;
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--mid);
+    text-align: center;
+  }
+
+  /* spec table */
+  .spec-table {
+    display: flex;
+    gap: 32px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(26,31,46,0.08);
+    margin-top: 32px;
+  }
+  .spec-item {
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+  }
+  .spec-key {
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 4px;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+  }
+  .spec-val {
+    color: var(--dark);
+    font-weight: 500;
+  }
+
+  .meta-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .meta-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    background: rgba(200,90,65,0.08);
+    color: var(--accent);
+    font-family: 'Jost', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+  .meta-badge svg {
+    width: 14px; height: 14px;
+    stroke: var(--accent);
+    fill: none;
+    stroke-width: 2;
+  }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  Stilco — Nawigacja
+  <h1>Propozycje Menu</h1>
+</div>
+
+<div class="tab-bar">
+  <button class="tab active" onclick="switchTab('a', this)">Opcja A — Grid Slim</button>
+  <button class="tab" onclick="switchTab('b', this)">Opcja B — Dwupoziomowa</button>
+  <button class="tab" onclick="switchTab('c', this)">Opcja C — Dark Luxury</button>
+</div>
+
+<div class="preview-container">
+
+  <!-- ═══════ VARIANT A ═══════ -->
+  <div class="variant active" id="tab-a">
+    <p class="variant-label"><strong>Opcja A</strong> — Grid z prawdziwym wyśrodkowaniem</p>
+    <p class="variant-desc">
+      CSS grid 3-kolumnowy: logo po lewej, nawigacja absolutnie wyśrodkowana, ikony po prawej.
+      Wysokość zmniejszona do 60px. Efekt przezroczysty nad hero, biały po scrollowaniu.
+    </p>
+
+    <div class="preview-frame">
+      <!-- HERO z transparent nav -->
+      <div class="variant-a-hero mock-hero">
+        <div class="nav-a">
+          <div class="logo-wrap">
+            <a href="#" class="logo">
+              <div class="logo-mark">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              STILCO
+            </a>
+          </div>
+          <ul class="nav-links">
+            <li><a href="#">Materace</a></li>
+            <li><a href="#">Sklep</a></li>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+          <div class="actions">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <div class="cart-bubble">
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <div class="badge">2</div>
+            </div>
+          </div>
+        </div>
+        <div class="mock-hero-sub">Pianka HR + Visco · 22 cm</div>
+        <div class="mock-hero-text">Materac Stilco</div>
+        <button class="mock-hero-btn">Wybierz rozmiar</button>
+      </div>
+
+      <!-- Scrolled state -->
+      <div class="preview-note">↓ Stan po scrollowaniu (białe tło)</div>
+      <div class="nav-a scrolled" style="position:relative;">
+        <div class="logo-wrap">
+          <a href="#" class="logo">
+            <div class="logo-mark">
+              <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            STILCO
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="#">Materace</a></li>
+          <li><a href="#">Sklep</a></li>
+          <li><a href="#">O nas</a></li>
+          <li><a href="#">Kontakt</a></li>
+        </ul>
+        <div class="actions">
+          <svg viewBox="0 0 24 24" style="stroke:var(--dark)"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <div class="cart-bubble">
+            <svg viewBox="0 0 24 24" style="stroke:var(--dark)"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            <div class="badge">2</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spec-table" style="padding: 20px 48px;">
+        <div class="spec-item"><div class="spec-key">Wysokość</div><div class="spec-val">60px</div></div>
+        <div class="spec-item"><div class="spec-key">Układ</div><div class="spec-val">CSS Grid 3-col</div></div>
+        <div class="spec-item"><div class="spec-key">Wyśrodkowanie</div><div class="spec-val">Natywne grid</div></div>
+        <div class="spec-item"><div class="spec-key">Transparent hero</div><div class="spec-val">Tak</div></div>
+        <div class="spec-item"><div class="spec-key">Zmiana kolorów scroll</div><div class="spec-val">Tak (JS)</div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════ VARIANT B ═══════ -->
+  <div class="variant" id="tab-b">
+    <p class="variant-label"><strong>Opcja B</strong> — Dwupoziomowa: logo + akcje na górze, nav poniżej</p>
+    <p class="variant-desc">
+      Dwa rzędy po ~44px i ~40px = łącznie 84px. Nawigacja w pełni wyśrodkowana w drugim rzędzie.
+      Estetyka typowo luksusowych house'ów mody — editorial, hierarchiczna.
+    </p>
+
+    <div class="preview-frame">
+      <!-- Hero + nav-b -->
+      <div class="mock-hero" style="height:520px; position:relative;">
+        <div class="nav-b-wrap">
+          <div class="nav-b-top">
+            <a href="#" class="nav-b-logo">Stilco</a>
+            <div class="actions">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <div style="position:relative;">
+                <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+                <div class="badge" style="top:-5px;right:-5px;">2</div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-b-bottom">
+            <a href="#">Materace</a>
+            <a href="#" class="active">Sklep</a>
+            <a href="#">Poduszki</a>
+            <a href="#">O nas</a>
+            <a href="#">Kontakt</a>
+          </div>
+        </div>
+        <div class="mock-hero-sub">Pianka HR + Visco · 22 cm</div>
+        <div class="mock-hero-text">Materac Stilco</div>
+        <button class="mock-hero-btn">Wybierz rozmiar</button>
+      </div>
+
+      <!-- Solid state -->
+      <div class="preview-note">↓ Stan poza hero (ciemne tło stałe)</div>
+      <div class="solid-preview">
+        <div class="nav-b-wrap solid">
+          <div class="nav-b-top">
+            <a href="#" class="nav-b-logo">Stilco</a>
+            <div class="actions">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+            </div>
+          </div>
+          <div class="nav-b-bottom" style="border-bottom:none;">
+            <a href="#">Materace</a>
+            <a href="#" class="active" style="color:white;">Sklep</a>
+            <a href="#">Poduszki</a>
+            <a href="#">O nas</a>
+            <a href="#">Kontakt</a>
+          </div>
+        </div>
+        <div style="height:160px;"></div>
+      </div>
+
+      <div class="spec-table" style="padding: 20px 48px;">
+        <div class="spec-item"><div class="spec-key">Wysokość</div><div class="spec-val">84px total</div></div>
+        <div class="spec-item"><div class="spec-key">Układ</div><div class="spec-val">2 rzędy flex</div></div>
+        <div class="spec-item"><div class="spec-key">Wyśrodkowanie nav</div><div class="spec-val">justify-center</div></div>
+        <div class="spec-item"><div class="spec-key">Styl</div><div class="spec-val">Editorial / Modowy</div></div>
+        <div class="spec-item"><div class="spec-key">Poza hero</div><div class="spec-val">Ciemny pasek</div></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════ VARIANT C ═══════ -->
+  <div class="variant" id="tab-c">
+    <p class="variant-label"><strong>Opcja C</strong> — Dark Luxury / Ciemny pasek z CTA</p>
+    <p class="variant-desc">
+      Jeden ciemny pasek 56px. Logo po lewej w stylu Playfair, nawigacja centralnie z akcentem nad aktywnym linkiem,
+      po prawej ikony + przycisk CTA w terrakocie. Styl: luksus, premium, spa.
+    </p>
+
+    <div class="preview-frame">
+      <!-- Hero -->
+      <div class="mock-hero" style="height:500px; position:relative;">
+        <div class="nav-c">
+          <a href="#" class="logo">Stilco</a>
+          <ul class="nav-links">
+            <li><a href="#">Materace</a></li>
+            <li><a href="#" class="active">Sklep</a></li>
+            <li><a href="#">Poduszki</a></li>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+          <div class="right-group">
+            <div class="icon-btn">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="icon-btn" style="position:relative;">
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <div class="badge" style="top:-2px;right:-2px;">2</div>
+            </div>
+            <a href="#" class="cta">Kup teraz</a>
+          </div>
+        </div>
+        <div class="mock-hero-sub">Pianka HR + Visco · 22 cm</div>
+        <div class="mock-hero-text">Materac Stilco</div>
+        <button class="mock-hero-btn">Wybierz rozmiar</button>
+      </div>
+
+      <!-- Solid state -->
+      <div class="preview-note">↓ Stan poza hero (identyczny pasek)</div>
+      <div class="solid-preview">
+        <div class="nav-c solid">
+          <a href="#" class="logo">Stilco</a>
+          <ul class="nav-links">
+            <li><a href="#">Materace</a></li>
+            <li><a href="#" class="active">Sklep</a></li>
+            <li><a href="#">Poduszki</a></li>
+            <li><a href="#">O nas</a></li>
+            <li><a href="#">Kontakt</a></li>
+          </ul>
+          <div class="right-group">
+            <div class="icon-btn">
+              <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </div>
+            <div class="icon-btn" style="position:relative;">
+              <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+              <div class="badge" style="top:-2px;right:-2px;">2</div>
+            </div>
+            <a href="#" class="cta">Kup teraz</a>
+          </div>
+        </div>
+        <div style="height:160px;"></div>
+      </div>
+
+      <div class="spec-table" style="padding: 20px 48px;">
+        <div class="spec-item"><div class="spec-key">Wysokość</div><div class="spec-val">56px</div></div>
+        <div class="spec-item"><div class="spec-key">Układ</div><div class="spec-val">Flex + margin auto</div></div>
+        <div class="spec-item"><div class="spec-key">Wyśrodkowanie</div><div class="spec-val">margin: 0 auto</div></div>
+        <div class="spec-item"><div class="spec-key">Styl</div><div class="spec-val">Dark Luxury</div></div>
+        <div class="spec-item"><div class="spec-key">Dodatkowe</div><div class="spec-val">Przycisk CTA</div></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function switchTab(id, btn) {
+    document.querySelectorAll('.variant').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+</body>
+</html>
