@@ -1,0 +1,531 @@
+#review_form_wrapper #reply-title,
+#review_form_wrapper .comment-reply-title {
+	display: none;
+}
+
+#review_form_wrapper .stars a,
+.woocommerce-product-rating .star-rating span::before {
+	color: #c85a41 !important;
+}
+
+#review_form_wrapper .stars span::before {
+	color: #e5e7eb !important;
+}
+
+#review_form_wrapper .stars a:hover,
+#review_form_wrapper .stars a:hover ~ a,
+#review_form_wrapper .stars.selected a.active,
+#review_form_wrapper .stars.selected a.active ~ a {
+	color: #c85a41 !important;
+}
+
+#review_form_wrapper p.stars {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-bottom: 1.5rem;
+	font-size: 1.75rem;
+}
+
+#review_form_wrapper input[type="text"],
+#review_form_wrapper input[type="email"],
+#review_form_wrapper textarea {
+	width: 100%;
+	border: 1px solid #e5e7eb !important;
+	border-radius: 0.75rem !important;
+	padding: 0.875rem 1rem !important;
+	font-size: 0.9375rem;
+	color: #1a1a2e;
+	background: #fafafa;
+	transition: border-color 0.2s, box-shadow 0.2s;
+	outline: none;
+	box-shadow: none;
+}
+
+#review_form_wrapper input[type="text"]:focus,
+#review_form_wrapper input[type="email"]:focus,
+#review_form_wrapper textarea:focus {
+	border-color: #c85a41 !important;
+	box-shadow: 0 0 0 3px rgba(200, 90, 65, 0.1) !important;
+	background: #fff;
+}
+
+#review_form_wrapper textarea {
+	min-height: 120px;
+	resize: vertical;
+}
+
+#review_form_wrapper label {
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #1a1a2e;
+	margin-bottom: 0.4rem;
+}
+
+#review_form_wrapper p.comment-form-author,
+#review_form_wrapper p.comment-form-email,
+#review_form_wrapper p.comment-form-comment,
+#review_form_wrapper p.comment-form-cookies-consent,
+#review_form_wrapper p.comment-form-image {
+	margin-bottom: 1.25rem;
+}
+
+#review_form_wrapper .comment-form-author,
+#review_form_wrapper .comment-form-email {
+	display: inline-block;
+	width: 48%;
+}
+
+#review_form_wrapper .comment-form-author {
+	margin-right: 4%;
+}
+
+#review_form_wrapper input[type="submit"] {
+	background-color: #c85a41 !important;
+	color: #fff !important;
+	border: none !important;
+	border-radius: 9999px !important;
+	padding: 0.875rem 2.5rem !important;
+	font-weight: 700 !important;
+	font-size: 1rem !important;
+	cursor: pointer;
+	transition: all 0.3s ease !important;
+	box-shadow: 0 8px 20px rgba(200, 90, 65, 0.3);
+	display: inline-block;
+}
+
+#review_form_wrapper input[type="submit"]:hover {
+	box-shadow: 0 14px 28px rgba(200, 90, 65, 0.4) !important;
+	transform: translateY(-2px);
+}
+
+#review_form_wrapper .comment-notes {
+	display: none;
+}
+
+#review_form_wrapper .comment-form-rating label {
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: #6b7280;
+	margin-bottom: 0.5rem;
+	display: block;
+}
+
+.review-rating-star-fill,
+.review-rating-bar-fill {
+	width: 0;
+}
+
+.review-fill-0 {
+	width: 0%;
+}
+
+.review-fill-1 {
+	width: 1%;
+}
+
+.review-fill-2 {
+	width: 2%;
+}
+
+.review-fill-3 {
+	width: 3%;
+}
+
+.review-fill-4 {
+	width: 4%;
+}
+
+.review-fill-5 {
+	width: 5%;
+}
+
+.review-fill-6 {
+	width: 6%;
+}
+
+.review-fill-7 {
+	width: 7%;
+}
+
+.review-fill-8 {
+	width: 8%;
+}
+
+.review-fill-9 {
+	width: 9%;
+}
+
+.review-fill-10 {
+	width: 10%;
+}
+
+.review-fill-11 {
+	width: 11%;
+}
+
+.review-fill-12 {
+	width: 12%;
+}
+
+.review-fill-13 {
+	width: 13%;
+}
+
+.review-fill-14 {
+	width: 14%;
+}
+
+.review-fill-15 {
+	width: 15%;
+}
+
+.review-fill-16 {
+	width: 16%;
+}
+
+.review-fill-17 {
+	width: 17%;
+}
+
+.review-fill-18 {
+	width: 18%;
+}
+
+.review-fill-19 {
+	width: 19%;
+}
+
+.review-fill-20 {
+	width: 20%;
+}
+
+.review-fill-21 {
+	width: 21%;
+}
+
+.review-fill-22 {
+	width: 22%;
+}
+
+.review-fill-23 {
+	width: 23%;
+}
+
+.review-fill-24 {
+	width: 24%;
+}
+
+.review-fill-25 {
+	width: 25%;
+}
+
+.review-fill-26 {
+	width: 26%;
+}
+
+.review-fill-27 {
+	width: 27%;
+}
+
+.review-fill-28 {
+	width: 28%;
+}
+
+.review-fill-29 {
+	width: 29%;
+}
+
+.review-fill-30 {
+	width: 30%;
+}
+
+.review-fill-31 {
+	width: 31%;
+}
+
+.review-fill-32 {
+	width: 32%;
+}
+
+.review-fill-33 {
+	width: 33%;
+}
+
+.review-fill-34 {
+	width: 34%;
+}
+
+.review-fill-35 {
+	width: 35%;
+}
+
+.review-fill-36 {
+	width: 36%;
+}
+
+.review-fill-37 {
+	width: 37%;
+}
+
+.review-fill-38 {
+	width: 38%;
+}
+
+.review-fill-39 {
+	width: 39%;
+}
+
+.review-fill-40 {
+	width: 40%;
+}
+
+.review-fill-41 {
+	width: 41%;
+}
+
+.review-fill-42 {
+	width: 42%;
+}
+
+.review-fill-43 {
+	width: 43%;
+}
+
+.review-fill-44 {
+	width: 44%;
+}
+
+.review-fill-45 {
+	width: 45%;
+}
+
+.review-fill-46 {
+	width: 46%;
+}
+
+.review-fill-47 {
+	width: 47%;
+}
+
+.review-fill-48 {
+	width: 48%;
+}
+
+.review-fill-49 {
+	width: 49%;
+}
+
+.review-fill-50 {
+	width: 50%;
+}
+
+.review-fill-51 {
+	width: 51%;
+}
+
+.review-fill-52 {
+	width: 52%;
+}
+
+.review-fill-53 {
+	width: 53%;
+}
+
+.review-fill-54 {
+	width: 54%;
+}
+
+.review-fill-55 {
+	width: 55%;
+}
+
+.review-fill-56 {
+	width: 56%;
+}
+
+.review-fill-57 {
+	width: 57%;
+}
+
+.review-fill-58 {
+	width: 58%;
+}
+
+.review-fill-59 {
+	width: 59%;
+}
+
+.review-fill-60 {
+	width: 60%;
+}
+
+.review-fill-61 {
+	width: 61%;
+}
+
+.review-fill-62 {
+	width: 62%;
+}
+
+.review-fill-63 {
+	width: 63%;
+}
+
+.review-fill-64 {
+	width: 64%;
+}
+
+.review-fill-65 {
+	width: 65%;
+}
+
+.review-fill-66 {
+	width: 66%;
+}
+
+.review-fill-67 {
+	width: 67%;
+}
+
+.review-fill-68 {
+	width: 68%;
+}
+
+.review-fill-69 {
+	width: 69%;
+}
+
+.review-fill-70 {
+	width: 70%;
+}
+
+.review-fill-71 {
+	width: 71%;
+}
+
+.review-fill-72 {
+	width: 72%;
+}
+
+.review-fill-73 {
+	width: 73%;
+}
+
+.review-fill-74 {
+	width: 74%;
+}
+
+.review-fill-75 {
+	width: 75%;
+}
+
+.review-fill-76 {
+	width: 76%;
+}
+
+.review-fill-77 {
+	width: 77%;
+}
+
+.review-fill-78 {
+	width: 78%;
+}
+
+.review-fill-79 {
+	width: 79%;
+}
+
+.review-fill-80 {
+	width: 80%;
+}
+
+.review-fill-81 {
+	width: 81%;
+}
+
+.review-fill-82 {
+	width: 82%;
+}
+
+.review-fill-83 {
+	width: 83%;
+}
+
+.review-fill-84 {
+	width: 84%;
+}
+
+.review-fill-85 {
+	width: 85%;
+}
+
+.review-fill-86 {
+	width: 86%;
+}
+
+.review-fill-87 {
+	width: 87%;
+}
+
+.review-fill-88 {
+	width: 88%;
+}
+
+.review-fill-89 {
+	width: 89%;
+}
+
+.review-fill-90 {
+	width: 90%;
+}
+
+.review-fill-91 {
+	width: 91%;
+}
+
+.review-fill-92 {
+	width: 92%;
+}
+
+.review-fill-93 {
+	width: 93%;
+}
+
+.review-fill-94 {
+	width: 94%;
+}
+
+.review-fill-95 {
+	width: 95%;
+}
+
+.review-fill-96 {
+	width: 96%;
+}
+
+.review-fill-97 {
+	width: 97%;
+}
+
+.review-fill-98 {
+	width: 98%;
+}
+
+.review-fill-99 {
+	width: 99%;
+}
+
+.review-fill-100 {
+	width: 100%;
+}
+
+@media (max-width: 640px) {
+	#review_form_wrapper .comment-form-author,
+	#review_form_wrapper .comment-form-email {
+		display: block;
+		width: 100%;
+		margin-right: 0;
+	}
+}

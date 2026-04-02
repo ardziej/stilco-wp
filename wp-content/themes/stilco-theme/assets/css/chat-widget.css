@@ -1,0 +1,8 @@
+#stilco-chat-window {
+	height: 500px;
+	max-height: calc(100vh - 120px);
+}
+
+#stilco-chat-actions.hidden {
+	display: none;
+}

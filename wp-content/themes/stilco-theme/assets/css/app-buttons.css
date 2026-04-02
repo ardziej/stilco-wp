@@ -1,0 +1,9 @@
+@layer components {
+	.btn-primary {
+		@apply bg-stilco-dark text-white px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-stilco-accent hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-stilco-accent focus:ring-offset-2;
+	}
+
+	.btn-outline {
+		@apply border-2 border-stilco-dark text-stilco-dark px-8 py-3 rounded-full font-medium transition-all duration-300 hover:bg-stilco-dark hover:text-white focus:outline-none focus:ring-2 focus:ring-stilco-dark focus:ring-offset-2;
+	}
+}

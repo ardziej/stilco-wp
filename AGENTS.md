@@ -35,12 +35,20 @@ Zdefiniowano podwaliny dedykowanego motywu WordPress/WooCommerce (`stilco-theme`
 ## 3. Road-map / Plan Dalszego Działania
 Co pozostało do wdrożenia / Należy podnieść w kolejnych iteracjach:
 
-- [ ] **Dynamiczny Routing Assetów Vite:** W pliku `functions.php` przygotowanie inteligentnej ładowarki sprawdzającej czy Vite serwer działa (`localhost:5173`), by ładować z niego, lub wczytywać manifest.json gdy zbudowane przez `npm run build` na produkcji.
+- [x] **Dynamiczny Routing Assetów Vite:** Motyw ładuje assety z dev servera Vite (`localhost:5173`) gdy jest dostępny, a w pozostałych środowiskach korzysta z `dist/.vite/manifest.json`.
 - [ ] **Pełna Integracja Produktu Zmiennego (Konfigurator):** Przejęcie procesu generowania pól wyboru i przycisków dodawania wariantu, aby kafelki rozmiarów (80x200, 160x200 itd.) i twardości wyglądały jak przyciski radiowe z pięknym CSSem. Należy do tego nadpisać pliki z `woocommerce/single-product/add-to-cart/variable.php`.
 - [ ] **Kasa (Checkout):** Przeprojektowanie `checkout/form-checkout.php` dla 1-kolumnowego (lub podzielonego np. 60/40) gładkiego przebiegu z zamknięciem zbędnych pól, ukierunkowanego pod szybką sprzedaż opartą o płatności mobilne/Blik.
 - [ ] **Zaawansowane Animacje:** Wpięcie mikroskryptów poprawiających gładkość UX (np. Swiper.js dla galerii produktowej w locie lub lepsze lifestylowe przejazdy).
 - [ ] **Hardening Dashboardu Produkcyjnego:** Ograniczenie otwartego endpointu REST (`stilco/v1/deliveries`) do autoryzowanych użytkowników lub sieci lokalnej oraz dodanie paginacji / filtrów statusu.
-- [ ] **Porządki Assetów Front-end:** Wyniesienie inline CSS/JS z widgetu czatu i dashboardu do assetów kompilowanych przez Vite, aby utrzymać porządek i cache'owalność.
+- [x] **Porządki Assetów Front-end:** Inline CSS/JS dla widgetu czatu, dashboardu, transparent headera, checkoutu, strony materaca, FAQ i single product zostały wyniesione do osobnych assetów ładowanych warunkowo przez WordPress.
+
+### Ostatni sprint refaktoryzacyjny
+- `functions.php` został zredukowany do bootstrappingu modułów `inc/*.php`.
+- Duże template'y i override'y WooCommerce zostały rozbite na `template-parts/*`.
+- Globalny `assets/js/app.js` został rozbity na mniejsze moduły domenowe.
+- W PHP motywu nie ma już inline `<style>` ani `<script>`.
+- Statystyki opinii produktu przeszły z runtime `style.width` na serwerowo generowane klasy CSS, więc w kodzie źródłowym motywu nie ma już inline `style=` ani inline event handlerów.
+- CSS został dalej uporządkowany domena po domenie: dashboard, lightbox produktu i widget czatu mają już rozdzielone warstwy bazowe oraz komponentowe assety ładowane warunkowo przez WordPress.
 
 Ten plan aktualizuj po każdym zakończonym sprincie deweloperskim.
 

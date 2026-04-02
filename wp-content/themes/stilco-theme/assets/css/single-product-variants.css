@@ -1,0 +1,28 @@
+.bed-visual {
+	min-height: 56px;
+}
+
+.bed-visual-frame {
+	display: inline-block;
+	border: 1px solid rgb(229 231 235 / 1);
+	border-radius: 2px;
+	background-image: linear-gradient(to bottom right, rgb(249 250 251 / 1), rgb(243 244 246 / 1));
+}
+
+.bed-visual-svg {
+	display: block;
+}
+
+.bed-visual-surface {
+	fill: transparent;
+	stroke: transparent;
+}
+
+.bed-pattern {
+	background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+	background-size: 4px 4px;
+}
+
+.size-option.is-active .bed-pattern {
+	background-image: radial-gradient(rgba(200, 90, 65, 0.2) 1px, transparent 1px);
+}

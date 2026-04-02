@@ -1,0 +1,86 @@
+.woocommerce-checkout .entry-title,
+.woocommerce-page .page-title,
+.woocommerce-checkout h1,
+.wp-block-woocommerce-checkout h1,
+.wc-block-checkout h1,
+body.woocommerce-checkout h1 {
+	display: none !important;
+}
+
+.wp-block-woocommerce-checkout {
+	max-width: 1280px !important;
+	width: 100% !important;
+	margin-left: auto !important;
+	margin-right: auto !important;
+	padding: 3rem 2rem !important;
+	box-sizing: border-box !important;
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+}
+
+.wc-block-components-sidebar-layout {
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	gap: 0 !important;
+	align-items: flex-start !important;
+	position: relative !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-checkout__main {
+	display: flex !important;
+	flex-direction: row !important;
+	flex-wrap: nowrap !important;
+	gap: 0 !important;
+	position: relative !important;
+	align-items: flex-start !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-checkout__main > div:first-child,
+.wp-block-woocommerce-checkout-fields-block,
+.wc-block-components-sidebar-layout .wc-block-components-main {
+	width: 50% !important;
+	flex: 0 0 50% !important;
+	min-width: 0 !important;
+	padding-right: 3rem !important;
+	max-width: 50% !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-checkout__main > div:last-child,
+.wc-block-components-sidebar-layout > .wc-block-checkout__sidebar {
+	width: 50% !important;
+	flex: 0 0 50% !important;
+	min-width: 0 !important;
+	padding-left: 3rem !important;
+	max-width: 50% !important;
+}
+
+.wp-block-woocommerce-checkout .wc-block-checkout__main::after,
+.wc-block-components-sidebar-layout::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 50%;
+	width: 1px;
+	background-color: #e5e7eb;
+	pointer-events: none;
+}
+
+.wc-block-checkout__sidebar,
+.wc-block-checkout__sidebar > div,
+.wp-block-woocommerce-checkout-order-summary-block,
+.wc-block-components-order-summary,
+.wc-block-checkout__sidebar .wc-block-components-panel {
+	background: transparent !important;
+	border: none !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;
+}
+
+.wc-block-checkout__sidebar > div {
+	position: sticky !important;
+	top: 6rem !important;
+}

@@ -1,0 +1,31 @@
+.header-nav ul li a {
+	position: relative;
+	transition: color 0.3s ease;
+	outline: none;
+}
+
+.header-nav ul li a:focus-visible {
+	outline: 2px solid #c85a41;
+	border-radius: 4px;
+	padding: 2px;
+}
+
+.header-nav ul li a::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	height: 1px;
+	bottom: -4px;
+	left: 0;
+	background-color: #c85a41;
+	transition: width 0.3s ease;
+}
+
+.header-nav ul li a:hover::after,
+.header-nav ul li.current-menu-item a::after {
+	width: 100%;
+}
+
+.header-nav ul li:hover a {
+	color: #c85a41;
+}
