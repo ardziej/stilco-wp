@@ -23,3 +23,10 @@ wp-cli.phar
 .claude/
 assets/mocks/
 utils/plugins/
+
+# IDE
+.idea/
+
+# WooCommerce / WordPress logs
+wp-content/uploads/wc-logs/
+wp-content/debug.log
