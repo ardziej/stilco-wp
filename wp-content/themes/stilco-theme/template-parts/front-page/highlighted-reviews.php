@@ -8,13 +8,17 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+
+$page_id   = get_queried_object_id();
+$cta_link  = stilco_get_link_data( 'home_reviews_cta_text', 'home_reviews_cta_url', 'Zobacz wszystkie opinie', '/produkt/materac-stilco/#reviews', $page_id );
+$empty_txt = stilco_get_page_field( 'home_reviews_empty_text', 'Nowe opinie pojawią się wkrótce.', $page_id );
 ?>
 <section class="py-24 bg-white relative overflow-hidden">
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="text-center mb-16 animate-on-scroll">
-			<span class="text-stilco-accent font-medium tracking-widest uppercase text-sm mb-4 block">Prawdziwe historie</span>
-			<h2 class="text-3xl md:text-5xl font-display font-bold mb-4 text-stilco-dark">Głos tysięcy wyspanych</h2>
-			<p class="text-gray-500 max-w-2xl mx-auto text-lg">Zobacz, jak Materac Stilco zmienia życia na lepsze. Sprawdzone opinie naszych klientów.</p>
+			<span class="text-stilco-accent font-medium tracking-widest uppercase text-sm mb-4 block"><?php echo esc_html( stilco_get_page_field( 'home_reviews_eyebrow', 'Prawdziwe historie', $page_id ) ); ?></span>
+			<h2 class="text-3xl md:text-5xl font-display font-bold mb-4 text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_reviews_title', 'Głos tysięcy wyspanych', $page_id ) ); ?></h2>
+			<p class="text-gray-500 max-w-2xl mx-auto text-lg"><?php echo esc_html( stilco_get_page_field( 'home_reviews_lead', 'Zobacz, jak Materac Stilco zmienia życia na lepsze. Sprawdzone opinie naszych klientów.', $page_id ) ); ?></p>
 		</div>
 
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-on-scroll delay-200">
@@ -49,13 +53,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 						</div>
 					<?php endforeach; ?>
 				<?php else : ?>
-					<p class="text-center col-span-full text-gray-500 py-8 text-sm">Nowe opinie pojawią się wkrótce.</p>
+					<p class="text-center col-span-full text-gray-500 py-8 text-sm"><?php echo esc_html( $empty_txt ); ?></p>
 				<?php endif; ?>
 			<?php endif; ?>
 		</div>
 		<div class="text-center mt-12">
-			<a href="/produkt/materac-stilco/#reviews" class="inline-block border-2 border-stilco-accent text-stilco-accent hover:bg-stilco-accent hover:text-white font-bold px-10 py-4 rounded-full transition-colors duration-300">
-				Zobacz wszystkie opinie
+			<a href="<?php echo esc_url( $cta_link['url'] ); ?>" class="inline-block border-2 border-stilco-accent text-stilco-accent hover:bg-stilco-accent hover:text-white font-bold px-10 py-4 rounded-full transition-colors duration-300">
+				<?php echo esc_html( $cta_link['label'] ); ?>
 			</a>
 		</div>
 	</div>

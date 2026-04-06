@@ -25,6 +25,7 @@ if ( ! defined( 'STILCO_THEME_VERSION' ) ) {
 
 $stilco_includes = array(
 	'inc/helpers.php',
+	'inc/pods-content.php',
 	'inc/context.php',
 	'inc/setup.php',
 	'inc/assets.php',
