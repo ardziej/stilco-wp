@@ -15,7 +15,7 @@ Sklep internetowy dostępny pod adresem internetowym stilco.pl prowadzony jest p
 - Dostawa realizowana jest kurierem pod wskazany adres.
 
 ## 4. Prawo odstąpienia od umowy
-- Klient będący Konsumentem ma prawo odstąpić od umowy bez podawania przyczyny w terminie 14 dni od dnia otrzymania materaca, w ramach rozszerzonych [30 Dni na Testowanie](/zwroty-i-reklamacje).
+- Klient będący Konsumentem ma prawo odstąpić od umowy bez podawania przyczyny w terminie 14 dni od dnia otrzymania materaca, w ramach rozszerzonego programu [Test 100 Nocy](/zwroty-i-reklamacje).
 
 ## 5. Reklamacje (Rękojmia i Gwarancja)
 - Producent udziela gwarancji na wkład piankowy na okres określony na karcie produktu.

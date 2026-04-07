@@ -18,7 +18,7 @@ $hero_image    = stilco_override_media_alt(
 	),
 	stilco_get_page_field( 'home_hero_image_alt', '', $page_id )
 );
-$primary_cta   = stilco_get_link_data( 'home_hero_primary_cta_text', 'home_hero_primary_cta_url', 'Wybierz Materac', '/produkt/materac-stilco/', $page_id );
+$primary_cta   = stilco_get_link_data( 'home_hero_primary_cta_text', 'home_hero_primary_cta_url', 'Wybierz swój materac', '/produkt/materac-stilco/', $page_id );
 $secondary_cta = stilco_get_link_data( 'home_hero_secondary_cta_text', 'home_hero_secondary_cta_url', 'Poznaj przewagi', '#dlaczego-my', $page_id );
 $trust_labels  = array(
 	stilco_get_page_field( 'home_trust_1_label', '100 Nocy na Test', $page_id ),
@@ -33,13 +33,14 @@ $trust_labels  = array(
 		<div class="absolute inset-0 bg-gradient-to-b from-stilco-dark/80 via-black/30 to-black/60"></div>
 	</div>
 
-	<div class="relative z-10 text-center max-w-4xl px-6 pb-20 animate-on-scroll">
+	<div class="relative z-10 text-center max-w-5xl px-6 pb-20 animate-on-scroll">
+		<div class="mx-auto max-w-4xl rounded-[2rem] border border-white/15 bg-stilco-dark/35 px-6 py-8 shadow-2xl backdrop-blur-md md:px-10 md:py-10">
 		<span class="text-white/90 text-sm md:text-base tracking-widest uppercase font-semibold mb-4 block"><?php echo esc_html( stilco_get_page_field( 'home_hero_eyebrow', 'Manufaktura Dobrego Snu', $page_id ) ); ?></span>
 		<h1 class="text-5xl md:text-7xl text-white font-serif font-bold mb-6 tracking-tight leading-tight">
-			<?php echo esc_html( get_the_title( $page_id ) ?: 'Zasypiaj szybciej.' ); ?><br><span class="text-stilco-accent"><?php echo esc_html( stilco_get_page_field( 'home_hero_title_accent', 'Budź się wypoczęty.', $page_id ) ); ?></span>
+			<?php echo esc_html( get_the_title( $page_id ) ?: 'Zasypiaj szybciej. Śpij lepiej.' ); ?><br><span class="text-stilco-accent"><?php echo esc_html( stilco_get_page_field( 'home_hero_title_accent', 'Budź się wypoczęty.' , $page_id ) ); ?></span>
 		</h1>
 		<p class="text-lg md:text-xl text-gray-200 mb-10 max-w-2xl mx-auto font-sans">
-			<?php echo esc_html( stilco_get_page_field( 'home_hero_lead', 'Oddychający materac hybrydowy dopasowujący się do kształtu Twojego ciała. 100% polska produkcja.', $page_id ) ); ?>
+			<?php echo esc_html( stilco_get_page_field( 'home_hero_lead', 'Najlepsze materace hybrydowe na świecie. Zaprojektowane i produkowane w Polsce.', $page_id ) ); ?>
 		</p>
 		<div class="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
 			<a href="<?php echo esc_url( $primary_cta['url'] ); ?>" class="btn-primary w-full sm:w-auto text-lg rounded-full px-10 py-4 border-2 border-stilco-accent shadow-stilco-accent/40 shadow-xl bg-stilco-accent">
@@ -48,6 +49,7 @@ $trust_labels  = array(
 			<a href="<?php echo esc_url( $secondary_cta['url'] ); ?>" class="btn-outline border-2 border-white text-white hover:bg-white hover:text-stilco-dark w-full sm:w-auto text-lg rounded-full px-10 py-4 bg-white/5 backdrop-blur-sm">
 				<?php echo esc_html( $secondary_cta['label'] ); ?>
 			</a>
+		</div>
 		</div>
 	</div>
 

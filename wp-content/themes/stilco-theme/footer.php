@@ -8,7 +8,7 @@ $footer_links = stilco_get_footer_link_groups();
     <!-- Newsletter Warstwa Górna -->
     <div class="max-w-4xl mx-auto text-center mb-24">
         <h2 class="text-4xl md:text-6xl font-serif font-bold mb-6 text-stilco-dark tracking-tight leading-tight"><?php echo esc_html( stilco_get_setting( 'footer_newsletter_title', 'Obudź się z pomysłem na lepszy sen.' ) ); ?></h2>
-        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"><?php echo esc_html( stilco_get_setting( 'footer_newsletter_lead', 'Odbierz 10% rabatu na pierwsze zamówienie. Zapisz się do naszego biuletynu pełnego wskazówek jak podnieść jakość wypoczynku.' ) ); ?></p>
+        <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto"><?php echo esc_html( stilco_get_setting( 'footer_newsletter_lead', 'Zapisz się, aby otrzymywać wskazówki dotyczące regeneracji, najnowsze badania oraz nowości produktowe od Stilco.' ) ); ?></p>
         <form class="flex flex-col sm:flex-row max-w-lg mx-auto gap-3">
             <input type="email" placeholder="<?php echo esc_attr( stilco_get_setting( 'footer_newsletter_placeholder', 'Twój adres e-mail' ) ); ?>" aria-label="Adres e-mail"
                 class="w-full px-6 py-4 bg-white border border-gray-200 rounded-full text-stilco-dark focus:ring-2 focus:ring-stilco-accent focus:border-transparent outline-none shadow-sm transition-all focus:shadow-md">
@@ -23,7 +23,7 @@ $footer_links = stilco_get_footer_link_groups();
         <!-- Kolumna 1: Brand -->
         <div class="footer-brand space-y-4">
             <h3 class="text-3xl font-display font-bold tracking-tighter"><?php echo esc_html( stilco_get_setting( 'footer_brand_title', 'STILCO' ) ); ?></h3>
-            <p class="text-sm text-gray-600 leading-relaxed pr-6"><?php echo esc_html( stilco_get_setting( 'footer_brand_text', 'Twoje królestwo snu. Projektujemy organiczne materace dla idealnego, nocnego wypoczynku we dwoje. Polska produkcja.' ) ); ?></p>
+            <p class="text-sm text-gray-600 leading-relaxed pr-6"><?php echo esc_html( stilco_get_setting( 'footer_brand_text', 'Manufaktura dobrego snu. Projektujemy i tworzymy organiczne materace dla idealnego wypoczynku. W Polsce.' ) ); ?></p>
         </div>
 
         <!-- Kolumna 2: Sklep -->

@@ -63,7 +63,7 @@ $image_2 = stilco_override_media_alt(
 			<div class="order-2">
 				<h3 class="text-3xl font-display font-semibold text-stilco-dark mb-4 drop-shadow-sm"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_block_2_title', 'Fundament: 15 cm bazy HR (High Resilence)', $page_id ) ); ?></h3>
 				<p class="text-lg text-gray-600 font-sans leading-relaxed mb-6">
-					<?php echo esc_html( stilco_get_page_field( 'mattress_composition_block_2_text', 'Otwartokomorkowa piana wysokoelastyczna (40 kg/m3). Stanowi "kregoslup" Twojego materaca. Zapobiega zapadaniu sie ciala, gwarantujac przewiewnosc i stabilne oparcie przez cala noc.', $page_id ) ); ?>
+					<?php echo esc_html( stilco_get_page_field( 'mattress_composition_block_2_text', 'Otwartokomórkowa piana wysokoelastyczna (40 kg/m3). Stanowi „kręgosłup” Twojego materaca. Zapobiega zapadaniu się ciała, gwarantując przewiewność i stabilne oparcie przez całą noc.', $page_id ) ); ?>
 				</p>
 				<ul class="space-y-3 font-medium text-gray-700">
 					<?php for ( $i = 1; $i <= 3; $i++ ) : ?>

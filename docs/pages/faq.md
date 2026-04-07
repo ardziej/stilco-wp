@@ -31,6 +31,6 @@ Wszystkie pytania (akordeony) są oddzielnymi, zaokrąglonymi w 100% kafelkami (
 
 ## 3. Sekcja Zamykająca (Contact Ribbon)
 Pasek z jednolitego koloru (np. **Szałwiowa zieleń** z białym tekstem):
-- Obok znajduje się delikatna fotka pracownika z headsetem.
+- Obok znajduje się delikatna fotka pracownika.
 - Etykieta: "Nadal masz pytania? Nasz dział wsparcia snu jest do Twojej dyspozycji."
 - Duży guzik (outline na biało): [Napisz do nas](/kontakt)

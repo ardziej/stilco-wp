@@ -23,18 +23,18 @@ $image   = stilco_override_media_alt(
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="flex flex-col lg:flex-row items-center gap-16">
 			<div class="w-full lg:w-1/2 animate-slide-left">
-				<span class="text-stilco-secondary font-medium tracking-widest uppercase text-sm mb-4 block"><?php echo esc_html( stilco_get_page_field( 'home_dual_eyebrow', '1 materac, 2 strony', $page_id ) ); ?></span>
-				<h2 class="text-3xl md:text-5xl font-display font-bold mb-6 text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_dual_title', 'Zmieniaj twardość kiedy tylko zechcesz.', $page_id ) ); ?></h2>
+				<span class="text-stilco-secondary font-medium tracking-widest uppercase text-sm mb-4 block"><?php echo esc_html( stilco_get_page_field( 'home_dual_eyebrow', 'Jeden materac. Wiele możliwości.', $page_id ) ); ?></span>
+				<h2 class="text-3xl md:text-5xl font-display font-bold mb-6 text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_dual_title', 'Dopasowany do Twoich potrzeb - dla dobrego snu.', $page_id ) ); ?></h2>
 				<div class="space-y-6 text-gray-600">
-					<p class="text-lg"><?php echo esc_html( stilco_get_page_field( 'home_dual_lead', 'Stworzyliśmy materac, który dopasowuje się do Twoich zmieniających się potrzeb. Po jednej stronie znajdziesz miękką piankę Visco, po drugiej - piankę wysokoelastyczną dającą stabilne podparcie.', $page_id ) ); ?></p>
+					<p class="text-lg"><?php echo esc_html( stilco_get_page_field( 'home_dual_lead', 'Przez lata pracowaliśmy nad materacem, który spełniałby nasze oczekiwania w kwestii komfortowego odpoczynku, zdrowego ciała i dobranej mieszanki materiałów. Efektem jest materac, który dziś z dumą proponujemy Tobie. Każda z dwóch stron daje inne doświadczenia. Każda dopasowana do tego, czego potrzebujesz dla najlepszej regeneracji.', $page_id ) ); ?></p>
 					<ul class="space-y-4 mt-8">
 						<li class="flex items-start">
 							<svg class="h-6 w-6 text-stilco-secondary mr-3 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<div>
-								<h4 class="font-bold text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_dual_item_1_title', 'Strona H2 (Średnio-miękka)', $page_id ) ); ?></h4>
-								<p class="text-sm mt-1"><?php echo esc_html( stilco_get_page_field( 'home_dual_item_1_text', 'Pianka Visco Memory - idealnie otula ciało, redukując nacisk. Doskonała dla osób lżejszych lub preferujących uczucie "zapadania się".', $page_id ) ); ?></p>
+								<h4 class="font-bold text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_dual_item_1_title', 'White', $page_id ) ); ?></h4>
+								<p class="text-sm mt-1"><?php echo esc_html( stilco_get_page_field( 'home_dual_item_1_text', 'Bazująca na piankach Visco Memory - idealnie otula ciało, redukując nacisk, bez uczucia „zapadania”. Doskonała dla osób preferujących uczucie dopasowania i bliskości.', $page_id ) ); ?></p>
 							</div>
 						</li>
 						<li class="flex items-start">
@@ -42,8 +42,8 @@ $image   = stilco_override_media_alt(
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
 							</svg>
 							<div>
-								<h4 class="font-bold text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_dual_item_2_title', 'Strona H3 (Średnio-twarda)', $page_id ) ); ?></h4>
-								<p class="text-sm mt-1"><?php echo esc_html( stilco_get_page_field( 'home_dual_item_2_text', 'Pianka Wysokoelastyczna - zapewnia solidne podparcie kręgosłupa i większą sprężystość. Wybierana przez zwolenników twardszego podłoża.', $page_id ) ); ?></p>
+								<h4 class="font-bold text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_dual_item_2_title', 'Blue', $page_id ) ); ?></h4>
+								<p class="text-sm mt-1"><?php echo esc_html( stilco_get_page_field( 'home_dual_item_2_text', 'Podstawą są pianki wysokoelastyczne - zapewniają solidne podparcie kręgosłupa i większą sprężystość. Wybierana przez zwolenników snu na twardszym podłożu.', $page_id ) ); ?></p>
 							</div>
 						</li>
 					</ul>

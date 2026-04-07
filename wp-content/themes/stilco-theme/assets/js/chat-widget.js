@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			response = 'Chętnie sprawdzę status Twojego zamówienia. Proszę, podaj mi jego numer (np. #12345):';
 			waitingForOrderNumber = true;
 		} else if (lowerText.includes('wymien') || lowerText.includes('zwrot')) {
-			response = 'Pamiętaj, że u nas możesz testować materac przez 30 dni. Jeśli chcesz zgłosić zwrot, wyślij wiadomość na adres kontakt@stilco.pl, a my zajmiemy się resztą - wyślemy kuriera pod Twoje drzwi.';
+			response = 'Pamiętaj, że u nas możesz testować materac przez 100 nocy. Jeśli chcesz zgłosić zwrot, wyślij wiadomość na adres kontakt@stilco.pl, a my zajmiemy się resztą.';
 		} else if (lowerText.includes('materac')) {
 			response = 'W naszej ofercie posiadamy najwyższej jakości materace zapewniające idelane podparcie. Poszukujesz materaca do łóżka pojedynczego czy małżeńskiego?';
 		}

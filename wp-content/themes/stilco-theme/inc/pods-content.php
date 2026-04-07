@@ -221,9 +221,9 @@ function stilco_get_link_data( $label_field, $url_field, $fallback_label, $fallb
 function stilco_get_footer_link_groups() {
 	$groups = array(
 		'shop'    => array(
-			array( 'Materace', '/sklep' ),
-			array( 'Akcesoria', '/kategoria/akcesoria' ),
-			array( 'Karty Podarunkowe', '/karty-podarunkowe' ),
+			array( 'Materace', '/produkt/materac-stilco/' ),
+			array( 'Akcesoria', '/akcesoria' ),
+			array( 'Karty podarunkowe', '/karty-podarunkowe' ),
 		),
 		'company' => array(
 			array( 'O nas', '/o-nas' ),
@@ -231,9 +231,10 @@ function stilco_get_footer_link_groups() {
 			array( 'Opinie klientów', '/opinie' ),
 		),
 		'support' => array(
-			array( 'FAQ & Pytania', '/faq' ),
-			array( 'Dostawa i 30 Dni Testu', '/zwroty-i-reklamacje' ),
-			array( 'Realizacja Gwarancji', '/gwarancja' ),
+			array( 'FAQ', '/faq' ),
+			array( 'Dostawa', '/dostawa' ),
+			array( 'Test 100 nocy', '/zwroty-i-reklamacje' ),
+			array( 'Gwarancja', '/gwarancja' ),
 		),
 		'legal'   => array(
 			array( 'Regulamin', '/regulamin' ),
@@ -279,7 +280,7 @@ function stilco_get_front_page_faq_items() {
 		),
 		array(
 			'question' => 'Czy materac jest dwustronny?',
-			'answer'   => 'Tak! Nasz model posiada dwie różne strony twardości. Strona z pianką Visco to odczucie "otulenia" (H2), a druga strona (H3) z pianką HR zapewnia stabilniejsze, nieco twardsze podparcie. Ty decydujesz, jak wolisz spać.',
+			'answer'   => 'Tak. Każda ze stron daje inne doświadczenie snu. White oferuje bardziej otulające dopasowanie dzięki warstwie Visco, a Blue zapewnia większą sprężystość i mocniejsze podparcie oparte na piankach wysokoelastycznych.',
 		),
 	);
 
@@ -382,7 +383,7 @@ function stilco_sync_pods_schema() {
 		return;
 	}
 
-	$schema_version = '2026-04-03-1';
+	$schema_version = '2026-04-06-1';
 
 	if ( get_option( 'stilco_pods_schema_version' ) === $schema_version ) {
 		return;
@@ -466,6 +467,10 @@ function stilco_sync_pods_schema() {
 		array( 'name' => 'home_b2b_cta_url', 'label' => 'Home: B2B CTA URL', 'type' => 'website' ),
 		array( 'name' => 'home_faq_title', 'label' => 'Home: FAQ title', 'type' => 'text' ),
 		array( 'name' => 'home_faq_lead', 'label' => 'Home: FAQ lead', 'type' => 'paragraph' ),
+		array( 'name' => 'home_mid_cta_title', 'label' => 'Home: Mid CTA title', 'type' => 'text' ),
+		array( 'name' => 'home_mid_cta_text', 'label' => 'Home: Mid CTA text', 'type' => 'paragraph' ),
+		array( 'name' => 'home_mid_cta_button_text', 'label' => 'Home: Mid CTA button text', 'type' => 'text' ),
+		array( 'name' => 'home_mid_cta_button_url', 'label' => 'Home: Mid CTA button URL', 'type' => 'website' ),
 		array( 'name' => 'about_hero_lead', 'label' => 'About: Hero lead', 'type' => 'paragraph' ),
 		array( 'name' => 'about_hero_image', 'label' => 'About: Hero image', 'type' => 'file', 'options' => array( 'file_format_type' => 'single', 'file_uploader' => 'attachment', 'file_type' => 'images' ) ),
 		array( 'name' => 'about_hero_image_alt', 'label' => 'About: Hero image alt override', 'type' => 'text' ),
@@ -483,6 +488,8 @@ function stilco_sync_pods_schema() {
 		array( 'name' => 'contact_intro_title', 'label' => 'Contact: Intro title', 'type' => 'text' ),
 		array( 'name' => 'contact_intro_lead', 'label' => 'Contact: Intro lead', 'type' => 'paragraph' ),
 		array( 'name' => 'contact_form_title', 'label' => 'Contact: Form title', 'type' => 'text' ),
+		array( 'name' => 'contact_form_shortcode', 'label' => 'Contact: Form shortcode', 'type' => 'text' ),
+		array( 'name' => 'contact_form_shortcode_b2b', 'label' => 'Contact: Form shortcode B2B', 'type' => 'text' ),
 		array( 'name' => 'contact_form_consent', 'label' => 'Contact: Form consent text', 'type' => 'wysiwyg' ),
 		array( 'name' => 'contact_form_button_text', 'label' => 'Contact: Form button text', 'type' => 'text' ),
 		array( 'name' => 'contact_faq_title', 'label' => 'Contact: FAQ ribbon title', 'type' => 'text' ),
@@ -624,7 +631,9 @@ function stilco_sync_pods_schema() {
 	);
 
 	foreach ( array( 'shop', 'company', 'support' ) as $group ) {
-		foreach ( range( 1, 3 ) as $index ) {
+		$link_count = 'support' === $group ? 4 : 3;
+
+		foreach ( range( 1, $link_count ) as $index ) {
 			$settings_fields[] = array( 'name' => "footer_{$group}_link_{$index}_label", 'label' => "Global: Footer {$group} link {$index} label", 'type' => 'text' );
 			$settings_fields[] = array( 'name' => "footer_{$group}_link_{$index}_url", 'label' => "Global: Footer {$group} link {$index} URL", 'type' => 'website' );
 		}

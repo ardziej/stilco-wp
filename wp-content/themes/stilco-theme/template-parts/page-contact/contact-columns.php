@@ -18,6 +18,14 @@ $person_2_name = stilco_get_setting( 'contact_person_2_name', 'Edyta' );
 $person_2_role = stilco_get_setting( 'contact_person_2_role', 'współzałożycielka' );
 $person_2_phone = stilco_get_setting( 'contact_person_2_phone', '+48 695 929 675' );
 $person_2_email = stilco_get_setting( 'contact_person_2_email', 'edyta@stilco.pl' );
+$contact_context = isset( $_GET['context'] ) ? sanitize_key( wp_unslash( $_GET['context'] ) ) : '';
+$is_b2b_context  = 'b2b' === $contact_context;
+$default_cf7_shortcode = '[contact-form-7 id="123" title="Formularz kontaktowy"]';
+$default_cf7_b2b_shortcode = '[contact-form-7 id="124" title="Formularz kontaktowy B2B"]';
+$cf7_shortcode = $is_b2b_context
+	? stilco_get_page_field( 'contact_form_shortcode_b2b', $default_cf7_b2b_shortcode, $page_id )
+	: stilco_get_page_field( 'contact_form_shortcode', $default_cf7_shortcode, $page_id );
+$cf7_available = shortcode_exists( 'contact-form-7' ) || shortcode_exists( 'contact_form_7' );
 ?>
 <section class="py-20">
 	<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
@@ -27,6 +35,13 @@ $person_2_email = stilco_get_setting( 'contact_person_2_email', 'edyta@stilco.pl
 					<h2 class="text-2xl font-display font-semibold text-stilco-dark mb-2"><?php echo esc_html( stilco_get_page_field( 'contact_intro_title', 'Jesteśmy tutaj', $page_id ) ); ?></h2>
 					<p class="text-gray-600 font-sans"><?php echo esc_html( stilco_get_page_field( 'contact_intro_lead', 'Pomagamy wybrać idealny materac i odpowiedzieć na każde pytanie dotyczące Twojego zamówienia.', $page_id ) ); ?></p>
 				</div>
+
+				<?php if ( $is_b2b_context ) : ?>
+				<div class="rounded-3xl border border-stilco-accent/20 bg-white p-6 shadow-sm">
+					<p class="mb-2 text-xs font-semibold uppercase tracking-[0.24em] text-stilco-accent">B2B</p>
+					<p class="text-sm text-gray-600">Wypełnij formularz z danymi firmy i NIP, a łatwiej dopasujemy dalszy kontakt do zapytania biznesowego.</p>
+				</div>
+				<?php endif; ?>
 
 				<div class="space-y-4">
 					<div class="bg-white rounded-3xl p-6 shadow-sm border border-gray-100">
@@ -74,54 +89,20 @@ $person_2_email = stilco_get_setting( 'contact_person_2_email', 'edyta@stilco.pl
 			</div>
 		</div>
 
-		<div class="lg:col-span-8 animate-slide-right delay-200">
+		<div id="formularz-b2b" class="lg:col-span-8 animate-slide-right delay-200">
 			<div class="bg-white rounded-[2.5rem] p-8 md:p-14 shadow-xl border border-gray-100">
-				<h2 class="text-3xl font-serif font-semibold text-stilco-dark mb-8"><?php echo esc_html( stilco_get_page_field( 'contact_form_title', 'Wyślij wiadomość bezpośrednią', $page_id ) ); ?></h2>
+				<h2 class="text-3xl font-serif font-semibold text-stilco-dark mb-8"><?php echo esc_html( stilco_get_page_field( 'contact_form_title', $is_b2b_context ? 'Formularz kontaktowy B2B' : 'Wyślij wiadomość bezpośrednią', $page_id ) ); ?></h2>
 
-				<form action="#" method="POST" class="space-y-6">
-					<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-						<div class="relative">
-							<label for="name" class="block text-sm font-medium text-stilco-dark mb-2">Imię <span class="text-red-500">*</span></label>
-							<input type="text" id="name" name="name" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl text-stilco-dark focus:ring-2 focus:ring-stilco-accent focus:border-transparent outline-none transition-all focus:bg-white focus:shadow-sm" placeholder="Twoje imię">
-						</div>
-
-						<div class="relative">
-							<label for="email" class="block text-sm font-medium text-stilco-dark mb-2">E-mail <span class="text-red-500">*</span></label>
-							<input type="email" id="email" name="email" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl text-stilco-dark focus:ring-2 focus:ring-stilco-accent focus:border-transparent outline-none transition-all focus:bg-white focus:shadow-sm" placeholder="twój.adres@email.pl">
-						</div>
-					</div>
-
-					<div class="relative">
-						<label for="phone" class="block text-sm font-medium text-stilco-dark mb-2">Numer telefonu (opcjonalnie)</label>
-						<input type="tel" id="phone" name="phone" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl text-stilco-dark focus:ring-2 focus:ring-stilco-accent focus:border-transparent outline-none transition-all focus:bg-white focus:shadow-sm" placeholder="+48 --- --- ---">
-					</div>
-
-					<div class="relative">
-						<label for="message" class="block text-sm font-medium text-stilco-dark mb-2">Szczegóły wiadomości <span class="text-red-500">*</span></label>
-						<textarea id="message" name="message" rows="6" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-2xl text-stilco-dark focus:ring-2 focus:ring-stilco-accent focus:border-transparent outline-none transition-all focus:bg-white focus:shadow-sm resize-y" placeholder="Jak możemy Ci dzisiaj pomóc?"></textarea>
-					</div>
-
-					<div class="flex items-start mb-6">
-						<div class="flex items-center h-5 mt-1">
-							<input id="rodo" name="rodo" type="checkbox" required class="w-6 h-6 text-stilco-accent bg-gray-100 border-gray-300 rounded focus:ring-stilco-accent focus:ring-2 cursor-pointer">
-						</div>
-						<label for="rodo" class="ml-3 text-sm text-gray-600 w-full cursor-pointer leading-relaxed">
-							<?php
-							echo wp_kses_post(
-								stilco_get_page_field(
-									'contact_form_consent',
-									'Wyrażam zgodę na przetwarzanie moich danych osobowych przez Stilco Sp. z o.o. w celu obsługi zapytania. Znam zasady z <a href="/polityka-prywatnosci" class="text-stilco-accent hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent">Polityki Prywatności</a>.',
-									$page_id
-								)
-							);
-							?>
-						</label>
-					</div>
-
-					<button type="submit" class="w-full md:w-auto px-10 py-5 bg-stilco-accent text-white font-medium text-lg rounded-full shadow-lg shadow-stilco-accent/30 hover:bg-[#A84A34] transition-all transform hover:scale-105 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-dark">
-						<?php echo esc_html( stilco_get_page_field( 'contact_form_button_text', 'Wyślij Wiadomość', $page_id ) ); ?>
-					</button>
-				</form>
+				<?php if ( $cf7_available && trim( (string) $cf7_shortcode ) !== '' ) : ?>
+				<div class="stilco-contact-form">
+					<?php echo do_shortcode( $cf7_shortcode ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				</div>
+				<?php else : ?>
+				<div class="rounded-3xl border border-dashed border-stilco-accent/30 bg-stilco-sand p-6 text-sm text-gray-700">
+					Ustaw shortcode Contact Form 7 w polu Pods:
+					<strong><?php echo esc_html( $is_b2b_context ? 'contact_form_shortcode_b2b' : 'contact_form_shortcode' ); ?></strong>.
+				</div>
+				<?php endif; ?>
 			</div>
 		</div>
 	</div>

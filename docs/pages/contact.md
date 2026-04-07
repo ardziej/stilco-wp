@@ -20,7 +20,8 @@ Sekcja unosi się w miejscu przy obniżaniu strony.
 ### Kolumna Prawa: Formularz Kontaktowy (WCAG 2.2)
 Biały box z delikatnym cieniowaniem umieszczony na perłowo-szarym lub szałwiowym tle obok.
 - Input fields z aktywnymi krawędziami `Terakoty` i wielkimi labelkami na focus ("zaprojektowany jak pływający tekst").
-- **Imię**, **Email**, **Opcjonalnie Telefon** i **Szczegóły wiadomości** (duże pole).
+- **Imię**, **Email**, **Firma**, **NIP**, **Opcjonalnie Telefon** i **Szczegóły wiadomości** (duże pole).
+- Dla wejść z sekcji B2B formularz powinien jasno komunikować kontekst biznesowy.
 - Wielki interaktywny przycisk **Terakota**: "Wyślij Wiadomość".
 
 ---
@@ -33,5 +34,4 @@ Biały box z delikatnym cieniowaniem umieszczony na perłowo-szarym lub szałwio
 
 ## 4. Często Zadawane Pytania
 Płynny pasek rozciągnięty u dołu ekranu. 
-"Nie lubisz czekać na odpowiedź? Sprawdź nasze [FAQ](/faq), w którym odpowiadamy wprost na 90% pytań dotyczących materaca i logistyki."
-
+"Nie lubisz czekać na odpowiedź? Sprawdź nasze [FAQ](/faq), w którym odpowiadamy wprost na najczęstsze pytania dotyczące materaca, dostawy i testu 100 nocy."
