@@ -6,7 +6,7 @@
 
 ## 1. Kim jest Stilco?
 
-Stilco to polska marka produkująca materace piankowe premium, prowadzona przez Daniela i Edytę – założycieli z Wrocławia. Firma wyróżnia się na rynku jako mały, rodzinny producent z własną szwalnią, który stawia na bezkompromisowe materiały i direct-to-consumer (DTC) sprzedaż online — bez pośredników, bez sieci salonów meblowych.
+Stilco to polska marka produkująca materace piankowe premium, prowadzona przez Daniela i Edytę – założycieli z Malborka. Firma wyróżnia się na rynku jako mały, rodzinny producent z własną szwalnią, który stawia na bezkompromisowe materiały i direct-to-consumer (DTC) sprzedaż online — bez pośredników, bez sieci salonów meblowych.
 
 Narracja marki opiera się na autentyczności: właściciele sami przez lata szukali idealnego materaca, rozczarowali się rynkiem i zdecydowali wziąć sprawy we własne ręce. Historia firmy sięga 2014 roku (pierwsze poszukiwania pianek w Europie), a od ok. 2019 r. Stilco produkuje materace rolowane (pakowane próżniowo) i dostarcza je kurierem bezpośrednio do klienta.
 
@@ -135,7 +135,7 @@ Na podstawie powyższego, szczególnie warte zbadania obszary:
 
 - **Email:** kontakt@stilco.pl
 - **Telefon:** +48 123 456 789 (pn–pt, 8:00–16:00)
-- **Siedziba:** Stilco Sp. z o.o., Wrocław (adres do uzupełnienia po weryfikacji danych rejestrowych)
+- **Siedziba:** Stilco Sp. z o.o., Daleka 122, 82-200 Malbork
 
 ---
 

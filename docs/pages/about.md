@@ -12,7 +12,7 @@
 ## 2. Założyciele – Daniel i Edyta (Układ Obraz + Tekst)
 - **Układ:** 50/50. 
 - **Lewa Strona:** `edyta-daniel.jpg` - Jasne, ciepłe lifestylowe zdjęcie Daniela i Edyty (właścicieli) - uśmiechniętych, na tle jasnej sypialni, lub przy kawie. Zdjęcie ma zaokrąglone krawędzie (organiczny kształt) i miękki cień `Soft Beige`.
-- **Prawa Strona:** Treść. "Stilco to nie korporacja, to my – Daniel i Edyta. Każdy materac powielony w ofercie powstał z naszej bezsenności, i potrzeby stworzenia idealnego środowiska do regeneracji. Po latach testowania i rozczarowań rynkiem ubrań, a potem łóżek – postanowiliśmy wziąć sprawy we własne ręce, w naszej wrocławskiej szwalni."
+- **Prawa Strona:** Treść. "Stilco to nie korporacja, to my – Daniel i Edyta. Każdy materac powielony w ofercie powstał z naszej bezsenności, i potrzeby stworzenia idealnego środowiska do regeneracji. Po latach testowania i rozczarowań rynkiem ubrań, a potem łóżek – postanowiliśmy wziąć sprawy we własne ręce, w naszej malborskiej szwalni."
 
 ---
 

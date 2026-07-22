@@ -33,7 +33,7 @@ $image   = stilco_override_media_alt(
 				echo wp_kses_post(
 					stilco_get_page_field(
 						'about_founders_body',
-						'<p>Każdy materac powielony w ofercie powstał z naszej bezsenności, i potrzeby stworzenia idealnego środowiska do regeneracji.</p><p>Po latach testowania i rozczarowań rynkiem ubrań, a potem łóżek – postanowiliśmy wziąć sprawy we własne ręce, w naszej wrocławskiej szwalni. To co zaczęło się jako poszukiwanie wygody dla nas samych, szybko przerodziło się w misję dostarczenia luksusowego snu każdemu Polakowi.</p>',
+						'<p>Każdy materac z naszej oferty powstał z własnej bezsenności i potrzeby stworzenia dobrego miejsca do regeneracji.</p><p>Po latach testowania i rozczarowań rynkiem ubrań, a potem łóżek, wzięliśmy sprawy we własne ręce w naszej malborskiej szwalni. To, co zaczęło się od szukania wygody dla nas samych, przerodziło się w firmę, która szyje materace dla całej Polski.</p>',
 						$page_id
 					)
 				);

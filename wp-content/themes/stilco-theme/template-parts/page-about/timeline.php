@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $page_id  = get_queried_object_id();
 $fallback = array(
 	1 => array( '1994', 'Narodziny firmy', 'Zakładamy rodzinną firmę w Malborku. Dobre relacje i wzajemny szacunek stają się fundamentem naszej działalności.' ),
-	2 => array( '2016', 'Pierwsze badania', 'Rozpoczynamy intensywne prace badawcze nad właściwościami pianki poliuretanowej i włókien poliestrowych.' ),
+	2 => array( '2014', 'Pierwsze prace nad materacami', 'Rozpoczynamy prace nad własnym materacem: badamy pianki poliuretanowe i włókna poliestrowe.' ),
 	3 => array( '2023', 'Testy i doskonalenie', 'Lata testów i iteracji. Każde wypełnienie sprawdzane pod kątem trwałości, sprężystości i komfortu snu.' ),
 	4 => array( 'Dziś', 'Globalny zasięg', 'Dostarczamy produkty do odbiorców z Polski, Europy i całego świata. Komfort snu staje się standardem dostępnym dla każdego.' ),
 );
