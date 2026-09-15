@@ -13,10 +13,10 @@ DOCS_DIR = os.path.join(os.path.dirname(__file__), '..', 'docs', 'pages')
 # Tylko te strony pojawią się w nawigacji – kolejność wg 'order'.
 # ─────────────────────────────────────────────────────────────────────────────
 PRIMARY_NAV = [
-    {"slug": "materac-stilco", "label": "Materace",  "order": 1, "is_product": True},
-    {"slug": "about",          "label": "O nas",     "order": 2},
-    {"slug": "faq",            "label": "FAQ",       "order": 3},
-    {"slug": "contact",        "label": "Kontakt",   "order": 4},
+    {"slug": "materac-stilco", "label": "Materac",       "order": 1, "is_product": True},
+    {"slug": "strefa-wiedzy",  "label": "Strefa wiedzy", "order": 2},
+    {"slug": "about",          "label": "O nas",         "order": 3},
+    {"slug": "contact",        "label": "Kontakt",       "order": 4},
 ]
 
 

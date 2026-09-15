@@ -23,7 +23,7 @@ $image   = stilco_override_media_alt(
 	<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 		<div class="image-wrapper order-2 md:order-1 relative group animate-slide-left">
 			<div class="absolute -inset-4 bg-stilco-sand rounded-[3rem] transform -rotate-3 transition-transform group-hover:rotate-0 duration-700 ease-out z-0"></div>
-			<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" class="relative z-10 rounded-[2rem] w-full h-auto object-cover shadow-xl aspect-square md:aspect-[4/5]">
+			<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" class="relative z-10 rounded-[2rem] w-full h-auto object-cover shadow-xl aspect-square md:aspect-[4/5]" data-lightbox="<?php echo esc_url( $image['url'] ); ?>">
 		</div>
 
 		<div class="content-wrapper order-1 md:order-2 animate-slide-right delay-200">

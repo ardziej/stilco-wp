@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $page_id  = get_queried_object_id();
-$cta_link = stilco_get_link_data( 'about_cta_text', 'about_cta_url', 'Poznaj nasze bestsellery', wc_get_page_permalink( 'shop' ), $page_id );
+$cta_link = stilco_get_link_data( 'about_cta_text', 'about_cta_url', 'Przejdź do konfiguratora', '/produkt/materac-stilco/', $page_id );
 ?>
 <section class="py-24 bg-white text-center">
 	<div class="max-w-3xl mx-auto px-6">

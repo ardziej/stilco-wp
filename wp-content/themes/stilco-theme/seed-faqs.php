@@ -32,6 +32,37 @@ $faqs = [
         'question' => 'Jak czyścić pokrowiec?',
         'answer' => 'Dzięki zamkowi błyskawicznemu, zdejmiesz pokrowiec w 1 ułamku i wypierzesz w temperaturze do 60°C. Do wnętrza wkładu się nie dostaniesz i nie musisz prać samej pianki - dbaj o to, by używać specjalistycznego ochraniacza lub bardzo dobrych prześcieradeł.',
         'category' => 'Logistyka i Utrzymanie'
+    ],
+    // Pytania z FigJam #14. Odpowiedzi napisane na bazie docs/ - TODO: zweryfikować z marką.
+    [
+        'question' => 'Gdzie materac jest produkowany?',
+        'answer' => 'W Malborku, w naszej własnej szwalni przy ul. Dalekiej 122. Tu kroimy pianki, szyjemy pokrowce z włoskich tkanin i pakujemy każdy materac przed wysyłką. Żadnych podwykonawców z drugiego końca świata.',
+        'category' => 'Produkt: Pianki, Twardość, Rozmiary'
+    ],
+    [
+        'question' => 'Dlaczego mamy tylko jeden rodzaj materaca?',
+        'answer' => 'Bo wolimy zrobić jeden materac naprawdę dobrze, niż dwadzieścia „na każdą kieszeń”. Latami dopracowywaliśmy jedną konstrukcję (pianka HR 40 kg/m³ + Visco 45 kg/m³), która pasuje większości osób. Dzięki dwustronności wybierasz stronę White (bardziej otulającą) lub Blue (bardziej sprężystą) - bez zgadywania w sklepie, który z dziesięciu modeli jest dla Ciebie.',
+        'category' => 'Produkt: Pianki, Twardość, Rozmiary'
+    ],
+    [
+        'question' => 'Czy można gdzieś przetestować materac przed zakupem?',
+        'answer' => 'Najlepszym testem jest Twoja własna sypialnia - dlatego dajemy 100 nocy na próbę. Kilkuminutowe położenie się w salonie nic nie powie o tym, jak śpi się na materacu przez cały miesiąc. Jeśli po tym czasie materac Ci nie odpowiada, odbieramy go i zwracamy pieniądze. Chcesz zobaczyć materac na żywo? Umów się na wizytę w Malborku przez formularz kontaktowy.',
+        'category' => 'Logistyka i Utrzymanie'
+    ],
+    [
+        'question' => 'Skąd jest wysyłka?',
+        'answer' => 'Bezpośrednio z naszej szwalni w Malborku. Materac jest rolowany i pakowany próżniowo tuż po uszyciu, więc do Ciebie jedzie prosto z produkcji, a nie z magazynu pośrednika.',
+        'category' => 'Logistyka i Utrzymanie'
+    ],
+    [
+        'question' => 'Jakie są opcje dostawy?',
+        'answer' => 'Przesyłka kurierska jest wliczona w cenę na terenie całej Polski. Kurier dostarcza paczkę pod drzwi, a dzięki zrolowaniu materac wniesiesz sam nawet na czwarte piętro. W koszyku możesz wskazać preferowany termin dostawy.',
+        'category' => 'Logistyka i Utrzymanie'
+    ],
+    [
+        'question' => 'Ile może być przechowywany materac w formie rolowanej?',
+        'answer' => 'Rozpakuj materac w ciągu 4 tygodni od otrzymania paczki. Krótkie przechowywanie w rolce nie szkodzi piankom, ale im dłużej są ściśnięte, tym dłużej wracają do pełnej wysokości 22 cm. Po rozpakowaniu daj materacowi ok. 72 godziny na pełne rozprężenie.',
+        'category' => 'Logistyka i Utrzymanie'
     ]
 ];
 

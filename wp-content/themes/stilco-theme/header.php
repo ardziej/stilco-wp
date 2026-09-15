@@ -31,31 +31,51 @@
     <?php else : ?>
         <?php 
         $is_transparent_header = stilco_is_transparent_header_context();
-        
-        $header_classes = $is_transparent_header 
-            ? 'transition-all duration-500 bg-white/5 backdrop-blur-md border-b border-white/10 text-white' 
-            : 'bg-white/95 backdrop-blur-md text-stilco-dark border-b border-gray-100 shadow-sm';
-        $logo_classes = $is_transparent_header ? 'transition-all duration-300 invert brightness-0' : '';
-        $main_padding = $is_transparent_header ? '' : 'pt-[88px] md:pt-[104px]'; 
+        // Light hero (new home design): header stays translucent but keeps dark text and logo.
+        $is_light_hero         = $is_transparent_header && stilco_is_light_hero_context();
+
+        if ( $is_light_hero ) {
+            $header_classes = 'transition-all duration-500 bg-white/60 backdrop-blur-md border-b border-white/40 text-stilco-dark';
+            $logo_classes   = 'transition-all duration-300';
+        } elseif ( $is_transparent_header ) {
+            $header_classes = 'transition-all duration-500 bg-white/5 backdrop-blur-md border-b border-white/10 text-white';
+            $logo_classes   = 'transition-all duration-300 invert brightness-0';
+        } else {
+            $header_classes = 'bg-white/95 backdrop-blur-md text-stilco-dark border-b border-gray-100 shadow-sm';
+            $logo_classes   = '';
+        }
+
+        $main_padding = $is_transparent_header ? '' : 'pt-[88px] md:pt-[104px]';
+        $header_cta   = stilco_get_header_cta();
         ?>
         <header id="main-header"
-            class="fixed top-0 z-50 w-full flex items-center justify-between px-6 py-4 md:px-12 shadow-[0_4px_30px_rgba(0,0,0,0.1)] <?php echo esc_attr( $header_classes ); ?>">
-            <div class="header-logo">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm">
-                    <img id="logo-img" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="Stilco Logo" class="h-10 w-auto <?php echo esc_attr( $logo_classes ); ?>">
-                </a>
+            data-hero-tone="<?php echo esc_attr( $is_light_hero ? 'light' : 'dark' ); ?>"
+            class="fixed top-0 z-50 w-full px-6 py-4 md:px-12 shadow-[0_4px_30px_rgba(0,0,0,0.1)] <?php echo esc_attr( $header_classes ); ?>">
+            <div class="flex items-center justify-between gap-6">
+            <div class="flex items-center gap-10">
+                <div class="header-logo">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm">
+                        <img id="logo-img" src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="Stilco Logo" class="h-10 w-auto <?php echo esc_attr( $logo_classes ); ?>">
+                    </a>
+                </div>
+
+                <nav class="header-nav hidden md:flex items-center" aria-label="Menu główne">
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'primary',
+                            'container'      => false,
+                            'menu_class'     => 'flex space-x-6 text-sm font-medium tracking-wide',
+                            'fallback_cb'    => false,
+                        )
+                    );
+                    ?>
+                </nav>
             </div>
 
-            <nav class="header-nav hidden md:flex items-center space-x-8">
-                <?php
-    wp_nav_menu(array(
-        'theme_location' => 'primary',
-        'container' => false,
-        'menu_class' => 'flex space-x-6 text-sm font-medium tracking-wide',
-        'fallback_cb' => false,
-    ));
-    ?>
-            </nav>
+            <a href="<?php echo esc_url( $header_cta['url'] ); ?>" class="header-cta hidden md:inline-flex items-center justify-center rounded-full bg-stilco-dark px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg shadow-black/20 transition-colors duration-300 hover:bg-stilco-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent">
+                <?php echo esc_html( $header_cta['label'] ); ?>
+            </a>
 
             <div class="header-actions flex items-center space-x-4">
                 <!-- Account Icon -->
@@ -84,13 +104,32 @@
                 </button>
 
                 <!-- Mobile Menu Toggle -->
-                <button class="md:hidden text-current focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm p-1">
+                <button id="mobile-menu-toggle" type="button" class="md:hidden text-current focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm p-1" aria-controls="mobile-menu" aria-expanded="false" aria-label="Otwórz menu">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-current" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
                             d="M4 6h16M4 12h16m-7 6h7" />
                     </svg>
                 </button>
+            </div>
+            </div>
+
+            <div id="mobile-menu" class="md:hidden hidden absolute left-0 top-full w-full border-t border-gray-100 bg-white px-6 py-6 text-stilco-dark shadow-xl">
+                <nav aria-label="Menu mobilne">
+                    <?php
+                    wp_nav_menu(
+                        array(
+                            'theme_location' => 'primary',
+                            'container'      => false,
+                            'menu_class'     => 'flex flex-col gap-4 text-base font-medium tracking-wide',
+                            'fallback_cb'    => false,
+                        )
+                    );
+                    ?>
+                </nav>
+                <a href="<?php echo esc_url( $header_cta['url'] ); ?>" class="mt-6 flex items-center justify-center rounded-full bg-stilco-dark px-7 py-3 text-xs font-bold uppercase tracking-[0.12em] text-white shadow-lg shadow-black/20 transition-colors duration-300 hover:bg-stilco-accent">
+                    <?php echo esc_html( $header_cta['label'] ); ?>
+                </a>
             </div>
         </header>
 

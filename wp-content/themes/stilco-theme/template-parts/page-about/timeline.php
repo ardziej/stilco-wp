@@ -14,7 +14,7 @@ $fallback = array(
 	1 => array( '1994', 'Narodziny firmy', 'Zakładamy rodzinną firmę w Malborku. Dobre relacje i wzajemny szacunek stają się fundamentem naszej działalności.' ),
 	2 => array( '2014', 'Pierwsze prace nad materacami', 'Rozpoczynamy prace nad własnym materacem: badamy pianki poliuretanowe i włókna poliestrowe.' ),
 	3 => array( '2023', 'Testy i doskonalenie', 'Lata testów i iteracji. Każde wypełnienie sprawdzane pod kątem trwałości, sprężystości i komfortu snu.' ),
-	4 => array( 'Dziś', 'Globalny zasięg', 'Dostarczamy produkty do odbiorców z Polski, Europy i całego świata. Komfort snu staje się standardem dostępnym dla każdego.' ),
+	4 => array( 'Dziś', 'Materac, z którego jesteśmy dumni', 'Szyjemy i pakujemy w Malborku, wysyłamy do domów w całej Polsce. Komfort snu staje się standardem dostępnym dla każdego.' ),
 );
 $delays   = array( 1 => 'delay-100', 2 => 'delay-200', 3 => 'delay-300', 4 => 'delay-400' );
 ?>

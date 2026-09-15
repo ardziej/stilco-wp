@@ -37,14 +37,9 @@ $locations = get_theme_mod('nav_menu_locations');
 $locations[$primary_menu_location] = $primary_menu_id;
 set_theme_mod('nav_menu_locations', $locations);
 
-// Elementy dla Primary Menu
-wp_update_nav_menu_item($primary_menu_id, 0, array(
-    'menu-item-title'   => 'Strona Główna',
-    'menu-item-classes' => 'home',
-    'menu-item-url'     => home_url( '/' ), 
-    'menu-item-status'  => 'publish'
-));
-
+// Elementy dla Primary Menu.
+// Kolejność wg FigJam #1: Materac, Strefa wiedzy, O nas, Kontakt.
+// Główne CTA "Skonfiguruj" renderuje header.php, nie menu.
 $product_slug = 'materac-stilco';
 $product_page_url = home_url( '/produkt/' . $product_slug . '/' );
 
@@ -56,8 +51,8 @@ wp_update_nav_menu_item($primary_menu_id, 0, array(
 ));
 
 $primary_pages = [
+    'Strefa wiedzy' => 'strefa-wiedzy',
     'O nas' => 'o-nas',
-    'FAQ' => 'faq',
     'Kontakt' => 'kontakt'
 ];
 

@@ -13,8 +13,8 @@ $page_id = get_queried_object_id();
 $image   = stilco_override_media_alt(
 	stilco_get_media_image_data(
 		stilco_get_page_field( 'faq_hero_image', '', $page_id ),
-		'https://images.unsplash.com/photo-1541188495357-ad2ce22fa4ea?q=80&w=2070&auto=format&fit=crop',
-		'Poranek w łóżku Stilco'
+		stilco_get_theme_asset_uri( 'assets/images/knowledge-hero.jpg' ),
+		'Poranek z książką w łóżku na materacu Stilco'
 	),
 	stilco_get_page_field( 'faq_hero_image_alt', '', $page_id )
 );

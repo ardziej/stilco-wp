@@ -221,8 +221,8 @@ function stilco_get_link_data( $label_field, $url_field, $fallback_label, $fallb
 function stilco_get_footer_link_groups() {
 	$groups = array(
 		'shop'    => array(
-			array( 'Materace', '/produkt/materac-stilco/' ),
-			array( 'Akcesoria', '/akcesoria' ),
+			array( 'Materac', '/produkt/materac-stilco/' ),
+			array( 'Dlaczego Stilco?', '/produkt/materac-stilco/#technologia' ),
 			array( 'Karty podarunkowe', '/karty-podarunkowe' ),
 		),
 		'company' => array(
@@ -231,7 +231,7 @@ function stilco_get_footer_link_groups() {
 			array( 'Opinie klientów', '/opinie' ),
 		),
 		'support' => array(
-			array( 'FAQ', '/faq' ),
+			array( 'Strefa wiedzy', '/strefa-wiedzy' ),
 			array( 'Dostawa', '/dostawa' ),
 			array( 'Test 100 nocy', '/zwroty-i-reklamacje' ),
 			array( 'Gwarancja', '/gwarancja' ),
@@ -383,7 +383,7 @@ function stilco_sync_pods_schema() {
 		return;
 	}
 
-	$schema_version = '2026-04-06-1';
+	$schema_version = '2026-09-15-1';
 
 	if ( get_option( 'stilco_pods_schema_version' ) === $schema_version ) {
 		return;
@@ -430,9 +430,11 @@ function stilco_sync_pods_schema() {
 	}
 
 	$page_fields = array(
-		array( 'name' => 'home_hero_eyebrow', 'label' => 'Home: Hero eyebrow', 'type' => 'text' ),
-		array( 'name' => 'home_hero_title_accent', 'label' => 'Home: Hero accent line', 'type' => 'text' ),
+		array( 'name' => 'home_hero_eyebrow', 'label' => 'Home: Hero eyebrow (legacy, unused)', 'type' => 'text' ),
+		array( 'name' => 'home_hero_title', 'label' => 'Home: Hero title', 'type' => 'text' ),
+		array( 'name' => 'home_hero_title_accent', 'label' => 'Home: Hero accent line (legacy, unused)', 'type' => 'text' ),
 		array( 'name' => 'home_hero_lead', 'label' => 'Home: Hero lead', 'type' => 'paragraph' ),
+		array( 'name' => 'home_hero_note', 'label' => 'Home: Hero note under CTAs', 'type' => 'text' ),
 		array( 'name' => 'home_hero_primary_cta_text', 'label' => 'Home: Hero primary CTA text', 'type' => 'text' ),
 		array( 'name' => 'home_hero_primary_cta_url', 'label' => 'Home: Hero primary CTA URL', 'type' => 'website' ),
 		array( 'name' => 'home_hero_secondary_cta_text', 'label' => 'Home: Hero secondary CTA text', 'type' => 'text' ),
@@ -496,6 +498,10 @@ function stilco_sync_pods_schema() {
 		array( 'name' => 'contact_faq_lead', 'label' => 'Contact: FAQ ribbon lead', 'type' => 'paragraph' ),
 		array( 'name' => 'contact_faq_cta_text', 'label' => 'Contact: FAQ ribbon CTA text', 'type' => 'text' ),
 		array( 'name' => 'contact_faq_cta_url', 'label' => 'Contact: FAQ ribbon CTA URL', 'type' => 'website' ),
+		array( 'name' => 'knowledge_posts_eyebrow', 'label' => 'Strefa wiedzy: Posts eyebrow', 'type' => 'text' ),
+		array( 'name' => 'knowledge_posts_title', 'label' => 'Strefa wiedzy: Posts title', 'type' => 'text' ),
+		array( 'name' => 'knowledge_posts_lead', 'label' => 'Strefa wiedzy: Posts lead', 'type' => 'paragraph' ),
+		array( 'name' => 'knowledge_posts_empty', 'label' => 'Strefa wiedzy: Posts empty state', 'type' => 'text' ),
 		array( 'name' => 'faq_hero_lead', 'label' => 'FAQ: Hero lead', 'type' => 'paragraph' ),
 		array( 'name' => 'faq_hero_image', 'label' => 'FAQ: Hero image', 'type' => 'file', 'options' => array( 'file_format_type' => 'single', 'file_uploader' => 'attachment', 'file_type' => 'images' ) ),
 		array( 'name' => 'faq_hero_image_alt', 'label' => 'FAQ: Hero image alt override', 'type' => 'text' ),
@@ -600,6 +606,8 @@ function stilco_sync_pods_schema() {
 	$page_fields[] = array( 'name' => 'mattress_sticky_image_alt', 'label' => 'Mattress: Sticky bar image alt override', 'type' => 'text' );
 
 	$settings_fields = array(
+		array( 'name' => 'header_cta_text', 'label' => 'Global: Header CTA text', 'type' => 'text' ),
+		array( 'name' => 'header_cta_url', 'label' => 'Global: Header CTA URL', 'type' => 'website' ),
 		array( 'name' => 'contact_person_1_name', 'label' => 'Global: Contact person 1 name', 'type' => 'text' ),
 		array( 'name' => 'contact_person_1_role', 'label' => 'Global: Contact person 1 role', 'type' => 'text' ),
 		array( 'name' => 'contact_person_1_phone', 'label' => 'Global: Contact person 1 phone', 'type' => 'text' ),

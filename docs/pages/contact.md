@@ -24,6 +24,18 @@ Biały box z delikatnym cieniowaniem umieszczony na perłowo-szarym lub szałwio
 - Dla wejść z sekcji B2B formularz powinien jasno komunikować kontekst biznesowy.
 - Wielki interaktywny przycisk **Terakota**: "Wyślij Wiadomość".
 
+### Walidacja inline (FigJam #21)
+Motyw ładuje `assets/js/contact-form-validation.js` na stronie kontaktu. Pola `input[type=email]` i `input[type=tel]` w formularzu CF7 są sprawdzane po opuszczeniu pola (i dalej w trakcie pisania), komunikat pojawia się pod polem (`.stilco-inline-error`, `aria-live`). Walidacja serwerowa CF7 zostaje bez zmian.
+
+### Checkbox newslettera (FigJam #22) — TODO: wkleić w wp-admin
+Formularz CF7 żyje w bazie (Kontakt → Formularze), nie w repo. Przed przyciskiem wysyłki dodać:
+
+```
+[acceptance newsletter optional] Chcę otrzymywać newsletter Stilco z poradami o śnie i informacjami o nowościach. [/acceptance]
+```
+
+W zakładce „Mail” dopisać `Newsletter: [newsletter]`. Zapis do systemu newslettera (np. MailerLite/Mailchimp) trzeba podpiąć osobno — obecnie brak integracji. Pole telefonu ma zostać opcjonalne: `[tel telefon]`, e-mail wymagany: `[email* email]`.
+
 ---
 
 ## 3. Zobacz, gdzie jesteśmy (Mapa)

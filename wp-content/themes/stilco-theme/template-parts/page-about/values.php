@@ -47,7 +47,7 @@ $image   = stilco_override_media_alt(
 			</div>
 
 			<div class="bg-gray-200 rounded-3xl overflow-hidden md:col-span-2 relative animate-zoom delay-300">
-				<img src="<?php echo esc_url( $image['url'] ); ?>" class="w-full h-full object-cover" alt="<?php echo esc_attr( $image['alt'] ); ?>">
+				<img src="<?php echo esc_url( $image['url'] ); ?>" class="w-full h-full object-cover" alt="<?php echo esc_attr( $image['alt'] ); ?>" data-lightbox="<?php echo esc_url( $image['url'] ); ?>">
 			</div>
 		</div>
 	</div>

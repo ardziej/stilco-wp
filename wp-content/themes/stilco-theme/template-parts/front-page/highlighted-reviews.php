@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $page_id   = get_queried_object_id();
-$cta_link  = stilco_get_link_data( 'home_reviews_cta_text', 'home_reviews_cta_url', 'Sprawdź opinie naszych Klientów', '/produkt/materac-stilco/#reviews', $page_id );
+$cta_link  = stilco_get_link_data( 'home_reviews_cta_text', 'home_reviews_cta_url', 'Sprawdź opinie naszych wyspanych klientów', '/produkt/materac-stilco/#reviews', $page_id );
 $empty_txt = stilco_get_page_field( 'home_reviews_empty_text', 'Nowe opinie pojawią się wkrótce.', $page_id );
 ?>
 <section class="py-24 bg-white relative overflow-hidden">

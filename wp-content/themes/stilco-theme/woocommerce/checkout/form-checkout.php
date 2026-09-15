@@ -82,7 +82,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
                                 <div class="w-10 h-10 rounded-full bg-stilco-accent/10 text-stilco-accent flex items-center justify-center mb-1">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
                                 </div>
-                                <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider">10 lat<br>gwarancji</span>
+                                <span class="text-[11px] font-bold text-gray-800 uppercase tracking-wider">5 lat<br>gwarancji</span>
                             </div>
                             <div class="flex flex-col items-center text-center space-y-2">
                                 <div class="w-10 h-10 rounded-full bg-stilco-accent/10 text-stilco-accent flex items-center justify-center mb-1">

@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $attachment_ids = isset( $args['attachment_ids'] ) ? (array) $args['attachment_ids'] : array();
 ?>
-<div class="mt-32 border-t border-gray-100 pt-32 animate-on-scroll">
+<div id="technologia" class="mt-32 border-t border-gray-100 pt-32 animate-on-scroll scroll-mt-28">
 	<div class="text-center max-w-3xl mx-auto mb-20">
 		<h2 class="text-xs font-bold uppercase tracking-widest text-stilco-accent mb-4">Innowacja</h2>
 		<h3 class="text-4xl md:text-5xl font-serif font-bold text-stilco-dark mb-6">Odkryj wnętrze materaca.</h3>

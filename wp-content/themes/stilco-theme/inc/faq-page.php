@@ -57,8 +57,8 @@ function stilco_get_faq_posts_for_term( $term_id ) {
  * @return bool
  */
 function stilco_is_faq_page() {
-	return ( function_exists( 'is_page_template' ) && is_page_template( 'page-faq.php' ) )
-		|| ( function_exists( 'is_page' ) && is_page( 'faq' ) );
+	return ( function_exists( 'is_page_template' ) && is_page_template( array( 'page-faq.php', 'page-strefa-wiedzy.php' ) ) )
+		|| ( function_exists( 'is_page' ) && is_page( array( 'faq', 'strefa-wiedzy' ) ) );
 }
 
 /**

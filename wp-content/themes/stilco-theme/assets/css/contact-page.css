@@ -74,3 +74,27 @@
 	font-size: 0.875rem;
 	margin: 0.75rem 0 0;
 }
+
+/* Inline validation (FigJam #21). */
+.stilco-contact-form .stilco-inline-error {
+	display: block;
+	min-height: 1.25rem;
+	margin-top: 0.5rem;
+	font-size: 0.8125rem;
+	line-height: 1.25rem;
+	color: rgb(200 90 65 / 1);
+}
+
+.stilco-contact-form .stilco-inline-error:empty {
+	display: none;
+}
+
+.stilco-contact-form input.is-invalid {
+	border-color: rgb(200 90 65 / 1);
+	box-shadow: 0 0 0 3px rgb(200 90 65 / 0.15);
+}
+
+/* Hide CF7's own tip when the inline message already covers the field. */
+.stilco-contact-form input.is-invalid + .wpcf7-not-valid-tip {
+	display: none;
+}

@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $page_id  = get_queried_object_id();
-$cta_link = stilco_get_link_data( 'contact_faq_cta_text', 'contact_faq_cta_url', 'Przejdź do FAQ', '/faq#faq-start', $page_id );
+$cta_link = stilco_get_link_data( 'contact_faq_cta_text', 'contact_faq_cta_url', 'Przejdź do Strefy wiedzy', '/strefa-wiedzy/#faq-start', $page_id );
 ?>
 <section class="bg-stilco-secondary/20 py-16 text-center border-t border-stilco-secondary/30">
 	<div class="max-w-3xl mx-auto px-6">

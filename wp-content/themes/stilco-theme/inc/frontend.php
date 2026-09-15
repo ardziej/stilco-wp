@@ -15,7 +15,19 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return bool
  */
 function stilco_is_transparent_header_context() {
-	return is_front_page() || is_home() || is_page_template( array( 'page-about.php', 'page-contact.php', 'page-faq.php' ) );
+	return is_front_page() || is_home() || is_page_template( array( 'page-about.php', 'page-contact.php', 'page-faq.php', 'page-strefa-wiedzy.php' ) );
+}
+
+/**
+ * Check whether the transparent header sits on a light hero (dark text, no logo inversion).
+ *
+ * The new home hero (Figma "Stilco — sklep", frame "01 Hero — lokalny wariant")
+ * is a bright lifestyle photo, so the header must keep dark text.
+ *
+ * @return bool
+ */
+function stilco_is_light_hero_context() {
+	return is_front_page();
 }
 
 /**

@@ -116,6 +116,51 @@ Uwaga: teksty w motywie to Pods (`stilco_get_page_field`) z fallbackiem w PHP. Z
 
 Bez zmian w kodzie: #3 (pytanie), #6 (sekcja opinii istnieje; ustalić źródło treści), #9 (TODO), #11 (brak odpowiedzi), #16 (copy już zgodne), #20 (koszyk później).
 
+## Status wdrożenia (2026-09-15, branch `ardziej/figma-comments-read`)
+
+Zrzuty ekranu (desktop 1440 / mobile 390) po zmianach: `docs/screenshots/2026-09-15-figma-review/`.
+
+| Nr | Status | Gdzie |
+| --- | --- | --- |
+| #1 | ✅ Menu: Materac (→ produkt), Strefa wiedzy, O nas, Kontakt po lewej; CTA „Skonfiguruj” (ciemna pigułka, jak w designie) na środku; konto + koszyk po prawej. Dodano działające menu mobilne (burger wcześniej nic nie robił). | `header.php`, `inc/header.php`, `assets/js/modules/mobile-menu.js`, `setup-menus.php`, `scripts/add_wp_pages.py` |
+| #2, #18 | ✅ „5 lat gwarancji” — home nie ma już paska trust (nowy hero), produkt hero (było „do 15 lat”), buy-box (10), checkout, koszyk | `single-product/hero.php`, `page-mattress/buy-box.php`, `checkout/form-checkout.php`, `cart/cart.php` |
+| #3 | ✅ Przycisk „Odkryj więcej” usunięty razem ze starym hero (nowy design go nie ma) | `front-page/hero.php` |
+| #4 | ✅ Globalny lightbox: zdjęcia Dual Comfort, warstw (home), założycieli i wartości (O nas). Esc / klik w tło zamyka, fokus wraca. | `inc/lightbox.php`, `assets/js/lightbox.js`, `assets/css/lightbox.css` |
+| #5 | ✅ 2 kafelki: „Materac Stilco” (konfigurator) i „Dlaczego Stilco?” (→ `/produkt/materac-stilco/#technologia`). Akcesoria out, także w stopce. | `front-page/categories.php`, `inc/pods-content.php` |
+| #6 | ⏸ Sekcja opinii istnieje (`highlighted-reviews.php`, opinie Woo z `_review_image_id`). Do ustalenia: skąd zdjęcia i kto je dodaje. | — |
+| #7 | ✅ „Skontaktuj się z nami i poznaj ofertę dla firm” | `front-page/b2b.php` |
+| #8 | ✅ Ulubionych w motywie nie było — nic do usunięcia | — |
+| #9 | ⏸ Klikalne kafelki korzyści pod „Dodaj do koszyka” — bez decyzji, nie ruszone | — |
+| #10 | ✅ „Globalny zasięg” → „Materac, z którego jesteśmy dumni” (Malbork, cała Polska). Przy okazji: B2B „cała Europa” → „cała Polska”, mapa na Kontakt „Wysyłamy do całej Polski”. | `page-about/timeline.php`, `front-page/b2b.php`, `page-contact/map.php` |
+| #11 | ⏸ Pianki — brak odpowiedzi, tekst „Pianki Premium” bez zmian | — |
+| #12 | ✅ „Przejdź do konfiguratora” → produkt | `page-about/cta.php` |
+| #13 | ✅ Karty bloga równej wysokości (obraz 4:3, tytuł 2 linie, zajawka 3, data na dole) | `template-parts/blog/card.php`, `index.php` |
+| #14 | ✅ 6 nowych pytań, odpowiedzi `TODO: zweryfikować` (`docs/pages/faq.md`). Na produkcji uruchomić `seed-faqs.php`. | `seed-faqs.php` |
+| #15 | ✅ Hero CTA „Dlaczego Stilco?” → sekcja `#dlaczego-my` | `front-page/hero.php` |
+| #16 | ✅ Copy było już zgodne | `front-page/dual-comfort.php` |
+| #17 | ✅ „Sprawdź opinie naszych wyspanych klientów” | `front-page/highlighted-reviews.php` |
+| #19 | ✅ `single.php` + „Powiązane artykuły” (3 karty: ta sama kategoria, dopełnione najnowszymi) | `single.php`, `template-parts/blog/related-posts.php`, `inc/blog.php` |
+| #20 | ⏸ Koszyk/checkout — czeka na komentarze | — |
+| #21 | ✅ Walidacja inline e-mail/telefon w CF7 (blur + input), komunikat pod polem, `aria-invalid` | `assets/js/contact-form-validation.js`, `assets/css/contact-page.css` |
+| #22 | ⏸ Checkbox newslettera: snippet CF7 do wklejenia w wp-admin w `docs/pages/contact.md`; brak integracji z systemem newslettera | — |
+
+### Nowy hero i design „Stilco — sklep”
+
+Plik: https://www.figma.com/design/d0WzwsfTTDJDUHUfsxpErW/Stilco-%E2%80%94-sklep (strona „Stan obecny”: Home, O nas, Materac × desktop/mobile).
+
+- ✅ Hero wg „01 Hero — lokalny wariant”: jasne zdjęcie lifestyle (`docs/photos/new/040`), H1 „Twój dobry sen zaczyna się tutaj.”, lead „Wybierz rozmiar. My uszyjemy Twój materac w Malborku.”, CTA „Kup materac” + drugie, notka „100 nocy na test w Twoim domu.” Header na home ma ciemny tekst i logo (jasne tło), na innych stronach bez zmian.
+- ✅ Dual Comfort: tytuł „Dopasowany do Twoich potrzeb.”; zdjęcie 130 (materac od boku).
+- ⚠️ Rozbieżności design vs komentarze Filipa — zastosowano komentarze (nowsze uwagi): drugi CTA „Dlaczego Stilco?” zamiast „Poznaj przewagi” (#15); lead Dual Comfort = długi tekst z #16, nie krótki z designu; header wg #1 (Strefa wiedzy zamiast FAQ/Blog, bez ulubionych, CTA „Skonfiguruj” na środku) zamiast headera z designu (FAQ, Blog, serduszko, „Zamów materac”). Do potwierdzenia.
+- ❌ Komentarze w pliku designu nie odczytane: API zwraca 403 „You don't have permission to use this comments feature”, a w UI Figma pojawia się prośba o dostęp admina. Trzeba nadać konto `adjweb@gmail.com` uprawnienia „can comment”/edit do pliku albo wyeksportować komentarze.
+- ⏸ Ekrany „O nas” i „Materac” z designu wyglądają na zrzut obecnego stanu strony (nazwy warstw z importu HTML). Nie porównywano piksel w piksel.
+
+### Rzeczy do ogarnięcia po deployu
+
+- Wartości Pods w bazie (dev/prod) nadpisują nowe fallbacki PHP. Sprawdzić w wp-admin pola: `home_hero_*`, `home_trust_2_label`, `home_category_*`, `home_b2b_*`, `home_reviews_cta_text`, `about_timeline_4_*`, `about_cta_*`, `mattress_badge_2_title`, `contact_faq_cta_*`, `contact_map_overlay_text`, footer `shop`/`support`.
+- Uruchomić: `scripts/add_wp_pages.py` (strona `strefa-wiedzy`), `setup-menus.php`, `seed-faqs.php`.
+- CF7: checkbox newslettera + opcjonalny telefon (snippet w `docs/pages/contact.md`). Lokalnie CF7 nie jest zainstalowany, więc na zrzucie Kontaktu jest placeholder.
+- Lokalne środowisko: port 8080 zajmuje proces `yerdd serve`, a kontener `stilco-wp` nie jest w sieci `ai-stilco_default` (błąd bazy). Podgląd robiono na osobnym kontenerze `stilco-wp-preview` (port 8081) zmontowanym na ten worktree.
+
 ## Jak pobrać ponownie (REST)
 
 Wymaga personal access tokena (Figma → Settings → Security → Personal access tokens, scope `file_comments:read`). Zapisz jako `FIGMA_TOKEN` w `.env`, potem:

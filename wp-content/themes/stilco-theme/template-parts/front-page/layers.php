@@ -37,7 +37,7 @@ $page_id = get_queried_object_id();
 				?>
 			<div class="group animate-on-scroll <?php echo esc_attr( $delays[ $i ] ); ?>">
 				<div class="bg-gray-50 h-64 rounded-3xl mb-6 relative overflow-hidden">
-					<img src="<?php echo esc_url( $image['url'] ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="<?php echo esc_attr( $image['alt'] ); ?>">
+					<img src="<?php echo esc_url( $image['url'] ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="<?php echo esc_attr( $image['alt'] ); ?>" data-lightbox="<?php echo esc_url( $image['url'] ); ?>">
 				</div>
 				<h3 class="text-xl font-bold font-display text-stilco-dark mb-2"><?php echo esc_html( stilco_get_page_field( "home_layer_{$i}_title", $fallback[2], $page_id ) ); ?></h3>
 				<p class="text-gray-600 text-sm"><?php echo esc_html( stilco_get_page_field( "home_layer_{$i}_text", $fallback[3], $page_id ) ); ?></p>

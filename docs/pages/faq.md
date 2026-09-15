@@ -27,6 +27,22 @@ Wszystkie pytania (akordeony) są oddzielnymi, zaokrąglonymi w 100% kafelkami (
 - **Jak czyścić pokrowiec?**
   Dzięki zamkowi błyskawicznemu, zdejmiesz pokrowiec w 1 ułamku i wypierzesz w temperaturze do 60°C. Do wnętrza wkładu się nie dostaniesz i nie musisz prać samej pianki - dbaj o to, by używać specjalistycznego ochraniacza lub bardzo dobrych prześcieradeł.
 
+### Część 3: Pytania z przeglądu FigJam (#14) — TODO: zweryfikować odpowiedzi z marką
+Odpowiedzi napisane przez agenta na bazie `docs/` (Malbork, kurier w cenie, 100 nocy, 72 h rozprężania). Źródło w kodzie: `seed-faqs.php`.
+
+- **Gdzie materac jest produkowany?** (Produkt)
+  W Malborku, w naszej własnej szwalni przy ul. Dalekiej 122. Tu kroimy pianki, szyjemy pokrowce z włoskich tkanin i pakujemy każdy materac przed wysyłką.
+- **Dlaczego mamy tylko jeden rodzaj materaca?** (Produkt)
+  Wolimy zrobić jeden materac naprawdę dobrze. Jedna konstrukcja HR40 + Visco45, dwie strony (White / Blue) zamiast dziesięciu modeli do zgadywania.
+- **Czy można gdzieś przetestować materac przed zakupem?** (Logistyka)
+  Najlepszy test to 100 nocy we własnej sypialni. Wizyta w Malborku możliwa po umówieniu przez formularz. *TODO: potwierdzić, czy showroom/wizyty są realne.*
+- **Skąd jest wysyłka?** (Logistyka)
+  Bezpośrednio ze szwalni w Malborku, prosto z produkcji.
+- **Jakie są opcje dostawy?** (Logistyka)
+  Kurier wliczony w cenę na terenie Polski, pod drzwi, wybór terminu w koszyku. *TODO: potwierdzić brak innych opcji (paczkomat, odbiór osobisty).*
+- **Ile może być przechowywany materac w formie rolowanej?** (Logistyka)
+  Rozpakować w ciągu 4 tygodni; po rozpakowaniu ok. 72 h na rozprężenie. *TODO: potwierdzić limit 4 tygodni u producenta pianek.*
+
 ---
 
 ## 3. Sekcja Zamykająca (Contact Ribbon)
