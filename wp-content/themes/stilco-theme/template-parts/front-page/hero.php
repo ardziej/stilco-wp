@@ -39,7 +39,7 @@ $hero_note     = stilco_get_page_field( 'home_hero_note', '100 nocy na test w Tw
 
 	<div class="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pb-14 pt-32 md:py-24">
 		<div class="max-w-xl animate-on-scroll">
-			<h1 class="font-serif font-bold text-stilco-dark text-[2.75rem] leading-[1.05] md:text-6xl lg:text-7xl md:leading-[1.05] tracking-tight mb-6 max-w-[11ch]">
+			<h1 class="font-serif font-bold text-stilco-dark text-[2.75rem] leading-[1.05] md:text-6xl lg:text-7xl md:leading-[1.05] tracking-tight mb-6 max-w-[9ch] text-balance">
 				<?php echo esc_html( $hero_title ); ?>
 			</h1>
 			<p class="text-lg md:text-xl text-gray-700 max-w-sm mb-8 font-sans">
