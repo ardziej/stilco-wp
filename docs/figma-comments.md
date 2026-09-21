@@ -144,6 +144,10 @@ Zrzuty ekranu (desktop 1440 / mobile 390) po zmianach: `docs/screenshots/2026-09
 | #21 | ✅ Walidacja inline e-mail/telefon w CF7 (blur + input), komunikat pod polem, `aria-invalid` | `assets/js/contact-form-validation.js`, `assets/css/contact-page.css` |
 | #22 | ⏸ Checkbox newslettera: snippet CF7 do wklejenia w wp-admin w `docs/pages/contact.md`; brak integracji z systemem newslettera | — |
 
+### Drugi zestaw uwag — Jakub, plik „Stilco — sklep”
+
+Odczytany 2026-09-21 (wcześniej blokował 403). 20 komentarzy, spisane w `docs/figma-comments-sklep.md`. Część jest sprzeczna z uwagami Filipa wdrożonymi w `a8ed8d6` — tabela sprzeczności w tamtym pliku. Do rozstrzygnięcia przed dalszą pracą.
+
 ### Nowy hero i design „Stilco — sklep”
 
 Plik: https://www.figma.com/design/d0WzwsfTTDJDUHUfsxpErW/Stilco-%E2%80%94-sklep (strona „Stan obecny”: Home, O nas, Materac × desktop/mobile).
