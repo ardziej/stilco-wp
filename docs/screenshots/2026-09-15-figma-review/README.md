@@ -10,5 +10,6 @@ Lokalny podgląd (bez Pods i CF7 — widoczne fallbacki z PHP). Desktop 1440 px,
 | O nas (timeline, CTA) | [o-nas-desktop](o-nas-desktop.jpg) | [o-nas-mobile](o-nas-mobile.jpg) |
 | Produkt / konfigurator (5 lat gwarancji, #technologia) | [produkt-desktop](produkt-desktop.jpg) | [produkt-mobile](produkt-mobile.jpg) |
 | Kontakt | [kontakt-desktop](kontakt-desktop.jpg) | [kontakt-mobile](kontakt-mobile.jpg) |
+| Opinie (lista + formularz) | [opinie-desktop](opinie-desktop.jpg) | [opinie-mobile](opinie-mobile.jpg) |
 
-Status per komentarz: `docs/figma-comments.md` → „Status wdrożenia”.
+Status per komentarz: `docs/figma-comments.md` (uwagi Filipa) i `docs/figma-comments-sklep.md` (uwagi Jakuba).

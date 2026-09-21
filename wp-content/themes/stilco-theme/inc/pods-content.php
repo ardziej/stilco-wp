@@ -430,7 +430,7 @@ function stilco_sync_pods_schema() {
 	}
 
 	$page_fields = array(
-		array( 'name' => 'home_hero_eyebrow', 'label' => 'Home: Hero eyebrow (legacy, unused)', 'type' => 'text' ),
+		array( 'name' => 'home_hero_eyebrow', 'label' => 'Home: Hero eyebrow', 'type' => 'text' ),
 		array( 'name' => 'home_hero_title', 'label' => 'Home: Hero title', 'type' => 'text' ),
 		array( 'name' => 'home_hero_title_accent', 'label' => 'Home: Hero accent line (legacy, unused)', 'type' => 'text' ),
 		array( 'name' => 'home_hero_lead', 'label' => 'Home: Hero lead', 'type' => 'paragraph' ),
@@ -439,7 +439,7 @@ function stilco_sync_pods_schema() {
 		array( 'name' => 'home_hero_primary_cta_url', 'label' => 'Home: Hero primary CTA URL', 'type' => 'website' ),
 		array( 'name' => 'home_hero_secondary_cta_text', 'label' => 'Home: Hero secondary CTA text', 'type' => 'text' ),
 		array( 'name' => 'home_hero_secondary_cta_url', 'label' => 'Home: Hero secondary CTA URL', 'type' => 'website' ),
-		array( 'name' => 'home_hero_scroll_label', 'label' => 'Home: Hero scroll label', 'type' => 'text' ),
+		array( 'name' => 'home_hero_scroll_label', 'label' => 'Home: Hero scroll label (legacy, unused)', 'type' => 'text' ),
 		array( 'name' => 'home_hero_image', 'label' => 'Home: Hero image', 'type' => 'file', 'options' => array( 'file_format_type' => 'single', 'file_uploader' => 'attachment', 'file_type' => 'images' ) ),
 		array( 'name' => 'home_hero_image_alt', 'label' => 'Home: Hero image alt override', 'type' => 'text' ),
 		array( 'name' => 'home_dual_eyebrow', 'label' => 'Home: Dual comfort eyebrow', 'type' => 'text' ),
@@ -498,6 +498,12 @@ function stilco_sync_pods_schema() {
 		array( 'name' => 'contact_faq_lead', 'label' => 'Contact: FAQ ribbon lead', 'type' => 'paragraph' ),
 		array( 'name' => 'contact_faq_cta_text', 'label' => 'Contact: FAQ ribbon CTA text', 'type' => 'text' ),
 		array( 'name' => 'contact_faq_cta_url', 'label' => 'Contact: FAQ ribbon CTA URL', 'type' => 'website' ),
+		array( 'name' => 'reviews_hero_eyebrow', 'label' => 'Opinie: Hero eyebrow', 'type' => 'text' ),
+		array( 'name' => 'reviews_hero_lead', 'label' => 'Opinie: Hero lead', 'type' => 'paragraph' ),
+		array( 'name' => 'reviews_hero_cta', 'label' => 'Opinie: Hero CTA text', 'type' => 'text' ),
+		array( 'name' => 'reviews_form_title', 'label' => 'Opinie: Form title', 'type' => 'text' ),
+		array( 'name' => 'reviews_form_lead', 'label' => 'Opinie: Form lead', 'type' => 'paragraph' ),
+		array( 'name' => 'reviews_form_button', 'label' => 'Opinie: Form button text', 'type' => 'text' ),
 		array( 'name' => 'knowledge_posts_eyebrow', 'label' => 'Strefa wiedzy: Posts eyebrow', 'type' => 'text' ),
 		array( 'name' => 'knowledge_posts_title', 'label' => 'Strefa wiedzy: Posts title', 'type' => 'text' ),
 		array( 'name' => 'knowledge_posts_lead', 'label' => 'Strefa wiedzy: Posts lead', 'type' => 'paragraph' ),
@@ -606,6 +612,11 @@ function stilco_sync_pods_schema() {
 	$page_fields[] = array( 'name' => 'mattress_sticky_image_alt', 'label' => 'Mattress: Sticky bar image alt override', 'type' => 'text' );
 
 	$settings_fields = array(
+		array( 'name' => 'reviews_form_recipient', 'label' => 'Global: Review form recipients (comma separated)', 'type' => 'text' ),
+		array( 'name' => 'custom_size_recipient', 'label' => 'Global: Custom size enquiry recipients (comma separated)', 'type' => 'text' ),
+		array( 'name' => 'custom_size_default_length', 'label' => 'Global: Custom size default length (cm)', 'type' => 'number' ),
+		array( 'name' => 'custom_size_default_width', 'label' => 'Global: Custom size default width (cm)', 'type' => 'number' ),
+		array( 'name' => 'custom_size_default_height', 'label' => 'Global: Custom size default height (cm)', 'type' => 'number' ),
 		array( 'name' => 'header_cta_text', 'label' => 'Global: Header CTA text', 'type' => 'text' ),
 		array( 'name' => 'header_cta_url', 'label' => 'Global: Header CTA URL', 'type' => 'website' ),
 		array( 'name' => 'contact_person_1_name', 'label' => 'Global: Contact person 1 name', 'type' => 'text' ),

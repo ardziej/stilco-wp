@@ -100,9 +100,10 @@ if ( ! $product instanceof WC_Product ) {
 			<div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-stilco-accent/5 to-transparent rounded-bl-full -z-0"></div>
 			<div class="relative z-10">
 				<h3 class="font-display font-semibold text-xl text-stilco-dark mb-6">Wymiar materaca</h3>
-				<div class="woo-custom-variations-form">
+				<div class="woo-custom-variations-form" data-custom-size-panel="standard">
 					<?php woocommerce_template_single_add_to_cart(); ?>
 				</div>
+				<?php get_template_part( 'template-parts/woocommerce/single-product/custom-size' ); ?>
 			</div>
 		</div>
 

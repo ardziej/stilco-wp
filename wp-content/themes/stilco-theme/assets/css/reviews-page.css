@@ -1,0 +1,98 @@
+/* Reviews page: submission form controls. */
+
+.stilco-review-form__input {
+	display: block;
+	width: 100%;
+	border: 1px solid rgb(229 231 235 / 1);
+	border-radius: 1rem;
+	background: #fff;
+	padding: 0.875rem 1rem;
+	font-size: 1rem;
+	color: #212529;
+	transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.stilco-review-form__input:focus {
+	outline: none;
+	border-color: rgb(200 90 65 / 1);
+	box-shadow: 0 0 0 3px rgb(200 90 65 / 0.15);
+}
+
+.stilco-review-form__file {
+	display: block;
+	width: 100%;
+	font-size: 0.875rem;
+	color: rgb(107 114 128 / 1);
+}
+
+.stilco-review-form__file::file-selector-button {
+	margin-right: 1rem;
+	border: 0;
+	border-radius: 9999px;
+	background: rgb(200 90 65 / 0.1);
+	padding: 0.5rem 1rem;
+	font-size: 0.875rem;
+	font-weight: 600;
+	color: rgb(200 90 65 / 1);
+	cursor: pointer;
+}
+
+.stilco-review-form__file::file-selector-button:hover {
+	background: rgb(200 90 65 / 0.2);
+}
+
+.stilco-review-form__honeypot {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	white-space: nowrap;
+	border: 0;
+}
+
+/* Star rating: inputs are rendered 5→1 so CSS sibling selectors can light up
+   the chosen star and everything before it. */
+.stilco-rating {
+	display: inline-flex;
+	flex-direction: row-reverse;
+	justify-content: flex-end;
+	gap: 0.25rem;
+}
+
+.stilco-rating__input {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	opacity: 0;
+}
+
+.stilco-rating__label {
+	cursor: pointer;
+	color: rgb(229 231 235 / 1);
+	transition: color 0.15s, transform 0.15s;
+}
+
+.stilco-rating__label svg {
+	width: 2.25rem;
+	height: 2.25rem;
+	fill: currentColor;
+}
+
+.stilco-rating__label:hover,
+.stilco-rating__label:hover ~ .stilco-rating__label,
+.stilco-rating__input:checked ~ .stilco-rating__label {
+	color: rgb(200 90 65 / 1);
+}
+
+.stilco-rating__label:hover {
+	transform: scale(1.08);
+}
+
+.stilco-rating__input:focus-visible + .stilco-rating__label {
+	outline: 2px solid rgb(200 90 65 / 1);
+	outline-offset: 2px;
+	border-radius: 0.25rem;
+}

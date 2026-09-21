@@ -20,8 +20,9 @@ $page_id = get_queried_object_id();
 			<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
 				<?php
 				$fallbacks = array(
-					1 => array( 'assets/images/image179.jpg', 'Oddychający pokrowiec Stilco', 'Oddychający pokrowiec', 'Przewiewna, antyalergiczna tkanina z zamkiem rozdzielczym, która ułatwia dbanie o czystość i codzienny komfort snu.' ),
-					2 => array( 'assets/images/image198.jpg', 'Pianka Visco Memory w świetle', 'Termoelastyczna bliskość', 'Niezwykle miękka warstwa Visco idealnie otulająca i dająca ukojenie mięśniom.' ),
+					// Photos picked on review comments J10 (zip / easy removal) and J9 (model asleep).
+					1 => array( 'assets/images/layer-cover-zip.jpg', 'Zdejmowanie pokrowca Stilco po rozpięciu zamka', 'Oddychający pokrowiec', 'Przewiewna, antyalergiczna tkanina z zamkiem rozdzielczym, która ułatwia dbanie o czystość i codzienny komfort snu.' ),
+					2 => array( 'assets/images/layer-visco-sleep.jpg', 'Kobieta śpiąca na materacu Stilco', 'Termoelastyczna bliskość', 'Niezwykle miękka warstwa Visco idealnie otulająca i dająca ukojenie mięśniom.' ),
 					3 => array( 'assets/images/image205.jpg', 'Pianka wysokoelastyczna', 'Wsparcie i trwałość', 'Rdzeń z pianki HR dba o zachowanie naturalnych krzywizn kręgosłupa i sprawia, że materac to Twoja inwestycja w dobry sen przez wiele lat.' ),
 				);
 				$delays    = array( 1 => 'delay-100', 2 => 'delay-300', 3 => 'delay-500' );

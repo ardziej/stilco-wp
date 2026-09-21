@@ -143,6 +143,41 @@ Zgodne u obu: ulubione out, 5 lat gwarancji, zdjęcie materaca od boku w Dual Co
 - **J19** — podstrona ze zbiorem wszystkich opinii + link „Opinie” w stopce (link w stopce już istnieje, prowadzi do `/opinie`).
 - **J8, J9, J10** — nowe zdjęcia do sekcji warstw: render pokrowca z rozwarstwieniem, modelka śpiąca, detal zamka.
 
+## Status wdrożenia (2026-09-21)
+
+Decyzja Michała: wdrażamy to, co nie jest sprzeczne z uwagami Filipa; sprzeczne zostają do rozstrzygnięcia.
+
+| Nr | Status | Gdzie |
+| --- | --- | --- |
+| J1 | ✅ „Twój rozmiar” pod wyborem wymiaru. Kliknięcie chowa koszyk i pokazuje formularz wyceny: imię i nazwisko, telefon, e-mail, długość / szerokość / wysokość z prefillem 200 / 160 / 22, komentarz, zgoda. Leci e-mailem, nic nie trafia do koszyka. | `inc/custom-size.php`, `single-product/custom-size.php`, `assets/js/custom-size.js`, `assets/css/custom-size.css` |
+| J2 | ✅ Hero niższy, treść wyśrodkowana, nadrzędna linia „Manufaktura dobrego snu”, CTA „Zamów materac” | `front-page/hero.php` |
+| J3 | ✅ Ulubionych w motywie nie było | — |
+| J4 | ⏸ **Sprzeczne z Filipem** — menu zostaje 4-pozycyjne ze Strefą wiedzy | — |
+| J5 | ✅ Zdjęcie hero zostaje | — |
+| J6, J7 | ✅ Zdjęcie materaca od boku, bez dłoni, z metką (`dual-comfort-side.jpg`, foto 130) | `front-page/dual-comfort.php` |
+| J8 | ⏸ Render pokrowca z rozwarstwieniem — potrzebna grafika, nie mam z czego złożyć | — |
+| J9 | ✅ Zdjęcie śpiącej modelki w kafelku „Termoelastyczna bliskość” (foto 049) | `front-page/layers.php` |
+| J10 | ✅ Zdjęcie ze zdejmowanym pokrowcem w kafelku „Oddychający pokrowiec” (foto 094) | `front-page/layers.php` |
+| J11 | ✅ Belka wróciła, trzy pozycje: Darmowy test 100 nocy, 5 lat gwarancji, Marka polska | `front-page/trust-bar.php` |
+| J12 | ✅ Eyebrow „Jeden materac. Wiele możliwości.” już był; przekaz wzmocniony w sekcji niżej (J14) | `front-page/dual-comfort.php` |
+| J13 | ✅ Ciemna sekcja odrobinę jaśniejsza (`#2B3035`), kontrast zachowany | `front-page/mid-cta.php` |
+| J14 | ✅ „Wiele potrzeb. Jeden materac.” | `front-page/mid-cta.php` |
+| J15 | ✅ CTA „Zamów teraz” | `front-page/mid-cta.php` |
+| J16 | ✅ Lead zgodnie z komentarzem | `front-page/mid-cta.php` |
+| J17 | ⏸ **Bez decyzji** — sekcja Kategorie zostaje (przebudowana wg Filipa na dwa kafelki) | — |
+| J18 | ✅ Strona `/opinie` z formularzem: ocena 1–5, dane kontaktowe, treść, pliki (zdjęcia i wideo), zgody. Wysyłka e-mailem, publikacja ręczna. | `page-opinie.php`, `inc/reviews-page.php`, `template-parts/page-opinie/*` |
+| J19 | ✅ Przycisk pod opiniami prowadzi do `/opinie`; strona zbiera wszystkie zatwierdzone opinie z paginacją. Link „Opinie klientów” w stopce już istniał. | `front-page/highlighted-reviews.php`, `page-opinie.php` |
+| J20 | ⏸ Sekcja Blog jest w projekcie, ale nie ma jej na stronie głównej w kodzie. Nie ma czego poprawiać. | — |
+
+### Do rozstrzygnięcia
+
+1. **Menu (J4 vs Filip #1).** Trzy pozycje z „O marce” i blogiem oraz FAQ w środku, czy cztery ze „Strefą wiedzy”? Wersja Jakuba oznacza skasowanie `page-strefa-wiedzy.php`.
+2. **CTA w headerze.** „Zamów materac” (Jakub) czy „Skonfiguruj” (Filip)?
+3. **Sekcja Kategorie (J17).** Usunąć całą, czy zostawić dwa kafelki?
+4. **J8** — skąd wziąć render pokrowca z widocznym rozwarstwieniem.
+5. **Poczta.** Oba nowe formularze wysyłają przez `wp_mail`. Na produkcji potrzebny działający SMTP, inaczej zgłoszenia przepadną. Adresatów ustawić w Pods: `reviews_form_recipient`, `custom_size_recipient`.
+6. **Aktualizacja projektu w Figmie.** Michał chce, żeby projekt odzwierciedlał to, co jest na stronie, i żeby podmienić w nim stare grafiki. Osobne zadanie, jeszcze nie ruszone.
+
 ## Jak pobrać ponownie
 
 ```sh

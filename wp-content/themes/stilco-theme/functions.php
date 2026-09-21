@@ -39,6 +39,8 @@ $stilco_includes = array(
 	'inc/header.php',
 	'inc/blog.php',
 	'inc/lightbox.php',
+	'inc/reviews-page.php',
+	'inc/custom-size.php',
 	'inc/mattress.php',
 	'inc/product-page.php',
 	'inc/dashboard.php',
