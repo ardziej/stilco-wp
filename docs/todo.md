@@ -30,14 +30,25 @@ Zrobione na makiecie „Home — Desktop 1440”:
 Zrobione na makiecie „Materac — Desktop 1440”:
 - kafelek „Twój rozmiar” w siatce rozmiarów oraz panel formularza wyceny z prefillem 200 / 160 / 22 (J1).
 
+Decyzja Michała z 2026-09-21: makiety mają odzwierciedlać to, co strona ma dzisiaj, czyli uwagi Jakuba **i** wdrożone wcześniej uwagi Filipa.
+
+Zrobione dodatkowo na wszystkich sześciu ramkach:
+- nawigacja Materac / Strefa wiedzy / O nas / Kontakt, pozycja „Blog” usunięta, przycisk „Skonfiguruj”;
+- teksty Dual Comfort, warstw, kategorii, opinii i sekcji B2B przepisane z aktualnej strony, w tym „Dostawa w całej Polsce” zamiast Europy;
+- kategorie: kafelek „Akcesoria” usunięty, drugi kafelek przerobiony na „Dlaczego Stilco?” w tym samym stylu co pierwszy;
+- sekcja „08 Blog” usunięta, bo na stronie głównej jej nie ma; przycisk pod FAQ usunięty z tego samego powodu;
+- pytania w podglądzie FAQ zrównane z tymi, które renderuje strona;
+- stopka: Materac, Dlaczego Stilco?, Strefa wiedzy;
+- „2 lata gwarancji” na stronie produktu poprawione na „5 lat gwarancji”;
+- O nas: „Globalny zasięg” zastąpiony, CTA „Przejdź do konfiguratora”;
+- hero mobilny dostał tę samą nadrzędną linię, wyśrodkowanie i belkę zaufania co desktop;
+- podmienione zdjęcia: materac od boku w Dual Comfort, zdejmowany pokrowiec i śpiąca modelka w sekcji warstw, desktop i mobile.
+
 Zostało:
-- [ ] **Ramki mobilne** „Home — Mobile 390” i „Materac — Mobile 390” — te same zmiany.
-- [ ] **O nas — desktop i mobile** — na razie bez zmian, uwagi Jakuba ich nie dotyczą, ale trzeba je zrównać z aktualną stroną.
-- [ ] **Makieta strony `/opinie`** — w projekcie jej nie ma, a na stronie już jest.
-- [ ] **Podmienić stare grafiki w makietach** na te z `docs/photos/new`, zwłaszcza w sekcji warstw (J9 śpiąca modelka, J10 zdejmowany pokrowiec) i w Dual Comfort (foto 130).
+- [ ] **Makiety stron `/opinie` i `/strefa-wiedzy`** — w projekcie ich nie ma, a na stronie już są.
 - [ ] **J8** — render pokrowca z rozwarstwieniem, wciąż brak materiału.
-- [ ] **Dociągnąć stronę do makiet.** Po zamknięciu powyższego przejść sekcja po sekcji i zbliżyć stronę do projektu. Michał zwrócił uwagę, że na stronie produktu przycisk jest w innym miejscu i inaczej wygląda, hero się różni, pozostałe sekcje podobnie.
-- [ ] **Zdecydować, co jest źródłem prawdy** tam, gdzie makieta pokazuje jeszcze stan sprzed uwag Filipa. Strona ma teksty po jego uwagach, makieta nie.
+- [ ] **Dociągnąć stronę do makiet.** Sekcja po sekcji zbliżyć stronę do projektu. Michał zwrócił uwagę, że na stronie produktu przycisk jest w innym miejscu i inaczej wygląda, hero się różni, pozostałe sekcje podobnie. Teraz, gdy treści są zgodne, zostaje sama warstwa wizualna: układ, odstępy, typografia, pozycje przycisków.
+- [ ] **Pozostałe zdjęcia** poza hero, Dual Comfort i warstwami nadal pochodzą ze starego zestawu.
 
 ## 4. Wdrożenie i konfiguracja
 
