@@ -30,3 +30,6 @@ utils/plugins/
 # WooCommerce / WordPress logs
 wp-content/uploads/wc-logs/
 wp-content/debug.log
+
+# Local Codex CLI settings
+.codex/
