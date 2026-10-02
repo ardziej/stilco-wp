@@ -6,7 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	document.querySelectorAll('.js-scroll-to-top').forEach(function (button) {
-		button.addEventListener('click', function () {
+		button.addEventListener('click', function (event) {
+			event.preventDefault();
 			window.scrollTo({ top: 0, behavior: 'smooth' });
 		});
 	});

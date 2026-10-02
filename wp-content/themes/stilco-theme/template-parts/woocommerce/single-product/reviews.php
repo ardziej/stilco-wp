@@ -17,7 +17,7 @@ $total_pages = isset( $args['total_pages'] ) ? (int) $args['total_pages'] : 1;
 $rating_counts = isset( $args['rating_counts'] ) ? (array) $args['rating_counts'] : array( 5 => 0, 4 => 0, 3 => 0, 2 => 0, 1 => 0 );
 $avg_rating = isset( $args['avg_rating'] ) ? (float) $args['avg_rating'] : 0;
 ?>
-<div id="reviews" class="mt-24 border-t border-gray-100 pt-16 pb-24 animate-on-scroll">
+<div id="reviews" class="pt-24 pb-24 animate-on-scroll scroll-mt-28">
 	<div class="max-w-5xl mx-auto">
 		<div class="text-center mb-16">
 			<h2 class="text-xs font-bold uppercase tracking-widest text-stilco-accent mb-4">Weryfikowane Opinie</h2>

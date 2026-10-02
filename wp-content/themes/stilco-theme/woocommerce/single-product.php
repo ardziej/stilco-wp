@@ -19,7 +19,7 @@ get_header( 'shop' ); ?>
 	$reviews_data = stilco_get_single_product_reviews_data( get_the_ID() );
 	?>
 
-	<div class="bg-stilco-light py-12 md:py-24">
+	<div class="bg-stilco-light pt-12 md:pt-24">
 		<div class="max-w-7xl mx-auto px-6">
 			<?php
 			get_template_part(
@@ -35,11 +35,22 @@ get_header( 'shop' ); ?>
 				)
 			);
 			?>
+		</div>
+	</div>
 
+	<?php // Section order follows the "Materac" Figma frame: structure, then reviews, then the 100-night CTA. ?>
+	<?php get_template_part( 'template-parts/page-mattress/composition' ); ?>
+
+	<div class="bg-stilco-light">
+		<div class="max-w-7xl mx-auto px-6">
 			<?php get_template_part( 'template-parts/woocommerce/single-product/reviews', null, $reviews_data ); ?>
-			<?php get_template_part( 'template-parts/woocommerce/single-product/technology', null, array( 'attachment_ids' => $attachment_ids ) ); ?>
-			<?php get_template_part( 'template-parts/woocommerce/single-product/final-cta' ); ?>
-            
+		</div>
+	</div>
+
+	<?php get_template_part( 'template-parts/page-mattress/final-cta' ); ?>
+
+	<div class="bg-stilco-light pb-24">
+		<div class="max-w-7xl mx-auto px-6">
 			<?php get_template_part( 'template-parts/woocommerce/single-product/related-products' ); ?>
 		</div>
 	</div>

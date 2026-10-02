@@ -1,6 +1,6 @@
 <?php
 /**
- * Mattress landing composition section.
+ * Mattress composition section, shared by the mattress landing and the product page.
  *
  * @package Stilco
  */
@@ -26,51 +26,48 @@ $image_2 = stilco_override_media_alt(
 	),
 	stilco_get_page_field( 'mattress_composition_block_2_image_alt', '', $page_id )
 );
+$blocks = array(
+	1 => array(
+		'image'   => $image_1,
+		'title'   => 'Górna warstwa: 5 cm pianki Visco',
+		'text'    => 'Termoelastyczna piana (tzw. "memory foam") o gęstości 45 kg/m3. Pod wpływem ciepła ciała pianka ustępuje tam, gdzie nacisk jest największy: na biodrach i barkach.',
+		'bullets' => array( 1 => 'Dopasowanie 1:1 do ciała', 2 => 'Eliminacja porannych drętwień', 3 => 'Zero nacisku zwrotnego' ),
+	),
+	2 => array(
+		'image'   => $image_2,
+		'title'   => 'Fundament: 15 cm bazy HR (High Resilience)',
+		'text'    => 'Otwartokomórkowa piana wysokoelastyczna (40 kg/m3). Stanowi „kręgosłup” Twojego materaca. Zapobiega zapadaniu się ciała, gwarantując przewiewność i stabilne oparcie przez całą noc.',
+		'bullets' => array( 1 => 'Wysoka oddychalność anty-podgrzewcza', 2 => 'Podstawa absorbująca wstrząsy dla 2 osób', 3 => 'Odporność na wygniatanie na lata' ),
+	),
+);
 ?>
-<section class="py-24 bg-white overflow-hidden relative">
-	<div class="absolute inset-0 bg-stilco-sand/30 transform -skew-y-2 origin-top-left -z-10"></div>
+<section id="technologia" class="py-24 bg-white overflow-hidden relative scroll-mt-28">
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="text-center mb-16 max-w-2xl mx-auto">
-			<span class="text-stilco-accent font-bold uppercase tracking-widest text-sm block mb-2"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_eyebrow', 'Struktura', $page_id ) ); ?></span>
-			<h2 class="text-4xl lg:text-5xl font-serif text-stilco-dark font-bold mb-6"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_title', 'Technologia zdrowego snu. Odkryj wnętrze.', $page_id ) ); ?></h2>
+			<span class="text-[#a84a34] font-bold uppercase tracking-[0.12em] text-xs block"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_eyebrow', 'Struktura', $page_id ) ); ?></span>
+			<h2 class="pt-2 text-4xl md:text-6xl lg:text-[78px] lg:leading-[1.02] font-serif text-stilco-dark font-bold"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_title', 'Zajrzyj do środka materaca', $page_id ) ); ?></h2>
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-24 animate-on-scroll">
-			<div class="order-2 md:order-1">
-				<h3 class="text-3xl font-display font-semibold text-stilco-dark mb-4 drop-shadow-sm"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_block_1_title', 'Górna warstwa: 5 cm pianki Visco', $page_id ) ); ?></h3>
-				<p class="text-lg text-gray-600 font-sans leading-relaxed mb-6">
-					<?php echo esc_html( stilco_get_page_field( 'mattress_composition_block_1_text', 'Termoelastyczna piana (tzw. "memory foam") o gęstości 45 kg/m3. Pod wpływem Twojego ciepła, pianka ustępuje dokładnie tam, gdzie pojawia się największy nacisk - na biodrach i barkach.', $page_id ) ); ?>
-				</p>
-				<ul class="space-y-3 font-medium text-gray-700">
-					<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-					<li class="flex items-center"><svg class="w-5 h-5 text-stilco-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <?php echo esc_html( stilco_get_page_field( "mattress_composition_block_1_bullet_{$i}", array( 1 => 'Idealne dopasowanie 1:1 do ciała', 2 => 'Eliminacja porannych drętwień', 3 => 'Zero nacisku zwrotnego' )[ $i ], $page_id ) ); ?></li>
-					<?php endfor; ?>
-				</ul>
-			</div>
-			<div class="order-1 md:order-2">
-				<div class="w-full aspect-[4/3] rounded-[3rem] overflow-hidden shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-700">
-					<img src="<?php echo esc_url( $image_1['url'] ); ?>" alt="<?php echo esc_attr( $image_1['alt'] ); ?>" class="w-full h-full object-cover">
+		<?php foreach ( $blocks as $n => $block ) : ?>
+			<?php $image_first = 2 === $n; ?>
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-on-scroll <?php echo 1 === $n ? 'mb-24' : 'delay-100'; ?>">
+				<div class="order-2 <?php echo $image_first ? '' : 'md:order-1'; ?>">
+					<h3 class="text-2xl md:text-[28px] leading-[1.1] font-display font-normal text-stilco-dark mb-4"><?php echo esc_html( stilco_get_page_field( "mattress_composition_block_{$n}_title", $block['title'], $page_id ) ); ?></h3>
+					<p class="text-lg md:text-xl md:leading-[1.625] text-stilco-dark/80 font-sans mb-6">
+						<?php echo esc_html( stilco_get_page_field( "mattress_composition_block_{$n}_text", $block['text'], $page_id ) ); ?>
+					</p>
+					<ul class="space-y-3 font-medium text-stilco-dark/80">
+						<?php foreach ( $block['bullets'] as $i => $bullet ) : ?>
+							<li class="flex items-center gap-3"><svg class="w-5 h-5 shrink-0 text-stilco-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <?php echo esc_html( stilco_get_page_field( "mattress_composition_block_{$n}_bullet_{$i}", $bullet, $page_id ) ); ?></li>
+						<?php endforeach; ?>
+					</ul>
+				</div>
+				<div class="order-1 <?php echo $image_first ? '' : 'md:order-2'; ?>">
+					<div class="w-full aspect-[4/3] bg-stilco-sand rounded-[3rem] overflow-hidden shadow-xl transform <?php echo $image_first ? '-rotate-1' : 'rotate-1'; ?> hover:rotate-0 transition-transform duration-700">
+						<img src="<?php echo esc_url( $block['image']['url'] ); ?>" alt="<?php echo esc_attr( $block['image']['alt'] ); ?>" class="w-full h-full object-cover" loading="lazy">
+					</div>
 				</div>
 			</div>
-		</div>
-
-		<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-on-scroll delay-100">
-			<div class="order-1">
-				<div class="w-full aspect-[4/3] rounded-[3rem] overflow-hidden shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-700">
-					<img src="<?php echo esc_url( $image_2['url'] ); ?>" alt="<?php echo esc_attr( $image_2['alt'] ); ?>" class="w-full h-full object-cover">
-				</div>
-			</div>
-			<div class="order-2">
-				<h3 class="text-3xl font-display font-semibold text-stilco-dark mb-4 drop-shadow-sm"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_block_2_title', 'Fundament: 15 cm bazy HR (High Resilence)', $page_id ) ); ?></h3>
-				<p class="text-lg text-gray-600 font-sans leading-relaxed mb-6">
-					<?php echo esc_html( stilco_get_page_field( 'mattress_composition_block_2_text', 'Otwartokomórkowa piana wysokoelastyczna (40 kg/m3). Stanowi „kręgosłup” Twojego materaca. Zapobiega zapadaniu się ciała, gwarantując przewiewność i stabilne oparcie przez całą noc.', $page_id ) ); ?>
-				</p>
-				<ul class="space-y-3 font-medium text-gray-700">
-					<?php for ( $i = 1; $i <= 3; $i++ ) : ?>
-					<li class="flex items-center"><svg class="w-5 h-5 text-stilco-accent mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> <?php echo esc_html( stilco_get_page_field( "mattress_composition_block_2_bullet_{$i}", array( 1 => 'Wysoka oddychalnosc anty-podgrzewcza', 2 => 'Podstawa absorbujaca wstrzasy dla 2 osob', 3 => 'Odpornosc na wygniatanie na lata' )[ $i ], $page_id ) ); ?></li>
-					<?php endfor; ?>
-				</ul>
-			</div>
-		</div>
+		<?php endforeach; ?>
 	</div>
 </section>
