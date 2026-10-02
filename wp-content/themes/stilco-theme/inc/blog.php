@@ -76,15 +76,17 @@ function stilco_get_related_posts( $post_id, $limit = STILCO_RELATED_POSTS_COUNT
 /**
  * Get posts for the knowledge base ("Strefa wiedzy") listing.
  *
- * @param int $limit Number of posts, -1 for all.
+ * @param int $limit Number of posts per page, -1 for all.
+ * @param int $paged Page number.
  * @return WP_Query
  */
-function stilco_get_knowledge_posts( $limit = 9 ) {
+function stilco_get_knowledge_posts( $limit = 9, $paged = 1 ) {
 	return new WP_Query(
 		array(
 			'post_type'           => 'post',
 			'post_status'         => 'publish',
 			'posts_per_page'      => (int) $limit,
+			'paged'               => max( 1, (int) $paged ),
 			'ignore_sticky_posts' => true,
 		)
 	);

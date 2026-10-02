@@ -8,6 +8,28 @@
 get_header(); ?>
 
 <div class="max-w-7xl mx-auto px-6 py-16">
+	<?php if ( is_archive() || is_search() ) : ?>
+		<?php
+		if ( is_search() ) {
+			$listing_title = sprintf( 'Wyniki wyszukiwania: „%s”', get_search_query() );
+		} elseif ( is_category() || is_tag() ) {
+			$listing_title = single_term_title( '', false );
+		} else {
+			$listing_title = wp_strip_all_tags( get_the_archive_title() );
+		}
+		?>
+		<header class="mx-auto mb-12 max-w-2xl text-center">
+			<a href="<?php echo esc_url( home_url( '/strefa-wiedzy/#artykuly' ) ); ?>" class="text-xs font-bold uppercase tracking-[0.12em] text-[#a84a34] hover:underline">&larr; Wszystkie artykuły</a>
+			<h1 class="pt-3 font-display text-4xl font-normal text-stilco-dark md:text-[52px] md:leading-[1.05]"><?php echo esc_html( $listing_title ); ?></h1>
+			<?php if ( is_category() || is_tag() ) : ?>
+				<?php $term_description = term_description(); ?>
+				<?php if ( $term_description ) : ?>
+					<div class="mt-4 text-lg text-stilco-dark/80"><?php echo wp_kses_post( $term_description ); ?></div>
+				<?php endif; ?>
+			<?php endif; ?>
+		</header>
+	<?php endif; ?>
+
 	<?php if ( have_posts() ) : ?>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 			<?php

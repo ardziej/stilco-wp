@@ -235,6 +235,9 @@ function stilco_get_footer_link_groups() {
 			array( 'Dostawa', '/dostawa' ),
 			array( 'Test 100 nocy', '/zwroty-i-reklamacje' ),
 			array( 'Gwarancja', '/gwarancja' ),
+			// Last on purpose: Pods overrides are keyed by position (footer_support_link_N_*).
+			// The blog has no main-menu item; this links straight to its articles.
+			array( 'Blog', '/strefa-wiedzy/#artykuly' ),
 		),
 		'legal'   => array(
 			array( 'Regulamin', '/regulamin' ),

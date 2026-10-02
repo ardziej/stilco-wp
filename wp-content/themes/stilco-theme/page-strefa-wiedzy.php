@@ -14,7 +14,11 @@ get_header(); ?>
 	<?php $terms = stilco_get_faq_page_terms(); ?>
 	<?php get_template_part( 'template-parts/page-faq/hero' ); ?>
 	<?php get_template_part( 'template-parts/page-faq/faq-groups', null, array( 'terms' => $terms ) ); ?>
-	<?php get_template_part( 'template-parts/knowledge/posts', null, array( 'query' => stilco_get_knowledge_posts( 9 ) ) ); ?>
+	<?php
+	// A static page paginates through the "page" query var: /strefa-wiedzy/page/2/.
+	$knowledge_paged = max( 1, (int) get_query_var( 'paged' ), (int) get_query_var( 'page' ) );
+	get_template_part( 'template-parts/knowledge/posts', null, array( 'query' => stilco_get_knowledge_posts( 9, $knowledge_paged ), 'paged' => $knowledge_paged ) );
+	?>
 	<?php get_template_part( 'template-parts/page-faq/contact-ribbon' ); ?>
 </main>
 
