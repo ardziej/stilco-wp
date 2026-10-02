@@ -1,6 +1,6 @@
 <?php
 /**
- * "Twój rozmiar" toggle and quote form under the size picker.
+ * "Inny rozmiar" toggle and quote form under the size picker.
  *
  * @package Stilco
  */
@@ -17,8 +17,7 @@ $redirect = get_permalink();
 ?>
 <div id="twoj-rozmiar" class="stilco-custom-size scroll-mt-28" data-custom-size-root <?php echo $is_open ? 'data-custom-size-open="1"' : ''; ?>>
 	<button type="button" class="stilco-custom-size__toggle size-option size-option--custom" data-custom-size-toggle aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>" aria-controls="twoj-rozmiar-panel">
-		<svg class="size-option__icon" width="44" height="64" viewBox="0 0 44 64" aria-hidden="true" focusable="false"><rect x="12.22" y="4" width="19.56" height="56" rx="5.33"></rect></svg>
-		<span class="size-option__label">Twój<br>rozmiar</span>
+		<span class="size-option__label">Inny rozmiar</span>
 	</button>
 
 	<div id="twoj-rozmiar-panel" class="stilco-custom-size__panel" data-custom-size-panel="custom" <?php echo $is_open ? '' : 'hidden'; ?>>

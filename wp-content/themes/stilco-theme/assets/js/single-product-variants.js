@@ -2,16 +2,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	var priceDisplay = document.querySelector('.price-display');
 	var defaultPriceHtml = priceDisplay ? priceDisplay.innerHTML : '';
 
-	// Mattress outline drawn to scale: 56px tall, width follows the size in cm.
-	function sizeIcon(widthCm) {
-		var w = Math.min(36, 6.4 + 0.164 * widthCm);
-		var x = (44 - w) / 2;
-
-		return '<svg class="size-option__icon" width="44" height="64" viewBox="0 0 44 64" aria-hidden="true" focusable="false">'
-			+ '<rect x="' + x.toFixed(2) + '" y="4" width="' + w.toFixed(2) + '" height="56" rx="5.33"></rect>'
-			+ '</svg>';
-	}
-
 	function initCustomVariants() {
 		var forms = document.querySelectorAll('.variations_form');
 
@@ -40,11 +30,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 				container = document.createElement('div');
 				container.className = 'custom-size-selector';
+				container.setAttribute('role', 'group');
+				container.setAttribute('aria-labelledby', 'size-picker-label');
 
 				Array.from(select.options).forEach(function (opt) {
-					var text;
-					var parts;
-					var width = 160;
 					var btn;
 
 					if (!opt.value) {
@@ -52,21 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
 					}
 
 					hasValidOptions = true;
-					text = opt.innerText.replace(/cm/gi, '').trim();
-					parts = text.split(/[xX×*]/);
-
-					if (!isNaN(parseInt(parts[0], 10))) {
-						width = parseInt(parts[0], 10);
-					}
 
 					btn = document.createElement('button');
 					btn.type = 'button';
 					btn.className = 'size-option';
 					btn.dataset.value = opt.value;
 					btn.setAttribute('aria-pressed', select.value === opt.value ? 'true' : 'false');
-					btn.innerHTML = sizeIcon(width)
-						+ '<span class="size-option__label">' + text.replace(/\s*[xX*]\s*/, '×') + '</span>'
-						+ '<span class="size-option__unit">cm</span>';
+					btn.innerHTML = '<span class="size-option__label">'
+						+ opt.innerText.replace(/cm/gi, '').trim().replace(/\s*[xX*]\s*/, '×')
+						+ '</span><span class="size-option__unit">cm</span>';
 
 					if (select.value === opt.value) {
 						btn.classList.add('is-active');
@@ -96,8 +79,8 @@ document.addEventListener('DOMContentLoaded', function () {
 					return;
 				}
 
-				// "Twój rozmiar" is rendered next to the form so it works without JS;
-				// with JS it joins the grid as the last tile, as in the design.
+				// "Inny rozmiar" is rendered next to the form so it works without JS;
+				// with JS it joins the grid as the last, full-width chip.
 				customTile = document.querySelector('[data-custom-size-toggle]');
 
 				if (customTile) {
@@ -110,12 +93,62 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	}
 
-	setTimeout(initCustomVariants, 100);
+	// The add-to-cart button says what is missing. WooCommerce marks it with
+	// .wc-variation-selection-needed until a size is chosen; we only read that.
+	var addButton = document.querySelector('form.cart .single_add_to_cart_button');
+	var addLabel = addButton ? addButton.textContent.trim() : '';
+
+	function needsSize() {
+		return !!addButton && addButton.classList.contains('wc-variation-selection-needed');
+	}
+
+	function syncAddLabel() {
+		var label = needsSize() ? 'Wybierz wymiar' : addLabel;
+
+		if (addButton) {
+			addButton.textContent = label;
+		}
+	}
+
+	function focusSizePicker() {
+		var picker = document.querySelector('.custom-size-selector');
+		var chip = picker ? picker.querySelector('.size-option') : null;
+
+		if (!chip) {
+			return;
+		}
+
+		picker.scrollIntoView({
+			block: 'center',
+			behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'
+		});
+		chip.focus({ preventScroll: true });
+	}
+
+	if (addButton) {
+		// Instead of WooCommerce's "choose an option" alert, take the visitor to the sizes.
+		addButton.addEventListener('click', function (event) {
+			if (needsSize()) {
+				event.preventDefault();
+				event.stopPropagation();
+				focusSizePicker();
+			}
+		}, true);
+	}
+
+	setTimeout(function () {
+		initCustomVariants();
+		syncAddLabel();
+	}, 100);
 
 	if (window.jQuery) {
 		jQuery('.variations_form')
 			.on('woocommerce_update_variation_values', function () {
 				setTimeout(initCustomVariants, 50);
+			})
+			.on('show_variation hide_variation reset_data', function () {
+				// WooCommerce toggles the button classes in its own handlers; read them after.
+				setTimeout(syncAddLabel, 0);
 			})
 			.on('found_variation', function (event, variation) {
 				if (priceDisplay && variation.price_html) {

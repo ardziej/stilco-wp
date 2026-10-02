@@ -190,6 +190,11 @@
 }
 
 @media (max-width: 1023px) {
+	/* Lower than square so the buy box starts on the first screen. */
+	.pg-item {
+		aspect-ratio: 16 / 9;
+	}
+
 	.pg-item__more {
 		display: none;
 	}

@@ -19,7 +19,7 @@ get_header( 'shop' ); ?>
 	$reviews_data = stilco_get_single_product_reviews_data( get_the_ID() );
 	?>
 
-	<div class="bg-stilco-light pt-12 md:pt-24">
+	<div class="bg-stilco-light pt-4 md:pt-24">
 		<div class="max-w-7xl mx-auto px-6">
 			<?php
 			get_template_part(

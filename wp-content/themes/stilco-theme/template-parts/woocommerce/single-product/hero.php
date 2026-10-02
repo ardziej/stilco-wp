@@ -43,7 +43,7 @@ $benefits = array(
 	),
 );
 ?>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-20 items-start mb-24">
 	<?php
 	// Desktop: collage of the first five photos, the fifth showing how many more there are.
 	// Phone: swipeable carousel of all of them. Every photo opens the lightbox.
@@ -52,7 +52,7 @@ $benefits = array(
 	$collage_size  = 5;
 	$hidden_count  = max( 0, $gallery_total - $collage_size );
 	?>
-	<div class="product-gallery relative" data-pg-group="product">
+	<div class="product-gallery relative lg:sticky lg:top-24" data-pg-group="product">
 		<?php if ( $gallery_ids ) : ?>
 			<div class="pg-track" data-pg-track>
 				<?php foreach ( $gallery_ids as $index => $image_id ) : ?>
@@ -109,9 +109,10 @@ $benefits = array(
 		<?php endif; ?>
 	</div>
 
-	<div class="product-configurator w-full animate-on-scroll">
+	<?php // Phones: description and benefits move below the buy box so "Dodaj do koszyka" fits on the first screen. ?>
+	<div class="product-configurator w-full animate-on-scroll flex flex-col lg:block lg:sticky lg:top-24">
 		<?php if ( $total_reviews > 0 ) : ?>
-			<div class="flex items-center gap-2 pb-4">
+			<div class="flex items-center gap-2 pb-2 lg:pb-4">
 				<div class="flex text-stilco-accent" aria-hidden="true">
 					<?php for ( $star = 1; $star <= 5; $star++ ) : ?>
 						<svg class="w-5 h-5 <?php echo $star <= round( $avg_rating ) ? '' : 'opacity-25'; ?>" viewBox="0 0 20 20" fill="currentColor" stroke="currentColor" stroke-width="1.67" stroke-linejoin="round"><path d="M9.6 1.91a.45.45 0 0 1 .8 0l1.92 3.9a2.3 2.3 0 0 0 1.33 1l4.3.6a.45.45 0 0 1 .25.76l-3.11 3.03a2.3 2.3 0 0 0-.51 1.57l.73 4.28a.45.45 0 0 1-.64.47l-3.85-2.02a2.3 2.3 0 0 0-1.64 0l-3.85 2.02a.45.45 0 0 1-.64-.47l.74-4.28a2.3 2.3 0 0 0-.51-1.57L1.8 8.16a.45.45 0 0 1 .25-.76l4.3-.63a2.3 2.3 0 0 0 1.33-.96Z"/></svg>
@@ -126,15 +127,15 @@ $benefits = array(
 			</div>
 		<?php endif; ?>
 
-		<h1 class="text-5xl md:text-6xl lg:text-[78px] font-serif font-bold text-stilco-dark pb-4 leading-[1.02]">
+		<h1 class="text-5xl md:text-6xl lg:text-[78px] font-serif font-bold text-stilco-dark pb-2 lg:pb-4 leading-[1.02]">
 			<?php the_title(); ?>
 		</h1>
 
-		<div class="text-lg lg:text-xl text-stilco-dark/80 leading-relaxed lg:leading-[1.625] pb-8 [&_p]:m-0">
+		<div class="order-1 lg:order-none text-lg lg:text-xl text-stilco-dark/80 leading-relaxed lg:leading-[1.625] pb-8 [&_p]:m-0">
 			<?php the_excerpt(); ?>
 		</div>
 
-		<div class="border-t border-stilco-dark/10 pt-6 pb-8">
+		<div class="border-t border-stilco-dark/10 pt-4 pb-4 lg:pt-6 lg:pb-8">
 			<p class="text-sm font-medium uppercase tracking-[0.025em] text-stilco-dark/70">Cena z dostawą</p>
 			<div class="mt-1 flex items-baseline gap-4">
 				<span class="price-display text-3xl lg:text-4xl font-bold text-stilco-accent leading-10"><?php echo wp_kses_post( $product->get_price_html() ); ?></span>
@@ -145,14 +146,14 @@ $benefits = array(
 		</div>
 
 		<div class="pb-8">
-			<h2 class="font-display font-semibold text-base text-stilco-dark">Wymiar materaca</h2>
+			<h2 id="size-picker-label" class="font-display font-semibold text-base text-stilco-dark">Wymiar materaca</h2>
 			<div class="woo-custom-variations-form">
 				<?php woocommerce_template_single_add_to_cart(); ?>
 			</div>
 			<?php get_template_part( 'template-parts/woocommerce/single-product/custom-size' ); ?>
 		</div>
 
-		<ul class="grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-stilco-dark/10 pt-6">
+		<ul class="order-2 lg:order-none grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-stilco-dark/10 pt-6">
 			<?php foreach ( $benefits as $benefit ) : ?>
 				<li class="flex flex-col items-center justify-center text-center bg-white border border-stilco-dark/5 rounded-2xl shadow-sm p-6">
 					<svg class="w-10 h-10 mb-3 text-stilco-accent" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="3.33" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><?php echo $benefit['icon']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- static SVG markup. ?></svg>

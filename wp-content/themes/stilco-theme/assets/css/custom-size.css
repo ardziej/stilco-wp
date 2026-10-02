@@ -1,10 +1,10 @@
-/* "Twój rozmiar" — custom size enquiry on the product page.
-   The toggle itself is styled as a size tile in single-product-variants.css. */
+/* "Inny rozmiar" — custom size enquiry on the product page.
+   The toggle itself is styled as a size chip in single-product-variants.css. */
 
 .stilco-custom-size > .stilco-custom-size__toggle {
 	/* no-JS fallback: the tile stays here instead of joining the size grid */
 	margin-top: 0.75rem;
-	width: calc(50% - 0.375rem);
+	width: 100%;
 }
 
 .stilco-custom-size__panel {

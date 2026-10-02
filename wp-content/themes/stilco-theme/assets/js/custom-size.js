@@ -1,5 +1,5 @@
 /**
- * "Twój rozmiar" panel toggle on the product page.
+ * "Inny rozmiar" panel toggle on the product page.
  *
  * Opening the custom-size form hides the cart controls, so a visitor asking
  * for a quote cannot also add a standard size to the cart by accident.
@@ -16,7 +16,7 @@
 
 		var toggle = root.querySelector('[data-custom-size-toggle]');
 		var panel = root.querySelector('[data-custom-size-panel="custom"]');
-		// Only the price, delivery date and button go away; the size tiles stay.
+		// Only the price, delivery date and button go away; the size chips stay.
 		var cart = document.querySelector('.variations_form .single_variation_wrap');
 
 		if (!toggle || !panel) {
