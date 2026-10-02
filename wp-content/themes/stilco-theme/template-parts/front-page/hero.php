@@ -40,22 +40,22 @@ $hero_note     = stilco_get_page_field( 'home_hero_note', '100 nocy na test w Tw
 
 	<div class="relative z-10 w-full max-w-3xl mx-auto px-6 pb-14 pt-32 md:py-20 text-center animate-on-scroll">
 		<span class="mb-5 block text-xs md:text-sm font-semibold uppercase tracking-[0.22em] text-stilco-accent"><?php echo esc_html( $hero_eyebrow ); ?></span>
-		<h1 class="font-serif font-bold text-stilco-dark text-[2.75rem] leading-[1.05] md:text-6xl lg:text-7xl md:leading-[1.05] tracking-tight mb-6 text-balance">
+		<h1 class="mx-auto max-w-[408px] font-serif font-bold text-stilco-dark text-[2.75rem] leading-[1.08] md:text-[4.05rem] tracking-[-0.035em] mb-5 text-balance">
 			<?php echo esc_html( $hero_title ); ?>
 		</h1>
-		<p class="mx-auto max-w-xl text-lg md:text-xl text-gray-700 mb-9 font-sans">
+		<p class="mx-auto max-w-xl text-base leading-relaxed text-stilco-dark mb-8 font-sans">
 			<?php echo esc_html( $hero_lead ); ?>
 		</p>
 		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
-			<a href="<?php echo esc_url( $primary_cta['url'] ); ?>" class="btn-primary inline-flex items-center justify-center rounded-full bg-stilco-accent px-10 py-4 text-base font-semibold text-white shadow-xl shadow-stilco-accent/30 hover:bg-stilco-dark transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-dark">
+			<a href="<?php echo esc_url( $primary_cta['url'] ); ?>" class="btn-primary inline-flex items-center justify-center rounded-full bg-[#a84a34] min-h-[56px] px-10 py-3 text-base font-semibold text-white shadow-xl shadow-stilco-accent/40 hover:bg-stilco-dark transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-dark">
 				<?php echo esc_html( $primary_cta['label'] ); ?>
 			</a>
-			<a href="<?php echo esc_url( $secondary_cta['url'] ); ?>" class="inline-flex items-center justify-center rounded-full border-2 border-stilco-dark/70 bg-white/70 px-9 py-[0.875rem] text-base font-semibold text-stilco-dark backdrop-blur-sm hover:bg-stilco-dark hover:text-white transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent">
+			<a href="<?php echo esc_url( $secondary_cta['url'] ); ?>" class="inline-flex items-center justify-center rounded-full border-2 border-stilco-dark bg-white/70 min-h-[56px] px-[34px] py-3 text-base font-semibold text-stilco-dark backdrop-blur-sm hover:bg-stilco-dark hover:text-white transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent">
 				<?php echo esc_html( $secondary_cta['label'] ); ?>
 			</a>
 		</div>
 		<?php if ( $hero_note ) : ?>
-			<p class="mt-6 text-sm text-gray-700"><?php echo esc_html( $hero_note ); ?></p>
+			<p class="mt-5 text-sm text-stilco-dark"><?php echo esc_html( $hero_note ); ?></p>
 		<?php endif; ?>
 	</div>
 </section>
