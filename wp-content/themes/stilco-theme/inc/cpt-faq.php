@@ -64,7 +64,10 @@ function stilco_register_faq_cpt() {
     $args = array(
         'labels'             => $labels,
         'public'             => true,
-        'publicly_queryable' => true,
+        // Answers live in the accordions; a question has no page of its own.
+        // Without these, search listed FAQs and linked them to 404s.
+        'publicly_queryable' => false,
+        'exclude_from_search' => true,
         'show_ui'            => true,
         'show_in_menu'       => 'stilco_settings', // Istotne: Przypisanie jako podmenu do głównej zakładki "Stilco"
         'query_var'          => true,
