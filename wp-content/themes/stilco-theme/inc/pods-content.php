@@ -281,10 +281,6 @@ function stilco_get_front_page_faq_items() {
 			'question' => 'Jak prać pokrowiec?',
 			'answer'   => 'Pokrowiec posiada zamek 360°, co pozwala na odpięcie górnej lub dolnej warstwy niezależnie. Możesz prać go w pralce w temperaturze do 40°C używając delikatnych detergentów. Susz tradycyjnie, nie wolno suszyć w suszarce bębnowej.',
 		),
-		array(
-			'question' => 'Czy materac jest dwustronny?',
-			'answer'   => 'Tak. Każda ze stron daje inne doświadczenie snu. White oferuje bardziej otulające dopasowanie dzięki warstwie Visco, a Blue zapewnia większą sprężystość i mocniejsze podparcie oparte na piankach wysokoelastycznych.',
-		),
 	);
 
 	if ( ! post_type_exists( 'faq' ) ) {
@@ -294,7 +290,7 @@ function stilco_get_front_page_faq_items() {
 	$query = new WP_Query(
 		array(
 			'post_type'      => 'faq',
-			'posts_per_page' => 4,
+			'posts_per_page' => 3,
 			'post_status'    => 'publish',
 			'orderby'        => array(
 				'menu_order' => 'ASC',

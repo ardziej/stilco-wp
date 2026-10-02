@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $page_id = get_queried_object_id();
 ?>
-<section class="py-24 bg-white border-t border-stilco-dark/10">
+<section class="py-24 bg-stilco-sand">
 	<div class="max-w-7xl mx-auto px-6 text-center animate-on-scroll">
 		<h2 class="text-4xl md:text-[52px] md:leading-[1.02] font-display font-normal mb-4 text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_layers_title', 'Zajrzyj do środka', $page_id ) ); ?></h2>
 		<p class="text-stilco-dark/80 max-w-[672px] mx-auto mb-16 text-lg md:text-xl md:leading-[1.625]"><?php echo esc_html( stilco_get_page_field( 'home_layers_lead', 'Kompletna konstrukcja i mieszanka najwyższej jakości materiałów. Zaprojektowane i wyprodukowane w Polsce. Z myślą o Twoim komforcie snu.', $page_id ) ); ?></p>

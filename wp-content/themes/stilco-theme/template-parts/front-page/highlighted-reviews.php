@@ -13,7 +13,7 @@ $page_id   = get_queried_object_id();
 $cta_link  = stilco_get_link_data( 'home_reviews_cta_text', 'home_reviews_cta_url', 'Sprawdź opinie naszych wyspanych klientów', '/opinie', $page_id );
 $empty_txt = stilco_get_page_field( 'home_reviews_empty_text', 'Nowe opinie pojawią się wkrótce.', $page_id );
 ?>
-<section class="py-24 bg-white relative overflow-hidden">
+<section class="py-24 bg-stilco-light relative overflow-hidden">
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="text-center mb-16 animate-on-scroll">
 			<span class="text-stilco-accent font-medium tracking-widest uppercase text-sm mb-4 block"><?php echo esc_html( stilco_get_page_field( 'home_reviews_eyebrow', 'Prawdziwe historie', $page_id ) ); ?></span>
@@ -30,7 +30,7 @@ $empty_txt = stilco_get_page_field( 'home_reviews_empty_text', 'Nowe opinie poja
 						$image_id = get_comment_meta( $review->comment_ID, '_review_image_id', true );
 						$rating   = get_comment_meta( $review->comment_ID, 'rating', true ) ?: 5;
 						?>
-						<div class="bg-stilco-light rounded-3xl p-8 border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
+						<div class="bg-white rounded-3xl p-8 border border-gray-100 flex flex-col justify-between hover:shadow-xl transition-all duration-300">
 							<div>
 								<div class="flex items-center space-x-1 text-stilco-accent mb-4">
 									<?php for ( $i = 0; $i < $rating; $i++ ) : ?>

@@ -11,8 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $page_id   = get_queried_object_id();
 $faq_items = stilco_get_front_page_faq_items();
+$all_link  = stilco_get_link_data( 'home_faq_cta_text', 'home_faq_cta_url', 'Wszystkie pytania', '/faq/', $page_id );
 ?>
-<section class="py-24 bg-stilco-light border-b border-gray-200" id="faq">
+<section class="py-24 bg-stilco-light" id="faq">
 	<div class="max-w-3xl mx-auto px-6">
 		<div class="text-center mb-16 animate-on-scroll">
 			<h2 class="text-4xl md:text-[52px] md:leading-[1.02] font-display font-normal mb-4 text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_faq_title', 'Masz pytania?', $page_id ) ); ?></h2>
@@ -36,5 +37,9 @@ $faq_items = stilco_get_front_page_faq_items();
 			</div>
 			<?php endforeach; ?>
 		</div>
+
+		<p class="mt-10 text-center">
+			<a href="<?php echo esc_url( $all_link['url'] ); ?>" class="inline-flex min-h-[44px] items-center font-medium text-stilco-dark underline decoration-stilco-dark/30 underline-offset-4 hover:decoration-stilco-dark transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent"><?php echo esc_html( $all_link['label'] ); ?></a>
+		</p>
 	</div>
 </section>

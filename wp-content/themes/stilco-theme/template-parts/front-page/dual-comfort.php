@@ -18,8 +18,10 @@ $image   = stilco_override_media_alt(
 	),
 	stilco_get_page_field( 'home_dual_image_alt', '', $page_id )
 );
+// Same field the removed "Materac Stilco" category card used, so an admin-set URL keeps working.
+$product_url = stilco_get_page_field( 'home_category_1_cta_url', '/produkt/materac-stilco/', $page_id );
 ?>
-<section id="dlaczego-my" class="py-24 bg-stilco-sand relative overflow-hidden">
+<section id="dlaczego-my" class="py-24 bg-stilco-light relative overflow-hidden">
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="flex flex-col lg:flex-row items-center gap-16">
 			<div class="w-full lg:w-1/2 animate-on-scroll">
@@ -50,14 +52,15 @@ $image   = stilco_override_media_alt(
 				</div>
 			</div>
 			<div class="w-full lg:w-1/2 animate-on-scroll">
-				<div class="relative rounded-3xl overflow-hidden aspect-square shadow-2xl">
-					<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" class="w-full h-full object-cover" data-lightbox="<?php echo esc_url( $image['url'] ); ?>">
+				<a href="<?php echo esc_url( $product_url ); ?>" aria-label="Zobacz Materac Stilco" class="block relative rounded-3xl overflow-hidden aspect-square shadow-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent">
+					<?php // Morphs into the product gallery photo on the way to the configurator (app-motion.css). ?>
+					<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" class="w-full h-full object-cover vt-mattress-photo">
 					<div class="absolute inset-0 bg-gradient-to-tr from-stilco-dark/30 to-transparent flex items-end p-8">
 						<div class="text-white">
 							<p class="font-display font-medium text-xl"><?php echo esc_html( stilco_get_page_field( 'home_dual_badge', 'Stilco Dual Comfort', $page_id ) ); ?></p>
 						</div>
 					</div>
-				</div>
+				</a>
 			</div>
 		</div>
 	</div>
