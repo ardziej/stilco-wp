@@ -1,0 +1,527 @@
+# Copyright (C) 2025 Devikit
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Invoicing Integration for Fakturownia and WooCommerce 1.0.9\n"
+"Report-Msgid-Bugs-To: https://devikit.pl/\n"
+"POT-Creation-Date: 2025-01-15 12:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Devikit <kontakt@devikit.pl>\n"
+
+# Plugin Name
+msgid "Invoicing Integration for Fakturownia and WooCommerce"
+msgstr ""
+
+msgid "WooCommerce integration with Fakturownia accounting system for Polish businesses."
+msgstr ""
+
+#: invoicing-integration-for-fakturownia-and-woocommerce.php
+msgid "Fakturownia WooCommerce requires WooCommerce to be installed and active."
+msgstr ""
+
+#: admin/Settings.php
+msgid "Fakturownia"
+msgstr ""
+
+msgid "Fakturownia Integration"
+msgstr ""
+
+msgid "Fakturownia Connection"
+msgstr ""
+
+msgid "Invoicing"
+msgstr ""
+
+msgid "Store"
+msgstr ""
+
+msgid "Automation"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "API Token"
+msgstr ""
+
+msgid "Subdomain"
+msgstr ""
+
+msgid "Test Connection"
+msgstr ""
+
+msgid "Create Invoice"
+msgstr ""
+
+msgid "Download PDF"
+msgstr ""
+
+msgid "View in Fakturownia"
+msgstr ""
+
+msgid "No invoice created yet."
+msgstr ""
+
+msgid "Edit Invoice Draft"
+msgstr ""
+
+msgid "Issue Date"
+msgstr ""
+
+msgid "Sale Date"
+msgstr ""
+
+msgid "Payment Deadline"
+msgstr ""
+
+msgid "Payment Type"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "Positions"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Quantity"
+msgstr ""
+
+msgid "Price Net"
+msgstr ""
+
+msgid "Tax"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Creating invoice..."
+msgstr ""
+
+msgid "Loading draft..."
+msgstr ""
+
+msgid "Failed to load draft data"
+msgstr ""
+
+msgid "Download Invoice"
+msgstr ""
+
+msgid "NIP"
+msgstr ""
+
+msgid "VAT Field Visibility"
+msgstr ""
+
+msgid "Always visible"
+msgstr ""
+
+msgid "Show \"I want an invoice\" checkbox"
+msgstr ""
+
+msgid "VAT Field Required"
+msgstr ""
+
+msgid "VAT Format Validation"
+msgstr ""
+
+msgid "Check if VAT has exactly 10 digits"
+msgstr ""
+
+msgid "VAT Rates Mapping"
+
+msgid "Since you are VAT exempt, you have disabled taxes in WooCommerce. All documents will be issued with ZW (VAT exempt) rate."
+
+msgid "You currently have VAT taxes disabled in WooCommerce (meaning you are not a VAT payer). All documents will be issued with ZW (VAT exempt) rate."
+
+msgid "If you are a VAT payer, please enable taxes by going to"
+
+msgid "To change this setting, go to"
+
+msgid "and enable \"Enable tax rates and calculations\"."
+
+msgid "If you are not a VAT payer and want to issue invoices with ZW (VAT exempt) rate, you should disable taxes in WooCommerce settings."
+
+msgid "To disable taxes, go to"
+
+msgid "and disable \"Enable tax rates and calculations\"."
+
+msgid "Invoice creation is disabled. Please use Bill (Rachunek) instead."
+msgstr ""
+
+msgid "ZW Tax Rate (VAT exempt)"
+msgstr ""
+
+msgid "0% Tax Rate"
+msgstr ""
+
+msgid "NP Tax Rate"
+msgstr ""
+
+msgid "VAT Exemption Legal Basis"
+msgstr ""
+
+msgid "Payment Deadline"
+msgstr ""
+
+msgid "days"
+msgstr ""
+
+msgid "Invoice Template"
+msgstr ""
+
+msgid "Default template"
+msgstr ""
+
+msgid "Select invoice template from Fakturownia."
+msgstr ""
+
+msgid "Detailed Logs"
+msgstr ""
+
+msgid "Enable detailed logging to debug file"
+msgstr ""
+
+msgid "Connection successful!"
+msgstr ""
+
+msgid "Connection failed. Check your credentials."
+msgstr ""
+
+msgid "Unauthorized"
+msgstr ""
+
+msgid "Order not found"
+msgstr ""
+
+msgid "Invoice ID missing"
+msgstr ""
+
+msgid "PDF content is empty"
+msgstr ""
+
+msgid "Failed to download PDF"
+msgstr ""
+
+msgid "Invoice Created:"
+msgstr ""
+
+msgid "Fakturownia Invoice created: %s"
+msgstr ""
+
+msgid "Unknown response from Fakturownia API"
+msgstr ""
+
+msgid "Failed to create client - no ID in response"
+msgstr ""
+
+msgid "Invalid request"
+msgstr ""
+
+msgid "Invalid security token"
+msgstr ""
+
+msgid "You do not have permission to view this invoice"
+msgstr ""
+
+msgid "Transfer"
+msgstr ""
+
+msgid "Cash"
+msgstr ""
+
+msgid "Card"
+msgstr ""
+
+msgid "Cash on Delivery"
+msgstr ""
+
+msgid "General Settings"
+msgstr ""
+
+msgid "Enter your Fakturownia API Token (from Fakturownia Settings → Account Settings → Integration → API Authorization Code)."
+msgstr ""
+
+msgid "Enter your Fakturownia subdomain (e.g., if your URL is https://example.fakturownia.pl/, enter \"example\")."
+msgstr ""
+
+msgid "Connection"
+msgstr ""
+
+msgid "View Documentation"
+msgstr ""
+
+msgid "Map WooCommerce tax classes to Fakturownia VAT rates:"
+msgstr ""
+
+msgid "VAT exempt (educational, medical services)"
+msgstr ""
+
+msgid "0% rate (books, export goods)"
+msgstr ""
+
+msgid "VAT exempt (zwolnione od podatku)"
+msgstr ""
+
+msgid "not subject to VAT (services outside EU, VAT margin)"
+msgstr ""
+
+msgid "Select tax class for VAT exempt products (ZW)."
+msgstr ""
+
+msgid "Select tax class for 0% VAT products."
+msgstr ""
+
+msgid "Select the tax class for positions issued as ZW (exempt) in Fakturownia. This is separate from the 0% rate (zero rate) and NP."
+msgstr ""
+
+msgid "Select tax class for non-VAT products (np)."
+msgstr ""
+
+msgid "Legal basis for VAT exemption (e.g., \"Art. 43 ust. 1 pkt 29 ustawy o VAT\"). This will be included in invoices with ZW rate."
+msgstr ""
+
+msgid "Set default number of days for invoice payment."
+msgstr ""
+
+msgid "Invoice Details"
+msgstr ""
+
+msgid "Store Settings (Checkout)"
+msgstr ""
+
+msgid "The VAT field is always visible at checkout."
+msgstr ""
+
+msgid "The VAT field is hidden until the user checks the option."
+msgstr ""
+
+msgid "Checkbox Label"
+msgstr ""
+
+msgid "I want an invoice"
+msgstr ""
+
+msgid "Leave empty to use default: \"%s\""
+msgstr ""
+
+msgid "VAT field is required in the order form"
+msgstr ""
+
+msgid "If this option is enabled, the plugin will check if the entered NIP has exactly 10 digits."
+msgstr ""
+
+msgid "Validate VAT numbers in EU VIES database. This allows verification of VAT numbers from EU countries."
+msgstr ""
+
+msgid "Enable VIES Validation"
+msgstr ""
+
+msgid "Validate VAT numbers using EU VIES database"
+msgstr ""
+
+msgid "When enabled, VAT numbers from EU countries will be validated against the VIES database during checkout."
+msgstr ""
+
+msgid "Invalid VAT Handling"
+msgstr ""
+
+msgid "Reject order and show error"
+msgstr ""
+
+msgid "Accept order"
+msgstr ""
+
+msgid "How to handle orders with invalid VAT numbers."
+msgstr ""
+
+msgid "Automation Settings"
+msgstr ""
+
+msgid "Automation features are available in Pro version."
+msgstr ""
+
+msgid "Buy Pro Version"
+msgstr ""
+
+msgid "Logs and Debugging"
+msgstr ""
+
+msgid "Logs will be saved in: WooCommerce → Status → Logs → %s"
+msgstr ""
+
+msgid "Important:"
+msgstr ""
+
+msgid "WooCommerce is configured to enter prices with tax included. For proper invoice generation, it is necessary to set \"Enter prices with tax\" to \"No, I will enter prices excluding tax\". Please change this setting in %s."
+msgstr ""
+
+msgid "WooCommerce → Settings → Tax"
+msgstr ""
+
+msgid "The number of decimal places is set to %1$d. For proper invoice generation, it is necessary to set this value to 2. Please change it in %2$s."
+msgstr ""
+
+msgid "WooCommerce → Settings"
+msgstr ""
+
+msgid "Testing..."
+msgstr ""
+
+msgid "API Token and Subdomain are required."
+msgstr ""
+
+msgid "Shipping"
+msgstr ""
+
+msgid "Enter NIP"
+msgstr ""
+
+msgid "Enter NIP if you need an invoice"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "Creating invoice..."
+msgstr ""
+
+msgid "Failed to create invoice"
+msgstr ""
+
+msgid "Failed to download PDF"
+msgstr ""
+
+msgid "Downloading..."
+msgstr ""
+
+msgid "Invalid action"
+msgstr ""
+
+msgid "Banner will be shown again in 30 days"
+msgstr ""
+
+msgid "Banner permanently dismissed"
+msgstr ""
+
+msgid "Invalid nonce"
+msgstr ""
+
+msgid "Insufficient permissions"
+msgstr ""
+
+msgid "Automate your invoicing with Fakturownia WooCommerce PRO!"
+msgstr ""
+
+msgid "Save time and streamline your accounting process - let invoices be created automatically."
+msgstr ""
+
+msgid "Features available in Pro version:"
+msgstr ""
+
+msgid "Automatic invoice generation after status change"
+msgstr ""
+
+msgid "Proforma invoice support"
+msgstr ""
+
+msgid "Receipts (paragony)"
+msgstr ""
+
+msgid "Warehouse synchronization with Fakturownia"
+msgstr ""
+
+msgid "Bulk document generation and email sending"
+msgstr ""
+
+msgid "Email notifications with PDF attachments"
+msgstr ""
+
+msgid "Corrections (korygujące) support"
+msgstr ""
+
+msgid "OSS/MOSS support for digital services"
+msgstr ""
+
+msgid "GTU codes and PKWiU support"
+msgstr ""
+
+msgid "Remind me later"
+msgstr ""
+
+msgid "Don't remind me anymore"
+msgstr ""
+
+msgid "No lump sum"
+msgstr ""
+
+msgid "Select..."
+msgstr ""
+
+msgid "Send Invoice by Email"
+msgstr ""
+
+msgid "Sending..."
+msgstr ""
+
+msgid "✓ Sent"
+msgstr ""
+
+msgid "Are you sure you want to send the invoice to the customer?"
+msgstr ""
+
+msgid "Invoice email sent to customer"
+msgstr ""
+
+msgid "Email sent successfully"
+msgstr ""
+
+msgid "Unknown error"
+msgstr ""
+
+
+
+#: includes/InvoiceManager.php
+msgid "⚠ Total Mismatch Detected"
+msgstr ""
+
+#: includes/InvoiceManager.php
+msgid "Order total: %1$s | Invoice total: %2$s | Difference: %3$s"
+msgstr ""
+
+#: includes/InvoiceManager.php
+msgid "Email was not sent automatically. Please review the invoice and send manually if needed."
+msgstr ""
+
+#: admin/Settings.php
+msgid "Document Type (No VAT)"
+msgstr ""
+
+#: admin/Settings.php
+msgid "Rachunek"
+msgstr ""
+
+#: admin/Settings.php
+msgid "Invoice Without VAT (Faktura bez VAT)"
+msgstr ""
+
+#: admin/Settings.php
+msgid "Select document type to use when WooCommerce taxes are disabled."
+msgstr ""
+
+#: admin/Settings.php
+msgid "In PRO version you can choose between \"Rachunek\" and \"Invoice Without VAT (Faktura bez VAT)\"."
+msgstr ""
+
+#: includes/InvoiceManager.php
+msgid "Invoice email scheduled — will be sent in %d minutes (waiting for KSeF processing)"
+msgstr ""
+
+#: includes/InvoiceManager.php
+msgid "Invoice email sent to customer (delayed — after KSeF processing)"
+msgstr ""

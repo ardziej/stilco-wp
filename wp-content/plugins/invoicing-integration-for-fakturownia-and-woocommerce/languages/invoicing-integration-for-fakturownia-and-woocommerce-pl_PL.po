@@ -1,0 +1,1178 @@
+# Copyright (C) 2025 Devikit
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Invoicing Integration for Fakturownia and WooCommerce 1.0.9\n"
+"Report-Msgid-Bugs-To: https://devikit.pl/\n"
+"POT-Creation-Date: 2025-01-15 12:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language-Team: Devikit <kontakt@devikit.pl>\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+# Plugin Name
+msgid "Invoicing Integration for Fakturownia and WooCommerce"
+msgstr "Fakturownia WooCommerce"
+
+msgid "WooCommerce integration with Fakturownia accounting system for Polish businesses."
+msgstr "Integracja WooCommerce z systemem księgowym Fakturownia dla polskich firm."
+
+#: invoicing-integration-for-fakturownia-and-woocommerce.php
+msgid "Fakturownia WooCommerce requires WooCommerce to be installed and active."
+msgstr "Integracja Fakturownia z WooCommerce wymaga zainstalowania i aktywacji WooCommerce."
+
+#: admin/Settings.php
+msgid "Fakturownia"
+msgstr "Fakturownia"
+
+msgid "Invoice Parameters"
+msgstr "Parametry faktury"
+
+msgid "Show Parameters"
+msgstr "Pokaż parametry"
+
+msgid "Hide Parameters"
+msgstr "Ukryj parametry"
+
+msgid "Paid Amount"
+msgstr "Zapłacono"
+
+msgid "Issue Date"
+msgstr "Data wystawienia"
+
+msgid "Sale Date"
+msgstr "Data sprzedaży"
+
+msgid "Payment Deadline"
+msgstr "Termin płatności"
+
+msgid "Payment Method"
+msgstr "Sposób płatności"
+
+msgid "Notes"
+msgstr "Uwagi"
+
+msgid "Add notes that will be included in the document..."
+msgstr "Dodaj uwagi, które zostaną uwzględnione w dokumencie..."
+
+msgid "Invoice Notes"
+msgstr "Uwagi do faktury"
+
+msgid "Add notes that will be included in the invoice..."
+msgstr "Dodaj uwagi, które zostaną uwzględnione na fakturze..."
+
+msgid "Creating invoice..."
+msgstr "Tworzenie faktury..."
+
+msgid "Created"
+msgstr "Utworzono"
+
+msgid "Not created"
+msgstr "Nie utworzono"
+
+msgid "Fakturownia Integration"
+msgstr "Integracja Fakturownia"
+
+msgid "Fakturownia Connection"
+msgstr "Połączenie Fakturownia"
+
+msgid "Invoicing"
+msgstr "Fakturowanie"
+
+msgid "Store"
+msgstr "Sklep"
+
+msgid "Automation"
+msgstr "Automatyzacje"
+
+msgid "Warehouse"
+msgstr "Magazyn"
+
+msgid "Advanced"
+msgstr "Zaawansowane"
+
+msgid "API Token"
+msgstr "Token API"
+
+msgid "Subdomain"
+msgstr "Subdomena"
+
+msgid "Test Connection"
+msgstr "Test połączenia"
+
+msgid "Create Invoice"
+msgstr "Utwórz fakturę"
+
+msgid "Download PDF"
+msgstr "Pobierz PDF"
+
+msgid "View in Fakturownia"
+msgstr "Zobacz w Fakturowni"
+
+#: admin/OrderColumns.php
+msgid "Proforma"
+msgstr "Proforma"
+
+#: admin/OrderColumns.php
+msgid "Receipt"
+msgstr "Paragon"
+
+#: admin/OrderColumns.php
+msgid "Correction"
+msgstr "Korekta"
+
+#: admin/OrderColumns.php
+msgid "Bill"
+msgstr "Rachunek"
+
+#: includes/InvoiceManager.php
+msgid "Invoice"
+msgstr "Faktura"
+
+msgid "No invoice created yet."
+msgstr "Faktura nie została jeszcze utworzona."
+
+msgid "Edit Invoice Draft"
+msgstr "Edytuj szkic faktury"
+
+msgid "Payment Type"
+msgstr "Typ płatności"
+
+msgid "Currency"
+msgstr "Waluta"
+
+msgid "Positions"
+msgstr "Pozycje"
+
+msgid "Position %d"
+msgstr "Pozycja %d"
+
+msgid "Name"
+msgstr "Nazwa"
+
+msgid "Quantity"
+msgstr "Ilość"
+
+msgid "Price Net"
+msgstr "Cena netto"
+
+msgid "Tax"
+msgstr "Podatek"
+
+msgid "Cancel"
+msgstr "Anuluj"
+
+msgid "Loading draft..."
+msgstr "Ładowanie szkicu..."
+
+msgid "Failed to load draft data"
+msgstr "Nie udało się załadować danych szkicu"
+
+msgid "Download Invoice"
+msgstr "Pobierz fakturę"
+
+msgid "NIP"
+msgstr "NIP"
+
+msgid "VAT Field Visibility"
+msgstr "Widoczność pola NIP"
+
+msgid "Always visible"
+msgstr "Zawsze widoczne"
+
+msgid "Show \"I want an invoice\" checkbox"
+msgstr "Pokaż checkbox \"Chcę fakturę\""
+
+msgid "VAT Field Required"
+msgstr "Pole NIP wymagane"
+
+msgid "VAT Format Validation"
+msgstr "Walidacja formatu NIP"
+
+msgid "Check if VAT has exactly 10 digits"
+msgstr "Sprawdź czy NIP ma dokładnie 10 cyfr"
+
+msgid "VAT Rates Mapping"
+msgstr "Mapowanie stawek VAT"
+
+msgid "Since you are VAT exempt, you have disabled taxes in WooCommerce. All documents will be issued with ZW (VAT exempt) rate."
+msgstr "Ponieważ jesteś zwolniony z VAT, wyłączyłeś podatki w WooCommerce. Wszystkie dokumenty będą wystawiane ze stawką ZW (zwolnienie z VAT)."
+
+msgid "You currently have VAT taxes disabled in WooCommerce (meaning you are not a VAT payer). All documents will be issued with ZW (VAT exempt) rate."
+msgstr "Masz obecnie wyłączone podatki VAT w WooCommerce (czyli nie jesteś podatnikiem VAT). Wszystkie dokumenty będą wystawiane ze stawką ZW (zwolnienie z VAT)."
+
+msgid "If you are a VAT payer, please enable taxes by going to"
+msgstr "Jeśli jednak jesteś podatnikiem VAT, włącz podatki przechodząc do"
+
+msgid "To change this setting, go to"
+msgstr "Aby zmienić to ustawienie, przejdź do"
+
+msgid "and enable \"Enable tax rates and calculations\"."
+msgstr "i włącz \"Włącz stawki podatkowe i obliczenia\"."
+
+msgid "If you are not a VAT payer and want to issue invoices with ZW (VAT exempt) rate, you should disable taxes in WooCommerce settings."
+msgstr "Jeśli nie jesteś podatnikiem VAT i chcesz wystawiać faktury ze stawką ZW (zwolnienie z VAT), powinieneś wyłączyć podatki w ustawieniach WooCommerce."
+
+msgid "To disable taxes, go to"
+msgstr "Aby wyłączyć podatki, przejdź do"
+
+msgid "and disable \"Enable tax rates and calculations\"."
+msgstr "i wyłącz \"Włącz stawki podatkowe i obliczenia\"."
+
+msgid "Invoice creation is disabled. Please use Bill (Rachunek) instead."
+msgstr "Tworzenie faktury jest wyłączone. Użyj zamiast tego Rachunku."
+
+msgid "ZW Tax Rate (VAT exempt)"
+msgstr "Stawka ZW (zwolnienie z VAT)"
+
+msgid "0% Tax Rate"
+msgstr "Stawka podatku 0%"
+
+msgid "NP Tax Rate"
+msgstr "Stawka podatku NP"
+
+msgid "VAT Exemption Legal Basis"
+msgstr "Podstawa prawna zwolnienia z VAT"
+
+msgid "days"
+msgstr "dni"
+
+msgid "Invoice Template"
+msgstr "Szablon faktury"
+
+msgid "Default template"
+msgstr "Domyślny szablon"
+
+msgid "Select invoice template from Fakturownia."
+msgstr "Wybierz szablon faktury z Fakturownia."
+
+msgid "Detailed Logs"
+msgstr "Szczegółowe logi"
+
+msgid "Enable detailed logging to debug file"
+msgstr "Włącz szczegółowe logowanie do pliku debugowania"
+
+msgid "Connection successful!"
+msgstr "Połączenie udane!"
+
+msgid "Connection failed. Check your credentials."
+msgstr "Połączenie nieudane. Sprawdź swoje dane logowania."
+
+msgid "Unauthorized"
+msgstr "Nieautoryzowany"
+
+msgid "Order not found"
+msgstr "Zamówienie nie znalezione"
+
+msgid "Invoice ID missing"
+msgstr "Brak ID faktury"
+
+msgid "PDF content is empty"
+msgstr "Zawartość PDF jest pusta"
+
+msgid "Failed to download PDF"
+msgstr "Nie udało się pobrać PDF"
+
+msgid "Invoice Created:"
+msgstr "Faktura utworzona:"
+
+msgid "Fakturownia Invoice created: %s"
+msgstr "Faktura Fakturownia utworzona: %s"
+
+msgid "Unknown response from Fakturownia API"
+msgstr "Nieznana odpowiedź z API Fakturownia"
+
+msgid "Failed to create client - no ID in response"
+msgstr "Nie udało się utworzyć klienta - brak ID w odpowiedzi"
+
+msgid "Invalid request"
+msgstr "Nieprawidłowe żądanie"
+
+msgid "Invalid security token"
+msgstr "Nieprawidłowy token bezpieczeństwa"
+
+msgid "You do not have permission to view this invoice"
+msgstr "Nie masz uprawnień do przeglądania tej faktury"
+
+msgid "Transfer"
+msgstr "Przelew"
+
+msgid "Cash"
+msgstr "Gotówka"
+
+msgid "Card"
+msgstr "Karta"
+
+msgid "Cash on Delivery"
+msgstr "Za pobraniem"
+
+msgid "General Settings"
+msgstr "Ustawienia ogólne"
+
+msgid "Enter your Fakturownia API Token (from Fakturownia Settings → Account Settings → Integration → API Authorization Code)."
+msgstr "Wprowadź swój Token API Fakturownia (z Fakturownia Ustawienia → Ustawienia konta → Integracja → Kod autoryzacji API)."
+
+msgid "Enter your Fakturownia subdomain (e.g., if your URL is https://example.fakturownia.pl/, enter \"example\")."
+msgstr "Wprowadź swoją subdomenę Fakturownia (np. jeśli Twój URL to https://example.fakturownia.pl/, wprowadź \"example\")."
+
+msgid "Connection"
+msgstr "Połączenie"
+
+msgid "View Documentation"
+msgstr "Zobacz dokumentację"
+
+msgid "Map WooCommerce tax classes to Fakturownia VAT rates:"
+msgstr "Mapuj klasy podatkowe WooCommerce na stawki VAT Fakturownia:"
+
+msgid "VAT exempt (educational, medical services)"
+msgstr "Zwolnione z VAT (usługi edukacyjne, medyczne)"
+
+msgid "0% rate (books, export goods)"
+msgstr "Stawka 0% (książki, towary eksportowe)"
+
+msgid "VAT exempt (zwolnione od podatku)"
+msgstr "zwolnienie od podatku VAT (ZW)"
+
+msgid "not subject to VAT (services outside EU, VAT margin)"
+msgstr "nie podlega VAT (usługi poza UE, marża VAT)"
+
+msgid "Select tax class for VAT exempt products (ZW)."
+msgstr "Wybierz klasę podatkową dla produktów zwolnionych z VAT (ZW)."
+
+msgid "Select tax class for 0% VAT products."
+msgstr "Wybierz klasę podatkową dla produktów z VAT 0%."
+
+msgid "Select the tax class for positions issued as ZW (exempt) in Fakturownia. This is separate from the 0% rate (zero rate) and NP."
+msgstr "Wybierz klasę podatkową dla pozycji wystawianych w Fakturowni ze stawką ZW (zwolnienie). To ustawienie jest odrębne od stawki 0% (stawka zerowa) i NP."
+
+msgid "Select tax class for non-VAT products (np)."
+msgstr "Wybierz klasę podatkową dla produktów niepodlegających VAT (np)."
+
+msgid "OSS Tax Rate"
+msgstr "Stawka podatku dla OSS"
+
+msgid "Select tax class for OSS/MOSS transactions (EU VAT OSS). This setting requires PRO version."
+msgstr "Wybierz klasę podatkową dla transakcji OSS/MOSS (EU VAT OSS). To ustawienie wymaga wersji PRO."
+
+msgid "Select tax classes for OSS/MOSS transactions (EU VAT OSS). You can select multiple tax classes."
+msgstr "Wybierz stawki podatku dla transakcji OSS/MOSS (EU VAT OSS). Możesz wybrać kilka stawek podatku."
+
+msgid "Legal basis for VAT exemption (e.g., \"Art. 43 ust. 1 pkt 29 ustawy o VAT\"). This will be included in invoices with ZW rate."
+msgstr "Podstawa prawna zwolnienia z VAT (np. \"Art. 43 ust. 1 pkt 29 ustawy o VAT\"). Zostanie to uwzględnione w fakturach ze stawką ZW."
+
+msgid "Set default number of days for invoice payment."
+msgstr "Ustaw domyślną liczbę dni na płatność faktury."
+
+msgid "Invoice Details"
+msgstr "Szczegóły faktury"
+
+msgid "Store Settings (Checkout)"
+msgstr "Ustawienia sklepu (Kasa)"
+
+msgid "The VAT field is always visible at checkout."
+msgstr "Pole NIP jest zawsze widoczne przy kasie."
+
+msgid "The VAT field is hidden until the user checks the option."
+msgstr "Pole NIP jest ukryte dopóki użytkownik nie zaznaczy opcji."
+
+msgid "Checkbox Label"
+msgstr "Etykieta checkboxa"
+
+msgid "I want an invoice"
+msgstr "Chcę otrzymać fakturę"
+
+msgid "Leave empty to use default: \"%s\""
+msgstr "Pozostaw puste, aby użyć domyślnego: \"%s\""
+
+msgid "VAT field is required in the order form"
+msgstr "Pole NIP jest wymagane w formularzu zamówienia"
+
+msgid "If this option is enabled, the plugin will check if the entered NIP has exactly 10 digits."
+msgstr "Jeśli ta opcja jest włączona, plugin sprawdzi czy wprowadzony NIP ma dokładnie 10 cyfr."
+
+msgid "Automation Settings"
+msgstr "Ustawienia automatyzacji"
+
+msgid "Automation features are available in Pro version."
+msgstr "Funkcje automatyzacji są dostępne w wersji PRO."
+
+msgid "Buy Pro Version"
+msgstr "Kup wersję PRO"
+
+msgid "Logs and Debugging"
+msgstr "Logi i debugowanie"
+
+msgid "Logs will be saved in: WooCommerce → Status → Logs → %s"
+msgstr "Logi będą zapisane w: WooCommerce → Status → Logi → %s"
+
+msgid "Important:"
+msgstr "Ważne:"
+
+msgid "WooCommerce is configured to enter prices with tax included. For proper invoice generation, it is necessary to set \"Enter prices with tax\" to \"No, I will enter prices excluding tax\". Please change this setting in %s."
+msgstr "WooCommerce jest skonfigurowane do wprowadzania cen z podatkiem. Dla prawidłowego generowania faktur konieczne jest ustawienie \"Wprowadzaj ceny z podatkiem\" na \"Nie, wprowadzam ceny bez podatku\". Zmień to ustawienie w %s."
+
+msgid "WooCommerce → Settings → Tax"
+msgstr "WooCommerce → Ustawienia → Podatki"
+
+msgid "The number of decimal places is set to %1$d. For proper invoice generation, it is necessary to set this value to 2. Please change it in %2$s."
+msgstr "Liczba miejsc po przecinku jest ustawiona na %1$d. Dla prawidłowego generowania faktur konieczne jest ustawienie tej wartości na 2. Zmień to w %2$s."
+
+msgid "WooCommerce → Settings"
+msgstr "WooCommerce → Ustawienia"
+
+msgid "Testing..."
+msgstr "Testowanie..."
+
+msgid "API Token and Subdomain are required."
+msgstr "Token API i Subdomena są wymagane."
+
+msgid "Shipping"
+msgstr "Wysyłka"
+
+msgid "Enter NIP"
+msgstr "Wprowadź NIP"
+
+msgid "Enter NIP if you need an invoice"
+msgstr "Wprowadź NIP jeśli potrzebujesz faktury"
+
+msgid "None"
+msgstr "Brak"
+
+msgid "Failed to create invoice"
+msgstr "Nie udało się utworzyć faktury"
+
+msgid "Downloading..."
+msgstr "Pobieranie..."
+
+msgid "Invalid action"
+msgstr "Nieprawidłowa akcja"
+
+msgid "Banner will be shown again in 30 days"
+msgstr "Baner zostanie ponownie wyświetlony za 30 dni"
+
+msgid "Banner permanently dismissed"
+msgstr "Baner trwale odrzucony"
+
+msgid "Invalid nonce"
+msgstr "Nieprawidłowy nonce"
+
+msgid "Insufficient permissions"
+msgstr "Niewystarczające uprawnienia"
+
+msgid "Automate your invoicing with Fakturownia WooCommerce PRO!"
+msgstr "Automatyzuj swoje fakturowanie z Fakturownia WooCommerce PRO!"
+
+msgid "Save time and streamline your accounting process - let invoices be created automatically."
+msgstr "Oszczędzaj czas i usprawniaj proces księgowy - pozwól, aby faktury były tworzone automatycznie."
+
+msgid "Features available in Pro version:"
+msgstr "Funkcje dostępne w wersji PRO:"
+
+msgid "Automatic invoice generation after status change"
+msgstr "Automatyczne generowanie faktur po zmianie statusu"
+
+msgid "Proforma invoice support"
+msgstr "Obsługa faktur proforma"
+
+msgid "Receipts (paragony)"
+msgstr "Paragony"
+
+msgid "Warehouse synchronization with Fakturownia"
+msgstr "Synchronizacja magazynu z Fakturownia"
+
+msgid "Bulk document generation and email sending"
+msgstr "Masowe generowanie dokumentów i wysyłanie e-maili"
+
+msgid "Email notifications with PDF attachments"
+msgstr "Powiadomienia e-mail z załącznikami PDF"
+
+msgid "Corrections (korygujące) support"
+msgstr "Obsługa faktur korygujących"
+
+msgid "OSS/MOSS support for digital services"
+msgstr "Obsługa OSS/MOSS dla usług cyfrowych"
+
+msgid "GTU codes and PKWiU support"
+msgstr "Obsługa kodów GTU i PKWiU"
+
+msgid "Remind me later"
+msgstr "Przypomnij później"
+
+msgid "Don't remind me anymore"
+msgstr "Nie przypominaj więcej"
+
+msgid "Issue Place"
+msgstr "Miejsce wystawienia"
+
+msgid "Place where invoice is issued (e.g., \"Warsaw\", \"Kraków\")."
+msgstr "Miejsce wystawienia faktury (np. \"Warszawa\", \"Kraków\")."
+
+msgid "Invoice Language"
+msgstr "Język faktur"
+
+msgid "Polish"
+msgstr "Polski"
+
+msgid "English"
+msgstr "Angielski"
+
+msgid "German"
+msgstr "Niemiecki"
+
+msgid "French"
+msgstr "Francuski"
+
+msgid "Default language for invoices."
+msgstr "Domyślny język dla faktur."
+
+msgid "Default notes that will be added to all invoices. You can override this per order."
+msgstr "Domyślne uwagi, które będą dodawane do wszystkich faktur. Możesz nadpisać to dla każdego zamówienia."
+
+msgid "Company/Department ID"
+msgstr "ID Firmy/Działu"
+
+msgid "Optional. Enter company or department ID if you have multiple companies in one Fakturownia account. You can find it in the URL when editing company/department in Settings → Company Data."
+msgstr "Opcjonalne. Wprowadź ID firmy lub oddziału, jeśli masz wiele firm w jednym koncie Fakturownia. Możesz znaleźć to w URL podczas edycji firmy/oddziału w Ustawienia → Dane firmy."
+
+msgid "Lump Sum (Ryczałt)"
+msgstr "Ryczałt"
+
+msgid "Enable Lump Sum"
+msgstr "Włącz ryczałt"
+
+msgid "I am a lump sum taxpayer"
+msgstr "Jestem podatnikiem ryczałtowym"
+
+msgid "Enable lump sum tax calculation for invoices."
+msgstr "Włącz obliczanie podatku ryczałtowego dla faktur."
+
+msgid "Default Lump Sum Rate"
+msgstr "Domyślna stawka ryczałtu"
+
+msgid "Select"
+msgstr "Wybierz"
+
+msgid "No lump sum"
+msgstr "Brak ryczałtu"
+
+msgid "Select..."
+msgstr "Wybierz..."
+
+msgid "Send Invoice by Email"
+msgstr "Wyślij fakturę e-mailem"
+
+msgid "Sending..."
+msgstr "Wysyłanie..."
+
+msgid "✓ Sent"
+msgstr "✓ Wysłano"
+
+msgid "Are you sure you want to send the invoice to the customer?"
+msgstr "Czy na pewno chcesz wysłać fakturę do klienta?"
+
+msgid "Invoice email sent to customer"
+msgstr "E-mail z fakturą wysłany do klienta"
+
+msgid "Email sent successfully"
+msgstr "E-mail wysłany pomyślnie"
+
+msgid "Unknown error"
+msgstr "Nieznany błąd"
+
+msgid "Default lump sum rate. This can be overridden per product."
+msgstr "Domyślna stawka ryczałtu. Można to nadpisać dla każdego produktu."
+
+msgid "VIES VAT Validation (EU)"
+msgstr "Walidacja VAT VIES (UE)"
+
+msgid "Validate VAT numbers in EU VIES database. This allows verification of VAT numbers from EU countries."
+msgstr "Waliduj numery VAT w bazie danych VIES UE. Pozwala to na weryfikację numerów VAT z krajów UE."
+
+msgid "Enable VIES Validation"
+msgstr "Włącz walidację VIES"
+
+msgid "Validate VAT numbers using EU VIES database"
+msgstr "Waliduj numery VAT używając bazy danych VIES UE"
+
+msgid "When enabled, VAT numbers from EU countries will be validated against the VIES database during checkout."
+msgstr "Po włączeniu, numery VAT z krajów UE będą walidowane w bazie danych VIES podczas realizacji zamówienia."
+
+msgid "Invalid VAT Handling"
+msgstr "Obsługa nieprawidłowego VAT"
+
+msgid "Reject order and show error"
+msgstr "Odrzuć zamówienie i pokaż błąd"
+
+msgid "Accept order"
+msgstr "Zaakceptuj zamówienie"
+
+msgid "How to handle orders with invalid VAT numbers."
+msgstr "Jak obsługiwać zamówienia z nieprawidłowymi numerami VAT."
+
+msgid "Document Type (No VAT)"
+msgstr "Typ dokumentu (bez VAT)"
+
+msgid "Bill (Rachunek)"
+msgstr "Rachunek"
+
+msgid "Invoice Without VAT (Faktura bez VAT)"
+msgstr "Faktura bez VAT"
+
+msgid "Select document type to use when WooCommerce taxes are disabled."
+msgstr "Wybierz typ dokumentu do użycia, gdy podatki WooCommerce są wyłączone."
+
+msgid "In PRO version you can choose between \"Rachunek\" and \"Invoice Without VAT (Faktura bez VAT)\"."
+msgstr "W wersji PRO możesz wybrać między \"Rachunek\" i \"Faktura bez VAT\"."
+
+msgid "NIP: "
+msgstr "NIP: "
+
+msgid "NIP is required when requesting an invoice."
+msgstr "NIP jest wymagany przy żądaniu faktury."
+
+msgid "NIP must have exactly 10 digits."
+msgstr "NIP musi mieć dokładnie 10 cyfr."
+
+msgid "The VAT number (%1$s) you entered for %2$s is invalid according to the EU VIES database. Please check and try again."
+msgstr "Numer VAT (%1$s), który wprowadziłeś dla %2$s, jest nieprawidłowy według bazy danych VIES UE. Sprawdź i spróbuj ponownie."
+
+msgid "Unable to validate VAT number. The VIES service is temporarily unavailable. Please try again later."
+msgstr "Nie można zweryfikować numeru VAT. Usługa VIES jest tymczasowo niedostępna. Spróbuj ponownie później."
+
+msgid "Error communicating with VIES service - please try again"
+msgstr "Błąd komunikacji z usługą VIES - spróbuj ponownie"
+
+msgid "Last Error:"
+msgstr "Ostatni błąd:"
+
+msgid "Retry attempt: %d"
+msgstr "Próba ponowienia: %d"
+
+msgid "Retry"
+msgstr "Ponów"
+
+msgid "Template ID"
+msgstr "ID szablonu"
+
+msgid "Enter invoice template ID manually. You can find template ID in Fakturownia when editing a template (in the URL or template settings). Leave empty to use default template."
+msgstr "Wprowadź ID szablonu faktury ręcznie. Możesz znaleźć ID szablonu w Fakturownia podczas edycji szablonu (w URL lub ustawieniach szablonu). Pozostaw puste, aby użyć domyślnego szablonu."
+
+msgid "Customer country language"
+msgstr "Język kraju klienta"
+
+msgid "Select other language"
+msgstr "Wybierz inny język"
+
+msgid "Choose how invoice language should be determined. Customer country language will use the language based on customer billing country."
+msgstr "Wybierz, jak ma być określany język faktury. Język kraju klienta będzie używał języka na podstawie kraju rozliczeniowego klienta."
+
+msgid "English (GB)"
+msgstr "Angielski (GB)"
+
+msgid "Arabic"
+msgstr "Arabski"
+
+msgid "Chinese"
+msgstr "Chiński"
+
+msgid "Czech"
+msgstr "Czeski"
+
+msgid "Spanish"
+msgstr "Hiszpański"
+
+msgid "Estonian"
+msgstr "Estoński"
+
+msgid "Persian"
+msgstr "Perski"
+
+msgid "Hungarian"
+msgstr "Węgierski"
+
+msgid "Croatian"
+msgstr "Chorwacki"
+
+msgid "Italian"
+msgstr "Włoski"
+
+msgid "Dutch"
+msgstr "Niderlandzki"
+
+msgid "Russian"
+msgstr "Rosyjski"
+
+msgid "Slovak"
+msgstr "Słowacki"
+
+msgid "Slovenian"
+msgstr "Słoweński"
+
+msgid "Turkish"
+msgstr "Turecki"
+
+#: admin/Settings.php
+msgid "Available variables:"
+msgstr "Dostępne zmienne:"
+
+msgid "Note:"
+msgstr "Uwaga:"
+
+msgid "This option works only on classic checkout. In WooCommerce Gutenberg Blocks, the VAT field is always visible."
+msgstr "Ta opcja działa tylko na klasycznej kasie. W blokach Gutenberg WooCommerce pole NIP jest zawsze widoczne."
+
+#: includes/LumpSumProductFields.php
+msgid "Lump Sum"
+msgstr "Ryczałt"
+
+msgid "Select lump sum rate for this product. If not set, the default rate from settings will be used."
+msgstr "Wybierz stawkę ryczałtu dla tego produktu. Jeśli nie ustawiono, zostanie użyta domyślna stawka z ustawień."
+
+msgid "Select lump sum rate for this variation. If not set, the default rate from settings will be used."
+msgstr "Wybierz stawkę ryczałtu dla tej wariacji. Jeśli nie ustawiono, zostanie użyta domyślna stawka z ustawień."
+
+#: includes/InvoiceManager.php
+msgid "⚠ Total Mismatch Detected"
+msgstr "⚠ Wykryto niezgodność kwot"
+
+#: includes/InvoiceManager.php
+msgid "Order total: %1$s | Invoice total: %2$s | Difference: %3$s"
+msgstr "Kwota zamówienia: %1$s | Kwota faktury: %2$s | Różnica: %3$s"
+
+#: includes/InvoiceManager.php
+msgid "Email was not sent automatically. Please review the invoice and send manually if needed."
+msgstr "Email nie został wysłany automatycznie. Proszę sprawdzić fakturę i wysłać ręcznie w razie potrzeby."
+
+#: includes/InvoiceManager.php
+msgid "Documents"
+msgstr "Dokumenty"
+
+msgid "Download %s"
+msgstr "Pobierz %s"
+
+msgid "Correction Invoice"
+msgstr "Faktura korygująca"
+
+msgid "You do not have permission to view this document"
+msgstr "Nie masz uprawnień do przeglądania tego dokumentu"
+
+msgid "Document does not belong to this order"
+msgstr "Dokument nie należy do tego zamówienia"
+
+msgid "Invalid document type"
+msgstr "Nieprawidłowy typ dokumentu"
+
+msgid "Email sending is available in PRO version."
+msgstr "Wysyłanie e-mail jest dostępne w wersji PRO."
+
+msgid "Buy PRO Version"
+msgstr "Kup wersję PRO"
+
+msgid "Email sending available in %s"
+msgstr "Wysyłanie e-mail dostępne w %s"
+
+msgid "PRO version"
+msgstr "wersji PRO"
+
+msgid "Proformas available in %s"
+msgstr "Proformy dostępne w %s"
+
+msgid "Proforma Invoice"
+msgstr "Faktura proforma"
+
+msgid "Corrections available in %s"
+msgstr "Korekty dostępne w %s"
+
+msgid "Receipts available in %s"
+msgstr "Paragony dostępne w %s"
+
+msgid "Create Proforma"
+msgstr "Utwórz proformę"
+
+msgid "Create Correction"
+msgstr "Utwórz korektę"
+
+msgid "Create Receipt"
+msgstr "Utwórz paragon"
+
+msgid "Proforma Created:"
+msgstr "Proforma utworzona:"
+
+msgid "Correction Created:"
+msgstr "Korekta utworzona:"
+
+msgid "Receipt Created:"
+msgstr "Paragon utworzony:"
+
+msgid "Receipt (Paragon)"
+msgstr "Paragon"
+
+msgid "Automatically issue invoices"
+msgstr "Automatycznie wystawiaj faktury"
+
+msgid "Automatically issue proforma invoices"
+msgstr "Automatycznie wystawiaj faktury proforma"
+
+msgid "Automatically issue receipts"
+msgstr "Automatycznie wystawiaj paragony"
+
+msgid "Automatically send invoice by email to customer"
+msgstr "Automatycznie wysyłaj fakturę e-mailem do klienta"
+
+msgid "For all orders"
+msgstr "Dla wszystkich zamówień"
+
+msgid "Only when NIP is provided"
+msgstr "Tylko gdy podano NIP"
+
+msgid "Only when NIP is NOT provided"
+msgstr "Tylko gdy nie podano NIP"
+
+msgid "Enable Warehouse Sync"
+msgstr "Włącz synchronizację magazynu"
+
+msgid "Enable warehouse synchronization"
+msgstr "Włącz synchronizację magazynu"
+
+msgid "Webhook URL"
+msgstr "Adres URL Webhook"
+
+msgid "Copy this URL to your Fakturownia webhook settings."
+msgstr "Skopiuj ten URL do ustawień webhook w Fakturownia."
+
+msgid "Select Warehouse"
+msgstr "Wybierz magazyn"
+
+msgid "Select warehouse..."
+msgstr "Wybierz magazyn..."
+
+msgid "Warehouse Settings"
+msgstr "Ustawienia magazynu"
+
+msgid "Automatic Invoice Issuing"
+msgstr "Automatyczne wystawianie faktur"
+
+msgid "Automatic Proforma Issuing"
+msgstr "Automatyczne wystawianie proform"
+
+msgid "Automatic Receipt Issuing"
+msgstr "Automatyczne wystawianie paragonów"
+
+msgid "Automatic Correction Issuing"
+msgstr "Automatyczne wystawianie korekt"
+
+msgid "Automatically issue corrections on refund"
+msgstr "Automatycznie wystawiaj korekty przy zwrocie"
+
+msgid "Automatic Bill Issuing (without VAT)"
+msgstr "Automatyczne wystawianie rachunków (bez VAT)"
+
+msgid "Automatically issue bills"
+msgstr "Automatycznie wystawiaj rachunki"
+
+msgid "Receipts"
+msgstr "Paragony"
+
+msgid "Receipt (Paragon) Settings"
+msgstr "Ustawienia paragonów"
+
+msgid "Receipt features are available in Pro version."
+msgstr "Funkcje paragonów są dostępne w wersji PRO."
+
+msgid "Receipt Parameters"
+msgstr "Parametry paragonu"
+
+msgid "Receipt Notes"
+msgstr "Uwagi do paragonu"
+
+msgid "Validate VAT numbers in EU VIES database."
+msgstr "Weryfikuj numery VAT w bazie VIES UE."
+
+msgid "OSS/MOSS Support"
+msgstr "Wsparcie OSS/MOSS"
+
+msgid "OSS (One Stop Shop) procedure for EU VAT handling."
+msgstr "Procedura OSS (One Stop Shop) do obsługi VAT w UE."
+
+msgid "Enable OSS/MOSS"
+msgstr "Włącz OSS/MOSS"
+
+msgid "Enable OSS/MOSS support"
+msgstr "Włącz wsparcie OSS/MOSS"
+
+msgid "Reverse Charge (B2B EU)"
+msgstr "Odwrotne obciążenie (B2B UE)"
+
+msgid "Enable Reverse Charge"
+msgstr "Włącz odwrotne obciążenie"
+
+msgid "Enable automatic VAT removal for B2B EU transactions"
+msgstr "Włącz automatyczne usuwanie VAT dla transakcji B2B UE"
+
+msgid "Bill Created:"
+msgstr "Rachunek utworzony:"
+
+msgid "Create Bill"
+msgstr "Utwórz rachunek"
+
+msgid "Bills available in %s"
+msgstr "Rachunki dostępne w %s"
+
+msgid "Automatically send proforma by email to customer"
+msgstr "Automatycznie wysyłaj proformę e-mailem do klienta"
+
+msgid "Automatically send receipt by email to customer"
+msgstr "Automatycznie wysyłaj paragon e-mailem do klienta"
+
+msgid "Automatically send correction by email to customer"
+msgstr "Automatycznie wysyłaj korektę e-mailem do klienta"
+
+msgid "Automatically send bill by email to customer"
+msgstr "Automatycznie wysyłaj rachunek e-mailem do klienta"
+
+msgid "Refunded"
+msgstr "Zwrócone"
+
+msgid "Cancelled"
+msgstr "Anulowane"
+
+msgid "Synchronize product stock levels between WooCommerce and Fakturownia warehouse. Changes in one system will be reflected in the other."
+msgstr "Synchronizuj stany magazynowe produktów między WooCommerce a magazynem Fakturownia. Zmiany w jednym systemie będą odzwierciedlane w drugim."
+
+msgid "Stock Synchronization"
+msgstr "Synchronizacja stanów"
+
+msgid "Enable"
+msgstr "Włącz"
+
+msgid "-- Select warehouse --"
+msgstr "-- Wybierz magazyn --"
+
+msgid "Select the warehouse in Fakturownia to synchronize stock levels from."
+msgstr "Wybierz magazyn w Fakturownia, z którego synchronizować stany magazynowe."
+
+msgid "Product Identifier in Store"
+msgstr "Identyfikator produktu w sklepie"
+
+msgid "SKU"
+msgstr "SKU"
+
+msgid "Product Code"
+msgstr "Kod produktu"
+
+msgid "Product Identifier in Fakturownia"
+msgstr "Identyfikator produktu w Fakturownia"
+
+msgid "In Fakturownia, products are matched using their Product Code field."
+msgstr "W Fakturownia produkty są dopasowywane za pomocą pola Kod produktu."
+
+msgid "Webhook Configuration"
+msgstr "Konfiguracja Webhook"
+
+msgid "Configure webhook in Fakturownia to enable real-time stock synchronization."
+msgstr "Skonfiguruj webhook w Fakturownia, aby włączyć synchronizację stanów w czasie rzeczywistym."
+
+msgid "Webhook Secret"
+msgstr "Sekret Webhook"
+
+msgid "Regenerate"
+msgstr "Regeneruj"
+
+msgid "Manual Synchronization"
+msgstr "Ręczna synchronizacja"
+
+msgid "Sync Direction"
+msgstr "Kierunek synchronizacji"
+
+msgid "Fakturownia → WooCommerce"
+msgstr "Fakturownia → WooCommerce"
+
+msgid "WooCommerce → Fakturownia"
+msgstr "WooCommerce → Fakturownia"
+
+msgid "Start Synchronization"
+msgstr "Rozpocznij synchronizację"
+
+msgid "Configure receipt parameters. For automation settings, go to the Automation tab."
+msgstr "Skonfiguruj parametry paragonów. Ustawienia automatyzacji znajdziesz w zakładce Automatyzacja."
+
+msgid "Document Template"
+msgstr "Szablon dokumentu"
+
+msgid "Default Template"
+msgstr "Domyślny szablon"
+
+msgid "e.g. Warsaw"
+msgstr "np. Warszawa"
+
+msgid "Default Payment Method"
+msgstr "Domyślna metoda płatności"
+
+msgid "Use from order"
+msgstr "Użyj z zamówienia"
+
+msgid "Use from settings"
+msgstr "Użyj z ustawień"
+
+msgid "Additional notes to include on receipts."
+msgstr "Dodatkowe uwagi do umieszczenia na paragonach."
+
+msgid "Warehouse synchronization features are available in Pro version."
+msgstr "Funkcje synchronizacji magazynu są dostępne w wersji PRO."
+
+msgid "Warehouse Integration (Stock Sync)"
+msgstr "Integracja z magazynem (synchronizacja stanów)"
+
+msgid "Enable Automation"
+msgstr "Włącz automatyzację"
+
+msgid "Issuing Condition"
+msgstr "Warunek wystawiania"
+
+msgid "Order Status"
+msgstr "Status zamówienia"
+
+msgid "Send Email"
+msgstr "Wyślij e-mail"
+
+msgid "Choose how receipt language should be determined."
+msgstr "Wybierz jak ma być określany język paragonu."
+
+msgid "Default Notes"
+msgstr "Domyślne uwagi"
+
+msgid "Default notes to include on receipts."
+msgstr "Domyślne uwagi do umieszczenia na paragonach."
+
+msgid "Default payment deadline in days for receipts."
+msgstr "Domyślny termin płatności w dniach dla paragonów."
+
+msgid "Synchronize product stock levels between WooCommerce and Fakturownia warehouse. Changes in Fakturownia will be reflected in WooCommerce in real-time via webhook."
+msgstr "Synchronizuj stany magazynowe produktów między WooCommerce a magazynem Fakturownia. Zmiany w Fakturownia będą odzwierciedlane w WooCommerce w czasie rzeczywistym za pomocą webhook."
+
+msgid "Enable real-time stock synchronization via webhook"
+msgstr "Włącz synchronizację stanów w czasie rzeczywistym za pomocą webhook"
+
+msgid "When enabled, stock changes in Fakturownia will be automatically synchronized to WooCommerce via webhook (real-time)."
+msgstr "Po włączeniu zmiany stanów w Fakturownia będą automatycznie synchronizowane do WooCommerce za pomocą webhook (w czasie rzeczywistym)."
+
+msgid "Select the warehouse in Fakturownia to synchronize stock levels from. This warehouse will also be used when creating invoices."
+msgstr "Wybierz magazyn w Fakturownia, z którego synchronizować stany magazynowe. Ten magazyn będzie również używany przy tworzeniu faktur."
+
+msgid "Sync Prices"
+msgstr "Synchronizacja cen"
+
+msgid "Also sync product prices"
+msgstr "Również synchronizuj ceny produktów"
+
+msgid "When enabled, price changes will be synchronized in both directions: from Fakturownia to WooCommerce (via webhook) and from WooCommerce to Fakturownia (when product is saved)."
+msgstr "Po włączeniu zmiany cen będą synchronizowane w obu kierunkach: z Fakturownia do WooCommerce (za pomocą webhook) i z WooCommerce do Fakturownia (przy zapisie produktu)."
+
+msgid "To configure webhook in Fakturownia, go to Ustawienia konta → Integracja → Webhooki and create a new webhook. Set the type (rodzaj) to \"product:update\" and add the values from the \"Adres\" and \"Api token\" fields below."
+msgstr "Aby skonfigurować webhook w Fakturownia, przejdź do Ustawienia konta → Integracja → Webhooki i utwórz nowy webhook. Ustaw typ (rodzaj) na \"product:update\" i dodaj wartości z pól \"Adres\" i \"Api token\" poniżej."
+
+msgid "Adres"
+msgstr "Adres"
+
+msgid "Api token"
+msgstr "Token API"
+
+msgid "Generate New Token"
+msgstr "Generuj nowy token"
+
+msgid "Security token to protect access to the stock update function. Change this token only if there was a data breach or security incident and you need to set a new token for security purposes."
+msgstr "Token bezpieczeństwa chroniący dostęp do funkcji aktualizacji stanów. Zmień ten token tylko w przypadku naruszenia danych lub incydentu bezpieczeństwa i gdy musisz ustawić nowy token ze względów bezpieczeństwa."
+
+msgid "VIES VAT validation, OSS/MOSS support, and Reverse Charge are available in PRO version."
+msgstr "Walidacja VAT VIES, wsparcie OSS/MOSS oraz odwrotne obciążenie są dostępne w wersji PRO."
+
+msgid "Fakturownia - GTU Code"
+msgstr "Fakturownia - Kod GTU"
+
+msgid "GTU (Grupa Towarów i Usług) code for VAT purposes. This code will be included in invoices."
+msgstr "Kod GTU (Grupa Towarów i Usług) do celów VAT. Ten kod będzie uwzględniony na fakturach."
+
+msgid "Fakturownia - PKWiU Code"
+msgstr "Fakturownia - Kod PKWiU"
+
+msgid "PKWiU (Polska Klasyfikacja Wyrobów i Usług) code for VAT exempt products (ZW rate)."
+msgstr "Kod PKWiU (Polska Klasyfikacja Wyrobów i Usług) dla produktów zwolnionych z VAT (stawka ZW)."
+
+msgid "Product in Fakturownia"
+msgstr "Produkt w Fakturownia"
+
+msgid "Enter product"
+msgstr "Wprowadź produkt"
+
+msgid "In case of selected warehouse, searches for product directly in it."
+msgstr "W przypadku wybranego magazynu, wyszukuje produkt bezpośrednio w nim."
+
+msgid "GTU and PKWiU codes are available in %s"
+msgstr "Kody GTU i PKWiU są dostępne w %s"
+
+msgid "GTU and PKWiU are available in %s"
+msgstr "GTU oraz PKWiU są dostępne w %s"
+
+msgid "Product mapping with Fakturownia warehouse is available in %s"
+msgstr "Mapowanie produktu z magazynem Fakturownia jest dostępne w %s"
+
+msgid "GTU code for VAT purposes."
+msgstr "Kod GTU do celów VAT."
+
+msgid "PKWiU code for VAT exempt products."
+msgstr "Kod PKWiU dla produktów zwolnionych z VAT."
+
+msgid "Delivery of alcoholic beverages"
+msgstr "Dostawa napojów alkoholowych"
+
+msgid "Delivery of motor fuels"
+msgstr "Dostawa paliw silnikowych"
+
+msgid "Delivery of heating oil, lubricating oils and plastic lubricants"
+msgstr "Dostawa oleju opałowego, olejów smarowych i smarów plastycznych"
+
+msgid "Delivery of tobacco products and novel products"
+msgstr "Dostawa wyrobów tytoniowych i nowatorskich"
+
+msgid "Delivery of waste"
+msgstr "Dostawa odpadów"
+
+msgid "Delivery of electronic devices and parts and materials for them"
+msgstr "Dostawa urządzeń elektronicznych oraz części i materiałów do nich"
+
+msgid "Delivery of vehicles and car parts"
+msgstr "Dostawa pojazdów i części samochodowych"
+
+msgid "Delivery of precious and non-precious metals"
+msgstr "Dostawa metali szlachetnych i nieszlachetnych"
+
+msgid "Delivery of medicines and medical devices"
+msgstr "Dostawa leków i wyrobów medycznych"
+
+msgid "Delivery of buildings, structures and land"
+msgstr "Dostawa budynków, budowli i gruntów"
+
+msgid "Services in the field of transfer of rights to greenhouse gas emissions"
+msgstr "Usługi w zakresie przenoszenia uprawnień do emisji gazów cieplarnianych"
+
+msgid "Intangible services"
+msgstr "Usługi niematerialne"
+
+msgid "Transport and warehousing services"
+msgstr "Usługi transportowe i magazynowe"
+
+msgid "Default Payment Deadline (days)"
+msgstr "Domyślny termin płatności (dni)"
+
+msgid "Receipt Language"
+msgstr "Język paragonu"
+
+#: includes/InvoiceManager.php
+msgid "Invoice email scheduled — will be sent in %d minutes (waiting for KSeF processing)"
+msgstr "E-mail z fakturą zaplanowany — zostanie wysłany za %d minut (oczekiwanie na przetworzenie przez KSeF)"
+
+#: includes/InvoiceManager.php
+msgid "Invoice email sent to customer (delayed — after KSeF processing)"
+msgstr "E-mail z fakturą wysłany do klienta (opóźniony — po przetworzeniu przez KSeF)"
