@@ -13,7 +13,7 @@ Zdefiniowano podwaliny dedykowanego motywu WordPress/WooCommerce (`stilco-theme`
   - `footer.php`: Podział kolumnowy, Trust Signals (Newsletter, Linki do polityk, Kontakt).
 - **Prototypy UI Stron:**
   - `front-page.php`: Lifestylowa struktura w układzie "Hero ze zdjęciem w tle -> Pasek zaufania (100 Nocy / Darmowa dostawa) -> Trzy główne kafelki kategorii".
-  - `index.php`: Prosty zapasowy układ loopa do bloga z wpisami po 3 w rzędzie (Grid na Tailwind).
+  - `home.php`, `single.php`, `category.php`, `search.php`, `archive.php`: Pełna sekcja blogowa z premium hero, gridem artykułów, stronami kategorii, wynikami wyszukiwania i widokiem pojedynczego artykułu.
 - **Modyfikacje WooCommerce:**
   - `archive-product.php`: Czysty widok listingu (Karta produktu, zdjęcie przeskakujące na animacji, odznaka promocji, przycisk do szybkiego ewentualnego dodania).
   - `cart/mini-cart.php` (Off-Canvas): Modalne "Drawer" wysuwane z prawej strony (Tailwind), połączone z Vanilla JS (z nasłuchiwaniem na eventy `added_to_cart` z woo).
@@ -22,9 +22,13 @@ Zdefiniowano podwaliny dedykowanego motywu WordPress/WooCommerce (`stilco-theme`
   - `inc/delivery-date.php`: Pole oczekiwanej daty dostawy na stronie produktu wraz z walidacją, przeniesieniem danych do koszyka i zamówienia oraz endpointem REST dla zamówień z odroczoną dostawą.
   - `page-production-dashboard.php`: Dedykowany dashboard produkcyjny odświeżający listę dostaw na podstawie danych WooCommerce.
   - `functions.php` + `archive-product.php`: Rejestracja `Shop Sidebar` i przygotowanie miejsca pod widgetowe filtry na listingu sklepu.
+  - **Integracje WooCommerce (oficjalne paczki):** Zainstalowano i aktywowano `Przelewy24 Payment Gateway 1.0.18` (PayPro S.A.) oraz `Invoicing Integration for Fakturownia and WooCommerce 1.0.9` (Devikit). Przelewy24 rejestruje bramki `P24`, `BLIK`, `karta`, `Google Pay`, `Apple Pay`; widoczność `PayPo` zależy od konfiguracji konta merchant po stronie Przelewy24. Wtyczka Fakturownia w wersji free umożliwia ręczne generowanie faktur z poziomu zamówienia, natomiast automatyzacje, proformy i paragony wymagają wersji PRO.
 - **Dopracowanie Warstwy Premium / UX:**
   - `footer.php`: Pływający widget czatu z gotowymi scenariuszami pytań i prostą obsługą rozmowy po stronie frontendu.
   - `front-page.php`, `page-about.php`, `page-mattress.php`: Uporządkowane trust signals i odświeżone sekcje wartości marki dla spójniejszego premium look & feel.
+- **Sekcja Content / SEO:**
+  - `template-parts/front-page/blog.php`: Sekcja najnowszych artykułów na stronie głównej jako wejście do strefy wiedzy.
+  - `docs/blog/*.md` + `seed-blog-posts.php`: Zestaw przykładowych artykułów eksperckich oraz importer treści do WordPressa z automatycznym ustawieniem strony wpisów.
 
 ## 2. Tech Stack
 - **Backend:** PHP 8+, WordPress 6+, WooCommerce.
@@ -41,6 +45,9 @@ Co pozostało do wdrożenia / Należy podnieść w kolejnych iteracjach:
 - [ ] **Zaawansowane Animacje:** Wpięcie mikroskryptów poprawiających gładkość UX (np. Swiper.js dla galerii produktowej w locie lub lepsze lifestylowe przejazdy).
 - [ ] **Hardening Dashboardu Produkcyjnego:** Ograniczenie otwartego endpointu REST (`stilco/v1/deliveries`) do autoryzowanych użytkowników lub sieci lokalnej oraz dodanie paginacji / filtrów statusu.
 - [x] **Porządki Assetów Front-end:** Inline CSS/JS dla widgetu czatu, dashboardu, transparent headera, checkoutu, strony materaca, FAQ i single product zostały wyniesione do osobnych assetów ładowanych warunkowo przez WordPress.
+- [ ] **Konfiguracja Integracji Merchant:** Uzupełnić dane produkcyjne / sandbox dla `Przelewy24` (merchant ID, CRC, klucze API) oraz `Fakturownia` (token API, domena konta, szablon dokumentu, mapowanie VAT), a następnie wykonać testowy checkout i testowe wystawienie dokumentu.
+- [ ] **Weryfikacja PayPo w P24:** Po aktywacji usługi na koncie Przelewy24 potwierdzić, czy `PayPo` pojawia się jako metoda w checkoutcie bez dodatkowej wtyczki; w razie braku dobrać alternatywną oficjalną ścieżkę BNPL.
+- [x] **Sekcja BLOG pod SEO:** Dodano dedykowane template'y bloga, sekcję blogową na homepage oraz seed przykładowych artykułów eksperckich pod pozycjonowanie.
 
 ### Ostatni sprint refaktoryzacyjny
 - `functions.php` został zredukowany do bootstrappingu modułów `inc/*.php`.
@@ -49,6 +56,7 @@ Co pozostało do wdrożenia / Należy podnieść w kolejnych iteracjach:
 - W PHP motywu nie ma już inline `<style>` ani `<script>`.
 - Statystyki opinii produktu przeszły z runtime `style.width` na serwerowo generowane klasy CSS, więc w kodzie źródłowym motywu nie ma już inline `style=` ani inline event handlerów.
 - CSS został dalej uporządkowany domena po domenie: dashboard, lightbox produktu i widget czatu mają już rozdzielone warstwy bazowe oraz komponentowe assety ładowane warunkowo przez WordPress.
+- Blog dostał własny moduł `inc/blog.php`, osobny asset `assets/css/blog.css`, nową sekcję na homepage oraz workflow contentowy oparty o Markdown (`docs/blog`) i importer do WordPressa.
 
 Ten plan aktualizuj po każdym zakończonym sprincie deweloperskim.
 
@@ -83,3 +91,21 @@ Aby rozwój e-commerce i dokumentacja stały w uporządkowanym miejscu, repozyto
 - `assets/mocks/`: Wizualizacje projektu, UI, zarysy z Figmy w png.
 - `utils/plugins/`: Konieczne paczki pre-instalacyjne (np. dla rest API auth).
 - Pliki środowiskowe jak `.env` (ukryte w `.gitignore` wraz z venv) trzymają niezbędne zmienne konfiguracyjne do zintegrowania skryptów pythona ze sklepem.
+
+## 6. Workflow dla Agentów AI
+Poniższe zasady obowiązują wszystkich agentów AI pracujących nad tym repozytorium. Celem jest przewidywalny workflow, lepsza jakość decyzji technicznych oraz łatwiejsze odbiory zmian.
+
+### Planning
+- Przed wdrożeniem każdej nietrywialnej zmiany agent musi najpierw omówić z użytkownikiem proponowane podejście.
+- Do planowania należy używać modelu Opus, z naciskiem na zaproponowanie najlepszego rozwiązania, alternatyw i świadomego omówienia trade-offów.
+- Gdy zadanie tego wymaga, agent powinien użyć skilli `brainstorming` oraz `writing-plans` przed rozpoczęciem implementacji.
+
+### Implementation
+- Każda praca nieplanistyczna, w tym coding, research, debugowanie i poprawki, powinna być wykonywana na modelu Sonnet.
+- Agenci mają zawsze pracować w git worktree i nigdy nie wprowadzać zmian bezpośrednio na głównej gałęzi.
+- Jeżeli zadanie da się sensownie zrównoleglić, należy używać subagentów, zwłaszcza do researchu, niezależnych zmian w plikach oraz testów.
+- Po każdej istotnej zmianie należy wykonać osobny commit; nie należy łączyć niepowiązanych zmian w jeden wspólny commit.
+
+### Finishing
+- Po zakończeniu prac agent powinien zaproponować merge request, wypchnąć branch i przygotować zmiany do review.
+- Każdy merge request powinien zawierać czytelny opis obejmujący zakres zmian, krótkie podsumowanie oraz plan testów.
