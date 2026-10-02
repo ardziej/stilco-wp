@@ -26,6 +26,7 @@ Zdefiniowano podwaliny dedykowanego motywu WordPress/WooCommerce (`stilco-theme`
 - **Dopracowanie Warstwy Premium / UX:**
   - `footer.php`: Pływający widget czatu z gotowymi scenariuszami pytań i prostą obsługą rozmowy po stronie frontendu.
   - `front-page.php`, `page-about.php`, `page-mattress.php`: Uporządkowane trust signals i odświeżone sekcje wartości marki dla spójniejszego premium look & feel.
+  - **Dostępność (etap 1 planu Apple HIG):** Sekcje animowane przy przewijaniu są widoczne bez JS i przy `prefers-reduced-motion` (CSS-owy fallback po 2,5 s, globalne wyciszenie animacji w warstwie base), akcent przyciemniony do `#A94A33` z hoverem `stilco-accent-hover` (`#8E3D2A`) dla kontrastu WCAG AA, czytelne szare teksty podniesione do `text-gray-500`.
 
 ## 2. Tech Stack
 - **Backend:** PHP 8+, WordPress 6+, WooCommerce.
