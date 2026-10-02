@@ -36,7 +36,7 @@
 .stilco-contact-form select:focus {
 	background: rgb(255 255 255 / 1);
 	border-color: transparent;
-	box-shadow: 0 0 0 2px rgb(200 90 65 / 1);
+	box-shadow: 0 0 0 2px rgb(169 74 51 / 1);
 }
 
 .stilco-contact-form textarea {
@@ -46,10 +46,10 @@
 
 .stilco-contact-form input[type='submit'],
 .stilco-contact-form button[type='submit'] {
-	background: rgb(200 90 65 / 1);
+	background: rgb(169 74 51 / 1);
 	border: 0;
 	border-radius: 9999px;
-	box-shadow: 0 12px 28px rgb(200 90 65 / 0.3);
+	box-shadow: 0 12px 28px rgb(169 74 51 / 0.3);
 	color: rgb(255 255 255 / 1);
 	cursor: pointer;
 	font-size: 1.125rem;
@@ -60,7 +60,7 @@
 
 .stilco-contact-form input[type='submit']:hover,
 .stilco-contact-form button[type='submit']:hover {
-	background: rgb(168 74 52 / 1);
+	background: rgb(142 61 42 / 1);
 	transform: scale(1.02);
 }
 
@@ -82,7 +82,7 @@
 	margin-top: 0.5rem;
 	font-size: 0.8125rem;
 	line-height: 1.25rem;
-	color: rgb(200 90 65 / 1);
+	color: rgb(169 74 51 / 1);
 }
 
 .stilco-contact-form .stilco-inline-error:empty {
@@ -90,8 +90,8 @@
 }
 
 .stilco-contact-form input.is-invalid {
-	border-color: rgb(200 90 65 / 1);
-	box-shadow: 0 0 0 3px rgb(200 90 65 / 0.15);
+	border-color: rgb(169 74 51 / 1);
+	box-shadow: 0 0 0 3px rgb(169 74 51 / 0.15);
 }
 
 /* Hide CF7's own tip when the inline message already covers the field. */

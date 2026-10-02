@@ -17,7 +17,7 @@ if ( ! $product instanceof WC_Product || ! $product->is_visible() ) {
 ?>
 <div class="group bg-white rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 border border-transparent hover:border-stilco-accent/20 relative flex flex-col items-center text-center">
 	<?php if ( $product->is_on_sale() ) : ?>
-		<span class="absolute top-6 left-6 bg-stilco-accent text-white text-[10px] font-bold px-3 py-1.5 rounded-full z-10 tracking-widest uppercase shadow-sm">
+		<span class="absolute top-6 left-6 bg-stilco-accent text-white text-[11px] font-bold px-3 py-1.5 rounded-full z-10 tracking-widest uppercase shadow-sm">
 			Promocja
 		</span>
 	<?php endif; ?>

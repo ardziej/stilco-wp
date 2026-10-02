@@ -31,18 +31,18 @@
 }
 
 .size-option:hover {
-	border-color: #a84a34;
+	border-color: #a94a33;
 }
 
 .size-option:focus-visible {
-	outline: 2px solid #a84a34;
+	outline: 2px solid #a94a33;
 	outline-offset: 2px;
 }
 
 .size-option.is-active,
 .size-option--custom[aria-expanded='true'] {
-	border: 2px solid #a84a34;
-	background: rgb(168 74 52 / 0.05);
+	border: 2px solid #a94a33;
+	background: rgb(169 74 51 / 0.05);
 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px 0 rgb(0 0 0 / 0.1);
 	/* keep content from shifting when the border thickens */
 	padding: calc(1rem - 1px) calc(0.75rem - 1px);
@@ -54,8 +54,8 @@
 }
 
 .size-option.is-active .size-option__icon rect {
-	fill: rgb(168 74 52 / 0.08);
-	stroke: rgb(168 74 52 / 0.45);
+	fill: rgb(169 74 51 / 0.08);
+	stroke: rgb(169 74 51 / 0.45);
 }
 
 .size-option__label {
@@ -72,9 +72,9 @@
 }
 
 .size-option--custom {
-	border: 1px dashed rgb(200 90 65 / 0.6);
-	background: rgb(200 90 65 / 0.05);
-	color: #c85a41;
+	border: 1px dashed rgb(169 74 51 / 0.6);
+	background: rgb(169 74 51 / 0.05);
+	color: #a94a33;
 }
 
 .size-option--custom .size-option__icon {

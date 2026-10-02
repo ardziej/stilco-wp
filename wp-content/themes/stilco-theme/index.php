@@ -19,7 +19,7 @@ get_header(); ?>
 		}
 		?>
 		<header class="mx-auto mb-12 max-w-2xl text-center">
-			<a href="<?php echo esc_url( home_url( '/strefa-wiedzy/#artykuly' ) ); ?>" class="text-xs font-bold uppercase tracking-[0.12em] text-[#a84a34] hover:underline">&larr; Wszystkie artykuły</a>
+			<a href="<?php echo esc_url( home_url( '/strefa-wiedzy/#artykuly' ) ); ?>" class="text-xs font-bold uppercase tracking-[0.12em] text-stilco-accent hover:underline">&larr; Wszystkie artykuły</a>
 			<h1 class="pt-3 font-display text-4xl font-normal text-stilco-dark md:text-[52px] md:leading-[1.05]"><?php echo esc_html( $listing_title ); ?></h1>
 			<?php if ( is_category() || is_tag() ) : ?>
 				<?php $term_description = term_description(); ?>

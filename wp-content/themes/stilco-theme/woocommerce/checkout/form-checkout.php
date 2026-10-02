@@ -24,7 +24,7 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
     <div class="max-w-screen-xl mx-auto">
 
         <!-- Subheader – security note only, no "Kasa" heading -->
-        <p class="text-center text-sm text-gray-400 font-sans mb-10 tracking-wide">🔒 Bezpieczna transakcja chroniona szyfrowaniem 256-bit SSL.</p>
+        <p class="text-center text-sm text-gray-500 font-sans mb-10 tracking-wide">🔒 Bezpieczna transakcja chroniona szyfrowaniem 256-bit SSL.</p>
 
         <form name="checkout" method="post"
               class="checkout woocommerce-checkout flex flex-col lg:flex-row gap-0"
@@ -94,10 +94,10 @@ if ( ! $checkout->is_registration_enabled() && $checkout->is_registration_requir
 
                         <div class="flex flex-col items-center justify-center space-y-4">
                             <div class="flex space-x-3 mb-2">
-                                <div class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-[10px] font-bold text-gray-500 shadow-sm flex items-center justify-center">BLIK</div>
-                                <div class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-[10px] font-bold text-gray-500 shadow-sm flex items-center justify-center">P24</div>
-                                <div class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-[10px] font-bold text-gray-500 shadow-sm flex items-center justify-center">VISA</div>
-                                <div class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-[10px] font-bold text-gray-500 shadow-sm flex items-center justify-center">MC</div>
+                                <div class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-[11px] font-bold text-gray-500 shadow-sm flex items-center justify-center">BLIK</div>
+                                <div class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-[11px] font-bold text-gray-500 shadow-sm flex items-center justify-center">P24</div>
+                                <div class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-[11px] font-bold text-gray-500 shadow-sm flex items-center justify-center">VISA</div>
+                                <div class="px-3 py-1 bg-gray-50 border border-gray-200 rounded-md text-[11px] font-bold text-gray-500 shadow-sm flex items-center justify-center">MC</div>
                             </div>
                             <span class="text-[11px] text-gray-500 text-center font-sans tracking-tight leading-relaxed">
                                 Klikając przycisk "Kupuję i płacę" zgadzasz się z <a href="/regulamin" class="underline hover:text-stilco-accent transition-colors">regulaminem</a> sklepu.<br>

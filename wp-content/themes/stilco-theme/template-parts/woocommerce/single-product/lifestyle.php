@@ -21,7 +21,7 @@ $photos = array(
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
 			<div class="max-w-xl">
-				<span class="text-[#a84a34] font-bold uppercase tracking-[0.12em] text-xs block">Na co dzień</span>
+				<span class="text-stilco-accent font-bold uppercase tracking-[0.12em] text-xs block">Na co dzień</span>
 				<h2 id="w-sypialni-title" class="pt-2 text-4xl md:text-[52px] md:leading-[1.02] font-display font-normal text-stilco-dark">Stilco w Twojej sypialni</h2>
 			</div>
 			<button type="button" class="js-scroll-to-top self-start md:self-auto inline-flex items-center gap-2 rounded-full border-2 border-stilco-dark px-7 py-3 font-semibold text-stilco-dark transition-colors hover:bg-stilco-dark hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent">

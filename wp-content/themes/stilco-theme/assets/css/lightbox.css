@@ -77,7 +77,7 @@ body.stilco-lightbox-open {
 
 .stilco-lightbox__close:hover,
 .stilco-lightbox__close:focus-visible {
-	background: rgba(200, 90, 65, 0.85);
-	border-color: rgba(200, 90, 65, 0.85);
+	background: rgba(169, 74, 51, 0.85);
+	border-color: rgba(169, 74, 51, 0.85);
 	outline: none;
 }

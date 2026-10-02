@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div id="stilco-chat-widget" class="fixed bottom-6 right-6 z-50 font-sans">
-	<button id="stilco-chat-button" class="w-14 h-14 bg-stilco-accent text-white rounded-full shadow-lg flex items-center justify-center hover:bg-[#a84a34] transition-all hover:scale-105 focus:outline-none focus:ring-4 focus:ring-stilco-accent/30 group">
+	<button id="stilco-chat-button" class="w-14 h-14 bg-stilco-accent text-white rounded-full shadow-lg flex items-center justify-center hover:bg-stilco-accent-hover transition-all hover:scale-105 focus:outline-none focus:ring-4 focus:ring-stilco-accent/30 group">
 		<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 group-hover:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
 		</svg>
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="p-3 bg-white border-t border-gray-100">
 			<form id="stilco-chat-form" class="flex items-center space-x-2 relative">
 				<input type="text" id="stilco-chat-input" placeholder="Napisz wiadomość..." class="flex-1 bg-gray-50 border border-gray-200 rounded-full pl-4 pr-10 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-stilco-accent/30 focus:border-stilco-accent transition-all">
-				<button type="submit" class="absolute right-1 w-8 h-8 rounded-full bg-stilco-accent text-white flex items-center justify-center hover:bg-[#a84a34] transition-colors focus:outline-none flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
+				<button type="submit" class="absolute right-1 w-8 h-8 rounded-full bg-stilco-accent text-white flex items-center justify-center hover:bg-stilco-accent-hover transition-colors focus:outline-none flex-shrink-0 disabled:opacity-50 disabled:cursor-not-allowed">
 					<svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 transform rotate-90 ml-0.5 mt-0.5" viewBox="0 0 20 20" fill="currentColor">
 						<path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
 					</svg>

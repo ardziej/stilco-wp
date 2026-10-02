@@ -45,7 +45,7 @@ $rows = array(
 <section class="py-24 md:py-32 bg-white overflow-hidden" aria-labelledby="szczegoly-title">
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="text-center max-w-2xl mx-auto mb-16 md:mb-24">
-			<span class="text-[#a84a34] font-bold uppercase tracking-[0.12em] text-xs block">Z bliska</span>
+			<span class="text-stilco-accent font-bold uppercase tracking-[0.12em] text-xs block">Z bliska</span>
 			<h2 id="szczegoly-title" class="pt-2 text-4xl md:text-[52px] md:leading-[1.02] font-display font-normal text-stilco-dark">Każdy detal ma znaczenie</h2>
 			<p class="mt-4 text-lg md:text-xl md:leading-[1.625] text-stilco-dark/80">Prawdziwe zdjęcia materaca, który do Ciebie przyjedzie.</p>
 		</div>
@@ -82,7 +82,7 @@ $rows = array(
 					<div class="<?php echo esc_attr( $txt_cols ); ?> <?php echo $flip ? 'lg:order-1' : ''; ?> <?php echo $is_tall ? 'lg:pl-8' : ''; ?>">
 						<div class="flex items-baseline gap-4">
 							<span class="font-serif text-5xl font-bold leading-none text-stilco-accent/25" aria-hidden="true"><?php echo esc_html( sprintf( '%02d', $index + 1 ) ); ?></span>
-							<span class="text-[#a84a34] uppercase tracking-[0.12em] text-xs font-bold"><?php echo esc_html( $row['eyebrow'] ); ?></span>
+							<span class="text-stilco-accent uppercase tracking-[0.12em] text-xs font-bold"><?php echo esc_html( $row['eyebrow'] ); ?></span>
 						</div>
 						<h3 class="mt-4 text-3xl md:text-[40px] md:leading-[1.1] font-display font-normal text-stilco-dark"><?php echo esc_html( $row['title'] ); ?></h3>
 						<p class="mt-5 text-lg leading-relaxed text-stilco-dark/80"><?php echo esc_html( $row['text'] ); ?></p>

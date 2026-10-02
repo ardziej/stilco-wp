@@ -55,7 +55,7 @@ $paged   = isset( $args['paged'] ) ? (int) $args['paged'] : 1;
 
 						<div class="mt-auto border-t border-gray-200 pt-5">
 							<span class="block font-bold text-stilco-dark"><?php echo esc_html( $review->comment_author ); ?></span>
-							<span class="mt-1 flex items-center text-xs text-gray-400">
+							<span class="mt-1 flex items-center text-xs text-gray-500">
 								<svg class="mr-1 h-3 w-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
 								Zweryfikowany zakup
 							</span>

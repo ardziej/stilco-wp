@@ -78,7 +78,7 @@ function stilco_output_favicon_links() {
 	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( $favicon_dir . '/favicon-16x16.png' ); ?>">
 	<link rel="manifest" href="<?php echo esc_url( $favicon_dir . '/site.webmanifest' ); ?>">
 	<link rel="shortcut icon" href="<?php echo esc_url( $favicon_dir . '/favicon.ico' ); ?>">
-	<meta name="theme-color" content="#c85a41">
+	<meta name="theme-color" content="#a94a33">
 	<?php
 }
 add_action( 'wp_head', 'stilco_output_favicon_links', 1 );

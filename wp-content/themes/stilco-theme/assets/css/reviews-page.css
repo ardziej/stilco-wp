@@ -14,8 +14,8 @@
 
 .stilco-review-form__input:focus {
 	outline: none;
-	border-color: rgb(200 90 65 / 1);
-	box-shadow: 0 0 0 3px rgb(200 90 65 / 0.15);
+	border-color: rgb(169 74 51 / 1);
+	box-shadow: 0 0 0 3px rgb(169 74 51 / 0.15);
 }
 
 .stilco-review-form__file {
@@ -29,16 +29,16 @@
 	margin-right: 1rem;
 	border: 0;
 	border-radius: 9999px;
-	background: rgb(200 90 65 / 0.1);
+	background: rgb(169 74 51 / 0.1);
 	padding: 0.5rem 1rem;
 	font-size: 0.875rem;
 	font-weight: 600;
-	color: rgb(200 90 65 / 1);
+	color: rgb(169 74 51 / 1);
 	cursor: pointer;
 }
 
 .stilco-review-form__file::file-selector-button:hover {
-	background: rgb(200 90 65 / 0.2);
+	background: rgb(169 74 51 / 0.2);
 }
 
 .stilco-review-form__honeypot {
@@ -84,7 +84,7 @@
 .stilco-rating__label:hover,
 .stilco-rating__label:hover ~ .stilco-rating__label,
 .stilco-rating__input:checked ~ .stilco-rating__label {
-	color: rgb(200 90 65 / 1);
+	color: rgb(169 74 51 / 1);
 }
 
 .stilco-rating__label:hover {
@@ -92,7 +92,7 @@
 }
 
 .stilco-rating__input:focus-visible + .stilco-rating__label {
-	outline: 2px solid rgb(200 90 65 / 1);
+	outline: 2px solid rgb(169 74 51 / 1);
 	outline-offset: 2px;
 	border-radius: 0.25rem;
 }

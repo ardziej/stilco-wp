@@ -67,7 +67,7 @@ if ( ! $active_price && ! empty( $size_options[0]['price'] ) ) {
 				<span class="text-sm text-gray-500 font-medium tracking-wide uppercase block mb-1"><?php echo esc_html( $price_label ); ?></span>
 				<div class="flex items-baseline space-x-3">
 					<span id="price-display" class="text-4xl font-sans font-bold text-stilco-accent"><?php echo esc_html( number_format_i18n( $active_price, 0 ) . ' zł' ); ?></span>
-					<span class="text-sm text-gray-400 line-through hidden" id="old-price">3 100 zł</span>
+					<span class="text-sm text-gray-500 line-through hidden" id="old-price">3 100 zł</span>
 				</div>
 			</div>
 
@@ -91,7 +91,7 @@ if ( ! $active_price && ! empty( $size_options[0]['price'] ) ) {
 				</div>
 			</div>
 
-			<button type="button" class="w-full bg-stilco-accent text-white rounded-full py-5 text-xl font-medium shadow-lg shadow-stilco-accent/30 hover:scale-[1.02] hover:bg-[#A84A34] transition-all duration-300 mb-8 flex justify-center items-center group">
+			<button type="button" class="w-full bg-stilco-accent text-white rounded-full py-5 text-xl font-medium shadow-lg shadow-stilco-accent/30 hover:scale-[1.02] hover:bg-stilco-accent-hover transition-all duration-300 mb-8 flex justify-center items-center group">
 				<?php echo esc_html( stilco_get_page_field( 'mattress_add_to_cart_text', 'Dodaj do koszyka', $page_id ) ); ?>
 				<svg class="w-6 h-6 ml-3 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
 			</button>

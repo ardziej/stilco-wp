@@ -13,7 +13,7 @@ $footer_links = stilco_get_footer_link_groups();
             <input type="email" placeholder="<?php echo esc_attr( stilco_get_setting( 'footer_newsletter_placeholder', 'Twój adres e-mail' ) ); ?>" aria-label="Adres e-mail"
                 class="w-full px-6 py-4 bg-white border border-gray-200 rounded-full text-stilco-dark focus:ring-2 focus:ring-stilco-accent focus:border-transparent outline-none shadow-sm transition-all focus:shadow-md">
             <button type="submit"
-                class="bg-stilco-accent px-8 py-4 rounded-full font-medium text-white hover:bg-[#A84A34] transition-colors whitespace-nowrap shadow-lg shadow-stilco-accent/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-dark">
+                class="bg-stilco-accent px-8 py-4 rounded-full font-medium text-white hover:bg-stilco-accent-hover transition-colors whitespace-nowrap shadow-lg shadow-stilco-accent/30 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-dark">
                 <?php echo esc_html( stilco_get_setting( 'footer_newsletter_button_text', 'Zapisz się' ) ); ?>
             </button>
         </form>
@@ -26,7 +26,7 @@ $footer_links = stilco_get_footer_link_groups();
         </div>
 
         <div>
-            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a84a34]"><?php echo esc_html( stilco_get_setting( 'footer_shop_title', 'Sklep' ) ); ?></h4>
+            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-stilco-accent"><?php echo esc_html( stilco_get_setting( 'footer_shop_title', 'Sklep' ) ); ?></h4>
             <ul class="mt-4 space-y-2 text-sm leading-6">
                 <?php foreach ( $footer_links['shop'] as $item ) : ?>
                 <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="text-stilco-dark/80 underline decoration-stilco-dark/40 underline-offset-[6px] hover:text-stilco-accent hover:decoration-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm"><?php echo esc_html( $item['label'] ); ?></a></li>
@@ -35,7 +35,7 @@ $footer_links = stilco_get_footer_link_groups();
         </div>
 
         <div>
-            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a84a34]"><?php echo esc_html( stilco_get_setting( 'footer_company_title', 'Firma' ) ); ?></h4>
+            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-stilco-accent"><?php echo esc_html( stilco_get_setting( 'footer_company_title', 'Firma' ) ); ?></h4>
             <ul class="mt-4 space-y-2 text-sm leading-6">
                 <?php foreach ( $footer_links['company'] as $item ) : ?>
                 <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="text-stilco-dark/80 underline decoration-stilco-dark/40 underline-offset-[6px] hover:text-stilco-accent hover:decoration-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm"><?php echo esc_html( $item['label'] ); ?></a></li>
@@ -44,7 +44,7 @@ $footer_links = stilco_get_footer_link_groups();
         </div>
 
         <div>
-            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a84a34]"><?php echo esc_html( stilco_get_setting( 'footer_support_title', 'Wsparcie' ) ); ?></h4>
+            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-stilco-accent"><?php echo esc_html( stilco_get_setting( 'footer_support_title', 'Wsparcie' ) ); ?></h4>
             <ul class="mt-4 space-y-2 text-sm leading-6">
                 <?php foreach ( $footer_links['support'] as $item ) : ?>
                 <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="text-stilco-dark/80 underline decoration-stilco-dark/40 underline-offset-[6px] hover:text-stilco-accent hover:decoration-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm"><?php echo esc_html( $item['label'] ); ?></a></li>

@@ -21,7 +21,7 @@ $cta_link = stilco_get_link_data( 'home_mid_cta_button_text', 'home_mid_cta_butt
 				<p class="text-white/90 text-lg md:text-xl md:leading-[1.625]"><?php echo esc_html( stilco_get_page_field( 'home_mid_cta_text', 'Wybierz rozmiar jakiego potrzebujesz oraz dostosuj formę i datę dostawy. To wystarczy, by cieszyć się dobrym snem.', $page_id ) ); ?></p>
 			</div>
 			<div class="mt-6 md:mt-0">
-				<a href="<?php echo esc_url( $cta_link['url'] ); ?>" class="inline-block rounded-full bg-[#a84a34] px-8 py-4 text-base font-semibold text-white shadow-lg shadow-stilco-accent/30 transition-colors hover:bg-stilco-accent">
+				<a href="<?php echo esc_url( $cta_link['url'] ); ?>" class="inline-block rounded-full bg-stilco-accent px-8 py-4 text-base font-semibold text-white shadow-lg shadow-stilco-accent/30 transition-colors hover:bg-stilco-accent-hover">
 					<?php echo esc_html( $cta_link['label'] ); ?>
 				</a>
 			</div>

@@ -5,7 +5,7 @@
 
 #review_form_wrapper .stars a,
 .woocommerce-product-rating .star-rating span::before {
-	color: #c85a41 !important;
+	color: #a94a33 !important;
 }
 
 #review_form_wrapper .stars span::before {
@@ -16,7 +16,7 @@
 #review_form_wrapper .stars a:hover ~ a,
 #review_form_wrapper .stars.selected a.active,
 #review_form_wrapper .stars.selected a.active ~ a {
-	color: #c85a41 !important;
+	color: #a94a33 !important;
 }
 
 #review_form_wrapper p.stars {
@@ -47,8 +47,8 @@
 #review_form_wrapper input[type="email"]:focus,
 #review_form_wrapper input[type="url"]:focus,
 #review_form_wrapper textarea:focus {
-	border-color: #c85a41 !important;
-	box-shadow: 0 0 0 3px rgba(200, 90, 65, 0.1) !important;
+	border-color: #a94a33 !important;
+	box-shadow: 0 0 0 3px rgba(169, 74, 51, 0.1) !important;
 	background: #fff;
 }
 
@@ -84,7 +84,7 @@
 }
 
 #review_form_wrapper input[type="submit"] {
-	background-color: #c85a41 !important;
+	background-color: #a94a33 !important;
 	color: #fff !important;
 	border: none !important;
 	border-radius: 9999px !important;
@@ -93,12 +93,12 @@
 	font-size: 1rem !important;
 	cursor: pointer;
 	transition: all 0.3s ease !important;
-	box-shadow: 0 8px 20px rgba(200, 90, 65, 0.3);
+	box-shadow: 0 8px 20px rgba(169, 74, 51, 0.3);
 	display: inline-block;
 }
 
 #review_form_wrapper input[type="submit"]:hover {
-	box-shadow: 0 14px 28px rgba(200, 90, 65, 0.4) !important;
+	box-shadow: 0 14px 28px rgba(169, 74, 51, 0.4) !important;
 	transform: translateY(-2px);
 }
 

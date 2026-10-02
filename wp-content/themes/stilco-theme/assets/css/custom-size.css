@@ -9,9 +9,9 @@
 
 .stilco-custom-size__panel {
 	margin-top: 1rem;
-	border: 1px dashed rgb(200 90 65 / 0.45);
+	border: 1px dashed rgb(169 74 51 / 0.45);
 	border-radius: 1.5rem;
-	background: rgb(200 90 65 / 0.04);
+	background: rgb(169 74 51 / 0.04);
 	padding: 1.5rem;
 }
 
@@ -49,7 +49,7 @@
 
 .stilco-custom-size__notice--error {
 	background: #fff;
-	border: 1px solid rgb(200 90 65 / 0.35);
+	border: 1px solid rgb(169 74 51 / 0.35);
 	color: rgb(75 85 99 / 1);
 }
 
@@ -109,8 +109,8 @@
 .stilco-custom-size__form input:focus,
 .stilco-custom-size__form textarea:focus {
 	outline: none;
-	border-color: rgb(200 90 65 / 1);
-	box-shadow: 0 0 0 3px rgb(200 90 65 / 0.15);
+	border-color: rgb(169 74 51 / 1);
+	box-shadow: 0 0 0 3px rgb(169 74 51 / 0.15);
 }
 
 .stilco-custom-size__consent {
@@ -128,7 +128,7 @@
 	width: 1rem;
 	height: 1rem;
 	flex-shrink: 0;
-	accent-color: rgb(200 90 65 / 1);
+	accent-color: rgb(169 74 51 / 1);
 }
 
 .stilco-custom-size__consent a {
@@ -136,7 +136,7 @@
 }
 
 .stilco-custom-size__consent a:hover {
-	color: rgb(200 90 65 / 1);
+	color: rgb(169 74 51 / 1);
 }
 
 .stilco-custom-size__honeypot {
@@ -156,13 +156,13 @@
 	width: 100%;
 	border: 0;
 	border-radius: 9999px;
-	background: rgb(200 90 65 / 1);
+	background: rgb(169 74 51 / 1);
 	padding: 0.9375rem 2rem;
 	font-size: 1rem;
 	font-weight: 600;
 	color: #fff;
 	cursor: pointer;
-	box-shadow: 0 10px 15px -3px rgb(200 90 65 / 0.3);
+	box-shadow: 0 10px 15px -3px rgb(169 74 51 / 0.3);
 	transition: background 0.2s;
 }
 

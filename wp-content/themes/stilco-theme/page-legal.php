@@ -21,7 +21,7 @@ get_header();
 
     <!-- Kontent główny strony -->
     <section class="max-w-3xl mx-auto px-6">
-        <article class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-white/50 prose prose-lg prose-stilco prose-headings:font-display prose-headings:font-bold prose-headings:text-stilco-dark prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-600 prose-p:leading-relaxed prose-a:text-stilco-accent prose-a:font-medium prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-[#A84A34] prose-li:text-gray-600 w-full max-w-none">
+        <article class="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-white/50 prose prose-lg prose-stilco prose-headings:font-display prose-headings:font-bold prose-headings:text-stilco-dark prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4 prose-p:text-gray-600 prose-p:leading-relaxed prose-a:text-stilco-accent prose-a:font-medium prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-stilco-accent-hover prose-li:text-gray-600 w-full max-w-none">
             
             <?php while ( have_posts() ) : the_post(); ?>
                 

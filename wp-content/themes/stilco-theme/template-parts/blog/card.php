@@ -31,6 +31,6 @@ $heading_tag = isset( $args['heading_tag'] ) && in_array( $args['heading_tag'], 
 			<a href="<?php the_permalink(); ?>" rel="bookmark" class="focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent rounded-sm"><?php the_title(); ?></a>
 		</<?php echo $heading_tag; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 		<p class="text-sm text-gray-600 line-clamp-3"><?php echo esc_html( wp_strip_all_tags( get_the_excerpt() ) ); ?></p>
-		<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" class="mt-auto block pt-5 text-xs font-medium uppercase tracking-wider text-gray-400"><?php echo esc_html( get_the_date() ); ?></time>
+		<time datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>" class="mt-auto block pt-5 text-xs font-medium uppercase tracking-wider text-gray-500"><?php echo esc_html( get_the_date() ); ?></time>
 	</div>
 </article>

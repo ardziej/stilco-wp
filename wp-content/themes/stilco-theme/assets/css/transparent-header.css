@@ -5,7 +5,7 @@
 }
 
 .header-nav ul li a:focus-visible {
-	outline: 2px solid #c85a41;
+	outline: 2px solid #a94a33;
 	border-radius: 4px;
 	padding: 2px;
 }
@@ -17,7 +17,7 @@
 	height: 1px;
 	bottom: -4px;
 	left: 0;
-	background-color: #c85a41;
+	background-color: #a94a33;
 	transition: width 0.3s ease;
 }
 
@@ -27,5 +27,5 @@
 }
 
 .header-nav ul li:hover a {
-	color: #c85a41;
+	color: #a94a33;
 }

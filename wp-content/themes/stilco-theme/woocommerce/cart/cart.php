@@ -24,12 +24,12 @@ do_action( 'woocommerce_before_cart' ); ?>
                 <table class="shop_table shop_table_responsive cart woocommerce-cart-form__contents w-full" cellspacing="0">
                     <thead class="bg-stilco-sand/50 text-left border-b border-gray-100">
                         <tr>
-                            <th class="product-remove py-4 px-6 text-xs uppercase tracking-wider text-gray-400 font-semibold w-10">&nbsp;</th>
-                            <th class="product-thumbnail py-4 px-4 text-xs uppercase tracking-wider text-gray-400 font-semibold w-24">&nbsp;</th>
-                            <th class="product-name py-4 px-4 text-xs uppercase tracking-wider text-gray-400 font-semibold">Produkt</th>
-                            <th class="product-price py-4 px-4 text-xs uppercase tracking-wider text-gray-400 font-semibold hidden sm:table-cell">Cena</th>
-                            <th class="product-quantity py-4 px-4 text-xs uppercase tracking-wider text-gray-400 font-semibold">Ilość</th>
-                            <th class="product-subtotal py-4 px-6 text-xs uppercase tracking-wider text-gray-400 font-semibold text-right">Razem</th>
+                            <th class="product-remove py-4 px-6 text-xs uppercase tracking-wider text-gray-500 font-semibold w-10">&nbsp;</th>
+                            <th class="product-thumbnail py-4 px-4 text-xs uppercase tracking-wider text-gray-500 font-semibold w-24">&nbsp;</th>
+                            <th class="product-name py-4 px-4 text-xs uppercase tracking-wider text-gray-500 font-semibold">Produkt</th>
+                            <th class="product-price py-4 px-4 text-xs uppercase tracking-wider text-gray-500 font-semibold hidden sm:table-cell">Cena</th>
+                            <th class="product-quantity py-4 px-4 text-xs uppercase tracking-wider text-gray-500 font-semibold">Ilość</th>
+                            <th class="product-subtotal py-4 px-6 text-xs uppercase tracking-wider text-gray-500 font-semibold text-right">Razem</th>
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-100">
@@ -50,7 +50,7 @@ do_action( 'woocommerce_before_cart' ); ?>
                                             echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                 'woocommerce_cart_item_remove_link',
                                                 sprintf(
-                                                    '<a href="%s" class="remove text-gray-300 hover:text-red-500 transition-colors" aria-label="%s" data-product_id="%s" data-product_sku="%s"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></a>',
+                                                    '<a href="%s" class="remove text-gray-500 hover:text-red-500 transition-colors" aria-label="%s" data-product_id="%s" data-product_sku="%s"><svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg></a>',
                                                     esc_url( wc_get_cart_remove_url( $cart_item_key ) ),
                                                     esc_html__( 'Remove this item', 'woocommerce' ),
                                                     esc_attr( $product_id ),

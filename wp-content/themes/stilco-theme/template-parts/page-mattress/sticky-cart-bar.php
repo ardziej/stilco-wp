@@ -30,7 +30,7 @@ $image   = stilco_override_media_alt(
 				<span class="text-stilco-accent font-semibold text-sm"><?php echo esc_html( stilco_get_page_field( 'mattress_sticky_price_from', 'od 2 595 zł', $page_id ) ); ?></span>
 			</div>
 		</div>
-		<button type="button" class="bg-stilco-accent text-white font-medium py-3 px-8 rounded-full shadow-md hover:bg-[#A84A34] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent text-sm md:text-base whitespace-nowrap">
+		<button type="button" class="bg-stilco-accent text-white font-medium py-3 px-8 rounded-full shadow-md hover:bg-stilco-accent-hover transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent text-sm md:text-base whitespace-nowrap">
 			<?php echo esc_html( stilco_get_page_field( 'mattress_sticky_button_text', 'Dodaj do koszyka', $page_id ) ); ?>
 		</button>
 	</div>

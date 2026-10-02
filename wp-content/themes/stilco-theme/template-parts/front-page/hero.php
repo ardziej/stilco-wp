@@ -47,7 +47,7 @@ $hero_note     = stilco_get_page_field( 'home_hero_note', '100 nocy na test w Tw
 			<?php echo esc_html( $hero_lead ); ?>
 		</p>
 		<div class="flex flex-col sm:flex-row sm:items-center sm:justify-center gap-3 sm:gap-4">
-			<a href="<?php echo esc_url( $primary_cta['url'] ); ?>" class="btn-primary inline-flex items-center justify-center rounded-full bg-[#a84a34] min-h-[56px] px-10 py-3 text-base font-semibold text-white shadow-xl shadow-stilco-accent/40 hover:bg-stilco-dark transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-dark">
+			<a href="<?php echo esc_url( $primary_cta['url'] ); ?>" class="btn-primary inline-flex items-center justify-center rounded-full bg-stilco-accent min-h-[56px] px-10 py-3 text-base font-semibold text-white shadow-xl shadow-stilco-accent/40 hover:bg-stilco-dark transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-dark">
 				<?php echo esc_html( $primary_cta['label'] ); ?>
 			</a>
 			<a href="<?php echo esc_url( $secondary_cta['url'] ); ?>" class="inline-flex items-center justify-center rounded-full border-2 border-stilco-dark bg-white/70 min-h-[56px] px-[34px] py-3 text-base font-semibold text-stilco-dark backdrop-blur-sm hover:bg-stilco-dark hover:text-white transition-colors duration-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent">

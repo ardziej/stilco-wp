@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<?php esc_html_e( 'Twój Koszyk', 'stilco' ); ?>
 								</h2>
 								<div class="ml-3 flex h-7 items-center">
-									<button type="button" id="close-cart-btn" class="relative -m-2 p-2 text-gray-400 hover:text-gray-500 transition-colors">
+									<button type="button" id="close-cart-btn" class="relative -m-2 p-2 text-gray-500 hover:text-stilco-dark transition-colors">
 										<span class="absolute -inset-0.5"></span>
 										<span class="sr-only"><?php esc_html_e( 'Zamknij koszyk', 'stilco' ); ?></span>
 										<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">

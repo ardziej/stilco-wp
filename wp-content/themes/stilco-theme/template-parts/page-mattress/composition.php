@@ -44,7 +44,7 @@ $blocks = array(
 <section id="technologia" class="py-24 bg-white overflow-hidden relative scroll-mt-28">
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="text-center mb-16 max-w-2xl mx-auto">
-			<span class="text-[#a84a34] font-bold uppercase tracking-[0.12em] text-xs block"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_eyebrow', 'Struktura', $page_id ) ); ?></span>
+			<span class="text-stilco-accent font-bold uppercase tracking-[0.12em] text-xs block"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_eyebrow', 'Struktura', $page_id ) ); ?></span>
 			<h2 class="pt-2 text-4xl md:text-6xl lg:text-[78px] lg:leading-[1.02] font-serif text-stilco-dark font-bold"><?php echo esc_html( stilco_get_page_field( 'mattress_composition_title', 'Zajrzyj do środka materaca', $page_id ) ); ?></h2>
 		</div>
 

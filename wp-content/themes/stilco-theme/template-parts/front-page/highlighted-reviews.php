@@ -47,7 +47,7 @@ $empty_txt = stilco_get_page_field( 'home_reviews_empty_text', 'Nowe opinie poja
 							<div class="flex items-center justify-between mt-auto pt-6 border-t border-gray-200">
 								<div>
 									<span class="block font-bold text-stilco-dark"><?php echo esc_html( $review->comment_author ); ?></span>
-									<span class="block text-xs text-gray-400 mt-1 flex items-center"><svg class="w-3 h-3 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Zweryfikowany zakup</span>
+									<span class="block text-xs text-gray-500 mt-1 flex items-center"><svg class="w-3 h-3 mr-1 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg> Zweryfikowany zakup</span>
 								</div>
 							</div>
 						</div>

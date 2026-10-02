@@ -27,7 +27,7 @@ $cta_link = stilco_get_link_data( 'mattress_final_cta_text', 'mattress_final_cta
 	<div class="max-w-4xl mx-auto px-6 relative z-10 animate-zoom">
 		<h2 class="text-4xl md:text-6xl lg:text-[78px] lg:leading-[1.02] font-serif text-white font-bold mb-8 drop-shadow-lg"><?php echo esc_html( stilco_get_page_field( 'mattress_final_cta_title', '100 dni na podjęcie decyzji.', $page_id ) ); ?></h2>
 		<p class="text-lg md:text-xl md:leading-[1.625] text-white/90 font-sans mb-12"><?php echo esc_html( stilco_get_page_field( 'mattress_final_cta_lead', 'Jeżeli materac nie poprawi jakości Twojego snu w ciągu 100 nocy, zwrócimy Ci pełną kwotę.', $page_id ) ); ?></p>
-		<a href="<?php echo esc_url( $cta_link['url'] ); ?>" class="<?php echo '#' === $cta_link['url'] ? 'js-scroll-to-top ' : ''; ?>bg-[#a84a34] text-white rounded-full px-16 py-6 text-xl font-medium shadow-xl hover:scale-105 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent inline-block">
+		<a href="<?php echo esc_url( $cta_link['url'] ); ?>" class="<?php echo '#' === $cta_link['url'] ? 'js-scroll-to-top ' : ''; ?>bg-stilco-accent text-white rounded-full px-16 py-6 text-xl font-medium shadow-xl hover:scale-105 transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent inline-block">
 			<?php echo esc_html( $cta_link['label'] ); ?>
 		</a>
 	</div>
