@@ -97,6 +97,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	// .wc-variation-selection-needed until a size is chosen; we only read that.
 	var addButton = document.querySelector('form.cart .single_add_to_cart_button');
 	var addLabel = addButton ? addButton.textContent.trim() : '';
+	var bar = document.querySelector('[data-buy-bar]');
+	var barPrice = bar ? bar.querySelector('[data-buy-bar-price]') : null;
+	var barButton = bar ? bar.querySelector('[data-buy-bar-button]') : null;
+	var defaultBarPrice = barPrice ? barPrice.innerHTML : '';
 
 	function needsSize() {
 		return !!addButton && addButton.classList.contains('wc-variation-selection-needed');
@@ -107,6 +111,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		if (addButton) {
 			addButton.textContent = label;
+		}
+
+		if (barButton) {
+			barButton.textContent = label;
 		}
 	}
 
@@ -136,6 +144,27 @@ document.addEventListener('DOMContentLoaded', function () {
 		}, true);
 	}
 
+	if (barButton) {
+		barButton.addEventListener('click', function () {
+			if (addButton && !needsSize()) {
+				addButton.click();
+			} else {
+				focusSizePicker();
+			}
+		});
+	}
+
+	// The bar shows once the real button has scrolled up out of view.
+	if (bar && addButton && 'IntersectionObserver' in window) {
+		new IntersectionObserver(function (entries) {
+			var entry = entries[0];
+			var show = !entry.isIntersecting && entry.boundingClientRect.top < 0;
+
+			bar.classList.toggle('is-visible', show);
+			document.body.classList.toggle('has-buy-bar', show);
+		}).observe(addButton);
+	}
+
 	setTimeout(function () {
 		initCustomVariants();
 		syncAddLabel();
@@ -154,10 +183,18 @@ document.addEventListener('DOMContentLoaded', function () {
 				if (priceDisplay && variation.price_html) {
 					priceDisplay.innerHTML = variation.price_html;
 				}
+
+				if (barPrice && variation.price_html) {
+					barPrice.innerHTML = variation.price_html;
+				}
 			})
 			.on('reset_data', function () {
 				if (priceDisplay) {
 					priceDisplay.innerHTML = defaultPriceHtml;
+				}
+
+				if (barPrice) {
+					barPrice.innerHTML = defaultBarPrice;
 				}
 			});
 	}

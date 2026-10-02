@@ -58,6 +58,7 @@ get_header( 'shop' ); ?>
 	</div>
 
 	<?php get_template_part( 'template-parts/woocommerce/single-product/assets' ); ?>
+	<?php get_template_part( 'template-parts/woocommerce/single-product/buy-bar' ); ?>
     
 <?php endwhile; // end of the loop. ?>
 

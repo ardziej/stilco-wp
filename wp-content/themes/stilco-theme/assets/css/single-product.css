@@ -95,3 +95,42 @@ button.single_add_to_cart_button.disabled:hover {
 		padding-bottom: 0.875rem !important;
 	}
 }
+
+/* Mobile buy bar (template-parts/woocommerce/single-product/buy-bar.php). */
+.buy-bar {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 40;
+	padding: 0.75rem 1.5rem calc(0.75rem + env(safe-area-inset-bottom));
+	border-top: 1px solid rgb(33 37 41 / 0.08);
+	background: rgb(255 255 255 / 0.95);
+	box-shadow: 0 -10px 30px rgb(0 0 0 / 0.05);
+	backdrop-filter: blur(16px);
+	transform: translateY(100%);
+	visibility: hidden;
+	transition: transform 0.3s ease, visibility 0.3s;
+}
+
+.buy-bar.is-visible {
+	transform: none;
+	visibility: visible;
+}
+
+/* Keep the chat bubble above the bar while it is showing. */
+#stilco-chat-widget {
+	transition: bottom 0.3s ease;
+}
+
+@media (max-width: 1023px) {
+	body.has-buy-bar #stilco-chat-widget {
+		bottom: calc(5.5rem + env(safe-area-inset-bottom));
+	}
+}
+
+@media (min-width: 1024px) {
+	.buy-bar {
+		display: none;
+	}
+}
