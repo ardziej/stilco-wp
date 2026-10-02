@@ -50,19 +50,26 @@ function stilco_is_valid_delivery_date( $delivery_date ) {
  */
 function stilco_add_delivery_date_field() {
 	$min_date = stilco_get_min_delivery_date();
+	// A date sent back after a failed add to cart keeps the panel open.
+	$value = stilco_get_submitted_delivery_date();
 	?>
-	<div class="stilco-delivery-date-field w-full">
-		<label for="stilco_delivery_date" class="block text-xs uppercase tracking-[0.12em] text-stilco-dark mb-1.5">
-			<?php esc_html_e( 'Oczekiwana data dostawy (opcjonalnie)', 'stilco' ); ?>
-		</label>
-		<input type="date" id="stilco_delivery_date" name="stilco_delivery_date" min="<?php echo esc_attr( $min_date ); ?>" class="w-full h-12 rounded-sm border border-gray-200 bg-white px-3 text-sm text-stilco-dark focus:border-stilco-accent focus:ring-stilco-accent" />
-		<p class="text-xs text-stilco-dark/70 mt-1.5">
-			<?php esc_html_e( 'Jeśli chcesz, abyśmy dostarczyli materac w późniejszym terminie (np. za 2 miesiące z powodu remontu), wybierz datę poniżej. Opcja tylko dla zamówień z wyprzedzeniem min. 3 dniowym.', 'stilco' ); ?>
-		</p>
-	</div>
+	<details class="stilco-delivery-date-field w-full" <?php echo '' !== $value ? 'open' : ''; ?>>
+		<summary class="cursor-pointer py-3 text-sm font-medium text-stilco-dark underline underline-offset-2">
+			<?php esc_html_e( 'Chcę dostawę w późniejszym terminie', 'stilco' ); ?>
+		</summary>
+		<div class="pt-2">
+			<label for="stilco_delivery_date" class="block text-xs uppercase tracking-[0.12em] text-stilco-dark mb-1.5">
+				<?php esc_html_e( 'Oczekiwana data dostawy (opcjonalnie)', 'stilco' ); ?>
+			</label>
+			<input type="date" id="stilco_delivery_date" name="stilco_delivery_date" min="<?php echo esc_attr( $min_date ); ?>" value="<?php echo esc_attr( $value ); ?>" class="w-full h-12 rounded-sm border border-gray-200 bg-white px-3 text-sm text-stilco-dark focus:border-stilco-accent focus:ring-stilco-accent" />
+			<p class="text-xs text-stilco-dark/70 mt-1.5">
+				<?php esc_html_e( 'Jeśli chcesz, abyśmy dostarczyli materac w późniejszym terminie (np. za 2 miesiące z powodu remontu), wybierz datę powyżej. Opcja tylko dla zamówień z wyprzedzeniem min. 3 dniowym.', 'stilco' ); ?>
+			</p>
+		</div>
+	</details>
 	<?php
 }
-add_action( 'woocommerce_before_add_to_cart_button', 'stilco_add_delivery_date_field' );
+add_action( 'woocommerce_after_add_to_cart_button', 'stilco_add_delivery_date_field' );
 
 /**
  * Validate the submitted delivery date before adding a product to cart.
