@@ -46,11 +46,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		thumbnails.forEach(function (thumb) {
 			thumb.classList.remove('border-stilco-accent');
-			thumb.classList.add('border-transparent');
+			thumb.classList.add('border-transparent', 'opacity-70');
 		});
 
 		element.classList.add('border-stilco-accent');
-		element.classList.remove('border-transparent');
+		element.classList.remove('border-transparent', 'opacity-70');
 	}
 
 	function updateLightboxContent() {

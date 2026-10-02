@@ -1,28 +1,82 @@
-.bed-visual {
-	min-height: 56px;
+/* Size tiles built by single-product-variants.js from the WooCommerce select. */
+
+.custom-size-selector {
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 0.75rem;
+	margin-top: 1rem;
 }
 
-.bed-visual-frame {
-	display: inline-block;
-	border: 1px solid rgb(229 231 235 / 1);
-	border-radius: 2px;
-	background-image: linear-gradient(to bottom right, rgb(249 250 251 / 1), rgb(243 244 246 / 1));
+@media (min-width: 640px) {
+	.custom-size-selector {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
 }
 
-.bed-visual-svg {
-	display: block;
+.size-option {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	min-height: 141px;
+	padding: 1rem 0.75rem;
+	border: 1px solid rgb(33 37 41 / 0.2);
+	border-radius: 1rem;
+	background: #fff;
+	color: #212529;
+	text-align: center;
+	cursor: pointer;
+	transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
-.bed-visual-surface {
-	fill: transparent;
-	stroke: transparent;
+.size-option:hover {
+	border-color: #a84a34;
 }
 
-.bed-pattern {
-	background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
-	background-size: 4px 4px;
+.size-option:focus-visible {
+	outline: 2px solid #a84a34;
+	outline-offset: 2px;
 }
 
-.size-option.is-active .bed-pattern {
-	background-image: radial-gradient(rgba(200, 90, 65, 0.2) 1px, transparent 1px);
+.size-option.is-active,
+.size-option--custom[aria-expanded='true'] {
+	border: 2px solid #a84a34;
+	background: rgb(168 74 52 / 0.05);
+	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px 0 rgb(0 0 0 / 0.1);
+	/* keep content from shifting when the border thickens */
+	padding: calc(1rem - 1px) calc(0.75rem - 1px);
+}
+
+.size-option__icon rect {
+	fill: rgb(33 37 41 / 0.048);
+	stroke: rgb(33 37 41 / 0.27);
+}
+
+.size-option.is-active .size-option__icon rect {
+	fill: rgb(168 74 52 / 0.08);
+	stroke: rgb(168 74 52 / 0.45);
+}
+
+.size-option__label {
+	font-size: 0.875rem;
+	font-weight: 600;
+	line-height: 1.25;
+}
+
+.size-option__unit {
+	margin-top: -0.5rem;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	color: rgb(33 37 41 / 0.6);
+}
+
+.size-option--custom {
+	border: 1px dashed rgb(200 90 65 / 0.6);
+	background: rgb(200 90 65 / 0.05);
+	color: #c85a41;
+}
+
+.size-option--custom .size-option__icon {
+	opacity: 0.45;
 }

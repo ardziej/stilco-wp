@@ -16,7 +16,8 @@
 
 		var toggle = root.querySelector('[data-custom-size-toggle]');
 		var panel = root.querySelector('[data-custom-size-panel="custom"]');
-		var cart = document.querySelector('[data-custom-size-panel="standard"]');
+		// Only the price, delivery date and button go away; the size tiles stay.
+		var cart = document.querySelector('.variations_form .single_variation_wrap');
 
 		if (!toggle || !panel) {
 			return;
@@ -30,6 +31,20 @@
 			if (cart) {
 				cart.hidden = isOpen;
 			}
+
+			// A quote is not for a standard size: drop the chosen tile and its price.
+			if (isOpen) {
+				var reset = document.querySelector('.variations_form .reset_variations');
+
+				if (reset) {
+					reset.click();
+				}
+
+				document.querySelectorAll('.size-option.is-active').forEach(function (tile) {
+					tile.classList.remove('is-active');
+					tile.setAttribute('aria-pressed', 'false');
+				});
+			}
 		}
 
 		// The server renders the panel open after a submit, so mirror that state.
@@ -37,6 +52,13 @@
 
 		toggle.addEventListener('click', function () {
 			setOpen(panel.hidden);
+		});
+
+		// Picking a standard size goes back to the cart.
+		document.addEventListener('click', function (event) {
+			if (event.target.closest('.size-option:not(.size-option--custom)')) {
+				setOpen(false);
+			}
 		});
 	}
 

@@ -11,6 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
+// Prices are whole złoty: show "3 190 zł", not "3 190,00 zł". Non-zero grosze still show.
+add_filter( 'woocommerce_price_trim_zeros', '__return_true' );
+
 /**
  * Refresh cart counter fragment after AJAX add-to-cart.
  *

@@ -16,17 +16,9 @@ $is_open  = '' !== $status;
 $redirect = get_permalink();
 ?>
 <div id="twoj-rozmiar" class="stilco-custom-size scroll-mt-28" data-custom-size-root <?php echo $is_open ? 'data-custom-size-open="1"' : ''; ?>>
-	<button type="button" class="stilco-custom-size__toggle" data-custom-size-toggle aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>" aria-controls="twoj-rozmiar-panel">
-		<span class="stilco-custom-size__toggle-icon" aria-hidden="true">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 20h16M4 20v-4m0 4l5-5m11 1v3m0-3l-4-4m4 4h-3M9 4H4v5m0-5l6 6"/></svg>
-		</span>
-		<span class="stilco-custom-size__toggle-text">
-			<span class="stilco-custom-size__toggle-title">Twój rozmiar</span>
-			<span class="stilco-custom-size__toggle-note">Potrzebujesz nietypowego wymiaru? Wycenimy indywidualnie.</span>
-		</span>
-		<span class="stilco-custom-size__toggle-chevron" aria-hidden="true">
-			<svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
-		</span>
+	<button type="button" class="stilco-custom-size__toggle size-option size-option--custom" data-custom-size-toggle aria-expanded="<?php echo $is_open ? 'true' : 'false'; ?>" aria-controls="twoj-rozmiar-panel">
+		<svg class="size-option__icon" width="44" height="64" viewBox="0 0 44 64" aria-hidden="true" focusable="false"><rect x="12.22" y="4" width="19.56" height="56" rx="5.33"></rect></svg>
+		<span class="size-option__label">Twój<br>rozmiar</span>
 	</button>
 
 	<div id="twoj-rozmiar-panel" class="stilco-custom-size__panel" data-custom-size-panel="custom" <?php echo $is_open ? '' : 'hidden'; ?>>

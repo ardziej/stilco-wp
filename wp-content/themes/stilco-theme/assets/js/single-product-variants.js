@@ -1,4 +1,17 @@
 document.addEventListener('DOMContentLoaded', function () {
+	var priceDisplay = document.querySelector('.price-display');
+	var defaultPriceHtml = priceDisplay ? priceDisplay.innerHTML : '';
+
+	// Mattress outline drawn to scale: 56px tall, width follows the size in cm.
+	function sizeIcon(widthCm) {
+		var w = Math.min(36, 6.4 + 0.164 * widthCm);
+		var x = (44 - w) / 2;
+
+		return '<svg class="size-option__icon" width="44" height="64" viewBox="0 0 44 64" aria-hidden="true" focusable="false">'
+			+ '<rect x="' + x.toFixed(2) + '" y="4" width="' + w.toFixed(2) + '" height="56" rx="5.33"></rect>'
+			+ '</svg>';
+	}
+
 	function initCustomVariants() {
 		var forms = document.querySelectorAll('.variations_form');
 
@@ -17,24 +30,21 @@ document.addEventListener('DOMContentLoaded', function () {
 				select.dataset.customInit = 'true';
 
 				var td = select.closest('td.value');
+				var container;
+				var hasValidOptions = false;
+				var customTile;
 
 				if (!td) {
 					return;
 				}
 
-				var container = document.createElement('div');
-				var hasValidOptions = false;
-
-				container.className = 'custom-size-selector grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mt-6 mb-8';
+				container = document.createElement('div');
+				container.className = 'custom-size-selector';
 
 				Array.from(select.options).forEach(function (opt) {
 					var text;
-					var width = 160;
-					var length = 200;
 					var parts;
-					var ratio;
-					var baseHeight = 56;
-					var rectWidth;
+					var width = 160;
 					var btn;
 
 					if (!opt.value) {
@@ -43,74 +53,33 @@ document.addEventListener('DOMContentLoaded', function () {
 
 					hasValidOptions = true;
 					text = opt.innerText.replace(/cm/gi, '').trim();
-					parts = text.split(/[xX*]/);
+					parts = text.split(/[xX×*]/);
 
-					if (parts.length >= 2) {
+					if (!isNaN(parseInt(parts[0], 10))) {
 						width = parseInt(parts[0], 10);
-						length = parseInt(parts[1], 10);
-					} else if (!isNaN(parseInt(text, 10))) {
-						width = parseInt(text, 10);
 					}
 
-					ratio = width / length;
-					rectWidth = baseHeight * ratio;
-
-					btn = document.createElement('div');
-					btn.className = 'size-option cursor-pointer group flex flex-col items-center justify-between p-4 rounded-xl border-2 border-transparent bg-gray-50 hover:bg-white hover:border-stilco-accent hover:shadow-md transition-all duration-300 relative min-h-[110px]';
+					btn = document.createElement('button');
+					btn.type = 'button';
+					btn.className = 'size-option';
 					btn.dataset.value = opt.value;
-					btn.innerHTML = ''
-						+ '<div class="bed-visual bg-white border border-gray-200 rounded-md group-hover:border-stilco-accent group-hover:bg-stilco-accent/5 transition-all duration-300 shadow-sm flex items-center justify-center p-1 mb-4">'
-						+ '<div class="bed-visual-frame relative overflow-hidden shadow-inner">'
-						+ '<svg class="bed-visual-svg" width="' + rectWidth + '" height="' + baseHeight + '" viewBox="0 0 100 56" aria-hidden="true" focusable="false" preserveAspectRatio="none">'
-						+ '<rect class="bed-visual-surface" x="0.5" y="0.5" width="99" height="55" rx="2"></rect>'
-						+ '</svg>'
-						+ '<div class="bed-pattern absolute inset-0"></div>'
-						+ '</div>'
-						+ '</div>'
-						+ '<span class="font-bold text-gray-700 text-sm group-hover:text-stilco-accent transition-colors text-center leading-tight">' + text + ' cm</span>';
-
-					function setActive(el) {
-						var visual = el.querySelector('.bed-visual');
-						var label = el.querySelector('span');
-						var frame = el.querySelector('.bed-visual-frame');
-
-						el.classList.add('is-active');
-						el.classList.add('border-stilco-accent', 'bg-white', 'shadow-md');
-						el.classList.remove('border-transparent', 'bg-gray-50');
-						visual.classList.add('border-stilco-accent', 'bg-stilco-accent/5');
-						visual.classList.remove('border-gray-200');
-						frame.classList.remove('border-gray-200', 'from-gray-50', 'to-gray-100');
-						frame.classList.add('border-stilco-accent/30', 'from-stilco-accent/5', 'to-stilco-accent/10');
-						label.classList.add('text-stilco-accent');
-						label.classList.remove('text-gray-700');
-					}
-
-					function setInactive(el) {
-						var visual = el.querySelector('.bed-visual');
-						var label = el.querySelector('span');
-						var frame = el.querySelector('.bed-visual-frame');
-
-						el.classList.remove('is-active');
-						el.classList.remove('border-stilco-accent', 'bg-white', 'shadow-md');
-						el.classList.add('border-transparent', 'bg-gray-50');
-						visual.classList.remove('border-stilco-accent', 'bg-stilco-accent/5');
-						visual.classList.add('border-gray-200');
-						frame.classList.add('border-gray-200', 'from-gray-50', 'to-gray-100');
-						frame.classList.remove('border-stilco-accent/30', 'from-stilco-accent/5', 'to-stilco-accent/10');
-						label.classList.add('text-gray-700');
-						label.classList.remove('text-stilco-accent');
-					}
+					btn.setAttribute('aria-pressed', select.value === opt.value ? 'true' : 'false');
+					btn.innerHTML = sizeIcon(width)
+						+ '<span class="size-option__label">' + text.replace(/\s*[xX*]\s*/, '×') + '</span>'
+						+ '<span class="size-option__unit">cm</span>';
 
 					if (select.value === opt.value) {
-						setActive(btn);
+						btn.classList.add('is-active');
 					}
 
 					btn.addEventListener('click', function (event) {
 						event.preventDefault();
 						container.querySelectorAll('.size-option').forEach(function (el) {
-							setInactive(el);
+							el.classList.remove('is-active');
+							el.setAttribute('aria-pressed', 'false');
 						});
-						setActive(btn);
+						btn.classList.add('is-active');
+						btn.setAttribute('aria-pressed', 'true');
 						select.value = opt.value;
 
 						if (window.jQuery) {
@@ -123,9 +92,20 @@ document.addEventListener('DOMContentLoaded', function () {
 					container.appendChild(btn);
 				});
 
-				if (hasValidOptions) {
-					td.appendChild(container);
+				if (!hasValidOptions) {
+					return;
 				}
+
+				// "Twój rozmiar" is rendered next to the form so it works without JS;
+				// with JS it joins the grid as the last tile, as in the design.
+				customTile = document.querySelector('[data-custom-size-toggle]');
+
+				if (customTile) {
+					customTile.classList.add('size-option', 'size-option--custom');
+					container.appendChild(customTile);
+				}
+
+				td.appendChild(container);
 			});
 		});
 	}
@@ -133,8 +113,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	setTimeout(initCustomVariants, 100);
 
 	if (window.jQuery) {
-		jQuery('.variations_form').on('woocommerce_update_variation_values', function () {
-			setTimeout(initCustomVariants, 50);
-		});
+		jQuery('.variations_form')
+			.on('woocommerce_update_variation_values', function () {
+				setTimeout(initCustomVariants, 50);
+			})
+			.on('found_variation', function (event, variation) {
+				if (priceDisplay && variation.price_html) {
+					priceDisplay.innerHTML = variation.price_html;
+				}
+			})
+			.on('reset_data', function () {
+				if (priceDisplay) {
+					priceDisplay.innerHTML = defaultPriceHtml;
+				}
+			});
 	}
 });

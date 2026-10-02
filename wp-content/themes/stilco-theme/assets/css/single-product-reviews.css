@@ -529,3 +529,10 @@
 		margin-right: 0;
 	}
 }
+
+/* The form is not inside #review_form_wrapper, so the rules above miss the
+   textarea and its cols="45" pushes the page sideways on phones. */
+#respond textarea {
+	width: 100%;
+	max-width: 100%;
+}

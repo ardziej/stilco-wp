@@ -30,6 +30,8 @@ get_header( 'shop' ); ?>
 					'main_image_id' => $main_image_id,
 					'attachment_ids'=> $attachment_ids,
 					'all_image_ids' => $all_image_ids,
+					'avg_rating'    => $reviews_data['avg_rating'],
+					'total_reviews' => $reviews_data['total_reviews'],
 				)
 			);
 			?>
