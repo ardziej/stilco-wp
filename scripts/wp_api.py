@@ -21,7 +21,7 @@ ENVIRONMENTS = {
     "dev": {
         # Bezpośredni adres serwera zdalnego – dostęp przez SSH nie jest potrzebny,
         # bo WordPress jest publicznie dostępny pod tym adresem.
-        "wp_url":    os.environ.get("DEV_WP_URL",    "https://stilco.on-forge.com"),
+        "wp_url":    os.environ.get("DEV_WP_URL",    "https://api.staging.stilco.pl"),
         "wp_user":   os.environ.get("DEV_WP_USER",   os.environ.get("WP_USER", "admin")),
         "wp_pass":   os.environ.get("DEV_WP_APP_PASSWORD", os.environ.get("WP_APP_PASSWORD", "")),
         "wc_key":    os.environ.get("DEV_WC_CONSUMER_KEY",    os.environ.get("WC_CONSUMER_KEY", "")),
@@ -43,7 +43,7 @@ def select_environment():
     print("\n" + "═" * 50)
     print("  Wybierz środowisko docelowe:")
     print("  1 - local  (http://localhost:8080 – Docker)")
-    print("  2 - dev    (https://stilco.on-forge.com)")
+    print("  2 - dev    (https://api.staging.stilco.pl – staging na verano)")
     print("═" * 50)
 
     while True:

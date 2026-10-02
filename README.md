@@ -78,23 +78,6 @@ Najpierw upewnij się, że jesteś w odpowiednim środowisku wirtualnym (lub zai
 
 ---
 
-## ☁️ Deployment (Cloudflare + Hetzner + Laravel Forge + GitHub Actions)
+## ☁️ Deployment
 
-Nasz projekt jest zbudowany do użycia zautomatyzowanego procesu CI/CD. Przepływ wdrażania odbywa się w pełni po push'u na gałąź `main`. 
-
-Cały proces budowy i aktywacji nowej wersji zdefiniowany jest w [docs/deployment.md](docs/deployment.md). Poniżej znajduje się skrócona instrukcja konfiguracji:
-
-### Krok 1: Inicjalizacja serwera aplikacji
-1. Utwórz serwer VPS (np. u Hetznera) zarządzany przez panel [Laravel Forge](https://forge.laravel.com/).
-2. Utwórz nową stronę (New Site) na swoim pre-skonfigurowanym serwerze. Wybierz jako typ **"WordPress"** z zachowaniem standardów instalacji (katalog public_html) i wybierz opcję utworzenia lokalnej bazy danych.
-
-### Krok 2: Powiązanie i przygotowanie CI/CD (GitHub Actions)
-1. W zsynchronizowanym panelu repozytorium GitHub'a przejdź do: **Settings -> Secrets and variables -> Actions**.
-2. W panelu swojej aplikacji na Forge (zakładka "Site") skopiuj tzw. Webhook (znajduje się w sekcji "Deployment Trigger URL").
-3. Dodaj nową zmienną w GitHub jako zmienną zabezpieczającą **`FORGE_DEPLOY_WEBHOOK`** i w jej wartość wklej wspomniany token w formie pełnego adresu URL z platformy Forge.
-4. Od teraz, plik konfiguracyjny widoczny w `.github/workflows/deploy.yml` na akcji `git push origin main` przetestuje, przebuduje wersje deweloperskie npm i uderzy we wskazany web-hook, zwalniając proces na serwerze!
-
-### Krok 3: Konfiguracja Skryptu na Laravel Forge
-W edytorze opcji "Deployment Script" strony WordPress na Laravel Forge, upewnij się, że ustawione masz automatyczne wprowadzanie i budowanie do najnowszej instrukcji.
-
-Gotowy wzór, dopasowany pod naszą architekturę Vite+Tailwind (ze ścieżką `/home/forge/twojadomena.pl/public_html`) znajdziesz w dokumencie `docs/forge-deploy-script.sh`. Opcję "Quick Deploy" pozostaw w panelu forge odznaczoną, ponieważ wyzwalanie leży po stronie akcji GitHub Actions!
+To repozytorium niczego nie deployuje. Forge wycofany. Frontend (SPA) deployuje `ardziej/stilco-spa` na Cloudflare Workers, backend (headless WP + plugin) deployuje `ardziej/stilco-api` na dhosting (konto `verano`). Szczegóły: [docs/deployment.md](docs/deployment.md).
