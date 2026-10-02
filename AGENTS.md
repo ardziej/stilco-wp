@@ -86,6 +86,7 @@ Aby rozwój e-commerce i dokumentacja stały w uporządkowanym miejscu, repozyto
 - `assets/mocks/`: Wizualizacje projektu, UI, zarysy z Figmy w png.
 - `utils/plugins/`: Konieczne paczki pre-instalacyjne (np. dla rest API auth).
 - Pliki środowiskowe jak `.env` (ukryte w `.gitignore` wraz z venv) trzymają niezbędne zmienne konfiguracyjne do zintegrowania skryptów pythona ze sklepem.
+- **Deployment:** to repo niczego nie deployuje (Forge wycofany). SPA → Cloudflare Workers z `ardziej/stilco-spa`, backend → dhosting `verano` z `ardziej/stilco-api`. Staging przy pushu na `main`, prod tylko ręcznie. Patrz `docs/deployment.md`.
 
 ## 6. Workflow dla Agentów AI
 Poniższe zasady obowiązują wszystkich agentów AI pracujących nad tym repozytorium. Celem jest przewidywalny workflow, lepsza jakość decyzji technicznych oraz łatwiejsze odbiory zmian.
