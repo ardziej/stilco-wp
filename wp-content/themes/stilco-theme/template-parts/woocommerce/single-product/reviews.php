@@ -10,10 +10,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 $product_id = isset( $args['product_id'] ) ? (int) $args['product_id'] : 0;
-$current_page = isset( $args['current_page'] ) ? (int) $args['current_page'] : 1;
 $paged_reviews = isset( $args['paged_reviews'] ) ? (array) $args['paged_reviews'] : array();
 $total_reviews = isset( $args['total_reviews'] ) ? (int) $args['total_reviews'] : 0;
-$total_pages = isset( $args['total_pages'] ) ? (int) $args['total_pages'] : 1;
 $rating_counts = isset( $args['rating_counts'] ) ? (array) $args['rating_counts'] : array( 5 => 0, 4 => 0, 3 => 0, 2 => 0, 1 => 0 );
 $avg_rating = isset( $args['avg_rating'] ) ? (float) $args['avg_rating'] : 0;
 ?>
@@ -117,58 +115,15 @@ $avg_rating = isset( $args['avg_rating'] ) ? (float) $args['avg_rating'] : 0;
 				<?php endforeach; ?>
 			</div>
 
-			<?php if ( $total_pages > 1 ) : ?>
-				<div class="flex justify-center items-center gap-2 mb-16">
-					<?php $base_url = get_permalink( $product_id ); ?>
-					<?php if ( $current_page > 1 ) : ?>
-						<?php $prev_url = add_query_arg( 'review_page', $current_page - 1, $base_url ) . '#reviews'; ?>
-						<a href="<?php echo esc_url( $prev_url ); ?>" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:border-stilco-accent hover:text-stilco-accent transition-all duration-200">
-							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-						</a>
-					<?php endif; ?>
-
-					<?php
-					$start_page = max( 1, $current_page - 2 );
-					$end_page = min( $total_pages, $current_page + 2 );
-
-					if ( $start_page > 1 ) {
-						$url = add_query_arg( 'review_page', 1, $base_url ) . '#reviews';
-						echo '<a href="' . esc_url( $url ) . '" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:border-stilco-accent hover:text-stilco-accent transition-all duration-200">1</a>';
-
-						if ( $start_page > 2 ) {
-							echo '<span class="text-gray-500 px-1">…</span>';
-						}
-					}
-					?>
-
-					<?php for ( $page = $start_page; $page <= $end_page; $page++ ) : ?>
+			<?php if ( $total_reviews > count( $paged_reviews ) ) : ?>
+				<p class="text-center mb-16">
+					<a href="<?php echo esc_url( stilco_get_reviews_page_url() ); ?>" class="inline-flex items-center gap-2 font-semibold text-stilco-dark underline underline-offset-2 hover:text-stilco-accent transition-colors">
 						<?php
-						$page_url = add_query_arg( 'review_page', $page, $base_url ) . '#reviews';
-						$is_active = $page === $current_page;
+						/* translators: %d: number of reviews */
+						printf( esc_html__( 'Zobacz wszystkie opinie (%d)', 'stilco' ), (int) $total_reviews );
 						?>
-						<a href="<?php echo esc_url( $page_url ); ?>" class="flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold transition-all duration-200 <?php echo esc_attr( $is_active ? 'bg-stilco-accent text-white shadow-lg shadow-stilco-accent/30' : 'border border-gray-200 text-gray-600 hover:border-stilco-accent hover:text-stilco-accent' ); ?>">
-							<?php echo esc_html( $page ); ?>
-						</a>
-					<?php endfor; ?>
-
-					<?php
-					if ( $end_page < $total_pages ) {
-						if ( $end_page < $total_pages - 1 ) {
-							echo '<span class="text-gray-500 px-1">…</span>';
-						}
-
-						$url = add_query_arg( 'review_page', $total_pages, $base_url ) . '#reviews';
-						echo '<a href="' . esc_url( $url ) . '" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:border-stilco-accent hover:text-stilco-accent transition-all duration-200">' . esc_html( $total_pages ) . '</a>';
-					}
-					?>
-
-					<?php if ( $current_page < $total_pages ) : ?>
-						<?php $next_url = add_query_arg( 'review_page', $current_page + 1, $base_url ) . '#reviews'; ?>
-						<a href="<?php echo esc_url( $next_url ); ?>" class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-200 text-gray-600 hover:border-stilco-accent hover:text-stilco-accent transition-all duration-200">
-							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
-						</a>
-					<?php endif; ?>
-				</div>
+					</a>
+				</p>
 			<?php endif; ?>
 		<?php else : ?>
 			<div class="text-center py-16 bg-gray-50 rounded-3xl mb-16">

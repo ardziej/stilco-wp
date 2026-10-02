@@ -36,7 +36,7 @@ function stilco_get_single_product_all_image_ids( $product ) {
 }
 
 /**
- * Prepare review statistics and pagination data for a single product.
+ * Prepare review statistics and the newest reviews for a single product.
  *
  * @param int $product_id Product ID.
  * @return array<string, mixed>
@@ -46,22 +46,14 @@ function stilco_get_single_product_reviews_data( $product_id ) {
 
 	if ( ! $product_id ) {
 		return array(
-			'product_id'       => 0,
-			'reviews_per_page' => 10,
-			'current_page'     => 1,
-			'offset'           => 0,
-			'all_reviews'      => array(),
-			'paged_reviews'    => array(),
-			'total_reviews'    => 0,
-			'total_pages'      => 1,
-			'rating_counts'    => array( 5 => 0, 4 => 0, 3 => 0, 2 => 0, 1 => 0 ),
-			'avg_rating'       => 0,
+			'product_id'    => 0,
+			'all_reviews'   => array(),
+			'paged_reviews' => array(),
+			'total_reviews' => 0,
+			'rating_counts' => array( 5 => 0, 4 => 0, 3 => 0, 2 => 0, 1 => 0 ),
+			'avg_rating'    => 0,
 		);
 	}
-
-	$reviews_per_page = 10;
-	$current_page = isset( $_GET['review_page'] ) ? max( 1, absint( wp_unslash( $_GET['review_page'] ) ) ) : 1;
-	$offset = ( $current_page - 1 ) * $reviews_per_page;
 
 	$all_reviews_args = array(
 		'post_id' => $product_id,
@@ -71,7 +63,6 @@ function stilco_get_single_product_reviews_data( $product_id ) {
 
 	$all_reviews = get_comments( $all_reviews_args );
 	$total_reviews = count( $all_reviews );
-	$total_pages = $total_reviews > 0 ? (int) ceil( $total_reviews / $reviews_per_page ) : 1;
 	$rating_counts = array( 5 => 0, 4 => 0, 3 => 0, 2 => 0, 1 => 0 );
 	$rating_sum = 0;
 
@@ -84,27 +75,23 @@ function stilco_get_single_product_reviews_data( $product_id ) {
 		}
 	}
 
+	// The product page shows the three newest; the full list lives on /opinie/.
 	$paged_reviews_args = array(
 		'post_id' => $product_id,
 		'status'  => 'approve',
 		'type'    => 'review',
-		'number'  => $reviews_per_page,
-		'offset'  => $offset,
+		'number'  => 3,
 		'orderby' => 'comment_date',
 		'order'   => 'DESC',
 	);
 
 	return array(
-		'product_id'       => $product_id,
-		'reviews_per_page' => $reviews_per_page,
-		'current_page'     => $current_page,
-		'offset'           => $offset,
-		'all_reviews'      => $all_reviews,
-		'paged_reviews'    => get_comments( $paged_reviews_args ),
-		'total_reviews'    => $total_reviews,
-		'total_pages'      => $total_pages,
-		'rating_counts'    => $rating_counts,
-		'avg_rating'       => $total_reviews > 0 ? round( $rating_sum / $total_reviews, 1 ) : 0,
+		'product_id'    => $product_id,
+		'all_reviews'   => $all_reviews,
+		'paged_reviews' => get_comments( $paged_reviews_args ),
+		'total_reviews' => $total_reviews,
+		'rating_counts' => $rating_counts,
+		'avg_rating'    => $total_reviews > 0 ? round( $rating_sum / $total_reviews, 1 ) : 0,
 	);
 }
 
@@ -121,6 +108,21 @@ function stilco_get_single_product_review_form_defaults() {
 		'comment_notes_before' => '',
 	);
 }
+
+/**
+ * Drop the "Witryna internetowa" field from product review forms.
+ *
+ * @param array<string, string> $fields Default comment form fields.
+ * @return array<string, string>
+ */
+function stilco_remove_review_url_field( $fields ) {
+	if ( stilco_is_single_product_page() ) {
+		unset( $fields['url'] );
+	}
+
+	return $fields;
+}
+add_filter( 'comment_form_default_fields', 'stilco_remove_review_url_field' );
 
 /**
  * Get a normalized CSS class for review fill widths.
