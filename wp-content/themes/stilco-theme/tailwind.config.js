@@ -42,6 +42,24 @@ module.exports = {
                     '100%': { opacity: '1', transform: 'scale(1)' },
                 }
             },
+            // Colours for the `prose-stilco` modifier used by legal pages, plain pages and blog posts.
+            typography: {
+                stilco: {
+                    css: {
+                        '--tw-prose-body': 'rgb(33 37 41 / 0.8)',
+                        '--tw-prose-headings': '#212529',
+                        '--tw-prose-lead': 'rgb(33 37 41 / 0.8)',
+                        '--tw-prose-links': '#C85A41',
+                        '--tw-prose-bold': '#212529',
+                        '--tw-prose-counters': '#C85A41',
+                        '--tw-prose-bullets': '#C85A41',
+                        '--tw-prose-hr': 'rgb(33 37 41 / 0.1)',
+                        '--tw-prose-quotes': '#212529',
+                        '--tw-prose-quote-borders': '#C85A41',
+                        '--tw-prose-captions': 'rgb(33 37 41 / 0.6)',
+                    },
+                },
+            },
             animation: {
                 'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                 'fade-in-down': 'fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
@@ -51,5 +69,5 @@ module.exports = {
             }
         },
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/typography')],
 }

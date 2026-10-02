@@ -19,60 +19,53 @@ $footer_links = stilco_get_footer_link_groups();
         </form>
     </div>
 
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12 border-t border-stilco-dark/10 pt-16">
-        <!-- Kolumna 1: Brand -->
-        <div class="footer-brand space-y-4">
-            <h3 class="text-3xl font-display font-bold tracking-tighter"><?php echo esc_html( stilco_get_setting( 'footer_brand_title', 'STILCO' ) ); ?></h3>
-            <p class="text-sm text-gray-600 leading-relaxed pr-6"><?php echo esc_html( stilco_get_setting( 'footer_brand_text', 'Manufaktura dobrego snu. Projektujemy i tworzymy organiczne materace dla idealnego wypoczynku. W Polsce.' ) ); ?></p>
+    <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-12 border-t border-stilco-dark/10 pt-16">
+        <div>
+            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="Stilco" class="h-9 w-auto">
+            <p class="mt-4 pr-6 text-sm leading-relaxed text-stilco-dark/80"><?php echo esc_html( stilco_get_setting( 'footer_brand_text', 'Materace piankowe szyte z myślą o dobrym śnie — dwie warstwy pianki HR i Visco, pokrowiec z włoskich tkanin. Projektujemy i produkujemy je w Polsce, sprzedając bezpośrednio, bez pośredników.' ) ); ?></p>
         </div>
 
-        <!-- Kolumna 2: Sklep -->
-        <div class="footer-links">
-            <h4 class="font-display font-semibold text-lg mb-6 text-stilco-dark"><?php echo esc_html( stilco_get_setting( 'footer_shop_title', 'Sklep' ) ); ?></h4>
-            <ul class="space-y-3 text-sm text-gray-600 font-medium">
+        <div>
+            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a84a34]"><?php echo esc_html( stilco_get_setting( 'footer_shop_title', 'Sklep' ) ); ?></h4>
+            <ul class="mt-4 space-y-2 text-sm leading-6">
                 <?php foreach ( $footer_links['shop'] as $item ) : ?>
-                <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="hover:text-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm px-1 -mx-1"><?php echo esc_html( $item['label'] ); ?></a></li>
+                <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="text-stilco-dark/80 underline decoration-stilco-dark/40 underline-offset-[6px] hover:text-stilco-accent hover:decoration-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm"><?php echo esc_html( $item['label'] ); ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </div>
 
-        <!-- Kolumna 3: Firma -->
-        <div class="footer-company">
-            <h4 class="font-display font-semibold text-lg mb-6 text-stilco-dark"><?php echo esc_html( stilco_get_setting( 'footer_company_title', 'Firma' ) ); ?></h4>
-            <ul class="space-y-3 text-sm text-gray-600 font-medium">
+        <div>
+            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a84a34]"><?php echo esc_html( stilco_get_setting( 'footer_company_title', 'Firma' ) ); ?></h4>
+            <ul class="mt-4 space-y-2 text-sm leading-6">
                 <?php foreach ( $footer_links['company'] as $item ) : ?>
-                <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="hover:text-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm px-1 -mx-1"><?php echo esc_html( $item['label'] ); ?></a></li>
+                <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="text-stilco-dark/80 underline decoration-stilco-dark/40 underline-offset-[6px] hover:text-stilco-accent hover:decoration-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm"><?php echo esc_html( $item['label'] ); ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </div>
 
-        <!-- Kolumna 4: Pomoc -->
-        <div class="footer-contact">
-            <h4 class="font-display font-semibold text-lg mb-6 text-stilco-dark"><?php echo esc_html( stilco_get_setting( 'footer_support_title', 'Wsparcie' ) ); ?></h4>
-            <ul class="space-y-3 text-sm text-gray-600 font-medium">
+        <div>
+            <h4 class="text-[11px] font-semibold uppercase tracking-[0.12em] text-[#a84a34]"><?php echo esc_html( stilco_get_setting( 'footer_support_title', 'Wsparcie' ) ); ?></h4>
+            <ul class="mt-4 space-y-2 text-sm leading-6">
                 <?php foreach ( $footer_links['support'] as $item ) : ?>
-                <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="hover:text-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm px-1 -mx-1"><?php echo esc_html( $item['label'] ); ?></a></li>
+                <li><a href="<?php echo esc_url( $item['url'] ); ?>" class="text-stilco-dark/80 underline decoration-stilco-dark/40 underline-offset-[6px] hover:text-stilco-accent hover:decoration-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm"><?php echo esc_html( $item['label'] ); ?></a></li>
                 <?php endforeach; ?>
             </ul>
         </div>
     </div>
 
-    <!-- Warstwa Dolna (Prawa autorskie i płatności) -->
-    <div
-        class="max-w-7xl mx-auto border-t border-stilco-dark/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500 gap-6">
-        <p class="font-medium text-gray-400">&copy; <?php echo esc_html( date('Y') ); ?> <?php echo esc_html( stilco_get_setting( 'footer_copyright_text', 'Stilco. Wszelkie prawa zastrzeżone.' ) ); ?><br/><span class="text-stilco-dark/60 mt-1 block"><?php echo esc_html( stilco_get_setting( 'footer_made_in_poland_text', 'Wyprodukowano z ❤️ w Polsce.' ) ); ?></span></p>
-        
-        <div class="flex items-center space-x-4 opacity-50 grayscale hover:grayscale-0 transition-all">
-            <!-- Miejsce na SVG logotypów płatności (BLIK, Visa, itp.) -->
-            <span><?php echo esc_html( stilco_get_setting( 'footer_security_text', '🛡️ Bezpieczne Płatności SSL' ) ); ?></span>
+    <div class="max-w-7xl mx-auto border-t border-stilco-dark/10 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
+        <p class="text-xs uppercase tracking-[0.08em] leading-5 text-stilco-dark/70">&copy; <?php echo esc_html( date( 'Y' ) ); ?> <?php echo esc_html( stilco_get_setting( 'footer_copyright_text', 'Stilco' ) ); ?><br><?php echo esc_html( stilco_get_setting( 'footer_made_in_poland_text', 'Made in Poland' ) ); ?></p>
+
+        <div class="flex flex-wrap justify-center items-center gap-4 text-[11px] uppercase tracking-[0.12em] text-stilco-dark/70">
+            <span><?php echo esc_html( stilco_get_setting( 'footer_security_text', 'Bezpieczne płatności SSL' ) ); ?></span>
             <span><?php echo esc_html( stilco_get_setting( 'footer_payment_method_1', 'BLIK' ) ); ?></span>
             <span><?php echo esc_html( stilco_get_setting( 'footer_payment_method_2', 'Przelewy24' ) ); ?></span>
-            <span><?php echo esc_html( stilco_get_setting( 'footer_payment_method_3', 'Visa/Mastercard' ) ); ?></span>
+            <span><?php echo esc_html( stilco_get_setting( 'footer_payment_method_3', 'Visa / Mastercard' ) ); ?></span>
         </div>
 
-        <div class="flex space-x-6">
+        <div class="flex gap-6 text-sm">
             <?php foreach ( $footer_links['legal'] as $item ) : ?>
-            <a href="<?php echo esc_url( $item['url'] ); ?>" class="hover:text-stilco-dark transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm"><?php echo esc_html( $item['label'] ); ?></a>
+            <a href="<?php echo esc_url( $item['url'] ); ?>" class="text-stilco-dark/80 underline decoration-stilco-dark/40 underline-offset-[6px] hover:text-stilco-accent hover:decoration-stilco-accent transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm"><?php echo esc_html( $item['label'] ); ?></a>
             <?php endforeach; ?>
         </div>
     </div>
