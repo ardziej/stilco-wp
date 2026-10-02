@@ -110,8 +110,8 @@ Zrzuty ekranu: `scripts/screenshots.sh docs/screenshots/<data>-<opis>` (agent-br
 
 Blokujące dalszą pracę:
 
-1. **Menu — trzy pozycje czy cztery.** Jakub (J4): Materac, O marce, Kontakt, blog i FAQ wewnątrz „O marce”. Filip (#1): Materac, Strefa wiedzy, O nas, Kontakt. **Wdrożona jest wersja Filipa.**
-2. **Etykieta i miejsce CTA w headerze.** „Zamów materac” (Jakub) czy „Skonfiguruj” (Filip)? Obecnie „Skonfiguruj”, wyśrodkowany. Makieta ma przycisk po prawej, obok ikon.
+1. ~~**Menu — trzy pozycje czy cztery.**~~ Rozstrzygnięte 2026-10-02: Materac, Strefa wiedzy, O nas, Kontakt (wersja Filipa, #1). W stilco-spa `/strefa-wiedzy` = FAQ + najnowsze artykuły; `/faq` i `/pomoc` przekierowują tam, `/blog` zostaje z linkiem w stopce.
+2. ~~**Etykieta i miejsce CTA w headerze.**~~ Rozstrzygnięte 2026-10-02: wersja Jakuba — „Zamów materac” po prawej, obok ikon, jak w makiecie. Tak jest w stilco-spa; „Skonfiguruj” na środku w tym motywie jest nieaktualne.
 3. **Sekcja kategorii na stronie głównej.** Jakub (J17): „ta sekcja out”. Filip (#5): przebudować. Obecnie dwa kafelki.
 4. **Czy pianki są własne** (Filip #11). Jeśli tak, dopisać „taki materac znajdziesz tylko u nas” na O nas.
 5. **Klikalne kafelki korzyści** pod „Dodaj do koszyka” (Filip #9). Jeśli mają się rozwijać, potrzebne teksty do czterech kafelków.
@@ -126,6 +126,7 @@ Nowe, z dociągania do makiet:
 11. **Domyślny rozmiar.** W makiecie rozmiar jest już wybrany, na stronie nie — do czasu kliknięcia widać zakres cen i nieaktywny przycisk. Ustawić domyślny wariant w WooCommerce (np. 160×200)?
 12. **„Tabela rozmiarów”** — link z makiety nie jest wdrożony, bo nie ma do czego linkować.
 13. ~~**Który blog zostaje.**~~ Rozstrzygnięte 2026-10-02: zostaje nowszy blog (Strefa wiedzy + `single.php`), bez pozycji w głównym menu, z linkiem „Blog” w stopce. Z kwietnia przeniesione tylko artykuły (`docs/blog/`) i importer. Kwietniowe szablony zarchiwizowane pod tagiem `archiwum/blog-kwiecien`.
+14. ~~**Gwarancja i ulubione.**~~ Rozstrzygnięte 2026-10-02: gwarancja **5 lat** wszędzie (Filip #2, #18, Jakub J11), zastępuje 2 lata z 2026-07-22; ulubione usunięte (#8, J3). Przed produkcją karta gwarancyjna musi podawać ten sam okres.
 
 ## 5. Następne zadanie w kolejce
 
