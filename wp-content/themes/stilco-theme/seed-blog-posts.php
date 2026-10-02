@@ -62,7 +62,7 @@ function stilco_blog_markdown_to_html( $markdown ) {
 	$markdown = ltrim( $markdown );
 	$markdown = preg_replace( '/^<!--[\s\S]*?-->\s*/', '', $markdown );
 
-	$blocks = preg_split( '/\R{2,}/', trim( $markdown ) );
+	$blocks = preg_split( '/\R{2,}/u', trim( $markdown ) );
 	$html   = array();
 
 	foreach ( $blocks as $block ) {
@@ -95,7 +95,7 @@ function stilco_blog_markdown_to_html( $markdown ) {
 		}
 
 		if ( preg_match( '/^- /m', $block ) ) {
-			$items = preg_split( '/\R/', $block );
+			$items = preg_split( '/\R/u', $block );
 			$list  = array();
 
 			foreach ( $items as $item ) {
@@ -107,7 +107,7 @@ function stilco_blog_markdown_to_html( $markdown ) {
 			continue;
 		}
 
-		$paragraph = preg_replace( '/\R+/', ' ', $block );
+		$paragraph = preg_replace( '/\R+/u', ' ', $block );
 		$html[]    = '<p>' . wp_kses_post( stilco_blog_apply_inline_markdown( trim( $paragraph ) ) ) . '</p>';
 	}
 
