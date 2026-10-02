@@ -2,7 +2,7 @@
 /**
  * Product page: alternating photo + copy rows on what makes the mattress.
  *
- * Every claim here comes from the product spec in CLAUDE.md and the copy
+ * Every claim here comes from the product spec in AGENTS.md and the copy
  * already on the site; keep it that way when editing.
  *
  * @package Stilco
