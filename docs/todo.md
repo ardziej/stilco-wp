@@ -156,7 +156,7 @@ Do sprawdzenia przy okazji:
 - [ ] Koszyk i checkout (Filip #20). Filip nie miał dostępu do tych widoków, komentarze mają dojść później.
 
 ### Dług techniczny
-- [ ] W repo są trzy pliki instrukcji dla agentów: `AGENT.md`, `AGENTS.md` i `CLAUDE.md` (symlink do `AGENT.md`). Treści się rozjechały — scalić w jeden.
+- [x] Instrukcje dla agentów scalone: jedynym źródłem jest `AGENTS.md`, `CLAUDE.md` tylko go importuje (`@AGENTS.md`), stary `AGENT.md` usunięty.
 - [ ] Lokalnie wtyczka Pods jest nieaktywna (`active_plugins` jej nie zawiera), więc podgląd pokazuje wyłącznie fallbacki z PHP.
 - [ ] Przelewy24 i Fakturownia: uzupełnić dane merchant i token API, zrobić testowy checkout (lista w `AGENTS.md`).
 - [ ] Odtworzyć podgląd tak, żeby nie zależał od katalogów spoza repo (`~/dev/stilco/stilco` dla uploads i wtyczek płatności, `/private/tmp` dla mu-plugins). Albo uruchomić `docker compose up -d` z `~/dev/stilco/stilco` na innym porcie niż 8080.
