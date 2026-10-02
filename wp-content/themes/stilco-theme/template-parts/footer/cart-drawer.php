@@ -10,12 +10,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <div id="slide-over-cart" class="relative z-50 hidden" aria-labelledby="slide-over-title" role="dialog" aria-modal="true">
-	<div id="cart-backdrop" class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity opacity-0 z-40"></div>
+	<div id="cart-backdrop" class="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity duration-300 ease-out opacity-0 z-40"></div>
 
 	<div class="fixed inset-0 overflow-hidden z-50 pointer-events-none">
 		<div class="absolute inset-0 overflow-hidden">
 			<div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
-				<div id="cart-panel" class="pointer-events-auto w-screen max-w-md transform transition ease-in-out duration-500 translate-x-full">
+				<div id="cart-panel" class="pointer-events-auto w-screen max-w-md transform transition-transform duration-300 ease-out translate-x-full">
 					<div class="flex h-full flex-col bg-white shadow-2xl">
 						<div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
 							<div class="flex items-start justify-between">
