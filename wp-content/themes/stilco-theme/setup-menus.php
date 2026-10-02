@@ -3,7 +3,26 @@
  * Skrypt dodający utworzone strony do menu Primary i Footer
  */
 
-require_once dirname( dirname( dirname( __DIR__ ) ) ) . '/wp-load.php';
+$stilco_wp_load_candidates = array(
+	dirname( __DIR__, 3 ) . '/wp-load.php',
+	dirname( __DIR__, 4 ) . '/wordpress/wp-load.php',
+	dirname( __DIR__, 4 ) . '/wp-load.php',
+);
+
+$stilco_wp_load_path = '';
+
+foreach ( $stilco_wp_load_candidates as $candidate ) {
+	if ( file_exists( $candidate ) ) {
+		$stilco_wp_load_path = $candidate;
+		break;
+	}
+}
+
+if ( '' === $stilco_wp_load_path ) {
+	exit( "Nie znaleziono wp-load.php.\n" );
+}
+
+require_once $stilco_wp_load_path;
 
 echo "Konfiguracja menu...\n";
 
