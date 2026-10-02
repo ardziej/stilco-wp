@@ -133,5 +133,5 @@
             </div>
         </header>
 
-        <div id="main-content" class="min-h-screen flex flex-col w-full <?php echo esc_attr( $main_padding ); ?>">
+        <div id="main-content" class="flex flex-col w-full <?php echo esc_attr( $main_padding ); ?>">
     <?php endif; ?>
