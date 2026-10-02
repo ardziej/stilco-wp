@@ -1,6 +1,6 @@
 # Stilco E-commerce - Agent Context & Plan
 
-> **Uwaga dla agentów:** produkcyjny front Stilco to `stilco-spa` (Next.js na Cloudflare Workers, osobne repo obok, `~/dev/stilco/stilco-spa`) zasilany przez `stilco-api` (headless WP). Motyw `stilco-theme` z tego repo jest legacy i służy tylko jako wzorzec wizualny. Zmiany UI, układu, przejść i treści rób w `stilco-spa`, chyba że użytkownik wprost wskaże motyw WP. Aktualne ceny: 2 590 / 2 790 / 2 890 / 3 790 / 4 490 / 4 990 zł; tabela w sekcji 4 jest nieaktualna.
+> **Uwaga dla agentów:** produkcyjny front Stilco to `stilco-spa` (Next.js na Cloudflare Workers, osobne repo obok, `~/dev/stilco/stilco-spa`) zasilany przez `stilco-api` (headless WP). Motyw `stilco-theme` z tego repo jest legacy i służy tylko jako wzorzec wizualny. Zmiany UI, układu, przejść i treści rób w `stilco-spa`, chyba że użytkownik wprost wskaże motyw WP. Aktualne ceny: źródło prawdy to `stilco-api/scripts/setup-mattress-product.php` (od 22.07.2026: 2 790 / 2 890 / 3 190 / 3 790 / 4 790 / 5 490 zł); tabela w sekcji 4 jest nieaktualna.
 
 Ten plik służy jako główne źródło wiedzy (Single Source of Truth) dla obecnych i przyszłych działań deweloperskich nad motywem e-commerce premium dla marki Stilco produkującej materace.
 
