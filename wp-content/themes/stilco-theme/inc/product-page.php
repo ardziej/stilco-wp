@@ -181,20 +181,6 @@ function stilco_enqueue_single_product_assets() {
 		stilco_get_theme_asset_version( 'assets/css/single-product-variants.css' )
 	);
 
-	wp_enqueue_style(
-		'stilco-single-product-lightbox',
-		stilco_get_theme_asset_uri( 'assets/css/single-product-lightbox.css' ),
-		array( 'stilco-single-product-variants' ),
-		stilco_get_theme_asset_version( 'assets/css/single-product-lightbox.css' )
-	);
-
-	wp_enqueue_style(
-		'stilco-single-product-lightbox-controls',
-		stilco_get_theme_asset_uri( 'assets/css/single-product-lightbox-controls.css' ),
-		array( 'stilco-single-product-lightbox' ),
-		stilco_get_theme_asset_version( 'assets/css/single-product-lightbox-controls.css' )
-	);
-
 	wp_enqueue_script(
 		'stilco-single-product',
 		stilco_get_theme_asset_uri( 'assets/js/single-product.js' ),
@@ -228,26 +214,27 @@ add_action( 'wp_enqueue_scripts', 'stilco_enqueue_single_product_assets', 130 );
  */
 function stilco_render_single_product_lightbox_markup() {
 	?>
-	<div id="product-lightbox">
-		<button id="lightbox-close" aria-label="Zamknij">
-			<svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
-		</button>
-
-		<div id="lightbox-inner">
-			<button id="lightbox-prev" aria-label="Poprzednie">
-				<svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
-			</button>
-
-			<img id="lightbox-image" src="" alt="Powiększone zdjęcie">
-
-			<button id="lightbox-next" aria-label="Następne">
-				<svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+	<div class="pg-lightbox" id="product-lightbox" role="dialog" aria-modal="true" aria-label="Galeria zdjęć" hidden>
+		<div class="pg-lightbox__bar">
+			<span class="pg-lightbox__counter" data-pg-counter>1 / 1</span>
+			<button type="button" class="pg-lightbox__btn" data-pg-close aria-label="Zamknij galerię">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 18L18 6M6 6l12 12"/></svg>
 			</button>
 		</div>
 
-		<div id="lightbox-counter-wrap">
-			<span id="lightbox-counter">1 / 1</span>
+		<div class="pg-lightbox__stage" data-pg-stage>
+			<button type="button" class="pg-lightbox__btn pg-lightbox__nav pg-lightbox__nav--prev" data-pg-prev aria-label="Poprzednie zdjęcie">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg>
+			</button>
+			<img class="pg-lightbox__img" data-pg-image src="" alt="">
+			<button type="button" class="pg-lightbox__btn pg-lightbox__nav pg-lightbox__nav--next" data-pg-next aria-label="Następne zdjęcie">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+			</button>
 		</div>
+
+		<p class="pg-lightbox__caption" data-pg-caption></p>
+		<p class="pg-lightbox__tip">Kliknij zdjęcie, aby je przybliżyć</p>
+		<div class="pg-lightbox__thumbs" data-pg-thumbs></div>
 	</div>
 	<?php
 }

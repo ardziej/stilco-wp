@@ -38,7 +38,9 @@ get_header( 'shop' ); ?>
 		</div>
 	</div>
 
-	<?php // Section order follows the "Materac" Figma frame: structure, then reviews, then the 100-night CTA. ?>
+	<?php // Photo-led detail rows and a lifestyle collage, then the "Materac" Figma frame's structure, reviews and 100-night CTA. ?>
+	<?php get_template_part( 'template-parts/woocommerce/single-product/details' ); ?>
+	<?php get_template_part( 'template-parts/woocommerce/single-product/lifestyle' ); ?>
 	<?php get_template_part( 'template-parts/page-mattress/composition' ); ?>
 
 	<div class="bg-stilco-light">

@@ -44,52 +44,67 @@ $benefits = array(
 );
 ?>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-24">
-	<div class="product-gallery lg:sticky lg:top-28 animate-slide-left relative">
-		<div id="product-main-image-container" class="main-image bg-stilco-sand rounded-[2rem] overflow-hidden shadow-sm mb-4 border border-stilco-dark/10 group relative cursor-zoom-in">
-			<?php if ( $main_image_id ) : ?>
-				<?php
-				$full_img_url = wp_get_attachment_image_url( $main_image_id, 'full' );
-				echo wp_get_attachment_image(
-					$main_image_id,
-					'woocommerce_single',
-					false,
-					array(
-						'id'              => 'product-main-image',
-						'class'           => 'w-full aspect-square lg:aspect-[4/3] object-cover transition-transform duration-300',
-						'data-full-image' => $full_img_url,
-						'data-index'      => '0',
-					)
-				);
-				?>
-				<div class="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition duration-300 pointer-events-none flex items-center justify-center">
-					<span class="bg-white/80 text-stilco-dark backdrop-blur-sm px-4 py-2 rounded-full opacity-0 group-hover:opacity-100 transition duration-300 transform translate-y-4 group-hover:translate-y-0 text-sm font-bold shadow-sm flex items-center shadow-lg"><svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path></svg>Powiększ</span>
-				</div>
-			<?php else : ?>
-				<img id="product-main-image" src="<?php echo esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ); ?>" alt="Brak zdjęcia" class="w-full aspect-square lg:aspect-[4/3] object-cover" />
-			<?php endif; ?>
-
-			<span class="absolute top-4 right-4 z-10 bg-stilco-sand border border-white/50 shadow-sm text-stilco-dark text-xs font-bold uppercase tracking-[0.05em] px-4 py-2 rounded-full pointer-events-none">
-				Bestseller
-			</span>
-		</div>
-
-		<?php if ( ! empty( $all_image_ids ) && count( $all_image_ids ) > 1 ) : ?>
-			<div class="thumbnails flex gap-3 overflow-x-auto pb-4 scrollbar-hide snap-x">
-				<?php foreach ( $all_image_ids as $index => $image_id ) : ?>
+	<?php
+	// Desktop: collage of the first five photos, the fifth showing how many more there are.
+	// Phone: swipeable carousel of all of them. Every photo opens the lightbox.
+	$gallery_ids = $all_image_ids ? $all_image_ids : ( $main_image_id ? array( $main_image_id ) : array() );
+	$gallery_total = count( $gallery_ids );
+	$collage_size  = 5;
+	$hidden_count  = max( 0, $gallery_total - $collage_size );
+	?>
+	<div class="product-gallery relative animate-slide-left" data-pg-group="product">
+		<?php if ( $gallery_ids ) : ?>
+			<div class="pg-track" data-pg-track>
+				<?php foreach ( $gallery_ids as $index => $image_id ) : ?>
 					<?php
-					$single_img_url = wp_get_attachment_image_url( $image_id, 'woocommerce_single' );
-					$single_img_srcset = wp_get_attachment_image_srcset( $image_id, 'woocommerce_single' );
-					$full_img_url = wp_get_attachment_image_url( $image_id, 'full' );
+					$alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+					$alt = $alt ? $alt : get_the_title();
 					?>
-					<div class="thumbnail-item flex-none w-20 md:w-28 snap-start bg-white rounded-2xl overflow-hidden cursor-pointer border-2 <?php echo 0 === $index ? 'border-stilco-accent' : 'border-transparent opacity-70'; ?> hover:border-stilco-accent hover:opacity-100 transition-all duration-300 relative group aspect-square"
-						data-single-url="<?php echo esc_attr( $single_img_url ); ?>"
-						data-single-srcset="<?php echo esc_attr( $single_img_srcset ? $single_img_srcset : '' ); ?>"
-						data-full-url="<?php echo esc_attr( $full_img_url ); ?>"
-						data-index="<?php echo esc_attr( (string) $index ); ?>">
-						<?php echo wp_get_attachment_image( $image_id, 'thumbnail', false, array( 'class' => 'w-full h-full object-cover transition duration-500 group-hover:scale-110 pointer-events-none' ) ); ?>
-					</div>
+					<button type="button" class="pg-item<?php echo $index >= $collage_size ? ' pg-item--extra' : ''; ?>"
+						data-pg-src="<?php echo esc_url( wp_get_attachment_image_url( $image_id, 'full' ) ); ?>"
+						data-pg-thumb="<?php echo esc_url( wp_get_attachment_image_url( $image_id, 'thumbnail' ) ); ?>"
+						data-pg-alt="<?php echo esc_attr( $alt ); ?>"
+						aria-label="<?php echo esc_attr( sprintf( 'Powiększ zdjęcie %d z %d', $index + 1, $gallery_total ) ); ?>">
+						<?php
+						echo wp_get_attachment_image(
+							$image_id,
+							0 === $index ? 'large' : 'woocommerce_single',
+							false,
+							array(
+								'class'   => 'pg-item__img',
+								'alt'     => $alt,
+								'loading' => 0 === $index ? 'eager' : 'lazy',
+								'sizes'   => 0 === $index ? '(min-width: 1024px) 576px, 100vw' : '(min-width: 1024px) 282px, 100vw',
+							)
+						);
+						?>
+						<?php if ( $collage_size - 1 === $index && $hidden_count > 0 ) : ?>
+							<span class="pg-item__more" aria-hidden="true">
+								+<?php echo esc_html( (string) $hidden_count ); ?>
+								<?php echo esc_html( 1 === $hidden_count ? 'zdjęcie' : ( $hidden_count < 5 ? 'zdjęcia' : 'zdjęć' ) ); ?>
+							</span>
+						<?php endif; ?>
+					</button>
 				<?php endforeach; ?>
 			</div>
+
+			<span class="pg-badge">Bestseller</span>
+
+			<span class="pg-hint" aria-hidden="true">
+				<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+				<span class="pg-hint__desktop">Kliknij, aby powiększyć</span>
+				<span class="pg-hint__mobile" data-pg-counter-inline>1 / <?php echo esc_html( (string) $gallery_total ); ?></span>
+			</span>
+
+			<?php if ( $gallery_total > 1 ) : ?>
+				<div class="pg-dots" aria-hidden="true">
+					<?php for ( $dot = 0; $dot < $gallery_total; $dot++ ) : ?>
+						<span class="pg-dot<?php echo 0 === $dot ? ' is-active' : ''; ?>"></span>
+					<?php endfor; ?>
+				</div>
+			<?php endif; ?>
+		<?php else : ?>
+			<img src="<?php echo esc_url( wc_placeholder_img_src( 'woocommerce_single' ) ); ?>" alt="" class="w-full aspect-square rounded-[2rem] object-cover" />
 		<?php endif; ?>
 	</div>
 

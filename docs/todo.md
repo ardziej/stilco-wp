@@ -76,7 +76,7 @@ Podgląd stoi pod **http://localhost:8083** w kontenerze `stilco-wp-preview`, zm
 
 **Nie używaj portu 8080 ani kontenera `stilco-wp`.** Port zajmuje proces `yerdd serve`, a `stilco-wp` nie jest w żadnej sieci (pochodzi z checkoutu `~/dev/stilco/stilco`, baza z `~/dev/stilco/ai`), więc zwraca błąd bazy. `docker-compose.yml` w repo jest poprawny — problem to stan kontenerów z innych katalogów, nie plik.
 
-Kontener podglądu montuje `mu-plugins` z katalogu tymczasowego dawnej sesji (`/private/tmp/claude-501/.../e5af644b-.../scratchpad/mu-plugins`). Ten katalog jest dziś pusty, a strona działa bez niego (uploads są zamontowane z `~/dev/stilco/stilco`, `WP_HOME` ustawione na 8083). Jeśli kontener trzeba będzie odtworzyć, ten mount można pominąć.
+Kontener podglądu został odtworzony 2026-10-02 (ten sam wolumen WordPressa, ta sama baza). `uploads` z `~/dev/stilco/stilco/wp-content/uploads` jest teraz montowane **do zapisu** — trzeba było wgrać zdjęcia produktu. Pusty mount `mu-plugins` z `/tmp` usunięty. Polecenie `docker run` jest w historii commita `feat(theme): real product photos…`; w skrócie: `--network ai-stilco_default -p 8083:80`, wolumen `/var/www/html`, `wp-content` z worktree, uploads rw, dwie wtyczki płatności ro, `WORDPRESS_CONFIG_EXTRA` z `WP_HOME`/`WP_SITEURL` na 8083.
 
 Po zmianach w CSS lub JS:
 
@@ -143,6 +143,7 @@ Do sprawdzenia przy okazji:
 - [ ] **J8** — Jakub pyta o render pokrowca z widocznym rozwarstwieniem. Brak materiału źródłowego, do ustalenia z marką.
 
 ### Wdrożenie
+- [ ] **Zdjęcia produktu na serwerze.** Lokalnie produkt ma 7 prawdziwych zdjęć z `docs/mattresses/` (zastąpiły rendery `1–4.jpg`). Na serwerze: skopiować `docs/mattresses` i `scripts/set_product_gallery.php`, poprawić ścieżkę `wp-load.php` i uruchomić jako użytkownik serwera WWW. Skrypt jest idempotentny.
 - [ ] Przejrzeć pola Pods w wp-admin, bo nadpisują nowe teksty: `home_hero_*`, `home_trust_1..3_label`, `home_mid_cta_*`, `home_category_*`, `home_b2b_*`, `home_reviews_cta_*`, `about_timeline_4_*`, `about_cta_*`, `mattress_badge_2_*`, `mattress_composition_*`, `mattress_final_cta_*`, `contact_faq_cta_*`, `contact_map_overlay_text`, `footer_brand_text`, `footer_copyright_text`, `footer_made_in_poland_text`, linki w stopce.
 - [ ] Uruchomić `scripts/add_wp_pages.py` (strony `strefa-wiedzy` i `opinie`), `setup-menus.php`, `seed-faqs.php`.
 - [ ] Skonfigurować SMTP i adresatów w Pods: `reviews_form_recipient`, `custom_size_recipient`.
