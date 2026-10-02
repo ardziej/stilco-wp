@@ -11,6 +11,7 @@ get_template_part( 'template-parts/front-page/mid-cta' );
 get_template_part( 'template-parts/front-page/categories' );
 get_template_part( 'template-parts/front-page/highlighted-reviews' );
 get_template_part( 'template-parts/front-page/b2b' );
+get_template_part( 'template-parts/front-page/blog' );
 get_template_part( 'template-parts/front-page/faq' );
 
 get_footer();

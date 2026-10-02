@@ -383,7 +383,7 @@ function stilco_sync_pods_schema() {
 		return;
 	}
 
-	$schema_version = '2026-04-06-1';
+	$schema_version = '2026-04-14-1';
 
 	if ( get_option( 'stilco_pods_schema_version' ) === $schema_version ) {
 		return;
@@ -465,6 +465,11 @@ function stilco_sync_pods_schema() {
 		array( 'name' => 'home_b2b_lead', 'label' => 'Home: B2B lead', 'type' => 'paragraph' ),
 		array( 'name' => 'home_b2b_cta_text', 'label' => 'Home: B2B CTA text', 'type' => 'text' ),
 		array( 'name' => 'home_b2b_cta_url', 'label' => 'Home: B2B CTA URL', 'type' => 'website' ),
+		array( 'name' => 'home_blog_eyebrow', 'label' => 'Home: Blog eyebrow', 'type' => 'text' ),
+		array( 'name' => 'home_blog_title', 'label' => 'Home: Blog title', 'type' => 'text' ),
+		array( 'name' => 'home_blog_lead', 'label' => 'Home: Blog lead', 'type' => 'paragraph' ),
+		array( 'name' => 'home_blog_cta_text', 'label' => 'Home: Blog CTA text', 'type' => 'text' ),
+		array( 'name' => 'home_blog_cta_url', 'label' => 'Home: Blog CTA URL', 'type' => 'website' ),
 		array( 'name' => 'home_faq_title', 'label' => 'Home: FAQ title', 'type' => 'text' ),
 		array( 'name' => 'home_faq_lead', 'label' => 'Home: FAQ lead', 'type' => 'paragraph' ),
 		array( 'name' => 'home_mid_cta_title', 'label' => 'Home: Mid CTA title', 'type' => 'text' ),

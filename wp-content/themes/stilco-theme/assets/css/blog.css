@@ -1,0 +1,89 @@
+.stilco-blog-shell {
+	background:
+		radial-gradient(circle at top, rgb(200 90 65 / 0.14), transparent 28%),
+		linear-gradient(180deg, rgb(248 244 239 / 0.85), rgb(255 255 255 / 1) 24rem);
+}
+
+.stilco-blog-hero {
+	background:
+		linear-gradient(135deg, rgb(24 31 42 / 0.97), rgb(24 31 42 / 0.84)),
+		radial-gradient(circle at top right, rgb(200 90 65 / 0.28), transparent 30%);
+}
+
+.stilco-post-content {
+	color: rgb(75 85 99 / 1);
+	font-size: 1.0625rem;
+	line-height: 1.95;
+}
+
+.stilco-post-content > * + * {
+	margin-top: 1.35rem;
+}
+
+.stilco-post-content h2,
+.stilco-post-content h3,
+.stilco-post-content h4 {
+	color: rgb(24 31 42 / 1);
+	font-family: 'Playfair Display', serif;
+	font-weight: 600;
+	line-height: 1.2;
+	margin-top: 2.4rem;
+}
+
+.stilco-post-content h2 {
+	font-size: clamp(1.75rem, 2vw, 2.35rem);
+}
+
+.stilco-post-content h3 {
+	font-size: clamp(1.35rem, 1.6vw, 1.7rem);
+}
+
+.stilco-post-content ul,
+.stilco-post-content ol {
+	margin: 1.5rem 0;
+	padding-left: 1.25rem;
+}
+
+.stilco-post-content li + li {
+	margin-top: 0.65rem;
+}
+
+.stilco-post-content a {
+	color: rgb(200 90 65 / 1);
+	text-decoration: underline;
+	text-underline-offset: 0.18em;
+}
+
+.stilco-post-content blockquote {
+	border-left: 3px solid rgb(200 90 65 / 1);
+	color: rgb(24 31 42 / 1);
+	font-family: 'Playfair Display', serif;
+	font-size: 1.3rem;
+	font-style: italic;
+	line-height: 1.6;
+	margin: 2rem 0;
+	padding: 0.35rem 0 0.35rem 1.5rem;
+}
+
+.stilco-post-content strong {
+	color: rgb(24 31 42 / 1);
+}
+
+.stilco-topic-chip {
+	border: 1px solid rgb(24 31 42 / 0.08);
+	border-radius: 9999px;
+	color: rgb(24 31 42 / 0.72);
+	display: inline-flex;
+	font-size: 0.75rem;
+	font-weight: 600;
+	letter-spacing: 0.14em;
+	padding: 0.75rem 1rem;
+	text-transform: uppercase;
+	transition: border-color 0.2s ease, color 0.2s ease, background-color 0.2s ease;
+}
+
+.stilco-topic-chip:hover {
+	background: rgb(255 255 255 / 1);
+	border-color: rgb(200 90 65 / 0.35);
+	color: rgb(200 90 65 / 1);
+}
