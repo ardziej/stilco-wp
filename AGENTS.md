@@ -27,6 +27,7 @@ Zdefiniowano podwaliny dedykowanego motywu WordPress/WooCommerce (`stilco-theme`
   - `footer.php`: Pływający widget czatu z gotowymi scenariuszami pytań i prostą obsługą rozmowy po stronie frontendu.
   - `front-page.php`, `page-about.php`, `page-mattress.php`: Uporządkowane trust signals i odświeżone sekcje wartości marki dla spójniejszego premium look & feel.
   - **Dostępność (etap 1 planu Apple HIG):** Sekcje animowane przy przewijaniu są widoczne bez JS i przy `prefers-reduced-motion` (CSS-owy fallback po 2,5 s, globalne wyciszenie animacji w warstwie base), akcent przyciemniony do `#A94A33` z hoverem `stilco-accent-hover` (`#8E3D2A`) dla kontrastu WCAG AA, czytelne szare teksty podniesione do `text-gray-500`.
+  - **Przejścia i ruch (etap 2 planu Apple HIG):** natywne View Transitions między stronami (`app-motion.css`, tylko bez `prefers-reduced-motion`): header stoi w miejscu (`vt-site-header`), treść przenika się w 0,3 s, a zdjęcie z kafla „Materac Stilco” na stronie głównej przechodzi w pierwsze zdjęcie galerii produktu (`vt-mattress-photo`, 0,45 s). Każda nazwa tylko raz na stronę. Jedna animacja wejścia sekcji (`.animate-on-scroll`: opacity + 12 px w górę, 400 ms, bez opóźnień), header nie zmienia wysokości przy przewijaniu (jeden pasywny listener w `header-scroll-state.js`, `transparent-header.js` usunięty), szuflada koszyka otwiera się w 300 ms, zamyka w 200 ms, reaguje na Escape i zarządza fokusem.
 
 ## 2. Tech Stack
 - **Backend:** PHP 8+, WordPress 6+, WooCommerce.
