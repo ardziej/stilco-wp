@@ -53,7 +53,7 @@ $tiles = array(
 ?>
 <section id="kategorie" class="py-24 max-w-7xl mx-auto px-6">
 	<div class="text-center mb-16 animate-on-scroll">
-		<h2 class="text-3xl md:text-5xl font-display font-bold mb-4"><?php echo esc_html( stilco_get_page_field( 'home_categories_title', 'Wybierz swój materac', $page_id ) ); ?></h2>
+		<h2 class="text-4xl md:text-[52px] md:leading-[1.02] font-display font-normal mb-4"><?php echo esc_html( stilco_get_page_field( 'home_categories_title', 'Wybierz swój materac', $page_id ) ); ?></h2>
 		<p class="text-gray-600 max-w-2xl mx-auto"><?php echo esc_html( stilco_get_page_field( 'home_categories_lead', 'Przejdź prosto do konfiguratora albo sprawdź, dlaczego warto wybrać Stilco.', $page_id ) ); ?></p>
 	</div>
 
@@ -64,7 +64,7 @@ $tiles = array(
 				<img src="<?php echo esc_url( $tile['image']['url'] ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="<?php echo esc_attr( $tile['image']['alt'] ); ?>">
 			</div>
 			<div class="p-8 bg-white text-center">
-				<h3 class="text-2xl font-display font-bold mb-2 text-stilco-dark"><?php echo esc_html( $tile['title'] ); ?></h3>
+				<h3 class="text-2xl md:text-[28px] font-display font-normal mb-2 text-stilco-dark"><?php echo esc_html( $tile['title'] ); ?></h3>
 				<p class="text-sm text-gray-500 mb-6"><?php echo esc_html( $tile['text'] ); ?></p>
 				<span class="text-stilco-secondary font-medium uppercase tracking-wider text-sm group-hover:text-stilco-dark transition-colors"><?php echo esc_html( $tile['link']['label'] ); ?></span>
 			</div>
