@@ -34,9 +34,10 @@ SUPPORTED_EXTENSIONS = {'.jpg', '.jpeg', '.png', '.webp', '.gif', '.JPG', '.JPEG
 # Tymczasowy katalog na serwerze zdalnym dla dev
 REMOTE_TMP_DIR = "/tmp/stilco_media_import"
 
-# Alias SSH dla środowiska dev
-DEV_SSH_HOST = os.environ.get("DEV_SSH_HOST", "stilco-wp")
-DEV_WP_PATH  = "/home/forge/stilco.on-forge.com/public"
+# Alias SSH dla środowiska dev (staging na dhosting, konto verano)
+DEV_SSH_HOST = os.environ.get("DEV_SSH_HOST", "verano")
+DEV_WP_PATH  = "/home/klient.dhosting.pl/verano/api.staging.stilco.pl-iu4e/public_html"
+DEV_WP_CLI   = "php85 /usr/local/bin/wp-cli.phar"
 
 
 def filename_to_slug(filename):
@@ -150,8 +151,7 @@ def upload_via_ssh(filepath, existing_slugs):
 
     # 3. Importuj przez WP-CLI
     wp_cmd = (
-        f"cd {DEV_WP_PATH} && "
-        f"wp media import {quoted_remote_path} "
+        f"{DEV_WP_CLI} --path={DEV_WP_PATH} media import {quoted_remote_path} "
         f"--title={shlex.quote(filename)} --porcelain 2>&1"
     )
     wp_result = subprocess.run(
