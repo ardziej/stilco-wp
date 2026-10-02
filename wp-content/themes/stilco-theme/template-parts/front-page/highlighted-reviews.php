@@ -21,7 +21,7 @@ $empty_txt = stilco_get_page_field( 'home_reviews_empty_text', 'Nowe opinie poja
 			<p class="text-gray-500 max-w-2xl mx-auto text-lg"><?php echo esc_html( stilco_get_page_field( 'home_reviews_lead', 'Zobacz, jak materace Stilco zmieniają codzienny komfort snu. Sprawdź opinie naszych Klientów.', $page_id ) ); ?></p>
 		</div>
 
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-on-scroll delay-200">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 animate-on-scroll">
 			<?php if ( function_exists( 'stilco_get_highlighted_reviews' ) ) : ?>
 				<?php $highlighted_reviews = stilco_get_highlighted_reviews( 4 ); ?>
 				<?php if ( $highlighted_reviews ) : ?>

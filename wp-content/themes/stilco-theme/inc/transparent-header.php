@@ -25,13 +25,6 @@ function stilco_enqueue_transparent_header_assets() {
 		array( 'stilco-style' ),
 		stilco_get_theme_asset_version( 'assets/css/transparent-header.css' )
 	);
-
-	wp_enqueue_script(
-		'stilco-transparent-header',
-		stilco_get_theme_asset_uri( 'assets/js/transparent-header.js' ),
-		array(),
-		stilco_get_theme_asset_version( 'assets/js/transparent-header.js' ),
-		true
-	);
+	// The scrolled background swap lives in assets/js/modules/header-scroll-state.js.
 }
 add_action( 'wp_enqueue_scripts', 'stilco_enqueue_transparent_header_assets', 130 );

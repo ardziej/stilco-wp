@@ -11,16 +11,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 $page_id         = get_queried_object_id();
 $customer_stories = stilco_get_mattress_landing_customer_stories( $page_id );
-$animation_delays = array( '', ' delay-100', ' delay-200' );
 ?>
 <section class="py-24 bg-stilco-sand">
 	<div class="max-w-7xl mx-auto px-6">
 		<h2 class="text-3xl md:text-5xl font-serif font-bold text-center text-stilco-dark mb-12"><?php echo esc_html( stilco_get_page_field( 'mattress_stories_title', 'Historie naszych klientów', $page_id ) ); ?></h2>
 
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-			<?php foreach ( $customer_stories as $index => $story ) : ?>
-				<?php $delay_class = isset( $animation_delays[ $index ] ) ? $animation_delays[ $index ] : ''; ?>
-				<div class="bg-white rounded-[2rem] p-6 shadow-sm border border-white/50 animate-zoom<?php echo esc_attr( $delay_class ); ?>">
+			<?php foreach ( $customer_stories as $story ) : ?>
+				<div class="bg-white rounded-[2rem] p-6 shadow-sm border border-white/50 animate-on-scroll">
 					<div class="aspect-[9/16] rounded-xl overflow-hidden mb-4 relative">
 						<img src="<?php echo esc_url( $story['image']['url'] ); ?>" alt="<?php echo esc_attr( $story['image']['alt'] ); ?>" class="w-full h-full object-cover">
 						<div class="absolute inset-0 flex items-center justify-center pointer-events-none">

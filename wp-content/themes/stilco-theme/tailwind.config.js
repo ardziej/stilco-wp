@@ -21,28 +21,6 @@ module.exports = {
                 serif: ['Playfair Display', 'serif'],
                 display: ['Outfit', 'sans-serif']
             },
-            keyframes: {
-                fadeInUp: {
-                    '0%': { opacity: '0', transform: 'translateY(30px)' },
-                    '100%': { opacity: '1', transform: 'translateY(0)' },
-                },
-                fadeInDown: {
-                    '0%': { opacity: '0', transform: 'translateY(-30px)' },
-                    '100%': { opacity: '1', transform: 'translateY(0)' },
-                },
-                fadeInLeft: {
-                    '0%': { opacity: '0', transform: 'translateX(-30px)' },
-                    '100%': { opacity: '1', transform: 'translateX(0)' },
-                },
-                fadeInRight: {
-                    '0%': { opacity: '0', transform: 'translateX(30px)' },
-                    '100%': { opacity: '1', transform: 'translateX(0)' },
-                },
-                zoomIn: {
-                    '0%': { opacity: '0', transform: 'scale(0.95)' },
-                    '100%': { opacity: '1', transform: 'scale(1)' },
-                }
-            },
             // Colours for the `prose-stilco` modifier used by legal pages, plain pages and blog posts.
             typography: {
                 stilco: {
@@ -60,13 +38,6 @@ module.exports = {
                         '--tw-prose-captions': 'rgb(33 37 41 / 0.6)',
                     },
                 },
-            },
-            animation: {
-                'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                'fade-in-down': 'fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                'fade-in-left': 'fadeInLeft 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                'fade-in-right': 'fadeInRight 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-                'zoom-in': 'zoomIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
             }
         },
     },

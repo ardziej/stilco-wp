@@ -52,7 +52,7 @@ $benefits = array(
 	$collage_size  = 5;
 	$hidden_count  = max( 0, $gallery_total - $collage_size );
 	?>
-	<div class="product-gallery relative animate-slide-left" data-pg-group="product">
+	<div class="product-gallery relative" data-pg-group="product">
 		<?php if ( $gallery_ids ) : ?>
 			<div class="pg-track" data-pg-track>
 				<?php foreach ( $gallery_ids as $index => $image_id ) : ?>
@@ -71,7 +71,8 @@ $benefits = array(
 							0 === $index ? 'large' : 'woocommerce_single',
 							false,
 							array(
-								'class'   => 'pg-item__img',
+								// The first photo is where the home page mattress card morphs to (app-motion.css).
+								'class'   => 0 === $index ? 'pg-item__img vt-mattress-photo' : 'pg-item__img',
 								'alt'     => $alt,
 								'loading' => 0 === $index ? 'eager' : 'lazy',
 								'sizes'   => 0 === $index ? '(min-width: 1024px) 576px, 100vw' : '(min-width: 1024px) 282px, 100vw',
@@ -108,7 +109,7 @@ $benefits = array(
 		<?php endif; ?>
 	</div>
 
-	<div class="product-configurator w-full animate-zoom delay-200">
+	<div class="product-configurator w-full animate-on-scroll">
 		<?php if ( $total_reviews > 0 ) : ?>
 			<div class="flex items-center gap-2 pb-4">
 				<div class="flex text-stilco-accent" aria-hidden="true">

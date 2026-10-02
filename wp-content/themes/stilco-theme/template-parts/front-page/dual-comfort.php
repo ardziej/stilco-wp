@@ -22,7 +22,7 @@ $image   = stilco_override_media_alt(
 <section id="dlaczego-my" class="py-24 bg-stilco-sand relative overflow-hidden">
 	<div class="max-w-7xl mx-auto px-6">
 		<div class="flex flex-col lg:flex-row items-center gap-16">
-			<div class="w-full lg:w-1/2 animate-slide-left">
+			<div class="w-full lg:w-1/2 animate-on-scroll">
 				<span class="text-stilco-accent tracking-[0.12em] uppercase text-xs mb-4 block"><?php echo esc_html( stilco_get_page_field( 'home_dual_eyebrow', 'Jeden materac. Wiele możliwości.', $page_id ) ); ?></span>
 				<h2 class="text-4xl md:text-[52px] md:leading-[1.02] font-display font-normal mb-6 text-stilco-dark"><?php echo esc_html( stilco_get_page_field( 'home_dual_title', 'Dopasowany do Twoich potrzeb.', $page_id ) ); ?></h2>
 				<div class="text-stilco-dark/80">
@@ -49,7 +49,7 @@ $image   = stilco_override_media_alt(
 					</ul>
 				</div>
 			</div>
-			<div class="w-full lg:w-1/2 animate-slide-right delay-200">
+			<div class="w-full lg:w-1/2 animate-on-scroll">
 				<div class="relative rounded-3xl overflow-hidden aspect-square shadow-2xl">
 					<img src="<?php echo esc_url( $image['url'] ); ?>" alt="<?php echo esc_attr( $image['alt'] ); ?>" class="w-full h-full object-cover" data-lightbox="<?php echo esc_url( $image['url'] ); ?>">
 					<div class="absolute inset-0 bg-gradient-to-tr from-stilco-dark/30 to-transparent flex items-end p-8">

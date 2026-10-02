@@ -40,14 +40,15 @@ $tiles = array(
 		'title' => stilco_get_page_field( 'home_category_1_title', 'Materac Stilco', $page_id ),
 		'text'  => stilco_get_page_field( 'home_category_1_text', 'Przejdź do konfiguratora i dobierz rozmiar najlepiej dopasowany do Twojego łóżka.', $page_id ),
 		'link'  => $category_1_link,
-		'delay' => '',
+		// Morphs into the product gallery photo on the way to the configurator (app-motion.css).
+		'img_class' => 'vt-mattress-photo',
 	),
 	array(
 		'image' => $category_3_image,
 		'title' => stilco_get_page_field( 'home_category_3_title', 'Dlaczego Stilco?', $page_id ),
 		'text'  => stilco_get_page_field( 'home_category_3_text', 'Przewagi naszego materaca, budowa warstw i technikalia. Zobacz, czym różnimy się od materaca z sieciówki.', $page_id ),
 		'link'  => $category_3_link,
-		'delay' => 'delay-100',
+		'img_class' => '',
 	),
 );
 ?>
@@ -59,9 +60,9 @@ $tiles = array(
 
 	<div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
 		<?php foreach ( $tiles as $tile ) : ?>
-		<a href="<?php echo esc_url( $tile['link']['url'] ); ?>" class="group block rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 animate-zoom border border-stilco-secondary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent <?php echo esc_attr( $tile['delay'] ); ?>">
+		<a href="<?php echo esc_url( $tile['link']['url'] ); ?>" class="group block rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 animate-on-scroll border border-stilco-secondary/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-stilco-accent">
 			<div class="h-80 bg-stilco-sand relative overflow-hidden">
-				<img src="<?php echo esc_url( $tile['image']['url'] ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="<?php echo esc_attr( $tile['image']['alt'] ); ?>">
+				<img src="<?php echo esc_url( $tile['image']['url'] ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 <?php echo esc_attr( $tile['img_class'] ); ?>" alt="<?php echo esc_attr( $tile['image']['alt'] ); ?>">
 			</div>
 			<div class="p-8 bg-white text-center">
 				<h3 class="text-2xl md:text-[28px] font-display font-normal mb-2 text-stilco-dark"><?php echo esc_html( $tile['title'] ); ?></h3>

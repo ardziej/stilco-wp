@@ -30,7 +30,7 @@ $terms = isset( $args['terms'] ) ? (array) $args['terms'] : array();
 									$faqs->the_post();
 									$delay_class = $delay_item > 0 ? 'delay-' . ( $delay_item * 100 ) : '';
 									?>
-									<details class="group bg-stilco-sand rounded-3xl border border-white/50 shadow-sm open:shadow-md transition-all duration-300 animate-slide-left <?php echo esc_attr( $delay_class ); ?>">
+									<details class="group bg-stilco-sand rounded-3xl border border-white/50 shadow-sm open:shadow-md transition-all duration-300 animate-on-scroll <?php echo esc_attr( $delay_class ); ?>">
 										<summary class="flex justify-between items-center font-display font-semibold text-lg cursor-pointer list-none p-6 md:px-8 text-stilco-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-3xl">
 											<?php the_title(); ?>
 											<span class="transition duration-300 group-open:rotate-180 text-stilco-accent bg-white rounded-full p-2 shadow-sm">

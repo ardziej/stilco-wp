@@ -29,7 +29,7 @@ $cf7_available = shortcode_exists( 'contact-form-7' ) || shortcode_exists( 'cont
 ?>
 <section class="py-20">
 	<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
-		<div class="lg:col-span-4 relative animate-slide-left">
+		<div class="lg:col-span-4 relative animate-on-scroll">
 			<div class="sticky top-32 space-y-8">
 				<div>
 					<h2 class="text-2xl font-display font-semibold text-stilco-dark mb-2"><?php echo esc_html( stilco_get_page_field( 'contact_intro_title', 'Jesteśmy tutaj', $page_id ) ); ?></h2>
@@ -89,7 +89,7 @@ $cf7_available = shortcode_exists( 'contact-form-7' ) || shortcode_exists( 'cont
 			</div>
 		</div>
 
-		<div id="formularz-b2b" class="lg:col-span-8 animate-slide-right delay-200">
+		<div id="formularz-b2b" class="lg:col-span-8 animate-on-scroll">
 			<div class="bg-white rounded-[2.5rem] p-8 md:p-14 shadow-xl border border-gray-100">
 				<h2 class="text-3xl font-serif font-semibold text-stilco-dark mb-8"><?php echo esc_html( stilco_get_page_field( 'contact_form_title', $is_b2b_context ? 'Formularz kontaktowy B2B' : 'Wyślij wiadomość bezpośrednią', $page_id ) ); ?></h2>
 

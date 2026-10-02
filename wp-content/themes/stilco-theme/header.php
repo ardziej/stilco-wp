@@ -11,7 +11,7 @@
     <?php wp_body_open(); ?>
 
 	    <?php if ( stilco_is_live_checkout_page() ) : ?>
-        <header id="checkout-header" class="fixed top-0 z-50 w-full flex items-center justify-between px-6 py-4 md:px-12 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
+        <header id="checkout-header" class="vt-site-header fixed top-0 z-50 w-full flex items-center justify-between px-6 py-4 md:px-12 bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm">
             <div class="w-1/3"></div>
             <div class="w-1/3 flex justify-center">
                 <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm">
@@ -35,10 +35,10 @@
         $is_light_hero         = $is_transparent_header && stilco_is_light_hero_context();
 
         if ( $is_light_hero ) {
-            $header_classes = 'transition-all duration-500 bg-white/60 backdrop-blur-md border-b border-white/40 text-stilco-dark';
+            $header_classes = 'transition-all duration-300 bg-white/60 backdrop-blur-md border-b border-white/40 text-stilco-dark';
             $logo_classes   = 'transition-all duration-300';
         } elseif ( $is_transparent_header ) {
-            $header_classes = 'transition-all duration-500 bg-white/5 backdrop-blur-md border-b border-white/10 text-white';
+            $header_classes = 'transition-all duration-300 bg-white/5 backdrop-blur-md border-b border-white/10 text-white';
             $logo_classes   = 'transition-all duration-300 invert brightness-0';
         } else {
             $header_classes = 'bg-white/95 backdrop-blur-md text-stilco-dark border-b border-gray-100 shadow-sm';
@@ -49,8 +49,8 @@
         $header_cta   = stilco_get_header_cta();
         ?>
         <header id="main-header"
-            data-hero-tone="<?php echo esc_attr( $is_light_hero ? 'light' : 'dark' ); ?>"
-            class="fixed top-0 z-50 w-full px-6 py-4 md:px-12 shadow-[0_4px_30px_rgba(0,0,0,0.1)] <?php echo esc_attr( $header_classes ); ?>">
+            <?php if ( $is_transparent_header ) : ?>data-hero-tone="<?php echo esc_attr( $is_light_hero ? 'light' : 'dark' ); ?>"<?php endif; ?>
+            class="vt-site-header fixed top-0 z-50 w-full px-6 py-4 md:px-12 shadow-[0_4px_30px_rgba(0,0,0,0.1)] <?php echo esc_attr( $header_classes ); ?>">
             <div class="flex items-center justify-between gap-6">
             <div class="flex items-center gap-10">
                 <div class="header-logo">
@@ -86,7 +86,7 @@
                 </a>
 
                 <!-- Koszyk Icon Toggle -->
-                <button id="cart-toggle-btn" class="relative group focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm p-1 cursor-pointer">
+                <button id="cart-toggle-btn" type="button" aria-label="Otwórz koszyk" aria-controls="slide-over-cart" aria-expanded="false" class="relative group focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-stilco-accent rounded-sm p-1 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg"
                         class="h-6 w-6 text-current group-hover:text-stilco-accent transition-colors duration-300 drop-shadow-sm"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">

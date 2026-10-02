@@ -25,7 +25,6 @@ $page_id = get_queried_object_id();
 					2 => array( 'assets/images/layer-visco-sleep.jpg', 'Kobieta śpiąca na materacu Stilco', 'Termoelastyczna bliskość', 'Niezwykle miękka warstwa Visco idealnie otulająca i dająca ukojenie mięśniom.' ),
 					3 => array( 'assets/images/image205.jpg', 'Pianka wysokoelastyczna', 'Wsparcie i trwałość', 'Rdzeń z pianki HR dba o zachowanie naturalnych krzywizn kręgosłupa i sprawia, że materac to Twoja inwestycja w dobry sen przez wiele lat.' ),
 				);
-				$delays    = array( 1 => 'delay-100', 2 => 'delay-300', 3 => 'delay-500' );
 				$fallback  = $fallbacks[ $i ];
 				$image     = stilco_override_media_alt(
 					stilco_get_media_image_data(
@@ -36,7 +35,7 @@ $page_id = get_queried_object_id();
 					stilco_get_page_field( "home_layer_{$i}_image_alt", '', $page_id )
 				);
 				?>
-			<div class="group animate-on-scroll <?php echo esc_attr( $delays[ $i ] ); ?>">
+			<div class="group animate-on-scroll">
 				<div class="bg-stilco-sand h-64 rounded-3xl mb-6 relative overflow-hidden">
 					<img src="<?php echo esc_url( $image['url'] ); ?>" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" alt="<?php echo esc_attr( $image['alt'] ); ?>" data-lightbox="<?php echo esc_url( $image['url'] ); ?>">
 				</div>

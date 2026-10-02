@@ -1,22 +1,14 @@
 export function initScrollAnimations() {
-	var animationSelectors = [
-		{ className: '.animate-on-scroll', activeClass: 'animate-fade-in-up' },
-		{ className: '.animate-slide-left', activeClass: 'animate-fade-in-left' },
-		{ className: '.animate-slide-right', activeClass: 'animate-fade-in-right' },
-		{ className: '.animate-zoom', activeClass: 'animate-zoom-in' }
-	];
-
 	// Under reduced motion the CSS never hides these elements, so there is nothing to reveal.
 	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 		return;
 	}
 
+	var elements = document.querySelectorAll('.animate-on-scroll');
+
 	if (typeof IntersectionObserver === 'undefined') {
-		animationSelectors.forEach(function (selector) {
-			document.querySelectorAll(selector.className).forEach(function (element) {
-				element.classList.remove('opacity-0');
-				element.classList.add(selector.activeClass);
-			});
+		elements.forEach(function (element) {
+			element.classList.add('is-revealed');
 		});
 
 		return;
@@ -29,13 +21,7 @@ export function initScrollAnimations() {
 					return;
 				}
 
-				animationSelectors.forEach(function (selector) {
-					if (entry.target.classList.contains(selector.className.replace('.', ''))) {
-						entry.target.classList.remove('opacity-0');
-						entry.target.classList.add(selector.activeClass);
-					}
-				});
-
+				entry.target.classList.add('is-revealed');
 				observer.unobserve(entry.target);
 			});
 		},
@@ -45,9 +31,7 @@ export function initScrollAnimations() {
 		}
 	);
 
-	animationSelectors.forEach(function (selector) {
-		document.querySelectorAll(selector.className).forEach(function (element) {
-			observer.observe(element);
-		});
+	elements.forEach(function (element) {
+		observer.observe(element);
 	});
 }

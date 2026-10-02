@@ -16,7 +16,6 @@ $fallback = array(
 	3 => array( '2023', 'Testy i doskonalenie', 'Lata testów i iteracji. Każde wypełnienie sprawdzane pod kątem trwałości, sprężystości i komfortu snu.' ),
 	4 => array( 'Dziś', 'Materac, z którego jesteśmy dumni', 'Szyjemy i pakujemy w Malborku, wysyłamy do domów w całej Polsce. Komfort snu staje się standardem dostępnym dla każdego.' ),
 );
-$delays   = array( 1 => 'delay-100', 2 => 'delay-200', 3 => 'delay-300', 4 => 'delay-400' );
 ?>
 <section class="py-24 bg-stilco-sand overflow-hidden">
 	<div class="max-w-7xl mx-auto px-6">
@@ -24,7 +23,7 @@ $delays   = array( 1 => 'delay-100', 2 => 'delay-200', 3 => 'delay-300', 4 => 'd
 
 		<div class="flex overflow-x-auto md:grid md:grid-cols-4 gap-8 pb-8 snap-x">
 			<?php for ( $i = 1; $i <= 4; $i++ ) : ?>
-			<div class="min-w-[80vw] md:min-w-0 snap-center relative pt-8 animate-on-scroll <?php echo esc_attr( $delays[ $i ] ); ?>">
+			<div class="min-w-[80vw] md:min-w-0 snap-center relative pt-8 animate-on-scroll">
 				<div class="absolute top-0 left-0 w-full h-0.5 bg-stilco-accent/30 hidden md:block"></div>
 				<div class="absolute top-[-5px] left-0 w-3 h-3 rounded-full bg-stilco-accent hidden md:block"></div>
 				<span class="text-stilco-accent font-bold text-xl mb-2 block"><?php echo esc_html( stilco_get_page_field( "about_timeline_{$i}_year", $fallback[ $i ][0], $page_id ) ); ?></span>

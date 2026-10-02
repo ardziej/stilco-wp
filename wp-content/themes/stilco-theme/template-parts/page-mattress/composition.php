@@ -50,7 +50,7 @@ $blocks = array(
 
 		<?php foreach ( $blocks as $n => $block ) : ?>
 			<?php $image_first = 2 === $n; ?>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-on-scroll <?php echo 1 === $n ? 'mb-24' : 'delay-100'; ?>">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center animate-on-scroll <?php echo 1 === $n ? 'mb-24' : ''; ?>">
 				<div class="order-2 <?php echo $image_first ? '' : 'md:order-1'; ?>">
 					<h3 class="text-2xl md:text-[28px] leading-[1.1] font-display font-normal text-stilco-dark mb-4"><?php echo esc_html( stilco_get_page_field( "mattress_composition_block_{$n}_title", $block['title'], $page_id ) ); ?></h3>
 					<p class="text-lg md:text-xl md:leading-[1.625] text-stilco-dark/80 font-sans mb-6">

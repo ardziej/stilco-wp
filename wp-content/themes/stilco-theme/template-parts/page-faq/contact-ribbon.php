@@ -20,7 +20,7 @@ $image    = stilco_override_media_alt(
 );
 $cta_link = stilco_get_link_data( 'faq_contact_cta_text', 'faq_contact_cta_url', 'Napisz do nas', '/kontakt', $page_id );
 ?>
-<section class="bg-stilco-secondary py-16 mt-8 animate-zoom delay-300">
+<section class="bg-stilco-secondary py-16 mt-8 animate-on-scroll">
 	<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between text-stilco-dark">
 		<div class="flex items-center space-x-6 mb-8 md:mb-0">
 			<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-white shadow-sm flex-shrink-0">
