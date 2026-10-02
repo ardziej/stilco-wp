@@ -2,4 +2,20 @@
 	body {
 		@apply font-sans bg-stilco-light text-stilco-dark antialiased;
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto !important;
+		}
+
+		*,
+		*::before,
+		*::after {
+			animation-duration: 0.01ms !important;
+			animation-delay: 0s !important;
+			animation-iteration-count: 1 !important;
+			transition-duration: 0.01ms !important;
+			transition-delay: 0s !important;
+		}
+	}
 }

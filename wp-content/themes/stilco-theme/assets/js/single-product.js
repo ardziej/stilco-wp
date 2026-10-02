@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	document.querySelectorAll('.js-scroll-to-top').forEach(function (button) {
 		button.addEventListener('click', function (event) {
 			event.preventDefault();
-			window.scrollTo({ top: 0, behavior: 'smooth' });
+			window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 		});
 	});
 });

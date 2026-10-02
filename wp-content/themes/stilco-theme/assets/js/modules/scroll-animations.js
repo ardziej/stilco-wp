@@ -6,6 +6,11 @@ export function initScrollAnimations() {
 		{ className: '.animate-zoom', activeClass: 'animate-zoom-in' }
 	];
 
+	// Under reduced motion the CSS never hides these elements, so there is nothing to reveal.
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+		return;
+	}
+
 	if (typeof IntersectionObserver === 'undefined') {
 		animationSelectors.forEach(function (selector) {
 			document.querySelectorAll(selector.className).forEach(function (element) {

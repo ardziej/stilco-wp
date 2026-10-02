@@ -19,19 +19,30 @@
 		animation-delay: 500ms;
 	}
 
-	.animate-on-scroll {
-		opacity: 0;
-	}
+	/*
+	 * Hidden until scroll-animations.js adds the active class, but only when the
+	 * visitor allows motion and scripting runs. If the script never adds the class,
+	 * the fallback reveal shows the content after 2.5s anyway.
+	 */
+	@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+		.animate-on-scroll,
+		.animate-slide-left,
+		.animate-slide-right,
+		.animate-zoom {
+			opacity: 0;
+		}
 
-	.animate-slide-left {
-		opacity: 0;
+		.animate-on-scroll:not(.animate-fade-in-up),
+		.animate-slide-left:not(.animate-fade-in-left),
+		.animate-slide-right:not(.animate-fade-in-right),
+		.animate-zoom:not(.animate-zoom-in) {
+			animation: stilco-reveal-fallback 0.6s ease-out 2.5s forwards;
+		}
 	}
+}
 
-	.animate-slide-right {
-		opacity: 0;
-	}
-
-	.animate-zoom {
-		opacity: 0;
+@keyframes stilco-reveal-fallback {
+	to {
+		opacity: 1;
 	}
 }
