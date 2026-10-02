@@ -3,8 +3,8 @@
 Dokument jest pisany tak, żeby ktoś bez historii rozmowy mógł usiąść i kontynuować. Stan na **2026-10-02** (druga sesja tego dnia).
 
 - Worktree: `/Users/ardziej/orca/workspaces/stilco/nereid`
-- Branch: `ardziej/figma-comments-read`, wszystko wypchnięte
-- Repozytorium: `git@github.com:ardziej/stilco-wp.git`, gałąź główna `main` (brak PR, branch nie był jeszcze mergowany)
+- Wszystko jest na `main` (`git@github.com:ardziej/stilco-wp.git`). Branch `ardziej/figma-comments-read` został zmergowany i usunięty.
+- Drugi checkout `~/dev/stilco/stilco` stoi na czystym `main`. Jego niezacommitowane prace z kwietnia zostały rozdzielone: pakiet prawny, wtyczki płatności, `AGENTS.md` → `main`; blog → branch `ardziej/blog-kwiecien` (patrz decyzja 13).
 
 ## 1. Co się wydarzyło
 
@@ -125,13 +125,14 @@ Nowe, z dociągania do makiet:
 10. **Ceny.** W bazie: 2 590–4 990 zł (120×200 = 3 290 zł). W `CLAUDE.md`: 2 595–5 091 zł (120×200 = 2 888 zł). Makieta: 3 190 zł. Która tabela jest aktualna?
 11. **Domyślny rozmiar.** W makiecie rozmiar jest już wybrany, na stronie nie — do czasu kliknięcia widać zakres cen i nieaktywny przycisk. Ustawić domyślny wariant w WooCommerce (np. 160×200)?
 12. **„Tabela rozmiarów”** — link z makiety nie jest wdrożony, bo nie ma do czego linkować.
+13. **Który blog zostaje.** Branch `ardziej/blog-kwiecien` (z kwietnia, oparty o stary `main`) ma pełny blog: `home.php`, archiwum, kategorie, wyszukiwarkę, sekcję „najnowsze artykuły” na stronie głównej, 10 artykułów w `docs/blog/` i importer `seed-blog-posts.php`. `main` ma prostszy blog z września: `single.php` z powiązanymi wpisami i listę w Strefie wiedzy. Pliki `single.php` i `inc/blog.php` kolidują, sekcja na stronie głównej jest sprzeczna z makietą (blok bloga usunięty). Najtańsza opcja: wziąć z kwietnia artykuły i importer, zostawić wrześniowe szablony.
 
 ## 5. Następne zadanie w kolejce
 
 Po decyzjach z sekcji 4 (zwłaszcza 7 i 8) dokończyć stronę produktu. Pozostałe ramki są dociągnięte.
 
 Do sprawdzenia przy okazji:
-- **Treść regulaminu jest zastępcza**: adres „ul. Przykładowej 12, 00-001 Miasto”, PayU zamiast samego Przelewy24, „30 Dni na Testowanie” zamiast 100 nocy. Teraz, gdy strona ma style, widać to wyraźnie.
+- **Treść regulaminu jest zastępcza** — gotowy zamiennik czeka w `docs/legal/` (pakiet z kwietnia: regulamin, polityki, formularze, `legal-audit.md`; do weryfikacji przez prawnika): adres „ul. Przykładowej 12, 00-001 Miasto”, PayU zamiast samego Przelewy24, „30 Dni na Testowanie” zamiast 100 nocy. Teraz, gdy strona ma style, widać to wyraźnie.
 - Link „Karty podarunkowe” w stopce prowadzi lokalnie do 404. Treść czeka w `docs/pages/karty-podarunkowe.md`; makieta tego linku nie ma.
 
 ## 6. Pozostałe zadania
@@ -154,5 +155,8 @@ Do sprawdzenia przy okazji:
 - [ ] Koszyk i checkout (Filip #20). Filip nie miał dostępu do tych widoków, komentarze mają dojść później.
 
 ### Dług techniczny
+- [ ] W repo są trzy pliki instrukcji dla agentów: `AGENT.md`, `AGENTS.md` i `CLAUDE.md` (symlink do `AGENT.md`). Treści się rozjechały — scalić w jeden.
+- [ ] Lokalnie wtyczka Pods jest nieaktywna (`active_plugins` jej nie zawiera), więc podgląd pokazuje wyłącznie fallbacki z PHP.
+- [ ] Przelewy24 i Fakturownia: uzupełnić dane merchant i token API, zrobić testowy checkout (lista w `AGENTS.md`).
 - [ ] Odtworzyć podgląd tak, żeby nie zależał od katalogów spoza repo (`~/dev/stilco/stilco` dla uploads i wtyczek płatności, `/private/tmp` dla mu-plugins). Albo uruchomić `docker compose up -d` z `~/dev/stilco/stilco` na innym porcie niż 8080.
 - [ ] Rozważyć wyjęcie `wp-content/themes/stilco-theme/node_modules` z gita (dodać do `.gitignore`, `git rm -r --cached`). `dist/` jest commitowany, więc wdrożenie go nie potrzebuje.
