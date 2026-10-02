@@ -22,6 +22,7 @@ Zdefiniowano podwaliny dedykowanego motywu WordPress/WooCommerce (`stilco-theme`
   - `inc/delivery-date.php`: Pole oczekiwanej daty dostawy na stronie produktu wraz z walidacją, przeniesieniem danych do koszyka i zamówienia oraz endpointem REST dla zamówień z odroczoną dostawą.
   - `page-production-dashboard.php`: Dedykowany dashboard produkcyjny odświeżający listę dostaw na podstawie danych WooCommerce.
   - `functions.php` + `archive-product.php`: Rejestracja `Shop Sidebar` i przygotowanie miejsca pod widgetowe filtry na listingu sklepu.
+  - **Integracje WooCommerce (oficjalne paczki):** Zainstalowano i aktywowano `Przelewy24 Payment Gateway 1.0.18` (PayPro S.A.) oraz `Invoicing Integration for Fakturownia and WooCommerce 1.0.9` (Devikit). Przelewy24 rejestruje bramki `P24`, `BLIK`, `karta`, `Google Pay`, `Apple Pay`; widoczność `PayPo` zależy od konfiguracji konta merchant po stronie Przelewy24. Wtyczka Fakturownia w wersji free umożliwia ręczne generowanie faktur z poziomu zamówienia, natomiast automatyzacje, proformy i paragony wymagają wersji PRO.
 - **Dopracowanie Warstwy Premium / UX:**
   - `footer.php`: Pływający widget czatu z gotowymi scenariuszami pytań i prostą obsługą rozmowy po stronie frontendu.
   - `front-page.php`, `page-about.php`, `page-mattress.php`: Uporządkowane trust signals i odświeżone sekcje wartości marki dla spójniejszego premium look & feel.
@@ -41,6 +42,8 @@ Co pozostało do wdrożenia / Należy podnieść w kolejnych iteracjach:
 - [ ] **Zaawansowane Animacje:** Wpięcie mikroskryptów poprawiających gładkość UX (np. Swiper.js dla galerii produktowej w locie lub lepsze lifestylowe przejazdy).
 - [ ] **Hardening Dashboardu Produkcyjnego:** Ograniczenie otwartego endpointu REST (`stilco/v1/deliveries`) do autoryzowanych użytkowników lub sieci lokalnej oraz dodanie paginacji / filtrów statusu.
 - [x] **Porządki Assetów Front-end:** Inline CSS/JS dla widgetu czatu, dashboardu, transparent headera, checkoutu, strony materaca, FAQ i single product zostały wyniesione do osobnych assetów ładowanych warunkowo przez WordPress.
+- [ ] **Konfiguracja Integracji Merchant:** Uzupełnić dane produkcyjne / sandbox dla `Przelewy24` (merchant ID, CRC, klucze API) oraz `Fakturownia` (token API, domena konta, szablon dokumentu, mapowanie VAT), a następnie wykonać testowy checkout i testowe wystawienie dokumentu.
+- [ ] **Weryfikacja PayPo w P24:** Po aktywacji usługi na koncie Przelewy24 potwierdzić, czy `PayPo` pojawia się jako metoda w checkoutcie bez dodatkowej wtyczki; w razie braku dobrać alternatywną oficjalną ścieżkę BNPL.
 
 ### Ostatni sprint refaktoryzacyjny
 - `functions.php` został zredukowany do bootstrappingu modułów `inc/*.php`.
@@ -83,3 +86,21 @@ Aby rozwój e-commerce i dokumentacja stały w uporządkowanym miejscu, repozyto
 - `assets/mocks/`: Wizualizacje projektu, UI, zarysy z Figmy w png.
 - `utils/plugins/`: Konieczne paczki pre-instalacyjne (np. dla rest API auth).
 - Pliki środowiskowe jak `.env` (ukryte w `.gitignore` wraz z venv) trzymają niezbędne zmienne konfiguracyjne do zintegrowania skryptów pythona ze sklepem.
+
+## 6. Workflow dla Agentów AI
+Poniższe zasady obowiązują wszystkich agentów AI pracujących nad tym repozytorium. Celem jest przewidywalny workflow, lepsza jakość decyzji technicznych oraz łatwiejsze odbiory zmian.
+
+### Planning
+- Przed wdrożeniem każdej nietrywialnej zmiany agent musi najpierw omówić z użytkownikiem proponowane podejście.
+- Do planowania należy używać modelu Opus, z naciskiem na zaproponowanie najlepszego rozwiązania, alternatyw i świadomego omówienia trade-offów.
+- Gdy zadanie tego wymaga, agent powinien użyć skilli `brainstorming` oraz `writing-plans` przed rozpoczęciem implementacji.
+
+### Implementation
+- Każda praca nieplanistyczna, w tym coding, research, debugowanie i poprawki, powinna być wykonywana na modelu Sonnet.
+- Agenci mają zawsze pracować w git worktree i nigdy nie wprowadzać zmian bezpośrednio na głównej gałęzi.
+- Jeżeli zadanie da się sensownie zrównoleglić, należy używać subagentów, zwłaszcza do researchu, niezależnych zmian w plikach oraz testów.
+- Po każdej istotnej zmianie należy wykonać osobny commit; nie należy łączyć niepowiązanych zmian w jeden wspólny commit.
+
+### Finishing
+- Po zakończeniu prac agent powinien zaproponować merge request, wypchnąć branch i przygotować zmiany do review.
+- Każdy merge request powinien zawierać czytelny opis obejmujący zakres zmian, krótkie podsumowanie oraz plan testów.
