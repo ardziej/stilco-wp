@@ -96,6 +96,8 @@ Zrzuty ekranu: `scripts/screenshots.sh docs/screenshots/<data>-<opis>` (agent-br
 - **Leniwe ładowanie zdjęć** psuje zrzuty pełnej strony. Skrypt przełącza je na eager, ale część i tak nie zdąży.
 - **`wp_mail` bez SMTP nic nie wyśle.** Oba nowe formularze tylko mailują, nic nie publikują.
 - **Dodawanie do koszyka na stronie produktu to zwykły POST z przeładowaniem**, nie AJAX. Panel koszyka sam się nie otwiera.
+- **Bezwzględne adresy w bazie.** Pozycja menu „Materac” miała zapisany `http://localhost:8081/...` z dawnego uruchomienia `setup-menus.php` (na 8081 stoi teraz inna aplikacja). Lokalnie poprawione na ścieżkę względną, skrypt też zapisuje już ścieżkę względną. Po zmianie portu przeszukaj bazę: `select ... where meta_value like '%localhost:808%'`.
+- **Linki w stopce `/dostawa`, `/gwarancja`, `/karty-podarunkowe` dają lokalnie 404** — strony nie zostały utworzone (`add_wp_pages.py` domyślnie celuje w niedziałający port 8080; dla `/gwarancja` nie ma nawet pliku w `docs/pages/`).
 - **agent-browser zapisuje względne ścieżki zrzutów względem swojego katalogu**, nie bieżącego. Podawaj ścieżki bezwzględne.
 - **Figma: lista stron przez `get_metadata` pokazuje tylko „Stan obecny”.** Pełną listę daje `use_figma` z `figma.root.children`.
 - **Figma: `minHeight`.** Ramki z importu HTML mają ustawione `minHeight`, przez co `resize()` cicho nie działa. Trzeba najpierw `node.minHeight = null`.

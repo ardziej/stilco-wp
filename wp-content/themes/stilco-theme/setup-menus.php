@@ -41,7 +41,9 @@ set_theme_mod('nav_menu_locations', $locations);
 // Kolejność wg FigJam #1: Materac, Strefa wiedzy, O nas, Kontakt.
 // Główne CTA "Skonfiguruj" renderuje header.php, nie menu.
 $product_slug = 'materac-stilco';
-$product_page_url = home_url( '/produkt/' . $product_slug . '/' );
+// Relative on purpose: an absolute home_url() gets frozen into the DB with
+// whatever host the script ran on (a local run left localhost:8081 behind).
+$product_page_url = '/produkt/' . $product_slug . '/';
 
 wp_update_nav_menu_item($primary_menu_id, 0, array(
     'menu-item-title'   => 'Materac',
