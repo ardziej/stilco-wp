@@ -29,6 +29,7 @@
 
 #review_form_wrapper input[type="text"],
 #review_form_wrapper input[type="email"],
+#review_form_wrapper input[type="url"],
 #review_form_wrapper textarea {
 	width: 100%;
 	border: 1px solid #e5e7eb !important;
@@ -44,6 +45,7 @@
 
 #review_form_wrapper input[type="text"]:focus,
 #review_form_wrapper input[type="email"]:focus,
+#review_form_wrapper input[type="url"]:focus,
 #review_form_wrapper textarea:focus {
 	border-color: #c85a41 !important;
 	box-shadow: 0 0 0 3px rgba(200, 90, 65, 0.1) !important;
@@ -528,11 +530,4 @@
 		width: 100%;
 		margin-right: 0;
 	}
-}
-
-/* The form is not inside #review_form_wrapper, so the rules above miss the
-   textarea and its cols="45" pushes the page sideways on phones. */
-#respond textarea {
-	width: 100%;
-	max-width: 100%;
 }

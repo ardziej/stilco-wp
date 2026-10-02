@@ -182,7 +182,7 @@ $avg_rating = isset( $args['avg_rating'] ) ? (float) $args['avg_rating'] : 0;
 
 		<?php if ( 'yes' !== get_option( 'woocommerce_review_rating_verification_required' ) || wc_customer_bought_product( '', get_current_user_id(), $product_id ) ) : ?>
 			<div class="bg-gradient-to-br from-stilco-light to-white rounded-3xl border border-gray-100 p-8 md:p-12">
-				<div class="max-w-2xl mx-auto">
+				<div id="review_form_wrapper" class="max-w-2xl mx-auto">
 					<h4 class="text-2xl font-serif font-bold text-stilco-dark mb-2">Podziel się swoją opinią</h4>
 					<p class="text-gray-500 mb-8">Twoja opinia pomaga innym podjąć świadomą decyzję.</p>
 					<?php comment_form( apply_filters( 'woocommerce_product_review_comment_form_args', stilco_get_single_product_review_form_defaults() ) ); ?>
