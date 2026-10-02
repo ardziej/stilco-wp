@@ -4,7 +4,7 @@ Dokument jest pisany tak, żeby ktoś bez historii rozmowy mógł usiąść i ko
 
 - Worktree: `/Users/ardziej/orca/workspaces/stilco/nereid`
 - Wszystko jest na `main` (`git@github.com:ardziej/stilco-wp.git`). Branch `ardziej/figma-comments-read` został zmergowany i usunięty.
-- Drugi checkout `~/dev/stilco/stilco` stoi na czystym `main`. Jego niezacommitowane prace z kwietnia zostały rozdzielone: pakiet prawny, wtyczki płatności, `AGENTS.md` → `main`; blog → branch `ardziej/blog-kwiecien` (patrz decyzja 13).
+- Drugi checkout `~/dev/stilco/stilco` stoi na czystym `main`. Jego niezacommitowane prace z kwietnia trafiły na `main` (pakiet prawny, wtyczki płatności, `AGENTS.md`, artykuły bloga); kwietniowe szablony bloga są pod tagiem `archiwum/blog-kwiecien`.
 
 ## 1. Co się wydarzyło
 
@@ -125,7 +125,7 @@ Nowe, z dociągania do makiet:
 10. **Ceny.** W bazie: 2 590–4 990 zł (120×200 = 3 290 zł). W `CLAUDE.md`: 2 595–5 091 zł (120×200 = 2 888 zł). Makieta: 3 190 zł. Która tabela jest aktualna?
 11. **Domyślny rozmiar.** W makiecie rozmiar jest już wybrany, na stronie nie — do czasu kliknięcia widać zakres cen i nieaktywny przycisk. Ustawić domyślny wariant w WooCommerce (np. 160×200)?
 12. **„Tabela rozmiarów”** — link z makiety nie jest wdrożony, bo nie ma do czego linkować.
-13. **Który blog zostaje.** Branch `ardziej/blog-kwiecien` (z kwietnia, oparty o stary `main`) ma pełny blog: `home.php`, archiwum, kategorie, wyszukiwarkę, sekcję „najnowsze artykuły” na stronie głównej, 10 artykułów w `docs/blog/` i importer `seed-blog-posts.php`. `main` ma prostszy blog z września: `single.php` z powiązanymi wpisami i listę w Strefie wiedzy. Pliki `single.php` i `inc/blog.php` kolidują, sekcja na stronie głównej jest sprzeczna z makietą (blok bloga usunięty). Najtańsza opcja: wziąć z kwietnia artykuły i importer, zostawić wrześniowe szablony.
+13. ~~**Który blog zostaje.**~~ Rozstrzygnięte 2026-10-02: zostaje nowszy blog (Strefa wiedzy + `single.php`), bez pozycji w głównym menu, z linkiem „Blog” w stopce. Z kwietnia przeniesione tylko artykuły (`docs/blog/`) i importer. Kwietniowe szablony zarchiwizowane pod tagiem `archiwum/blog-kwiecien`.
 
 ## 5. Następne zadanie w kolejce
 
@@ -144,6 +144,7 @@ Do sprawdzenia przy okazji:
 - [ ] **J8** — Jakub pyta o render pokrowca z widocznym rozwarstwieniem. Brak materiału źródłowego, do ustalenia z marką.
 
 ### Wdrożenie
+- [ ] **Artykuły bloga na serwerze.** Uruchomić `wp-content/themes/stilco-theme/seed-blog-posts.php` z katalogiem `docs/` obok `wp-content/` (skrypt czyta `../../../docs/blog`). Idempotentny. Przy okazji skasować domyślny wpis „Witaj, świecie!” (lokalnie przeniesiony do kosza). Artykuły mają po 160–490 słów — do rozbudowy pod SEO.
 - [ ] **Zdjęcia produktu na serwerze.** Lokalnie produkt ma 7 prawdziwych zdjęć z `docs/mattresses/` (zastąpiły rendery `1–4.jpg`). Na serwerze: skopiować `docs/mattresses` i `scripts/set_product_gallery.php`, poprawić ścieżkę `wp-load.php` i uruchomić jako użytkownik serwera WWW. Skrypt jest idempotentny.
 - [ ] Przejrzeć pola Pods w wp-admin, bo nadpisują nowe teksty: `home_hero_*`, `home_trust_1..3_label`, `home_mid_cta_*`, `home_category_*`, `home_b2b_*`, `home_reviews_cta_*`, `about_timeline_4_*`, `about_cta_*`, `mattress_badge_2_*`, `mattress_composition_*`, `mattress_final_cta_*`, `contact_faq_cta_*`, `contact_map_overlay_text`, `footer_brand_text`, `footer_copyright_text`, `footer_made_in_poland_text`, linki w stopce.
 - [ ] Uruchomić `scripts/add_wp_pages.py` (strony `strefa-wiedzy` i `opinie`), `setup-menus.php`, `seed-faqs.php`.
