@@ -215,6 +215,15 @@ Przy okazji: fallback stopki w SPA (`data/settings.ts:24-41`) jest nieaktualny. 
 3. Osobne zadanie SPA + API: `/opinie` z formularzem i listą (J18, J19).
 4. Grafiki: J8, J10.
 
+### Status wdrożenia w stilco-spa i stilco-api (2026-10-03)
+
+Wdrożone na staging: stilco-api `59d17f8`, `93ccc31`, `e6189c0`, `ce62a25`, `25516d9`; stilco-spa `e3af2ab`.
+
+- Wszystkie uwagi poza układem hero: J1 (adres kontakt@stilco.pl), J4 (menu Materac / O marce / Kontakt, Blog i FAQ na `/o-marce`), J11, J12, J13-J16, J17, J18 i J19 (`/opinie`: lista i formularz z plikami, publikacja przez zatwierdzenie opinii w WP), J20 bez zmian.
+- J2: nowa treść hero, układ zostaje do lewej (decyzja Michała).
+- J8 i J10: nowe zdjęcia od Michała w kafelkach „Wsparcie i trwałość” i „Oddychający pokrowiec”.
+- Poza Figmą: slug `/o-nas` zmieniony na `/o-marce` (308), produkt „Materac Stilco”, nowe title home i materaca, naprawiony koszyk na stagingu (LiteSpeed cache'ował Store API).
+
 ## Jak pobrać ponownie
 
 ```sh
