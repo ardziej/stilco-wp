@@ -178,6 +178,43 @@ Decyzja Michała: wdrażamy to, co nie jest sprzeczne z uwagami Filipa; sprzeczn
 5. **Poczta.** Oba nowe formularze wysyłają przez `wp_mail`. Na produkcji potrzebny działający SMTP, inaczej zgłoszenia przepadną. Adresatów ustawić w Pods: `reviews_form_recipient`, `custom_size_recipient`.
 6. **Aktualizacja projektu w Figmie.** Michał chce, żeby projekt odzwierciedlał to, co jest na stronie, i żeby podmienić w nim stare grafiki. Osobne zadanie, jeszcze nie ruszone.
 
+## Przegląd względem stilco-spa i stilco-api (2026-10-03)
+
+Status powyżej dotyczy starego motywu WP. Ten przegląd porównuje te same komentarze z frontem `stilco-spa` (`main`) i backendem `stilco-api`. Ponowny odczyt z Figmy 2026-10-03 dał te same 20 wątków, najnowszy z 2026-09-15. Rozwiązany jest tylko J3. Kod nie był jeszcze zmieniany.
+
+Ścieżki: SPA = `stilco-spa`, API = `stilco-api`. Kolejność sekcji na home: SPA `app/(main)/page.tsx:55-71`.
+
+| Nr | Stan | Co jest teraz | Propozycja |
+| --- | --- | --- | --- |
+| J1 | częściowo | Kafelek „Twój rozmiar” i formularz wyceny są (`components/sections/mattress/BuyBox.tsx:276-300`, `CustomSizeForm.tsx`), prefill 200/160/22 (`lib/contact/customSize.ts:36-45`), wysyłka przez CF7 | Adresat to `[_site_admin_email]` (API `scripts/setup-contact-form.php:71`). Ustawić skrzynkę obsługową Edyty i Daniela |
+| J2 | częściowo | Teksty zgodne (eyebrow „Manufaktura dobrego snu”, h1, CTA „Zamów materac”). Kolorystyka jasna, zgodnie z „ładniej niż w tych szarościach”. Tekst celowo do lewej (commit `0e2c0db`, 2026-10-03), żeby śpiąca osoba na zdjęciu była widoczna. Wysokość `md:h-[86vh]`. Dodatkowy przycisk „Poznaj przewagi” | Decyzja: zostaje do lewej czy wraca środek, o który prosił Jakub. Ewentualnie niższy hero i jeden przycisk |
+| J3 | zrobione | Brak ulubionych w headerze | — |
+| J4 | sprzeczne | Menu: Materac / Strefa wiedzy / O nas / Kontakt (SPA `data/menus.ts:12-17`, API `scripts/setup-menus.php:22-27`), wg Filipa | Decyzja: 3 pozycje Materac / O marce / Kontakt + Blog i FAQ na `/o-nas`, czy zostaje wersja Filipa |
+| J5 | zrobione | Zdjęcie hero zostaje | — |
+| J6/J7 | zrobione | `home-dual-side.jpg`: bok, metka, bez dłoni | — |
+| J8 | brak | `home-layer-3.jpg` to ogólny render, nie nasz pokrowiec | Potrzebna grafika: render pokrowca Stilco w przekroju |
+| J9 | zrobione | `home-layer-visco-sleep.jpg`, modelka śpi | — |
+| J10 | częściowo | `home-layer-cover-zip.jpg`: zdejmowanie pokrowca, zamek zamknięty | Lepsze zdjęcie z rozpiętym zamkiem |
+| J11 | zrobione | Belka: Darmowy test 100 nocy, 5 lat gwarancji, Marka polska | Opcjonalnie „Marka Polska” jak u Jakuba |
+| J12 | częściowo | „Jeden materac. Wiele możliwości.” to eyebrow, h2 to „Dopasowany do Twoich potrzeb.” (API `fixtures/content/home.php:48-50`) | Zrobić z hasła nagłówek, lead o tym, że nie trzeba wybierać |
+| J13 | brak | Ciemnej sekcji nie ma na home (`page.tsx:25`) | Przywrócić sekcję, tło trochę jaśniejsze niż `bg-stilco-dark` |
+| J14 | brak | Tytuł „Wiele potrzeb. Jeden materac.” jest w CMS (`home_mid_cta_title`), nikt go nie renderuje | Renderować w przywróconej sekcji |
+| J15 | brak | `home_mid_cta_button_text` = „Zamów materac” (`home.php:106`) | Zmienić na „Zamów teraz” |
+| J16 | brak | Lead w CMS zgodny z uwagą (`home_mid_cta_text`), nierenderowany | Renderować |
+| J17 | brak | `<Categories>` dalej na home (`page.tsx:60-66`) | Usunąć sekcję |
+| J18 | brak | Brak `/opinie`; API ma tylko `GET /reviews/highlighted` (`src/ReviewsController.php:31`) | Strona z formularzem (gwiazdki, dane, treść, zdjęcia i wideo, zgody) + endpoint wysyłający e-mail lub zapisujący niezatwierdzoną opinię |
+| J19 | częściowo | Przycisk pod opiniami prowadzi do `/materac#reviews`, a takiej kotwicy nie ma (błąd). Stopka linkuje do `/opinie-klientow`, gdzie jest tekst o weryfikacji opinii, nie ich lista | Strona z listą wszystkich opinii (stronicowany endpoint), przycisk i stopka na nią |
+| J20 | zrobione | Przycisk pod blogiem, wyśrodkowany, jak przy opiniach (`BlogTeaser.tsx:46-58`) | — |
+
+Przy okazji: fallback stopki w SPA (`data/settings.ts:24-41`) jest nieaktualny. Ma „Akcesoria” i „Karty podarunkowe”, a nie ma Bloga.
+
+### Proponowana kolejność
+
+1. Bez decyzji: J17, J13–J16, J12, adresat J1, kotwica/link J19, „Marka Polska”.
+2. Decyzje: menu (J4), układ hero (J2).
+3. Osobne zadanie SPA + API: `/opinie` z formularzem i listą (J18, J19).
+4. Grafiki: J8, J10.
+
 ## Jak pobrać ponownie
 
 ```sh
